@@ -165,11 +165,16 @@ Author: Paul Hayes
 }
 
 .cube p {
+    font-family: 'Kanit', sans-serif;
+    color: #131313;
     line-height: 14px;
     font-size: 12px;
+
 }
 
 .cube h2 {
+    font-family: 'Kanit', sans-serif;
+    color: #131313;
     font-weight: bold;
 }
 
@@ -202,13 +207,13 @@ Author: Paul Hayes
 .cube:hover .rightFace,
 .cube:hover .leftFace,
 .cube:hover .topFace div {
-    background-color: #ffc;
+    background-color: #D32F43;
 }
 
 .cube:hover .rightFace:hover,
 .cube:hover .leftFace:hover,
 .cube:hover .topFace:hover div {
-    background-color: #ffa;
+    background-color: #FF5F6F;
 }
 
 .leftFace {
@@ -253,7 +258,7 @@ Author: Paul Hayes
 /* Optional Animations */
 
 .cube {
-    font-family: 'Montserrat', sans-serif;  
+    font-family: 'Montserrat', sans-serif;
     -webkit-transition: -webkit-transform 1s linear;
     -moz-transition: -moz-transform 1s linear;
     -o-transition: -o-transform 1s linear;
@@ -267,4 +272,343 @@ Author: Paul Hayes
     -o-transform: translate(202px, 115px);
     -ms-transform: translate(202px, 115px);
     transform: translate(202px, 115px);
+}
+
+.line-1{
+    transform: translateY(-50%);
+}
+
+/* Animation */
+.anim-typewriter{
+  animation: typewriter 1s steps(500) 1s 3 normal both,
+             blinkTextCursor 500ms steps(300) infinite normal;
+}
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 100%;}
+}
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
+}
+
+/* Clip text element */
+.clip-text {
+    font-size: 6em;
+    font-weight: bold;
+    line-height: 1;
+    position: relative;
+    margin: 1em 2em 1em 2em;
+    padding: .25em .75em;
+    text-align: center;
+    /* Color fallback */
+    color: #fff;
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+.clip-text:before,
+.clip-text:after {
+    position: absolute;
+    content: '';
+}
+
+/* Background */
+.clip-text:before {
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: inherit;
+    background-attachment: fixed;
+}
+
+/* Text Background (black zone) */
+.clip-text:after {
+    position: absolute;
+    z-index: -1;
+    top: .125em;
+    right: .125em;
+    bottom: .125em;
+    left: .125em;
+    background-color: #131313;
+    background-attachment: fixed;
+}
+
+/* Change the background position to display letter when the black zone isn't here */
+.clip-text--no-textzone:before {
+    background-position: -.65em 0;
+    background-attachment: fixed;
+}
+
+.clip-text--no-textzone:after {
+    content: none;
+}
+
+/* Use Background-size cover for photo background and no-repeat background */
+.clip-text--cover,
+.clip-text--cover:before {
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+            background-size: cover;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+}
+
+/* Background image from http://thepatternlibrary.com/ and http://lorempixel.com */
+.clip-text_one {
+    font-family: 'Convergence', serif;
+    background-image: url(../img/baseball-field-1149153_1280.jpg);
+    background-attachment: fixed;
+}
+
+.clip-text_one p {
+  font-family: 'Kanit', serif;
+  font-weight: bolder;
+  font-size: 42px;
+}
+
+.clip-text_one img {
+  opacity: 0.6;
+  position: relative;
+  z-index: 0;
+}
+
+.clip-text_two {
+    font-family: 'Federo', serif;
+    background-image: url(../img/paper-571937_1280.jpg);
+    background-attachment: fixed;
+}
+
+.clip-text_two p {
+  font-family: 'Kanit', serif;
+  font-weight: bolder;
+  font-size: 42px;
+}
+
+.clip-text_two img {
+  opacity: 0.6;
+  position: relative;
+  z-index: 0;
+}
+
+
+.clip-text_twelve {
+    font-family: 'Alegreya SC', serif;
+    background-image: url(../img/goose-15030_1280.jpg);
+    background-attachment: fixed;
+}
+
+.clip-text_twelve p {
+  font-family: 'Kanit', serif;
+  font-weight: bolder;
+  font-size: 42px;
+}
+
+.clip-text_twelve img {
+  opacity: 0.6;
+  position: relative;
+  z-index: 0;
+}
+
+
+.clip-text_fourteen {
+    font-family: 'Share Tech', serif;
+    background-image: url(../img/banner-904890_1920.jpg);
+    background-attachment: fixed;
+}
+
+.clip-text_fourteen p {
+  font-family: 'Kanit', serif;
+  font-weight: bolder;
+  font-size: 42px;
+}
+
+.clip-text_fourteen img {
+  opacity: 0.6;
+  position: relative;
+  z-index: 0;
+}
+
+
+#projectBody {
+  background-color: #131313;
+}
+
+#contactPage {    background:url(../img/brand-1851576.jpg) no-repeat;
+  background-size: cover;
+  height:100%;
+}
+
+#feedback-page{
+	text-align:center;
+}
+
+#form-main{
+	width:100%;
+	float:left;
+	padding-top:0px;
+}
+
+#form-div {
+	background-color:rgba(72,72,72,0.4);
+	padding-left:35px;
+	padding-right:35px;
+	padding-top:35px;
+	padding-bottom:50px;
+	width: 450px;
+	float: left;
+	left: 50%;
+	position: absolute;
+  margin-top:30px;
+	margin-left: -260px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}
+
+.feedback-input {
+	color:#3c3c3c;
+	font-family: 'Tauri', serif;
+  font-weight:500;
+	font-size: 18px;
+	border-radius: 0;
+	line-height: 22px;
+	background-color: #E7E7E7;
+	padding: 13px 13px 13px 54px;
+	margin-bottom: 10px;
+	width:100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+  border: 3px solid rgba(0,0,0,0);
+}
+
+.feedback-input:focus{
+	background: #FEFEFE;
+	box-shadow: 0;
+	border: 3px solid #0E0E0E;
+	color: #0E0E0E;
+	outline: none;
+  padding: 13px 13px 13px 54px;
+}
+
+.focused{
+	color:#30aed6;
+	border:#30aed6 solid 3px;
+}
+
+/* Icons ---------------------------------- */
+#name{
+	background-image: url(../img/NameID.jpg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#name:focus{
+	background-image: url(../img/72c.jpg);
+	background-size: 30px 30px;
+	background-position: 8px 5px;
+  background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#email{
+	background-image: url(../img/mail-6.png);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#email:focus{
+	background-image: url(../img/Mail-2.png);
+	background-size: 30px 30px;
+  background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#comment{
+	background-image: url(../img/15547.png);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+#comment:focus{
+	background-image: url(../img/comentar-burbuja-con-tres-puntos-como-texto_318-31928.jpg);
+	background-size: 30px 30px;
+	background-position: 11px 8px;
+	background-repeat: no-repeat;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    line-height: 150%;
+    resize:vertical;
+}
+
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+	background-color:white;
+}
+
+#button-blue{
+	font-family: 'Tauri', serif;
+	float:left;
+	width: 100%;
+	border: #fbfbfb solid 4px;
+	cursor:pointer;
+	background-color: #454545;
+	color:white;
+	font-size:24px;
+	padding-top:22px;
+	padding-bottom:22px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+  margin-top:-4px;
+  font-weight:700;
+  opacity: 0.4;
+}
+
+#button-blue:hover{
+	background-color: #454545;
+	color: #0E0E0E;
+  opacity: 0.4;
+}
+
+.submit:hover {
+	color: #454545;
+  opacity: 0.4;
+}
+
+.ease {
+	width: 0px;
+	height: 74px;
+	background-color: #fbfbfb;
+	-webkit-transition: .3s ease;
+	-moz-transition: .3s ease;
+	-o-transition: .3s ease;
+	-ms-transition: .3s ease;
+	transition: .3s ease;
+}
+
+.submit:hover .ease{
+  width:100%;
+  background-color:white;
+}
+
+@media only screen and (max-width: 580px) {
+	#form-div{
+		left: 3%;
+		margin-right: 3%;
+		width: 88%;
+		margin-left: 0;
+		padding-left: 3%;
+		padding-right: 3%;
+	}
 }
