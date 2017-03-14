@@ -3,6 +3,7 @@ body{
 
 }
 
+
 .terminal {
   background-color: rgb(5,5,5);
 }
@@ -82,6 +83,32 @@ h3 {
     -7px 7px 0px rgba(0, 0, 0, 0.1);
 }
 
+.contactMenu p {
+  font-family: 'Sarala', sans-serif;
+  color: #131313;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  font-size: 0.8em;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: .05em;
+
+}
+
+
+.projectMenu p {
+  font-family: 'Tauri', sans-serif;
+  color: #131313;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  font-size: 0.8em;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: .05em;
+  z-index: 2;
+  background-color: inherit;
+}
+
 .terminal-menu p {
   font-family: 'VT323', sans-serif;
   background-color: rgb(5,5,5);
@@ -111,6 +138,109 @@ h3 {
 
 .speaker {
   opacity: 0.5;
+}
+
+.footer #button{
+	width:35px;
+	height:35px;
+	border: #727172 12px solid;
+	border-radius:35px;
+	margin:0 auto;
+	position:relative;
+	-webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.footer #button:hover{
+	width:35px;
+	height:35px;
+	border: #3A3A3A 12px solid;
+	-webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+	position:relative;
+}
+.footer {
+	bottom:0;
+	left:0;
+	position:fixed;
+    width: 100%;
+    height: 2em;
+    overflow:hidden;
+    margin:0 auto;
+	-webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+	z-index:999;
+}
+.footer:hover {
+	-webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+	height: 10em;
+}
+.footer #container{
+	margin-top:5px;
+	width:100%;
+  height:100%;
+  position:relative;
+  top:0;
+  left:0;
+	background: #3A3A3A;
+}
+.footer #cont{
+  position:relative;
+  top:-45px;
+  right:190px;
+	width:150px;
+	height:auto;
+	margin:0 auto;
+}
+.footer_center{
+	width:500px;
+	float:left;
+  text-align:center;
+}
+.footer h3{
+  font-family: 'Share Tech', sans-serif;
+	font-size: 24px;
+	font-weight: 100;
+	margin-top:60px;
+	margin-left:40px;
+}
+
+.footer h3 a {
+  text-decoration: underline;
+  color: black;
+}
+
+.fake-nav {
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+}
+
+nav {
+  position: fixed;
+  z-index: 500;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  } // required for z-index
+
+.fake-nav {
+  z-index: 1000;
 }
 
 #resume {
@@ -435,6 +565,8 @@ Author: Paul Hayes
 
 #projectBody {
   background-color: #131313;
+  padding: 0;
+  margin: 0;
 }
 
 #contactPage {    background:url(../img/brand-1851576.jpg) no-repeat;
@@ -449,7 +581,7 @@ Author: Paul Hayes
 #form-main{
 	width:100%;
 	float:left;
-	padding-top:0px;
+	padding-top:60px;
 }
 
 #form-div {
