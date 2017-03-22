@@ -1705,3 +1705,166 @@ input:focus, textarea:focus {
   transform: rotate(0.25turn) translateY(-15px) translateX(-20px);
   width: 150px;
 }
+
+.cubeBox {
+  width: 900px;
+	margin: 50px auto;
+}
+
+label {
+	cursor: pointer;
+	border-radius: 10px;
+	padding: 30px;
+	background: #f5f5f5;
+	float: left;
+	text-align: center;
+	margin-right: 5px;
+}
+
+label:hover {
+	background: #eee;
+}
+
+input {
+	position: absolute;
+	left: -9999px;
+}
+
+input:checked + label {
+	font-weight: bold;
+}
+
+input[value="front"]:checked ~ .cubeContainer .cubeCube {
+	-webkit-transform: translateZ(-300px) rotateY(0);
+}
+
+input[value="left"]:checked ~ .cubeContainer .cubeCube {
+	-webkit-transform: translateZ(-300px) rotateY(90deg);
+}
+
+input[value="right"]:checked ~ .cubeContainer .cubeCube {
+	-webkit-transform: translateZ(-300px) rotateY(-90deg);
+}
+
+input[value="top"]:checked ~ .cubeContainer .cubeCube {
+	-webkit-transform: translateZ(-300px) rotateX(-90deg);
+}
+
+input[value="bottom"]:checked ~ .cubeContainer .cubeCube {
+	-webkit-transform: translateZ(-300px) rotateX(90deg);
+}
+
+input[value="back"]:checked ~ .cubeContainer .cubeCube {
+	-webkit-transform: translateZ(-300px) rotateY(180deg);
+}
+
+.cubeContainer {
+  width: 900px;
+  height: 900px;
+  margin: 180px auto;
+		-webkit-perspective: 2200px;
+		-webkit-perspective-origin: -50% -50%;
+		float: left;
+}
+
+.cubeCube {
+  -webkit-transform-style: preserve-3d;
+	-webkit-transform: translateZ(300px);
+	left: 15%;
+	position: relative;
+	margin: 0;
+	width: 900px;
+	height: 900px;
+	-webkit-transition: 1s;
+}
+
+.cubeCube div {
+	width: 598px;
+	height: 598px;
+	background: rgba(0, 0, 0, 0.4);
+	position: absolute;
+	border: 1px solid #fff;
+	text-align: center;
+	padding-top: 0;
+	color: #fff;
+	font: 3em arial;
+}
+
+.cubeCube div h3 {
+  font-family: 'Marcellus', serif;
+  font-size: 36px;
+  margin-left: 1em;
+  text-align:left;
+}
+
+.cubeCube .frontCover {
+}
+
+.cubeCube .rightDescription {
+  background-color: #fff;
+  font-family: 'Teko', serif;
+  font-size: 24px;
+  color: #000000;
+  overflow:scroll;
+  opacity: 1.0;
+}
+
+.cubeCube .bottomReview {
+  background-color: #fff;
+  font-family: 'Teko', serif;
+  font-size: 24px;
+  color: #000000;
+  overflow:scroll;
+  opacity: 1.0;
+  text-align: center;
+}
+
+.leftTitleAuthor img {
+  margin-left: 2em;
+  text-align:left;
+
+}
+
+.leftTitleAuthor {
+  color: #000000;
+  background-color: #fff;
+}
+
+.cubeCube div h2 {
+  font-family: 'Marcellus', serif;
+  font-size: 48px;
+  text-align: center;
+
+}
+
+.cubeCube div p {
+  font-family: 'Teko', serif;
+  font-size: 24px;
+  margin-left: 1em;
+  text-align:left;
+
+}
+
+.frontCover {
+	-webkit-transform: translateZ(300px);
+}
+
+.leftTitleAuthor {
+	-webkit-transform: rotateY(-90deg) translateZ(300px);
+}
+
+.rightDescription {
+	-webkit-transform: rotateY(90deg) translateZ(300px);
+}
+
+.topRating {
+	-webkit-transform: rotateX(90deg) translateZ(300px);
+}
+
+.bottomReview {
+	-webkit-transform: rotateX(-90deg) translateZ(300px);
+}
+
+.backComments {
+	-webkit-transform: rotateY(180deg) translateZ(300px);
+}
