@@ -1,6 +1,6 @@
 'use strict';
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('female_author_selections', function(table) {
+  return knex.schema.createTable('science_fiction_series', function(table) {
     table.increments().primary();
     table.integer('user_id').notNullable().defaultTo(1).references('id').inTable('users').onDelete('CASCADE').index();
     table.string('periodical_or_book').notNullable().defaultTo('book');
@@ -12,5 +12,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('female_author_selections');
+  return knex.schema.dropTable('science_fiction_series');
 };

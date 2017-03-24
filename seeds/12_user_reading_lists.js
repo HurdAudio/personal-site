@@ -13,7 +13,7 @@ exports.seed = function(knex, Promise) {
           interrupt: 6,
           female_author_selection_1: 79,
           crime_series_1: 2,
-          backlog_ebook_1: 3,
+          backlog_ebook_1: 83,
           science_fiction_series_1: 4,
           free_selection_1: 5,
           crime_series_2: 7,
@@ -96,13 +96,13 @@ exports.seed = function(knex, Promise) {
           roulette_4: 75,
           prize_6: 76,
           male_author_selection_3: null,
-          crime_series_11: null,
+          crime_series_11: 80,
           backlog_physical_book_3: null,
-          science_fiction_series_11: null,
+          science_fiction_series_11: 84,
           free_selection_6: null,
-          crime_series_12: null,
+          crime_series_12: 81,
           insert_6: null,
-          science_fiction_series_12: null,
+          science_fiction_series_12: 85,
           genre_journal_9: null,
           occult_reading_2: null,
           literary_journal_10: null,
@@ -113,8 +113,8 @@ exports.seed = function(knex, Promise) {
           graphic_novel_3: null,
           female_author_selection_4: 78,
           crime_series_13: null,
-          backlog_ebook_4: null,
-          science_fiction_series_13: null,
+          backlog_ebook_4: 82,
+          science_fiction_series_13: 86,
           literary_journal_11: null,
           free_selection_7: null,
           crime_series_14: null,
@@ -153,5 +153,8 @@ exports.seed = function(knex, Promise) {
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
       ]);
+    })
+    .then(() => {
+      return knex.raw("SELECT setval('user_reading_lists_id_seq', (SELECT MAX(id) FROM user_reading_lists));");
     });
 };

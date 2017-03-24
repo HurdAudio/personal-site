@@ -21,5 +21,8 @@ exports.seed = function(knex, Promise) {
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
       ]);
+    })
+    .then(() => {
+      return knex.raw("SELECT setval('prize_lists_id_seq', (SELECT MAX(id) FROM prize_lists));");
     });
 };
