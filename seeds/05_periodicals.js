@@ -116,6 +116,20 @@ exports.seed = function(knex, Promise) {
           description: "Novella\n \“Tao Zero\” by Damien Broderick\n Novelettes\n \"Soulmates.com\" by Will McIntosh\n \"Three Can Keep a Secret\" by Bill Johnson & Gregory Frost\n \"Kitty Hawk\" By Alan Smale\n \"The Wisdom of the Group\" by Ian R. McLeod\n Short Stories\n \"Number Thirty-Nine Skink\” by Suzanne Palmer\n \"The Ones Who Know Where They Are Going\" by Sarah Pinsker\n \“Invasion of the Saucer-Men\" by Dale Bailey\n \"Cupido\" by Rich Larson\n \"A Singular Event in the Fourth Dimension\" by Andrea M. Pawley\n \"After the Atrocity\" by Ian Creasy\n \"Goner\" by Gregory Norman Bossert\n \"We Regret the Error\" by Terry Bisson\n Poetry\n \"Mount Rushmore\" by Marge Simon\n \"Small Certainties\" by Sara Polsky\n \"Almost Certainly a Time Traveler\" by Jarod K. Anderson\n \"Surreal Axioms\" by Bruce Boston\n \"Note from Olympus Mons\" by Robert Frazier\n \"Rock, Paper, Scissors\" by Robert Borski\n Asimov's Science Fiction, March/April 2017, Volume 41, No. 3&4, #494-495\n Sheila Williams, editor\n Cover art by Tomislav Tikulin",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('periodicals').insert({
+          id: 9,
+          name: 'New York Times',
+          issue: 'Sunday, March 29, 2017',
+          editor: 'Dean Baquet',
+          editor_url: 'http://pixel.nymag.com/imgs/daily/intelligencer/2014/05/14/14-dean-baquet.w245.h368.2x.jpg',
+          edition: 'Kindle Edition',
+          publication_date: '2017-03-29 0:00:01 UTC',
+          pages: 200,
+          img_url: 'https://i.sixfoot6.org/images/nytimes-weight/nytimes-weight-lede.jpg',
+          description: "The New York Times (sometimes abbreviated NYT and The Times) is an American daily newspaper, founded and continuously published in New York City since September 18, 1851, by The New York Times Company. The New York Times has won 119 Pulitzer Prizes, more than any other newspaper",
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
       ]);
     })
