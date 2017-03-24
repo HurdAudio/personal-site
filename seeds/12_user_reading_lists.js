@@ -11,7 +11,7 @@ exports.seed = function(knex, Promise) {
           interrupt_enabled: true,
           current_position: 'male_author_selection_1',
           interrupt: 6,
-          female_author_selection_1: 1,
+          female_author_selection_1: 79,
           crime_series_1: 2,
           backlog_ebook_1: 3,
           science_fiction_series_1: 4,
@@ -111,7 +111,7 @@ exports.seed = function(knex, Promise) {
           classic_3: null,
           prize_7: null,
           graphic_novel_3: null,
-          female_author_selection_4: null,
+          female_author_selection_4: 78,
           crime_series_13: null,
           backlog_ebook_4: null,
           science_fiction_series_13: null,
@@ -148,7 +148,9 @@ exports.seed = function(knex, Promise) {
           vintage_pulp_3: null,
           contemporary_pulp_4: null,
           vintage_pulp_4: null,
-          prize_10: null
+          prize_10: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
       ]);
     });

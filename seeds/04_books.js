@@ -1315,6 +1315,44 @@ exports.seed = function(knex, Promise) {
           description: "JavaScript is at the heart of almost every modern Web application, whether it's Google Apps, Twitter, or the newest browser-based game. Though it's simple for beginners to pick up and play with, JavaScript is not a toy—it's a flexible, complex language that you can use to build full-scale applications.\n Eloquent JavaScript, 2nd Edition dives into the language and teaches you to write beautiful, effective code. By immersing you in example code and encouraging experimentation right from the start, the author quickly provides the tools you need to build your own programs. As you follow along with examples like an artificial life simulation, a simple programming language, and a platform game, you'll learn to:\n Understand the essential elements of programming: syntax, control, and data\n Organize and clarify your code with object-oriented and functional programming techniques\n Script the browser and make basic Web applications\n Harness node.js to build servers and utilities\n Use the DOM effectively to interact with browsers\n This new edition is thoroughly revised and modernized, and it’s full of brand-new material, including expanded content on recursion, closures, and more. All source code is available online in an interactive sandbox and has been updated to follow current JavaScript idioms. With Eloquent JavaScript, 2nd Edition as your guide, you'll be fluent in the language of the Web before you know it.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('books').insert({
+          id: 70,
+          author: 'Ottessa Moshfegh',
+          title: "Eileen",
+          cover_url: 'https://images.gr-assets.com/books/1479545528l/23453099.jpg',
+          author_url: 'https://images.gr-assets.com/authors/1459745407p8/3276202.jpg',
+          publisher: 'Penguin Press',
+          publication_date: '2015-08-18 0:00:01 UTC',
+          edition: 'Kindle Edition',
+          part_of_series: false,
+          name_of_series: null,
+          number_in_series: null,
+          number_of_pages: 272,
+          author_gender: 'female',
+          author_nationality: 'USA',
+          description: "A lonely young woman working in a boys’ prison outside Boston in the early 60s is pulled into a very strange crime, in a mordant,  harrowing story of obsession and suspense, by one of the brightest new voices in fiction.\n So here we are. My name was Eileen Dunlop. Now you know me. I was twenty-four years old then, and had a job that paid fifty-seven dollars a week as a kind of secretary at a private juvenile correctional facility for teenage boys. I think of it now as what it really was for all intents and purposes—a prison for boys. I will call it Moorehead. Delvin Moorehead was a terrible landlord I had years later, and so to use his name for such a place feels appropriate. In a week, I would run away from home and never go back.\n This is the story of how I disappeared.\n The Christmas season offers little cheer for Eileen Dunlop, an unassuming yet disturbed young woman trapped between her role as her alcoholic father’s caretaker in a home whose squalor is the talk of the neighborhood and a day job as a secretary at the boys’ prison, filled with its own quotidian horrors. \n Consumed by resentment and self-loathing, Eileen tempers her dreary days with perverse fantasies and dreams of escaping to the big city. In the meantime, she fills her nights and weekends with shoplifting, stalking a buff prison guard named Randy, and cleaning up her increasingly deranged father’s messes. When the bright, beautiful, and cheery Rebecca Saint John arrives on the scene as the new counselor at Moorehead, Eileen is enchanted and proves unable to resist what appears at first to be a miraculously budding friendship. In a Hitchcockian twist, her affection for Rebecca ultimately pulls her into a complicity in a crime that surpasses her wildest imaginings.\n Played out against the snowy landscape of coastal New England in the days leading up to Christmas, young Eileen’s story is told from the gimlet-eyed perspective of the now much older narrator. Creepy, mesmerizing, and sublimely funny, in the tradition of Shirley Jackson and early Vladimir Nabokov, this powerful debut novel enthralls and shocks, and introduces one of the most original new voices in contemporary literature.",
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('books').insert({
+          id: 71,
+          author: 'Annie Proulx',
+          title: "Barkskins",
+          cover_url: 'https://images.gr-assets.com/books/1465732253l/25111119.jpg',
+          author_url: 'https://images.gr-assets.com/authors/1219720509p8/1262010.jpg',
+          publisher: 'Scribner',
+          publication_date: '2016-06-14 0:00:01 UTC',
+          edition: 'Kindle Edition',
+          part_of_series: false,
+          name_of_series: null,
+          number_in_series: null,
+          number_of_pages: 736,
+          author_gender: 'female',
+          author_nationality: 'USA',
+          description: "From Annie Proulx—the Pulitzer Prize­ and National Book Award-­winning author of The Shipping News and Brokeback Mountain—comes an ecological masterwork, five years in the writing: an epic, dazzling, violent, magnificently dramatic novel about the taking down of the world’s forests.\n In the late seventeenth century two penniless young Frenchmen, René Sel and Charles Duquet, arrive in New France. Bound to a feudal lord, a \“seigneur,\” for three years in exchange for land, they become wood-cutters—barkskins. René suffers extraordinary hardship, oppressed by the forest he is charged with clearing. He is forced to marry a Mi’kmaw woman and their descendants live trapped between two inimical cultures. But Duquet, crafty and ruthless, runs away from the seigneur, becomes a fur trader, then sets up a timber business. Proulx tells the stories of the descendants of Sel and Duquet over three hundred years—their travels across North America, to Europe, China, and New Zealand, under stunningly brutal conditions—the revenge of rivals, accidents, pestilence, Indian attacks, and cultural annihilation. Over and over again, they seize what they can of a presumed infinite resource, leaving the modern-day characters face to face with possible ecological collapse.\n Proulx’s inimitable genius is her creation of characters who are so vivid—in their greed, lust, vengefulness, or their simple compassion and hope—that we follow them with fierce attention. Annie Proulx is one of the most formidable and compelling American writers, and Barkskins is her greatest novel, a magnificent marriage of history and imagination.",
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
       ]);
     })
