@@ -130,6 +130,34 @@ exports.seed = function(knex, Promise) {
           description: "The New York Times (sometimes abbreviated NYT and The Times) is an American daily newspaper, founded and continuously published in New York City since September 18, 1851, by The New York Times Company. The New York Times has won 119 Pulitzer Prizes, more than any other newspaper",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('periodicals').insert({
+          id: 10,
+          name: 'One Story',
+          issue: 'Issue #225: An Oral History of the Next Battle of the Sexes by Lucas Schaefer',
+          editor: 'Hannah Tinti',
+          editor_url: 'http://cwp.as.nyu.edu/props/IO/35476/42/hannahtinti.jpg',
+          edition: 'Kindle Edition',
+          publication_date: '2017-02-21 0:00:01 UTC',
+          pages: 36,
+          img_url: 'https://www.one-story.com/blog/wp-content/uploads/2017/02/225_cover-copy-214x300.jpg',
+          description: "When \“An Oral History of the Next Battle of the Sexes,\” by Lucas Schaefer, showed up at the office and I gave it an initial read, I spent the first few pages having to remind myself that I was reading a work of fiction and not an actual oral history. Once I wrapped my head around that, I became drawn in by one of the biggest casts of characters I’ve ever encountered in a short story—each voice distinctive, each character a building block in the recreation of a historic (fictitious) event: the legendary 1974 battle between Holly Hendrix and Terry Tucker. The story is as compelling as it is funny, as infused with personality as it is charged with spot-on observations about the way we regard gender, power, and ambition. We’re delighted to be ushering it into the world, and we’re even more delighted that this is the first publication by a talent we are most certainly going to be hearing more from in the future: Lucas Schaefer.\n To learn more about why Lucas chose to write a fictional oral history instead of a more traditional short story—and to hear what he has to say about the joys and challenges of that form—check out our online Q&A with the author. We make it standard practice to conclude our Q&As by asking authors to share the best piece of writing advice they’ve ever received. Lucas’s answer is both a charmer and heartbreaker!",
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('periodicals').insert({
+          id: 11,
+          name: 'One Story',
+          issue: 'Issue #226: Prairie Fire, 1899 by Mike Alberti',
+          editor: 'Hannah Tinti',
+          editor_url: 'http://cwp.as.nyu.edu/props/IO/35476/42/hannahtinti.jpg',
+          edition: 'Kindle Edition',
+          publication_date: '2017-03-21 0:00:01 UTC',
+          pages: 36,
+          img_url: 'https://www.one-story.com/blog/wp-content/uploads/2017/03/226_cover_blog-214x300.jpg',
+          description: "When I was growing up in Florida, we would have tornados now and then. They were long and skinny, or fat and stubby, descending out of storm clouds to crack like a whip over our town, or poking down like the nose of a dog nudging a sand castle. The scariest thing about them—even scarier than their unpredictability—was their strength.\n I was reminded of those tornados when I first read Mike Alberti’s \“Prairie Fire, 1899.\” There are no tornados in this story, but, as the title suggests, there is a fire. A wide, merciless fire. And, as we all know, fires are merciless not because they don’t want to show mercy; they’re merciless because they’re single-minded. They only want one thing: to burn.\n The new issue of One Story is about the meeting of that fire and a mining community on the American frontier at the turn of the century. It has a classic, almost formal voice, and a narrator that moves from person to person with the ease of a spark carried on a breeze. In our Q&A, Mike Alberti describes it as “a sort of fable about the West.” It’s a remarkable, large-hearted short story with great staying power. We hope you enjoy it as much as we did.",
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
       ]);
     })
