@@ -10,7 +10,7 @@ exports.seed = function(knex, Promise) {
           prize_1: 'desmond_elliott_prizes',
           prize_2: 'edgar_awards',
           prize_3: 'encore_awards',
-          prize_4: 'flannery_o\'connor_award_for_short_fictions',
+          prize_4: 'flannery_oconnor_award_for_short_fictions',
           prize_5: 'goodreads_choice_awards',
           prize_6: 'governor_general_literary_awards',
           prize_7: 'chicago_tribune_heartland_prizes',
