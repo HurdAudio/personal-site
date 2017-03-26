@@ -120,7 +120,7 @@ exports.seed = function(knex, Promise) {
         knex('periodicals').insert({
           id: 9,
           name: 'New York Times',
-          issue: 'Sunday, March 29, 2017',
+          issue: 'Sunday, March 26, 2017',
           editor: 'Dean Baquet',
           editor_url: 'http://pixel.nymag.com/imgs/daily/intelligencer/2014/05/14/14-dean-baquet.w245.h368.2x.jpg',
           edition: 'Kindle Edition',

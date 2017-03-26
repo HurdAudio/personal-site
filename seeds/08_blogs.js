@@ -194,6 +194,26 @@ exports.seed = function(knex, Promise) {
           blog_rss_url: 'http://feeds2.feedburner.com/Baseballmusingscom',
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('blogs').insert({
+          id: 20,
+          blog_name: 'Y Hacker News',
+          blog_author: 'multiple authors',
+          blog_url: 'https://news.ycombinator.com/',
+          blog_img_url: 'https://news.ycombinator.com/y18.gif',
+          blog_rss_url: 'http://news.ycombinator.com/rss',
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('blogs').insert({
+          id: 21,
+          blog_name: 'Tch Crunch',
+          blog_author: 'multiple authors',
+          blog_url: 'https://techcrunch.com/',
+          blog_img_url: 'https://s0.wp.com/wp-content/themes/vip/techcrunch-2013/assets/images/logo.svg',
+          blog_rss_url: 'https://techcrunch.com/rssfeeds/',
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
       ]);
     })
