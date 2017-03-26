@@ -13,10 +13,10 @@ exports.seed = function(knex, Promise) {
           prize_4: 'flannery_oconnor_award_for_short_fictions',
           prize_5: 'goodreads_choice_awards',
           prize_6: 'governor_general_literary_awards',
-          prize_7: 'chicago_tribune_heartland_prizes',
-          prize_8: 'compton_crook_awards',
-          prize_9: 'costa_book_awards',
-          prize_10: 'crime_writers_association_new_blood_daggers',
+          prize_7: 'hammett_awards',
+          prize_8: 'hugo_awards',
+          prize_9: 'international_impac_dublin_awards',
+          prize_10: 'itw_thriller_awards',
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
