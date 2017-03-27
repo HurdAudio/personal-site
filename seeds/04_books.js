@@ -3006,6 +3006,25 @@ exports.seed = function(knex, Promise) {
           description: "The Chimes is set in a reimagined London, in a world where people cannot form new memories, and the written word has been forbidden and destroyed.\n\nIn the absence of both memory and writing is music.\n\nIn a world where the past is a mystery, each new day feels the same as the last, and before is blasphony, all appears lost. But Simon Wythern, a young man who arrives in London seeking the truth about what really happened to his parents, discovers he has a gift that could change all of this forever.\n\nA stunning literary debut by poet and violinist Anna Smaill, The Chimes is a startlingly original work that combines beautiful, inventive prose with incredible imagination.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('books').insert({
+          id: 159,
+          author: 'Gabino Iglesias',
+          title: "Zero Saints",
+          cover_url: 'https://images.gr-assets.com/books/1445191872l/27230788.jpg',
+          author_url: 'https://images.gr-assets.com/authors/1452157273p8/5823601.jpg',
+          publisher: 'Broken River Books',
+          publication_date: '2015-11-14 0:00:01 UTC',
+          edition: 'Kindle Edition',
+          part_of_series: false,
+          name_of_series: null,
+          number_in_series: null,
+          number_of_pages: 196,
+          author_gender: 'male',
+          author_nationality: 'USA',
+          description: "Enforcer and drug dealer Fernando has seen better days. On his way home from work, some heavily-tattooed gangsters throw him in the back of a car and take him to an abandoned house, where they saw off his friend's head and feed the kid's fingers to...something. Their message is clear: this is their territory, now. But Fernando isn't put down that easily. Using the assistance of a Santeria priestess, an insane Puerto Rican pop sensation, a very human dog, and a Russian hitman, he'll build the courage (and firepower) he'll need to fight a gangbanger who's a bit more than human...",
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
       ]);
     })
