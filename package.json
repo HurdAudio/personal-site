@@ -2,7 +2,7 @@
   "name": "devin-hurd",
   "version": "1.0.0",
   "description": "personal site",
-  "main": "index.js",
+  "main": "./app/server.js",
   "scripts": {
     "test": "mocha"
   },
@@ -19,5 +19,12 @@
   "keywords": [
     "Personal",
     "Site"
-  ]
+  ],
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "knex": "^0.12.9",
+    "pg": "^6.1.5",
+    "request": "^2.81.0"
+  }
 }
