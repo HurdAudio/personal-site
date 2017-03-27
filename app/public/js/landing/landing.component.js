@@ -20,9 +20,9 @@
         var length = 1;
 
         if (fromOrigin >= 500) {
-          length = 200;
+          length = 400;
         } else {
-          length = Math.floor((fromOrigin/5) * 2);
+          length = Math.floor((fromOrigin/5) * 4);
         }
         if (length < 1) {
           length = 1;

@@ -216,16 +216,16 @@ h3 {
 
 .hit-the-floor p {
   font-family: 'Roboto', sans-serif;
-  color: #131313;
+  color: #030303;
   text-transform: uppercase;
   text-rendering: optimizeLegibility;
-  font-size: 0.8em;
+  font-size: 1.4em;
   text-align: center;
   font-weight: bold;
   letter-spacing: .05em;
   text-shadow:
-    -4px 4px 0px #d5d5d5,
-    -7px 7px 0px rgba(0, 0, 0, 0.1);
+    -4px 4px 0px #c5c5c5,
+    -6px 6px 0px rgba(0, 0, 0, 0.1);
 }
 
 .contactMenu p {
@@ -269,9 +269,12 @@ h3 {
 
 .terminal-menu {
   background-color: rgb(5,5,5);
+  font-size: 2em;
+  text-decoration: none;
 }
 
 .terminalMenu p {
+  text-decoration: none;
   color: rgb(0,255,36);
 }
 
@@ -392,6 +395,7 @@ nav {
   color: rgb(0,255,36);
   font-family: 'VT323', sans-serif;
   font-size: 2.2em;
+  padding-top: 2.7em;
 }
 
 .terminalGreen {
