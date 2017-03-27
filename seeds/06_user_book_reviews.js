@@ -1429,6 +1429,51 @@ exports.seed = function(knex, Promise) {
           periodicals_id: null,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 154,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 144,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 155,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 145,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 156,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 146,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 157,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 147,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 158,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 148,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
       ]);
     })
