@@ -1,0 +1,109 @@
+#contactMe {
+  background: url(../img/brand-1851576.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+#contact-form_header {
+	font-family: 'Michroma', sans-serif;
+	height: 50px;
+	color: #FFF;
+	height: 50px;
+}
+
+#contact-form_header h1 {
+	font-size: 40px;
+	padding-bottom: 15px;
+	margin: 0px;
+	text-align: center;
+	height: 45px;
+	margin: 0px;
+	padding:0;
+  color:#000;
+}
+
+#contact-form_cont {
+	margin: 20% 15%;
+	padding:0 20px;
+	border: 2px solid #000;
+	border-radius: 3px;
+	background: transparent;
+}
+
+}
+#contact-form_cont form {
+}
+
+input,textarea {
+	font-family: 'Michroma', sans-serif;
+	font-size: 17px;
+	border: 1px solid #000;
+	border-radius: 3px;
+	padding-left: 3px;
+	width: 100%;
+	border: 1px solid #000;
+	margin: auto 1px;
+}
+
+input[type=text] {
+	height: 34px;
+}
+
+input[type=email] {
+	height: 34px;
+}
+
+input[type=submit] {
+	border: 2px solid #000;
+	background: #FFF;
+	color: #222;
+	height: 32px;
+	width: 100%;
+}
+
+input[type=submit]:hover {
+	border: 2px solid #000;
+	background: #222;
+	color: #FFF;
+	height: 32px;
+}
+
+textarea {
+	height: 124px;
+	text-align: justify;
+  opacity:0.7;
+}
+
+input[type=submit] {
+	width: 20%;
+}
+
+#contactButton {
+  font-family: 'Michroma', sans-serif;
+  text-align: center;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  height: 2em;
+  width: 100%;
+  opacity: 0.5;
+  font-size: 48px;
+  border: solid 1px #000;
+}
+
+#contactButton:hover {
+  width: 100%;
+  opacity: 1.0;
+}
+
+#contactName {
+  height: 2.4em;
+  opacity: 0.7;
+}
+
+#contactEmail {
+  height: 2.4em;
+  opacity: 0.7;
+}

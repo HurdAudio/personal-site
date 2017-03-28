@@ -33,6 +33,24 @@
         url: '/projects',
         parent: 'app',
         component: 'projects'
+      })
+      .state({
+        name: 'hurdaudio',
+        url: '/hurdaudio',
+        parent: 'app',
+        component: 'hurdaudio'
+      })
+      .state({
+        name: 'hurdreads',
+        url: '/hurdreads',
+        parent: 'app',
+        component: 'hurdreads'
+      })
+      .state({
+        name: 'contact',
+        url: '/contact',
+        parent: 'app',
+        component: 'contact'
       });
 
 
