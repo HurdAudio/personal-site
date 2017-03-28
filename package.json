@@ -7,7 +7,7 @@
     "test": "mocha",
     "knex": "knex",
     "heroku-postbuild": "knex migrate:latest",
-    "start": "nodemon server.js"
+    "start": "nodemon"
   },
   "repository": {
     "type": "git",
