@@ -219,7 +219,7 @@ h3 {
   color: #030303;
   text-transform: uppercase;
   text-rendering: optimizeLegibility;
-  font-size: 1.4em;
+  font-size: 1.3em;
   text-align: center;
   font-weight: bold;
   letter-spacing: .05em;
@@ -395,7 +395,7 @@ nav {
   color: rgb(0,255,36);
   font-family: 'VT323', sans-serif;
   font-size: 2.2em;
-  padding-top: 2.7em;
+  padding-top: 3.2em;
 }
 
 .terminalGreen {
@@ -590,7 +590,6 @@ Author: Paul Hayes
 .clip-text:before,
 .clip-text:after {
     position: absolute;
-    content: '';
 }
 
 /* Background */
@@ -647,10 +646,21 @@ Author: Paul Hayes
   font-family: 'Kanit', serif;
   font-weight: bolder;
   font-size: 42px;
+  z-index: -1;
 }
 
 .clip-text_one img {
-  opacity: 0.6;
+  opacity: 0.4;
+  position: relative;
+  z-index: 0;
+}
+
+.clip-text_one .screenshot {
+  opacity: 1.0;
+}
+
+.clip-text_one img:hover {
+  opacity: 1.0;
   position: relative;
   z-index: 0;
 }
@@ -668,9 +678,19 @@ Author: Paul Hayes
 }
 
 .clip-text_two img {
-  opacity: 0.6;
+  opacity: 0.4;
   position: relative;
   z-index: 0;
+}
+
+.clip-text_two img:hover {
+  opacity: 1.0;
+  position: relative;
+  z-index: 0;
+}
+
+.clip-text_two .screenshot {
+  opacity: 1.0;
 }
 
 
@@ -687,9 +707,19 @@ Author: Paul Hayes
 }
 
 .clip-text_twelve img {
-  opacity: 0.6;
+  opacity: 0.4;
   position: relative;
   z-index: 0;
+}
+
+.clip-text_twelve img:hover {
+  opacity: 1.0;
+  position: relative;
+  z-index: 0;
+}
+
+.clip-text_twelve .screenshot {
+  opacity: 1.0;
 }
 
 
@@ -706,9 +736,20 @@ Author: Paul Hayes
 }
 
 .clip-text_fourteen img {
-  opacity: 0.6;
+  opacity: 0.4;
   position: relative;
   z-index: 0;
+}
+
+.clip-text_fourteen img:hover {
+  opacity: 1.0;
+  position: relative;
+  z-index: 0;
+}
+
+.clip-text_fourteen .screenshot {
+  opacity: 1.0;
+
 }
 
 
