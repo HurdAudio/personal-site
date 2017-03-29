@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const knex = require('knex');
 const request = require('request');
 const app = express();
-// const teams = require('./routes/teams.js');
+const visitorfeedbacks = require('./routes/visitorfeedbacks.js');
 // const users = require('./routes/users.js');
 // const players = require('./routes/players.js');
 // const fantasyteams = require('./routes/fantasyteams.js');
@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
 
 // app.use('/classifieds',messages);
 
-// app.use('/teams', teams);
+app.use('/visitor_feedbacks', visitorfeedbacks);
 // app.use('/users', users);
 // app.use('/players', players);
 // app.use('/fantasyteams', fantasyteams);
