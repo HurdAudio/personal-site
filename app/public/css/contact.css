@@ -81,7 +81,7 @@
 #contact-form_cont form {
 }
 
-input,textarea {
+/*input,textarea {
 	font-family: 'Michroma', sans-serif;
 	font-size: 17px;
 	border: 1px solid #000;
@@ -123,7 +123,7 @@ textarea {
 
 input[type=submit] {
 	width: 20%;
-}
+}*/
 
 #contactButton {
   font-family: 'Michroma', sans-serif;
@@ -138,8 +138,27 @@ input[type=submit] {
   border: solid 1px #000;
 }
 
+#adminButton {
+  font-family: 'VT323', sans-serif;
+  text-align: center;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  margin-left: 0.2em;
+  color: #e80606;
+  height: 2em;
+  width: 100%;
+  opacity: 0.5;
+  font-size: 48px;
+  border: solid 1px #fff;
+}
+
 #contactButton:hover {
   width: 100%;
+  opacity: 1.0;
+}
+
+#adminButton:hover {
   opacity: 1.0;
 }
 
@@ -168,6 +187,107 @@ input[type=submit] {
   width: 91.5%;
 }
 
+#adminFirstName {
+  background-image: url(../img/board-564810_640.jpg);
+  font-family: 'VT323', sans-serif;
+  text-align: center;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  height: 8.4em;
+  opacity: 0.9;
+  width: 91.5%;
+}
+
+#adminLastName {
+  background-image: url(../img/board-730797_640.jpg);
+  font-family: 'VT323', sans-serif;
+  text-align: center;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  height: 8.4em;
+  opacity: 0.9;
+  width: 91.5%;
+}
+
+#adminCompanyName {
+  background-image: url(../img/board-75660_640.jpg);
+  font-family: 'VT323', sans-serif;
+  text-align: center;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  height: 8.4em;
+  opacity: 0.9;
+  width: 91.5%;
+}
+
+#adminPassword {
+  background-image: url(../img/neo-urban-1734495_640.jpg);
+  font-family: 'VT323', sans-serif;
+  text-align: center;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  height: 8.4em;
+  opacity: 0.9;
+  width: 91.5%;
+}
+
+#visitorName {
+  width: 100%;
+  height: 2.6em;
+}
+
+#admin_FirstName {
+  font-family: 'VT323', sans-serif;
+  text-align: center;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  font-size: 48px;
+  color: #e80606;
+  width: 100%;
+  height: 2.6em;
+}
+
+#admin_LastName {
+  font-family: 'VT323', sans-serif;
+  text-align: center;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  font-size: 48px;
+  color: #e80606;
+  width: 100%;
+  height: 2.6em;
+}
+
+#admin_CompanyName {
+  font-family: 'VT323', sans-serif;
+  text-align: center;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  font-size: 48px;
+  color: #e80606;
+  width: 100%;
+  height: 2.6em;
+}
+
+#admin_password {
+  font-family: 'Siemreap', 'Suwannaphum', 'VT323', sans-serif;;
+  text-align: left;
+  align-content: left;
+  align-self: left;
+  align-items: left;
+  font-size: 24px;
+  color: transparent;
+  width: 100%;
+  height: 2.6em;
+}
+
 #visitorName {
   width: 100%;
   height: 2.6em;
@@ -177,6 +297,30 @@ input[type=submit] {
   height: 2.4em;
   opacity: 0.75;
   width: 91.5%;
+}
+
+#admin_Email {
+  background-image: url(../img/computer-1520448_640.jpg);
+  font-family: 'VT323', sans-serif;
+  text-align: center;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  height: 8.4em;
+  opacity: 0.9;
+  width: 91.5%;
+}
+
+#adminEmail {
+  font-family: 'VT323', sans-serif;
+  text-align: center;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  font-size: 36px;
+  color: #e80606;
+  width: 100%;
+  height: 2.6em;
 }
 
 #visitorEmail {
@@ -238,6 +382,7 @@ input[type=submit] {
     height: 2.6em;
   }
 
+
   #contactEmail {
     height: 2.4em;
     opacity: 0.75;
@@ -253,4 +398,20 @@ input[type=submit] {
     width: 78.5%;
     opacity: 0.75;
   }
+}
+
+.admin_footer_right {
+  font-family: 'Tauri', sans-serif;
+  float:right;
+  font-size: 12px;
+  margin-top: 3.8em;
+  margin-left: 0.5em;
+  background-color: #3A3A3A;
+  opacity: 0.1;
+}
+
+#admin-form-div {
+  padding-top: 0;
+  padding-left: 9.3em;
+  padding-right: 9.3em;
 }

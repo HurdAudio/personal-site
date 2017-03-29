@@ -24,6 +24,7 @@
     "Site"
   ],
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "body-parser": "^1.17.1",
     "chai": "^3.5.0",
     "express": "^4.15.2",

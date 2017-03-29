@@ -694,6 +694,12 @@ Author: Paul Hayes
     left: 100px;
 }
 
+#buttonAdmin{
+  opacity: 0.2;
+  padding: 0.4em;
+  float: right;
+}
+
 /* Optional Animations */
 
 .cube {
@@ -2069,4 +2075,12 @@ input[value="back"]:checked ~ .cubeContainer .cubeCube {
 
 .backComments {
 	-webkit-transform: rotateY(180deg) translateZ(300px);
+}
+
+.adminsAreCool {
+  background: url(../img/board-158973.png) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
