@@ -188,3 +188,69 @@ input[type=submit] {
   width: 91.5%;
   opacity: 0.75;
 }
+
+@media only screen and (max-device-width: 480px) {
+  #contactButton {
+    font-family: 'Michroma', sans-serif;
+    text-align: center;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+    height: 2em;
+    width: 80%;
+    opacity: 0.5;
+    font-size: 48px;
+    border: solid 1px #000;
+  }
+
+  #contactButton:hover {
+    width: 80%;
+    opacity: 1.0;
+  }
+
+  #doneButton {
+    font-family: 'Michroma', sans-serif;
+    text-align: center;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+    height: 2em;
+    width: 80%;
+    opacity: 0.5;
+    font-size: 48px;
+    border: solid 1px #000;
+    margin-bottom: 12px;
+  }
+
+  #doneButton:hover {
+    width: 80%;
+    opacity: 1.0;
+  }
+
+  #contactName {
+    height: 2.4em;
+    opacity: 0.75;
+    width: 78.5%;
+  }
+
+  #visitorName {
+    width: 100%;
+    height: 2.6em;
+  }
+
+  #contactEmail {
+    height: 2.4em;
+    opacity: 0.75;
+    width: 78.5%;
+  }
+
+  #visitorEmail {
+    width: 100%;
+    height: 2.6em;
+  }
+
+  #contactMessage {
+    width: 78.5%;
+    opacity: 0.75;
+  }
+}
