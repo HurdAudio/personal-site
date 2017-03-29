@@ -118,7 +118,7 @@
       function onInit() {
         console.log("Contact is lit.");
         var thankYouDiv = document.getElementById('contact-form_completed');
-        thankYouDiv.setAttribute("stule", "display: none;");
+        thankYouDiv.setAttribute("style", "display: none;");
         var feedbackButton = document.getElementById('contactButton');
         feedbackButton.setAttribute("style", "display: none;");
         var nameField = document.getElementById('visitorName');
