@@ -20,13 +20,34 @@
     	     </div>
     		<form class="pure-form pure-form-stacked" name="contact">
           <fieldset>
-            <p><textarea id="contactName" placeholder="Name"></textarea></p>
-            <p><textarea id="contactEmail" placeholder="Email"></textarea></p>
-      			<p><textarea placeholder="Message"></textarea></p>
-      			<button id="contactButton"><input type="submit" value="Submit">SUBMIT</button>
+            <p><label for="visitor_name" id="contactName"><textarea type="text" name="visitor_name" id="visitorName" placeholder="Name"></textarea></label></p>
+            <p><label for="visitor_email" id="contactEmail"><textarea type="text" name="visitor_email" id="visitorEmail" placeholder="Email"></textarea></label></p>
+      			<p><label for="visitor_message" id="contactMessage"><textarea type="text" name="visitor_message" id="visitorMessage" placeholder="Message"></textarea></label></p>
+      			<button id="contactButton">SUBMIT</button>
           </fieldset>
     		</form>
     	</div>
+
+      <div id="contact-form_completed">
+         <div id="contact-form_completed-header">
+             <h1>Thank you</h1>
+           </div>
+            <div id="feedbackDate">
+              <p id="dateStamper">Submitted: </p>
+            </div>
+            <div id="feedbackName">
+              <p id="yourFriend">From: </p>
+            </div>
+            <div id="feedbackEmail">
+              <p id="internetEmail">Email: </p>
+            </div>
+            <div id="feedbackContent">
+              <p id="feedbackBody">Message: </p>
+            </div>
+            <a href="/"><button id="doneButton">OKAY</button></a>
+
+      	</div>
+
       <div class="pure-g">
         <div class="pure-u-1-5">
 

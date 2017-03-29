@@ -24,6 +24,41 @@
   color:#000;
 }
 
+#contact-form_completed-header h1 {
+	font-size: 46px;
+	padding-bottom: 15px;
+	margin: 0px;
+	text-align: center;
+	height: 45px;
+	margin: 0px;
+	padding:0;
+  color:#000;
+}
+
+#feedbackDate p {
+  font-family: 'Michroma', sans-serif;
+	font-size: 24px;
+	color: #000000;
+}
+
+#feedbackName {
+  font-family: 'Michroma', sans-serif;
+	font-size: 24px;
+	color: #000000;
+}
+
+#feedbackEmail {
+  font-family: 'Michroma', sans-serif;
+	font-size: 24px;
+	color: #000000;
+}
+
+#feedbackContent {
+  font-family: 'Michroma', sans-serif;
+	font-size: 24px;
+	color: #000000;
+}
+
 #contact-form_cont {
 	margin: 20% 15%;
 	padding:0 20px;
@@ -31,6 +66,16 @@
 	border-radius: 3px;
 	background: transparent;
 }
+
+#contact-form_completed {
+	margin: 20% 15%;
+	padding:0 20px;
+	border: 2px solid #000;
+	border-radius: 3px;
+	background: #ffffff;
+  opacity: 0.4;
+}
+
 
 }
 #contact-form_cont form {
@@ -98,12 +143,48 @@ input[type=submit] {
   opacity: 1.0;
 }
 
+#doneButton {
+  font-family: 'Michroma', sans-serif;
+  text-align: center;
+  align-content: center;
+  align-self: center;
+  align-items: center;
+  height: 2em;
+  width: 100%;
+  opacity: 0.5;
+  font-size: 48px;
+  border: solid 1px #000;
+  margin-bottom: 12px;
+}
+
+#doneButton:hover {
+  width: 100%;
+  opacity: 1.0;
+}
+
 #contactName {
   height: 2.4em;
-  opacity: 0.7;
+  opacity: 0.75;
+  width: 91.5%;
+}
+
+#visitorName {
+  width: 100%;
+  height: 2.6em;
 }
 
 #contactEmail {
   height: 2.4em;
-  opacity: 0.7;
+  opacity: 0.75;
+  width: 91.5%;
+}
+
+#visitorEmail {
+  width: 100%;
+  height: 2.6em;
+}
+
+#contactMessage {
+  width: 91.5%;
+  opacity: 0.75;
 }
