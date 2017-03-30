@@ -57,6 +57,12 @@
         url: '/adminlogin',
         parent: 'app',
         component: 'adminlogin'
+      })
+      .state({
+        name: 'admin',
+        url: '/admin',
+        parent: 'app',
+        component: 'admin'
       });
 
 

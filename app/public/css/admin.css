@@ -1,0 +1,43 @@
+.adminiButton {
+  border-radius: 1%;
+  margin: 2em;
+  padding: 2em;
+  opacity: 0.7;
+  float:left;
+  font-family: 'Michroma', sans-serif;
+  font-size: 24px;
+  color: #e80606;
+  text-align: center;
+  align-content: center;
+}
+
+.adminiButton:hover {
+  opacity: 1.0;
+  color: #17F9F9;
+}
+
+#communicationButton {
+  background-image: url(../img/metal-2093228_640.jpg);
+}
+
+
+
+#communicationsAdmin {
+  float: left;
+  padding-top: 4em;
+}
+
+.miniButtons {
+  padding: 0.5em;
+  margin-left: 18px;
+  margin-right: 18px;
+  margin-top: 6em;
+  height: auto;
+  font-family: 'Michroma', sans-serif;
+  font-size: 18px;
+  width: 11em;
+}
+
+#toggleComm {
+  float: right;
+}

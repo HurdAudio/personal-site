@@ -1,0 +1,44 @@
+<div>
+
+  <div id="toggleCommunications">
+    <h4><button class="adminiButton" id="communicationButton">COMMUNICATIONS CENTER</button></h4>
+  </div>
+
+  <div id="communicationsCenter">
+    <button id="toggleComm" class="miniButtons">TOGGLE OUT</button>
+    <container id="displayVisitorFeedbacksGetRequest">
+      <div class="pure-g">
+        <main id="visitorFeedbacksContainer" ng-repeat="posts in $ctrl.visitorFeedbacks | orderBy : $ctrl.sortBy">
+
+          <div id="communicationsAdmin" class="pure-u-1-2">
+            <button class="miniButtons" type="button" name="button" ng-click="$ctrl.respondFeedback(posts.id)">RESPOND</button>
+            <button class="miniButtons" type="button" name="button" ng-click="$ctrl.deleteFeedback(posts.id)">DELETE</button>
+
+          </div>
+          <div class="pure-u-1-2">
+            <p>DATE</p>
+            <p>{{posts.created_at}}</p><br>
+            <p>NAME</p>
+            <p>{{posts.visitor_name}}</p><br>
+            <p>EMAIL</p>
+            <p>{{posts.visitor_email}}</p><br>
+            <p>MESSAGE</p>
+            <p>{{posts.visitor_message}}</p><br>
+            <p>RESPONDED</p>
+            <p>{{posts.responded}}</p><br>
+
+          </div>
+
+        </main>
+      </div>
+    </container>
+  </div>
+
+
+
+
+
+
+
+
+</div>

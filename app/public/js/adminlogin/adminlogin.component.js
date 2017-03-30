@@ -51,10 +51,17 @@
           .then(result=>{
             console.log(result.data);
             console.log("this is where we route to the admin page");
+            $http.get('/admin').then(()=>{
+              $state.go('admin');
+            });
           })
           .catch(err=>{
             console.log(err.status);
-            console.log("this is where we route to the home page, sucker.");
+            // console.log("this is where we route to the home page, sucker.");
+            adminAccess.setAttribute("style", "display: initial;");
+            $http.get('/').then(() => {
+              $state.go('landing');
+            });
           });
         });
         document.addEventListener('keyup', () => {
