@@ -4,10 +4,14 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const knex = require('knex');
-const request = require('request');
+const bcrypt = require('bcrypt');
+// const request = require('request');
+
 const app = express();
 const visitorfeedbacks = require('./routes/visitorfeedbacks.js');
-// const users = require('./routes/users.js');
+const users = require('./routes/users.js');
+// const login = require('./routes/login.js');
+const myPlaintextPassword = 'whip it';
 // const players = require('./routes/players.js');
 // const fantasyteams = require('./routes/fantasyteams.js');
 // const headtoheadmatchups = require('./routes/headtoheadmatchups.js');
@@ -23,12 +27,16 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
 
 // app.use('/classifieds',messages);
 
+
+
 app.use('/visitor_feedbacks', visitorfeedbacks);
-// app.use('/users', users);
+app.use('/users', users);
+// app.use('/login', login);
 // app.use('/players', players);
 // app.use('/fantasyteams', fantasyteams);
 // app.use('/headtoheadmatchups', headtoheadmatchups);
 // app.use('/rotisseriematchups', rotisseriematchups);
+
 
 
 app.use('*', function(req, res, next) {

@@ -33,12 +33,33 @@
         adminPasswordField.setAttribute("style", "display: none;");
         var submitButton = document.getElementById('adminButton');
         submitButton.setAttribute("style", "display: none");
+        var firstNameContent = document.getElementById('admin_FirstName');
+        var lastNameContent = document.getElementById('admin_LastName');
+        var companyNameContent = document.getElementById('admin_CompanyName');
+        var adminEmailContent = document.getElementById('adminEmail');
+        var adminPasswordContent = document.getElementById('admin_password');
+        submitButton.addEventListener('click', () =>{
+          console.log("click");
+          var inputValues = {};
+          inputValues.first_name = firstNameContent.value;
+          inputValues.last_name = lastNameContent.value;
+          inputValues.company_name = companyNameContent.value;
+          inputValues.email = adminEmailContent.value;
+          inputValues.password = adminPasswordContent.value;
+          console.log("request");
+          $http.post('/users/login', inputValues)
+          .then(result=>{
+            console.log(result.data);
+            console.log("this is where we route to the admin page");
+          })
+          .catch(err=>{
+            console.log(err.status);
+            console.log("this is where we route to the home page, sucker.");
+          });
+        });
         document.addEventListener('keyup', () => {
-          var firstNameContent = document.getElementById('admin_FirstName');
-          var lastNameContent = document.getElementById('admin_LastName');
-          var companyNameContent = document.getElementById('admin_CompanyName');
-          var adminEmailContent = document.getElementById('adminEmail');
-          var adminPasswordContent = document.getElementById('admin_password');
+
+
           if (firstNameContent.value.length > 0) {
             lastNameField.setAttribute("style", "display: initial;");
           } else {

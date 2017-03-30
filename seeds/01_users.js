@@ -11,7 +11,7 @@ exports.seed = function(knex, Promise) {
           last_name: 'Hurd',
           company_name: 'HurdAudio',
           email: 'hurdaudio@gmail.com',
-          hashed_password: '$2a$06$R08R8hCrwbQlv5m2YnB6a.MyTOMxVMu17rTCKd4LVPfnEZWf6ELP.',
+          hashed_password: '$2a$12$aAVThP21ZgwFBEP8W.QgGuftAuRAnGHb.UMHaroARz4rZDCTc/2qS',
           is_admin: true,
           user_avatar_url: 'https://media.licdn.com/media/AAEAAQAAAAAAAAf8AAAAJGMwZDYyMzc2LTAzOGEtNGYwOS1iMDViLTFlYjAyYjYzODIyMQ.jpg',
           created_at: new Date('2017-03-22 14:55:16 UTC'),
