@@ -10,7 +10,8 @@ const bcrypt = require('bcrypt');
 const app = express();
 const visitorfeedbacks = require('./routes/visitorfeedbacks.js');
 const users = require('./routes/users.js');
-const user_blogs = require('./routes/user_blogs.js')
+const user_blogs = require('./routes/user_blogs.js');
+const blog_comments = require('./routes/blog_comments.js');
 // const login = require('./routes/login.js');
 const myPlaintextPassword = 'whip it';
 // const players = require('./routes/players.js');
@@ -33,6 +34,7 @@ app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
 app.use('/visitor_feedbacks', visitorfeedbacks);
 app.use('/users', users);
 app.use('/user_blogs', user_blogs);
+app.use('/blog_comments', blog_comments);
 // app.use('/login', login);
 // app.use('/players', players);
 // app.use('/fantasyteams', fantasyteams);
