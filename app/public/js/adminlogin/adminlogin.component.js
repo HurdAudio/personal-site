@@ -51,6 +51,7 @@
           .then(result=>{
             console.log(result.data);
             console.log("this is where we route to the admin page");
+            document.cookie = "qwerty=whip it good";
             $http.get('/admin').then(()=>{
               $state.go('admin');
             });

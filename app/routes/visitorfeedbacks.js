@@ -2,6 +2,7 @@
 
 const express = require('express');
 const knex = require('../../knex');
+const Cookies = require('cookies');
 
 const router = express.Router();
 
@@ -18,6 +19,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:id', (req, res, next) => {
+
   knex('visitor_feedbacks')
     .select()
     .where('id', req.params.id)
