@@ -3025,6 +3025,25 @@ exports.seed = function(knex, Promise) {
           description: "Enforcer and drug dealer Fernando has seen better days. On his way home from work, some heavily-tattooed gangsters throw him in the back of a car and take him to an abandoned house, where they saw off his friend's head and feed the kid's fingers to...something. Their message is clear: this is their territory, now. But Fernando isn't put down that easily. Using the assistance of a Santeria priestess, an insane Puerto Rican pop sensation, a very human dog, and a Russian hitman, he'll build the courage (and firepower) he'll need to fight a gangbanger who's a bit more than human...",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('books').insert({
+          id: 160,
+          author: 'Garth Risk Hallberg',
+          title: "City on Fire",
+          cover_url: 'https://images.gr-assets.com/books/1422969880l/24189224.jpg',
+          author_url: 'https://images.gr-assets.com/authors/1427047288p8/787031.jpg',
+          publisher: 'Knopf',
+          publication_date: '2015-10-13 0:00:01 UTC',
+          edition: 'Kindle Edition',
+          part_of_series: false,
+          name_of_series: null,
+          number_in_series: null,
+          number_of_pages: 944,
+          author_gender: 'male',
+          author_nationality: 'USA',
+          description: "New York City, 1976. Meet Regan and William Hamilton-Sweeney, estranged heirs to one of the city's great fortunes; Keith and Mercer, the men who, for better or worse, love them; Charlie and Samantha, two suburban teenagers seduced by downtown's punk scene; an obsessive magazine reporter, Richard, and his idealistic neighbor, Jenny, - and the detective trying to figure out what any of them have to do with a shooting in Central Park on New Year's Eve.\n\nThe mystery, as it reverberates through families, friendships, and the corridors of power, will open up even the loneliest-seeming corners of the crowded city. And when the blackout of July 13, 1977, plunges this world into darkness, each of these lives with be changed forever.\n\nCity on Fire is an unforgettable novel about love and betrayal and forgiveness, about art and truth and rock 'n' roll, about what people need from each other in order to live... and about what makes the living worth doing in the first place.",
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
       ]);
     })

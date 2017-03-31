@@ -97,7 +97,7 @@ exports.seed = function(knex, Promise) {
           periodicals_id: null,
           rating: 85,
           review_title: 'Short Stories to Give You PTSD',
-          review_body: "Short stories that unflinchingly portray the lives of the young men who have served in the Iraq and Afghanistan wars of this century. It's hard to overstate how important it is to tell these stories and how Phil Klay brings a heightened degree of credibility (as a soldier who has been there) while exposing the nuanced greys that fall between the pro and anti sides of this conflict. It's a challenging and rewarding read.\n The first stories were short, sharp and brutally sad. Hitting at the trauma of war with such raw verve I was unsure if I could finish reading this collection. Serving in the armed forces is far removed from my own life experiences and this is exactly the value of reading diverse voices. So I soldiered on and the stories got better as they grew longer. The oppressive sadness was persistent and this isn't a book for everyone. But it's an important book and I wish that the people responsible for making the decision to go to war would understand the views and experiences written about so honestly here.\n By the end of the book I was struck by how Klay distilled a complex set of emotions into something that rang true. Impressed by his willingness to explore the extremes of such a masculine set of characters. And how none of it collapses into a single dimension. Impressive and emotionally wrenching.",
+          review_body: "Short stories that unflinchingly portray the lives of the young men who have served in the Iraq and Afghanistan wars of this century. It's hard to overstate how important it is to tell these stories and how Phil Klay brings a heightened degree of credibility (as a soldier who has been there) while exposing the nuanced greys that fall between the pro and anti sides of this conflict. It's a challenging and rewarding read.\n\n The first stories were short, sharp and brutally sad. Hitting at the trauma of war with such raw verve I was unsure if I could finish reading this collection. Serving in the armed forces is far removed from my own life experiences and this is exactly the value of reading diverse voices. So I soldiered on and the stories got better as they grew longer. The oppressive sadness was persistent and this isn't a book for everyone. But it's an important book and I wish that the people responsible for making the decision to go to war would understand the views and experiences written about so honestly here.\n\n By the end of the book I was struck by how Klay distilled a complex set of emotions into something that rang true. Impressed by his willingness to explore the extremes of such a masculine set of characters. And how none of it collapses into a single dimension. Impressive and emotionally wrenching.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -157,7 +157,7 @@ exports.seed = function(knex, Promise) {
           periodicals_id: null,
           rating: 98,
           review_title: 'Blood. It\'s Not Just for Breakfast Anymore',
-          review_body: "First we have the unsurprising facts: Dracula is a vampire. He is un-dead and the entire framework for how vampires operated was spawned by this work. It's a gothic horror tale rife with the flowery prose and slow-moving plot one associates with 19th Century literature.\n Then there are the surprising facts: this novel endures. I was held in its sway and thrilled by its quiet horror. Dracula's appearances in this story are spare and this is a far creepier tale for it. The restraint and quiet, thoughtful pace and dramatic over-telling heightened the dramatic flair. This was a better read than I had anticipated and proof that reading the classics is a rewarding endeavor. Highly recommended.",
+          review_body: "First we have the unsurprising facts: Dracula is a vampire. He is un-dead and the entire framework for how vampires operated was spawned by this work. It's a gothic horror tale rife with the flowery prose and slow-moving plot one associates with 19th Century literature.\n\n Then there are the surprising facts: this novel endures. I was held in its sway and thrilled by its quiet horror. Dracula's appearances in this story are spare and this is a far creepier tale for it. The restraint and quiet, thoughtful pace and dramatic over-telling heightened the dramatic flair. This was a better read than I had anticipated and proof that reading the classics is a rewarding endeavor. Highly recommended.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -169,7 +169,7 @@ exports.seed = function(knex, Promise) {
           periodicals_id: 3,
           rating: 90,
           review_title: 'Love and Heartbreak in Korea',
-          review_body: "In reference to the November 2016 issue: \"The Quality of Your Life\" by Min Jin Lee.\n An excellent short story exploring the life of a young woman in Korea in 1932 under Japanese occupation. Well researched and filled with moments of both tenderness and hardness. This was an excellent selection.",
+          review_body: "In reference to the November 2016 issue: \"The Quality of Your Life\" by Min Jin Lee.\n\n An excellent short story exploring the life of a young woman in Korea in 1932 under Japanese occupation. Well researched and filled with moments of both tenderness and hardness. This was an excellent selection.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -203,6 +203,9 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 14,
           periodicals_id: null,
+          rating: 94,
+          review_title: 'Runaway Slaves in Modern Days',
+          review_body: "I trust Ben H. Winters implicitly when it comes to telling this kind of story. He has a knack for thinking through all the ramifications of his speculative universe and weaving in just enough of the familiar to make the whole thing unsettling. The very notion that slavery would still be an enshrined, legal practice in the United States should be unsettling to any thinking person. Winters casts an unflinching eye at this evil.\n\nVictor, a.k.a. Brother, a.k.a any number of aliases is a tightly wound ball of contradictions of a main character. A former slave. A gifted slave tracker who captures runaways. An invisible anti-hero caught up in the slavery politics of the twenty-first century. A brilliant observer of racism that has been enshrined in the Constitution. He notices everything.\n\nAnd yet he is human and his arc bends toward doing the right thing even as everything devolves toward evil all around him. This is a compelling read and a wildly entertaining ride.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -1570,6 +1573,15 @@ exports.seed = function(knex, Promise) {
           user_id: 1,
           periodical_or_book: 'book',
           books_id: 159,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 170,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 160,
           periodicals_id: null,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')

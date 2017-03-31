@@ -63,6 +63,12 @@
         url: '/admin',
         parent: 'app',
         component: 'admin'
+      })
+      .state({
+        name: 'blog',
+        url: '/blog',
+        parent: 'app',
+        component: 'blog'
       });
 
 

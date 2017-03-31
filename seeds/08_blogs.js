@@ -207,7 +207,7 @@ exports.seed = function(knex, Promise) {
         }),
         knex('blogs').insert({
           id: 21,
-          blog_name: 'Tch Crunch',
+          blog_name: 'Tech Crunch',
           blog_author: 'multiple authors',
           blog_url: 'https://techcrunch.com/',
           blog_img_url: 'https://s0.wp.com/wp-content/themes/vip/techcrunch-2013/assets/images/logo.svg',

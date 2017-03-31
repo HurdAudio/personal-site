@@ -6,6 +6,7 @@ exports.up = function(knex, Promise) {
     table.string('title').notNullable().defaultTo('');
     table.text('body', 1000000).notNullable().defaultTo('');
     table.boolean('published').notNullable().defaultTo(false);
+    table.json('tags').defaultTo(null);
     table.timestamps(true, true);
   });
 };
