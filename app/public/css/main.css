@@ -558,6 +558,18 @@ nav {
   }
 }
 
+#resumeEmailLink:hover {
+  color: rgb(204,19,0);
+}
+
+#resumeGitHubLink:hover {
+  color: rgb(204,19,0);
+}
+
+#resumeLinkedInLink:hover {
+  color: rgb(204,19,0);
+}
+
 .terminalGreen {
   color: rgb(0,255,36);
   text-decoration: none;

@@ -29,8 +29,8 @@
 
 .miniButtons {
   padding: 0.5em;
-  margin-left: 18px;
-  margin-right: 18px;
+  margin-left: 3em;
+  margin-right: 5em;
   margin-top: 6em;
   height: auto;
   font-family: 'Michroma', sans-serif;
@@ -40,4 +40,9 @@
 
 #toggleComm {
   float: right;
+}
+
+#feedbacksText {
+  font-family: 'Michroma', sans-serif;
+  font-size: 18px;
 }

@@ -15,17 +15,17 @@
             <button class="miniButtons" type="button" name="button" ng-click="$ctrl.deleteFeedback(posts.id)">DELETE</button>
 
           </div>
-          <div class="pure-u-1-2">
+          <div id="feedbacksText" class="pure-u-1-2">
             <p>DATE</p>
-            <p>{{posts.created_at}}</p><br>
+            <p>{{posts.clean_date}}</p><br>
             <p>NAME</p>
             <p>{{posts.visitor_name}}</p><br>
             <p>EMAIL</p>
-            <p>{{posts.visitor_email}}</p><br>
+            <p><a href="mailto:{{posts.visitor_email}}">{{posts.visitor_email}}</a></p><br>
             <p>MESSAGE</p>
             <p>{{posts.visitor_message}}</p><br>
             <p>RESPONDED</p>
-            <p>{{posts.responded}}</p><br>
+            <p>{{posts.response_status}}</p><br>
 
           </div>
 
