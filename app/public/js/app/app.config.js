@@ -65,6 +65,12 @@
         component: 'admin'
       })
       .state({
+        name: 'hurdreadlist',
+        url: '/hurdreadlist',
+        parent: 'app',
+        component: 'hurdreadlist'
+      })
+      .state({
         name: 'blog',
         url: '/blog',
         parent: 'app',
