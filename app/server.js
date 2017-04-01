@@ -23,6 +23,7 @@ const user_technical_reading_lists = require('./routes/user_technical_reading_li
 const user_reading_lists = require('./routes/user_reading_lists.js');
 const prize_lists = require('./routes/prize_lists.js');
 const interrupts = require('./routes/interrupts.js');
+const female_author_selections = require('./routes/female_author_selections.js');
 // const login = require('./routes/login.js');
 // const myPlaintextPassword = 'whip it';
 // const players = require('./routes/players.js');
@@ -57,6 +58,7 @@ app.use('/user_technical_reading_lists', user_technical_reading_lists);
 app.use('/user_reading_lists', user_reading_lists);
 app.use('/prize_lists', prize_lists);
 app.use('/interrupts', interrupts);
+app.use('/female_author_selections', female_author_selections);
 // app.use('/login', login);
 // app.use('/players', players);
 // app.use('/fantasyteams', fantasyteams);
