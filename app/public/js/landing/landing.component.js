@@ -157,7 +157,7 @@
         var centerShadow = [];
         centerShadow[0] = (rect.width/2) + rect.left;
         centerShadow[1] = (rect.height/2) + rect.top;
-        document.getElementById('landingZone').addEventListener('mousemove', ()=>{
+        document.addEventListener('mousemove', ()=>{
           trackPointerCoordinates(centerShadow, myName, fullStack);
         });
 

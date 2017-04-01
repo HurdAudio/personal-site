@@ -20,6 +20,10 @@ h1 {
 
 }
 
+#shadowZone {
+  margin-top: 8em;
+}
+
 .datePost {
   background-image: url(../img/compact-cassette-157537.svg);
   background-repeat: no-repeat;
