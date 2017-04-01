@@ -101,7 +101,7 @@ router.delete('/:id', (req, res, next) => {
             visitor_message: record.visitor_message,
             responded: record.responded,
             created_at: record.created_at,
-            updated_at: record.updated_at,
+            updated_at: record.updated_at
           };
 
           res.send(obj);

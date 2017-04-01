@@ -8,7 +8,7 @@ const router = express.Router();
 
 
 router.get('/', (req, res, next) => {
-  knex('periodicals')
+  knex('user_book_reviews')
   .select('*')
   .then((results) => {
     res.send(results);
@@ -20,16 +20,16 @@ router.get('/', (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
 
-  knex('periodicals')
+  knex('user_book_reviews')
     .select()
     .where('id', req.params.id)
     .first()
-    .then((entity) => {
-      if (!entity) {
+    .then((review) => {
+      if (!review) {
         return next();
       }
 
-      res.send(entity);
+      res.send(review);
     })
     .catch((err) => {
       next(err);
@@ -37,17 +37,15 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  knex('periodicals')
+  knex('user_book_reviews')
   .insert({
-    name: req.body.name,
-    issue: req.body.issue,
-    editor: req.body.editor,
-    editor_url: req.body.editor_url,
-    edition: req.body.edition,
-    publication_date: req.body.publication_date,
-    pages: req.body.pages,
-    img_url: req.body.img_url,
-    description: req.body.description
+    user_id: req.body.user_id,
+    periodical_or_book: req.body.periodical_or_book,
+    books_id: req.body.books_id,
+    periodicals_id: req.body.periodicals_id,
+    rating: req.body.rating,
+    review_title: req.body.review_title,
+    review_body: req.body.review_body
 
   }, '*')
   .then((result) => {
@@ -60,18 +58,16 @@ router.post('/', (req, res, next) => {
 
 
 router.patch('/:id', (req, res, next) => {
-  knex('periodicals')
+  knex('user_book_reviews')
   .where('id', req.params.id)
   .update({
-    name: req.body.name,
-    issue: req.body.issue,
-    editor: req.body.editor,
-    editor_url: req.body.editor_url,
-    edition: req.body.edition,
-    publication_date: req.body.publication_date,
-    pages: req.body.pages,
-    img_url: req.body.img_url,
-    description: req.body.description
+    user_id: req.body.user_id,
+    periodical_or_book: req.body.periodical_or_book,
+    books_id: req.body.books_id,
+    periodicals_id: req.body.periodicals_id,
+    rating: req.body.rating,
+    review_title: req.body.review_title,
+    review_body: req.body.review_body
   }, '*')
     .then((results)=>{
        res.status(200).send(results[0]);
@@ -84,7 +80,7 @@ router.patch('/:id', (req, res, next) => {
 router.delete('/:id', (req, res, next) => {
     let record;
 
-      knex('periodicals')
+      knex('user_book_reviews')
         .where('id', req.params.id)
         .first()
         .then((row) => {
@@ -95,7 +91,7 @@ router.delete('/:id', (req, res, next) => {
           record = row;
 
 
-          return knex('periodicals')
+          return knex('user_book_reviews')
             .del()
             .where('id', req.params.id);
         })
@@ -105,14 +101,13 @@ router.delete('/:id', (req, res, next) => {
 
           var obj = {
             id: holder,
-            name: record.name,
-            issue: record.issue,
-            editor: record.editor,
-            editor_url: record.editor_url,
-            edition: record.edition,
-            publication_date: record.publication_date,
-            pages: record.pages,
-            img_url: record.img_url,
+            user_id: record.user_id,
+            periodical_or_book: record.periodical_or_book,
+            books_id: record.books_id,
+            periodicals_id: record.periodicals_id,
+            rating: record.rating,
+            review_title: record.review_title,
+            review_body: record.review_body,
             created_at: record.created_at,
             updated_at: record.updated_at
           };

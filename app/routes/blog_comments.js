@@ -108,7 +108,7 @@ router.delete('/:id', (req, res, next) => {
             comment_title: record.comment_title,
             comment_body: record.comment_body,
             created_at: record.created_at,
-            updated_at: record.updated_at,
+            updated_at: record.updated_at
           };
 
           res.send(obj);

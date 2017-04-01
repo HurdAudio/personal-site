@@ -204,7 +204,7 @@ router.delete('/:id', (req, res, next) => {
             is_admin: record.is_admin,
             user_avatar_url: record.user_avatar_url,
             created_at: record.created_at,
-            updated_at: record.updated_at,
+            updated_at: record.updated_at
           };
 
           res.send(obj);

@@ -129,7 +129,7 @@ router.delete('/:id', (req, res, next) => {
             author_nationality: record.author_nationality,
             description: record.description,
             created_at: record.created_at,
-            updated_at: record.updated_at,
+            updated_at: record.updated_at
           };
 
           res.send(obj);

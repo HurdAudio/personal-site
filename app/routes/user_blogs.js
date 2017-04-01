@@ -102,7 +102,7 @@ router.delete('/:id', (req, res, next) => {
             published: record.published,
             tags: record.tags,
             created_at: record.created_at,
-            updated_at: record.updated_at,
+            updated_at: record.updated_at
           };
 
           res.send(obj);
