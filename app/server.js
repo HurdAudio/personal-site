@@ -19,6 +19,7 @@ const user_book_review_comments = require('./routes/user_book_review_comments.js
 const blogs = require('./routes/blogs.js');
 const user_blog_reading_lists = require('./routes/user_blog_reading_lists.js');
 const user_periodical_reading_lists = require('./routes/user_periodical_reading_lists.js');
+const user_technical_reading_lists = require('./routes/user_technical_reading_lists.js');
 // const login = require('./routes/login.js');
 // const myPlaintextPassword = 'whip it';
 // const players = require('./routes/players.js');
@@ -49,6 +50,7 @@ app.use('/user_book_review_comments', user_book_review_comments);
 app.use('/blogs', blogs);
 app.use('/user_blog_reading_lists', user_blog_reading_lists);
 app.use('/user_periodical_reading_lists', user_periodical_reading_lists);
+app.use('/user_technical_reading_lists', user_technical_reading_lists);
 // app.use('/login', login);
 // app.use('/players', players);
 // app.use('/fantasyteams', fantasyteams);
