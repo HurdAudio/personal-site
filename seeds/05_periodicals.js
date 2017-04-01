@@ -128,8 +128,8 @@ exports.seed = function(knex, Promise) {
           pages: 200,
           img_url: 'https://i.sixfoot6.org/images/nytimes-weight/nytimes-weight-lede.jpg',
           description: "The New York Times (sometimes abbreviated NYT and The Times) is an American daily newspaper, founded and continuously published in New York City since September 18, 1851, by The New York Times Company. The New York Times has won 119 Pulitzer Prizes, more than any other newspaper",
-          created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          created_at: new Date('2017-03-26 14:55:16 UTC'),
+          updated_at: new Date('2017-03-26 14:55:18 UTC')
         }),
         knex('periodicals').insert({
           id: 10,
