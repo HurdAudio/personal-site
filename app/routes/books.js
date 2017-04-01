@@ -24,12 +24,12 @@ router.get('/:id', (req, res, next) => {
     .select()
     .where('id', req.params.id)
     .first()
-    .then((blog) => {
-      if (!blog) {
+    .then((book) => {
+      if (!book) {
         return next();
       }
 
-      res.send(blog);
+      res.send(book);
     })
     .catch((err) => {
       next(err);
