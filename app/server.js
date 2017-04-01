@@ -27,6 +27,7 @@ const female_author_selections = require('./routes/female_author_selections.js')
 const crime_series = require('./routes/crime_series.js');
 const backlog_ebooks = require('./routes/backlog_ebooks.js');
 const science_fiction_series = require('./routes/science_fiction_series.js');
+const free_selections = require('./routes/free_selections.js');
 // const login = require('./routes/login.js');
 // const myPlaintextPassword = 'whip it';
 // const players = require('./routes/players.js');
@@ -65,6 +66,7 @@ app.use('/female_author_selections', female_author_selections);
 app.use('/crime_series', crime_series);
 app.use('/backlog_ebooks', backlog_ebooks);
 app.use('/science_fiction_series', science_fiction_series);
+app.use('/free_selections', free_selections);
 // app.use('/login', login);
 // app.use('/players', players);
 // app.use('/fantasyteams', fantasyteams);
