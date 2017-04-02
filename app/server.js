@@ -67,6 +67,7 @@ const james_tait_black_memorial_prizes = require('./routes/james_tait_black_memo
 const james_tiptree_jr_literary_awards = require('./routes/james_tiptree_jr_literary_awards.js');
 const kiriyama_prizes = require('./routes/kiriyama_prizes.js');
 const kirkus_prizes = require('./routes/kirkus_prizes.js');
+const kitschies = require('./routes/kitschies.js');
 // const login = require('./routes/login.js');
 // const myPlaintextPassword = 'whip it';
 // const players = require('./routes/players.js');
@@ -145,6 +146,7 @@ app.use('/james_tait_black_memorial_prizes', james_tait_black_memorial_prizes);
 app.use('/james_tiptree_jr_literary_awards', james_tiptree_jr_literary_awards);
 app.use('/kiriyama_prizes', kiriyama_prizes);
 app.use('/kirkus_prizes', kirkus_prizes);
+app.use('/kitschies', kitschies);
 // app.use('/login', login);
 // app.use('/players', players);
 // app.use('/fantasyteams', fantasyteams);
