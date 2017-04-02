@@ -84,6 +84,7 @@ const pen_bellwether_prize_for_socially_engaged_fictions = require('./routes/pen
 const pen_faulkner_awards = require('./routes/pen_faulkner_awards.js');
 const pen_hemingway_awards = require('./routes/pen_hemingway_awards.js');
 const pen_open_book_awards = require('./routes/pen_open_book_awards.js');
+const pen_translation_prizes = require('./routes/pen_translation_prizes.js');
 // const login = require('./routes/login.js');
 // const myPlaintextPassword = 'whip it';
 // const players = require('./routes/players.js');
@@ -179,6 +180,7 @@ app.use('/pen_bellwether_prize_for_socially_engaged_fictions', pen_bellwether_pr
 app.use('/pen_faulkner_awards', pen_faulkner_awards);
 app.use('/pen_hemingway_awards', pen_hemingway_awards);
 app.use('/pen_open_book_awards', pen_open_book_awards);
+app.use('/pen_translation_prizes', pen_translation_prizes);
 // app.use('/login', login);
 // app.use('/players', players);
 // app.use('/fantasyteams', fantasyteams);
