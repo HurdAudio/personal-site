@@ -60,6 +60,7 @@ const flannery_oconnor_award_for_short_fictions = require('./routes/flannery_oco
 const goodreads_choice_awards = require('./routes/goodreads_choice_awards.js');
 const governor_general_literary_awards = require('./routes/governor_general_literary_awards.js');
 const hammett_awards = require('./routes/hammett_awards.js');
+const hugo_awards = require('./routes/hugo_awards.js');
 // const login = require('./routes/login.js');
 // const myPlaintextPassword = 'whip it';
 // const players = require('./routes/players.js');
@@ -131,6 +132,7 @@ app.use('/flannery_oconnor_award_for_short_fictions', flannery_oconnor_award_for
 app.use('/goodreads_choice_awards', goodreads_choice_awards);
 app.use('/governor_general_literary_awards', governor_general_literary_awards);
 app.use('/hammett_awards', hammett_awards);
+app.use('/hugo_awards', hugo_awards);
 // app.use('/login', login);
 // app.use('/players', players);
 // app.use('/fantasyteams', fantasyteams);
