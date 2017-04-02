@@ -56,6 +56,7 @@ const crime_writers_association_new_blood_daggers = require('./routes/crime_writ
 const desmond_elliott_prizes = require('./routes/desmond_elliott_prizes.js');
 const edgar_awards = require('./routes/edgar_awards.js');
 const encore_awards = require('./routes/encore_awards.js');
+const flannery_oconnor_award_for_short_fictions = require('./routes/flannery_oconnor_award_for_short_fictions.js');
 // const login = require('./routes/login.js');
 // const myPlaintextPassword = 'whip it';
 // const players = require('./routes/players.js');
@@ -123,6 +124,7 @@ app.use('/crime_writers_association_new_blood_daggers', crime_writers_associatio
 app.use('/desmond_elliott_prizes', desmond_elliott_prizes);
 app.use('/edgar_awards', edgar_awards);
 app.use('/encore_awards', encore_awards);
+app.use('/flannery_oconnor_award_for_short_fictions', flannery_oconnor_award_for_short_fictions);
 // app.use('/login', login);
 // app.use('/players', players);
 // app.use('/fantasyteams', fantasyteams);
