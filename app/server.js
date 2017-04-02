@@ -90,6 +90,7 @@ const pulitzer_prize_for_fictions = require('./routes/pulitzer_prize_for_fiction
 const pulp_ark_new_pulp_awards = require('./routes/pulp_ark_new_pulp_awards.js');
 const rogers_writers_trust_fiction_prizes = require('./routes/rogers_writers_trust_fiction_prizes.js');
 const scotiabank_giller_prizes = require('./routes/scotiabank_giller_prizes.js');
+const shamus_awards = require('./routes/shamus_awards.js');
 // const login = require('./routes/login.js');
 // const myPlaintextPassword = 'whip it';
 // const players = require('./routes/players.js');
@@ -191,6 +192,7 @@ app.use('/pulitzer_prize_for_fictions', pulitzer_prize_for_fictions);
 app.use('/pulp_ark_new_pulp_awards', pulp_ark_new_pulp_awards);
 app.use('/rogers_writers_trust_fiction_prizes', rogers_writers_trust_fiction_prizes);
 app.use('/scotiabank_giller_prizes', scotiabank_giller_prizes);
+app.use('/shamus_awards', shamus_awards);
 // app.use('/login', login);
 // app.use('/players', players);
 // app.use('/fantasyteams', fantasyteams);
