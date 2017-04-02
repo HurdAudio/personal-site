@@ -62,6 +62,7 @@ const governor_general_literary_awards = require('./routes/governor_general_lite
 const hammett_awards = require('./routes/hammett_awards.js');
 const hugo_awards = require('./routes/hugo_awards.js');
 const international_impac_dublin_awards = require('./routes/international_impac_dublin_awards.js');
+const itw_thriller_awards = require('./routes/itw_thriller_awards.js');
 // const login = require('./routes/login.js');
 // const myPlaintextPassword = 'whip it';
 // const players = require('./routes/players.js');
@@ -135,6 +136,7 @@ app.use('/governor_general_literary_awards', governor_general_literary_awards);
 app.use('/hammett_awards', hammett_awards);
 app.use('/hugo_awards', hugo_awards);
 app.use('/international_impac_dublin_awards', international_impac_dublin_awards);
+app.use('/itw_thriller_awards', itw_thriller_awards);
 // app.use('/login', login);
 // app.use('/players', players);
 // app.use('/fantasyteams', fantasyteams);
