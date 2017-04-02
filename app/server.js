@@ -92,6 +92,7 @@ const rogers_writers_trust_fiction_prizes = require('./routes/rogers_writers_tru
 const scotiabank_giller_prizes = require('./routes/scotiabank_giller_prizes.js');
 const shamus_awards = require('./routes/shamus_awards.js');
 const shirley_jackson_awards = require('./routes/shirley_jackson_awards.js');
+const sidewise_awards = require('./routes/sidewise_awards.js');
 // const login = require('./routes/login.js');
 // const myPlaintextPassword = 'whip it';
 // const players = require('./routes/players.js');
@@ -195,6 +196,7 @@ app.use('/rogers_writers_trust_fiction_prizes', rogers_writers_trust_fiction_pri
 app.use('/scotiabank_giller_prizes', scotiabank_giller_prizes);
 app.use('/shamus_awards', shamus_awards);
 app.use('/shirley_jackson_awards', shirley_jackson_awards);
+app.use('/sidewise_awards', sidewise_awards);
 // app.use('/login', login);
 // app.use('/players', players);
 // app.use('/fantasyteams', fantasyteams);
