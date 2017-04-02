@@ -52,6 +52,7 @@ const british_science_fiction_association_awards = require('./routes/british_sci
 const chicago_tribune_heartland_prizes = require('./routes/chicago_tribune_heartland_prizes.js');
 const compton_crook_awards = require('./routes/compton_crook_awards.js');
 const costa_book_awards = require('./routes/costa_book_awards.js');
+const crime_writers_association_new_blood_daggers = require('./routes/crime_writers_association_new_blood_daggers.js');
 // const login = require('./routes/login.js');
 // const myPlaintextPassword = 'whip it';
 // const players = require('./routes/players.js');
@@ -115,6 +116,7 @@ app.use('/british_science_fiction_association_awards', british_science_fiction_a
 app.use('/chicago_tribune_heartland_prizes', chicago_tribune_heartland_prizes);
 app.use('/compton_crook_awards', compton_crook_awards);
 app.use('/costa_book_awards', costa_book_awards);
+app.use('/crime_writers_association_new_blood_daggers', crime_writers_association_new_blood_daggers);
 // app.use('/login', login);
 // app.use('/players', players);
 // app.use('/fantasyteams', fantasyteams);
