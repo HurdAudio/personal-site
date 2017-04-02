@@ -158,6 +158,20 @@ exports.seed = function(knex, Promise) {
           description: "When I was growing up in Florida, we would have tornados now and then. They were long and skinny, or fat and stubby, descending out of storm clouds to crack like a whip over our town, or poking down like the nose of a dog nudging a sand castle. The scariest thing about them—even scarier than their unpredictability—was their strength.\n I was reminded of those tornados when I first read Mike Alberti’s \“Prairie Fire, 1899.\” There are no tornados in this story, but, as the title suggests, there is a fire. A wide, merciless fire. And, as we all know, fires are merciless not because they don’t want to show mercy; they’re merciless because they’re single-minded. They only want one thing: to burn.\n The new issue of One Story is about the meeting of that fire and a mining community on the American frontier at the turn of the century. It has a classic, almost formal voice, and a narrator that moves from person to person with the ease of a spark carried on a breeze. In our Q&A, Mike Alberti describes it as “a sort of fable about the West.” It’s a remarkable, large-hearted short story with great staying power. We hope you enjoy it as much as we did.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('periodicals').insert({
+          id: 12,
+          name: 'New York Times',
+          issue: 'Sunday, April 2, 2017',
+          editor: 'Dean Baquet',
+          editor_url: 'http://pixel.nymag.com/imgs/daily/intelligencer/2014/05/14/14-dean-baquet.w245.h368.2x.jpg',
+          edition: 'Kindle Edition',
+          publication_date: '2017-03-29 0:00:01 UTC',
+          pages: 200,
+          img_url: 'http://a341-47.so.clients.cdn13.com/wp-content/uploads/2017/03/5sNTboycMso.jpg',
+          description: "The New York Times (sometimes abbreviated NYT and The Times) is an American daily newspaper, founded and continuously published in New York City since September 18, 1851, by The New York Times Company. The New York Times has won 119 Pulitzer Prizes, more than any other newspaper",
+          created_at: new Date('2017-04-02 14:55:16 UTC'),
+          updated_at: new Date('2017-04-02 14:55:18 UTC')
         })
       ]);
     })
