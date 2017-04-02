@@ -81,6 +81,7 @@ const national_book_critics_circle_awards = require('./routes/national_book_crit
 const nebula_awards = require('./routes/nebula_awards.js');
 const orange_prizes = require('./routes/orange_prizes.js');
 const pen_bellwether_prize_for_socially_engaged_fictions = require('./routes/pen_bellwether_prize_for_socially_engaged_fictions.js');
+const pen_faulkner_awards = require('./routes/pen_faulkner_awards.js');
 // const login = require('./routes/login.js');
 // const myPlaintextPassword = 'whip it';
 // const players = require('./routes/players.js');
@@ -173,6 +174,7 @@ app.use('/national_book_critics_circle_awards', national_book_critics_circle_awa
 app.use('/nebula_awards', nebula_awards);
 app.use('/orange_prizes', orange_prizes);
 app.use('/pen_bellwether_prize_for_socially_engaged_fictions', pen_bellwether_prize_for_socially_engaged_fictions);
+app.use('/pen_faulkner_awards', pen_faulkner_awards);
 // app.use('/login', login);
 // app.use('/players', players);
 // app.use('/fantasyteams', fantasyteams);
