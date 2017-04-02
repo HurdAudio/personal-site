@@ -72,6 +72,7 @@ const los_angeles_times_book_prizes = require('./routes/los_angeles_times_book_p
 const locus_awards = require('./routes/locus_awards.js');
 const macavity_awards = require('./routes/macavity_awards.js');
 const man_booker_prizes = require('./routes/man_booker_prizes.js');
+const mary_mccarthy_prizes = require('./routes/mary_mccarthy_prizes.js');
 // const login = require('./routes/login.js');
 // const myPlaintextPassword = 'whip it';
 // const players = require('./routes/players.js');
@@ -155,6 +156,7 @@ app.use('/los_angeles_times_book_prizes', los_angeles_times_book_prizes);
 app.use('/locus_awards', locus_awards);
 app.use('/macavity_awards', macavity_awards);
 app.use('/man_booker_prizes', man_booker_prizes);
+app.use('/mary_mccarthy_prizes', mary_mccarthy_prizes);
 // app.use('/login', login);
 // app.use('/players', players);
 // app.use('/fantasyteams', fantasyteams);
