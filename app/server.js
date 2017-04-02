@@ -65,6 +65,7 @@ const international_impac_dublin_awards = require('./routes/international_impac_
 const itw_thriller_awards = require('./routes/itw_thriller_awards.js');
 const james_tait_black_memorial_prizes = require('./routes/james_tait_black_memorial_prizes.js');
 const james_tiptree_jr_literary_awards = require('./routes/james_tiptree_jr_literary_awards.js');
+const kiriyama_prizes = require('./routes/kiriyama_prizes.js');
 // const login = require('./routes/login.js');
 // const myPlaintextPassword = 'whip it';
 // const players = require('./routes/players.js');
@@ -141,6 +142,7 @@ app.use('/international_impac_dublin_awards', international_impac_dublin_awards)
 app.use('/itw_thriller_awards', itw_thriller_awards);
 app.use('/james_tait_black_memorial_prizes', james_tait_black_memorial_prizes);
 app.use('/james_tiptree_jr_literary_awards', james_tiptree_jr_literary_awards);
+app.use('/kiriyama_prizes', kiriyama_prizes);
 // app.use('/login', login);
 // app.use('/players', players);
 // app.use('/fantasyteams', fantasyteams);
