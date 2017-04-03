@@ -1,6 +1,9 @@
 (function() {
   'use strict';
 
+  var bloggingState = "initial";
+  var postID = null;
+
   function getCookie (name) {
     var cookies = document.cookie.split(';');
     for(var i=0 ; i < cookies.length ; ++i) {
@@ -139,26 +142,185 @@
         }
       }
 
+      function generateTags(tagString) {
+        var tagObject = {};
+        var tagArray = tagString.split(',');
+
+        for (let i = 0; i < tagArray.length; i++) {
+          tagObject[i.toString()] = tagArray[i].trim();
+        }
+
+
+        return (tagObject);
+      }
+
+      function savePosting(fromPublish) {
+        var postingObj = {};
+        var titleBar = document.getElementById('newPostTitleField');
+        var contentBar = document.getElementById('newPostBodyField');
+        var tagsBar = document.getElementById('newPostTagsField');
+        var tagsObj = {};
+        if (tagsBar.value.length > 0) {
+          tagsObj = generateTags(tagsBar.value);
+        }
+
+        postingObj.author = 1;
+        postingObj.title = titleBar.value;
+        postingObj.body = contentBar.value;
+        postingObj.tags = JSON.stringify(tagsObj);
+        postingObj.published = fromPublish;
+
+        if (postID === null) {
+          $http.post('/user_blogs', postingObj)
+          .then(result=>{
+            postID = result.data[0].id;
+            console.log(postID);
+          });
+        } else {
+          $http.patch(`/user_blogs/${postID}`, postingObj)
+          .then(updateResult=>{
+            console.log(updateResult.data);
+          });
+        }
+      }
+
+
+
+      function setBloggingState() {
+        var blogC = document.getElementById('blogCreate');
+        var blogR = document.getElementById('blogRead');
+        var blogU = document.getElementById('blogUpdate');
+        var blogD = document.getElementById('blogDelete');
+        var newBlogForm = document.getElementById('newBlogPostEntry');
+
+        switch(bloggingState) {
+          case('initial'):
+            blogC.setAttribute("style", "display: initial;");
+            blogR.setAttribute("style", "display: initial;");
+            blogU.setAttribute("style", "display: none;");
+            blogD.setAttribute("style", "display: none;");
+            newBlogForm.setAttribute("style", "display: none;");
+            break;
+          case('authorNewPost'):
+            newBlogForm.setAttribute("style", "display: initial;");
+            blogC.setAttribute("style", "display: none;");
+            blogR.setAttribute("style", "display: none;");
+            blogU.setAttribute("style", "display: none;");
+            blogD.setAttribute("style", "display: initial;");
+            break;
+          default:
+            // blogC.setAttribute("style", "display: initial;");
+            // blogR.setAttribute("style", "display: initial;");
+            // blogU.setAttribute("style", "display: none;");
+            // blogD.setAttribute("style", "display: none;");
+            // newBlogForm.setAttribute("style", "display: none;");
+        }
+      }
+
+      function publishPost() {
+        var publishObj = {};
+        if (postID === null) {
+          savePosting(true);
+        } else {
+          publishObj.published = true;
+          $http.patch(`/user_blogs/${postID}`, publishObj)
+          .then(data=>{
+            console.log(data.data);
+          });
+        }
+      }
+
+      function initializeNewPostFields() {
+        var title = document.getElementById('newPostTitleField');
+        var body = document.getElementById('newPostBodyField');
+        var tags = document.getElementById('newPostTagsField');
+        title.value = '';
+        body.value = '';
+        tags.value = '';
+        postID = null;
+      }
+
+      function deletePost() {
+        console.log("DELETEing");
+        console.log(postID);
+        if (postID !== null) {
+          $http.delete(`/user_blogs/${postID}`)
+          .then((data)=>{
+            console.log(data);
+            initializeNewPostFields();
+          })
+          .catch(err=>{
+            console.log(err);
+          });
+        }
+      }
+
 
 
       function onInit() {
         console.log("Admin is lit.");
+        var saveButton = document.getElementById('saveNewPost');
+        var publishButton = document.getElementById('publishNewPost');
         var adminAccess = document.getElementById('buttonAdmin');
+        var blogDel = document.getElementById('blogDelete');
         adminAccess.setAttribute("style", "display: none;");
+        var blogHQ = document.getElementById('bloggingHQ');
+        blogHQ.setAttribute("style", "display: none;");
         var messageContent = document.getElementById('communicationsCenter');
         var commToggle = document.getElementById('toggleComm');
+        var blogToggle = document.getElementById('toggleBlogHQ');
+
+
         messageContent.setAttribute("style", "display: none;");
         var communictionsButton = document.getElementById('toggleCommunications');
+        var bloggingButton = document.getElementById('toggleBlogCRUD');
+        var newBlogButton = document.getElementById('blogCreate');
         if (getCookie("qwerty") === "whip it good") {
           communictionsButton.addEventListener('click', ()=> {
             messageContent.setAttribute("style", "display: initial;");
             communictionsButton.setAttribute("style", "display: none;");
             serveUpFeedback();
+            bloggingButton.setAttribute("style", "display: none;");
           });
           commToggle.addEventListener('click', ()=>{
             messageContent.setAttribute("style", "display: none;");
             communictionsButton.setAttribute("style", "display: initial;");
+            bloggingButton.setAttribute("style", "display: initial;");
           });
+          bloggingButton.addEventListener('click', ()=>{
+            blogHQ.setAttribute("style", "display: initial;");
+            bloggingButton.setAttribute("style", "display: none;");
+            communictionsButton.setAttribute("style", "display: none;");
+            setBloggingState();
+          });
+          blogToggle.addEventListener('click', ()=>{
+            blogHQ.setAttribute("style", "display: none;");
+            bloggingButton.setAttribute("style", "display: inital;");
+            communictionsButton.setAttribute("style", "display: initial;");
+          });
+          newBlogButton.addEventListener('click', ()=>{
+            bloggingState = "authorNewPost";
+            setBloggingState();
+          });
+          saveButton.addEventListener('click', ()=>{
+            bloggingState = 'authorNewPost';
+            setBloggingState();
+            savePosting(false);
+          });
+          publishButton.addEventListener('click', ()=>{
+            bloggingState = 'initial';
+            setBloggingState();
+            publishPost();
+            initializeNewPostFields();
+            postID = null;
+          });
+          blogDel.addEventListener('click', ()=>{
+            bloggingState = "initial";
+            setBloggingState();
+
+            deletePost();
+          });
+
         } else {
           alert("FORBIDDEN");
         }
