@@ -13,14 +13,17 @@
     </div>
   </div>
 
-  <main id="blogStream" ng-repeat="posts in $ctrl.blogStream | orderBy : $ctrl.sortBy">
+
 
     <div id="blogBody" class="pure-g">
 
+
+
       <div class="pure-u-1-4">
         <div class="datePost">
-          <h4>{{posts.abbrev_date}}</h4>
-          <p>Posted by <a href="#">{{posts.author_name}}</a> @ {{posts.clean_date}}.</p>
+          <h4>{{$ctrl.blog.abbrev_date}}</h4>
+          <p>Posted by <a href="#">{{$ctrl.blog.author_name}}</a> @ {{$ctrl.blog.clean_date}}.</p>
+          <a href="/blog"><button class="commentButton">back to blogs</button></a>
 
         </div>
 
@@ -33,13 +36,13 @@
       </div>
       <div class="pure-u-3-4">
         <div class="blogPost">
-          <h1 class="blogTitle" ng-click="$ctrl.getSinglePost(posts.id)"><a href="#">{{posts.title}}</a></h1>
-          <p ng-bind-html="posts.bodyClean"></p>
+          <h1 class="blogTitle"><a href="#">{{$ctrl.blog.title}}</a></h1>
+          <p ng-bind-html="$ctrl.blog.bodyClean"></p>
 
         </div>
         <div class="blogTags">
           <h6>Tags:</h6>
-          <p ng-bind-html="posts.htmlTags"></p>
+          <p ng-bind-html="$ctrl.blog.htmlTags"></p>
 
         </div>
 
@@ -66,7 +69,6 @@
       </div>
 
     </div>
-  </main>
 
   <div class="wrapper">
      <h1>hurdaudio</h1>

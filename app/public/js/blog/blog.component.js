@@ -16,6 +16,13 @@
 
       vm.$onInit = onInit;
       vm.sortBy = '-created_at';
+      vm.getSinglePost = getSinglePost;
+
+      function getSinglePost(whichPost){
+        $http.get(`/singleblog/${whichPost}`).then(()=>{
+          $state.go('singleblog', {id: whichPost});
+        });
+      }
 
       function cleanUpDates(messages) {
         var time = "";
