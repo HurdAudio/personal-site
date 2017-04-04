@@ -3,6 +3,9 @@
   <div id="toggleCommunications">
     <h4><button class="adminiButton" id="communicationButton">COMMUNICATIONS CENTER</button></h4>
   </div>
+  <div id="toggleBlogCRUD">
+    <h4><button class="adminiButton" id="BlogCrudButton">HURDAUDIO BLOG</button></h4>
+  </div>
 
   <div id="communicationsCenter">
     <button id="toggleComm" class="miniButtons">TOGGLE OUT</button>
@@ -32,6 +35,72 @@
         </main>
       </div>
     </container>
+  </div>
+
+  <div id="bloggingHQ">
+    <div class="pure-g">
+      <div class="pure-u-1-4">
+        <button id="toggleBlogHQ" class="miniButtons">TOGGLE OUT</button>
+        <button id="blogCreate" class="miniButtons">NEW POST</button>
+        <button id="blogRead" class="miniButtons">POSTS</button>
+        <button id="blogUpdate" class="miniButtons">EDIT POST</button>
+        <button id="blogDelete" class="miniButtons">DELETE POST</button>
+      </div>
+      <div id="newBlogPostEntry" class="pure-u-3-4">
+        <form class="pure-form pure-form-stacked" name="blogPost">
+
+          <fieldset>
+            <h4>Title:</h4>
+            <p><label for="blogTitle" id="newPostTitle"><textarea class="blogPost" type="text" name="blogTitle" id="newPostTitleField" ></textarea></label></p>
+            <h4>Content:</h4>
+            <p><label for="blogBody" id="newPostBody"><textarea class="blogPost" type="text" name="blogBody" id="newPostBodyField" ></textarea></label></p>
+            <h4>Tags:</h4>
+            <p><label for="blogTags" id="newPostTags"><textarea class="blogPost" type="text" name="blogTags" id="newPostTagsField" ></textarea></label></p>
+            <button id="saveNewPost" class="miniButtons">SAVE</button>
+            <button id="publishNewPost" class="miniButtons">PUBLISH</button>
+
+          </fieldset>
+
+        </form>
+        <img src="./img/typewriter-312748.svg" height="50%">
+      </div>
+
+      <div id="readPosts">
+        <div>
+          <button id="exitRead" class="miniButtons" type="button" name="button" >EXIT</button>
+          <!-- <button class="miniButtons" type="button" name="button" ng-click="$ctrl.deleteFeedback(posts.id)">DELETE</button> -->
+
+        </div>
+        <div class="pure-u-3-4">
+          <main class="blogPost" id="readFunctionality" ng-repeat="entries in $ctrl.blogPosts | orderBy : $ctrl.blogSortBy">
+
+
+            <div id="blogPostingsList">
+              <a href="#" ng-click="$ctrl.editPosting(entries.id)"><p>{{entries.clean_date}}</p>
+              <p >{{entries.id}} : {{entries.title}}</p></a>
+
+
+            </div>
+
+          </main>
+        </div>
+
+
+      </div>
+      <div id="readSinglePost" class="pure-u-3-4">
+        <div>
+          <button id="exitSingleRead" class="miniButtons" type="button" name="button" >EXIT</button>
+        </div>
+        <div class="blogPost">
+          <h1 class="blogTitle">{{$ctrl.singlePost.title}}</h1>
+          <br><p ng-bind-html="$ctrl.singlePost.bodyClean"></p>
+        </div>
+        <div class="blogTags">
+          <br><p>TAGS: <em>{{$ctrl.singlePost.tagString}}</em></p>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 

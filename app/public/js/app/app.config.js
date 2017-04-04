@@ -77,6 +77,12 @@
         component: 'blog'
       })
       .state({
+        name: 'singleblog',
+        url: '/singleblog/:id',
+        parent: 'app',
+        component: 'singleblog'
+      })
+      .state({
         name: 'harmonictheory',
         url: '/harmonictheory',
         parent: 'app',
