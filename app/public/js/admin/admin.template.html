@@ -64,6 +64,41 @@
         </form>
         <img src="./img/typewriter-312748.svg" height="50%">
       </div>
+
+      <div id="readPosts">
+        <div>
+          <button id="exitRead" class="miniButtons" type="button" name="button" >EXIT</button>
+          <!-- <button class="miniButtons" type="button" name="button" ng-click="$ctrl.deleteFeedback(posts.id)">DELETE</button> -->
+
+        </div>
+        <div class="pure-u-3-4">
+          <main class="blogPost" id="readFunctionality" ng-repeat="entries in $ctrl.blogPosts | orderBy : $ctrl.blogSortBy">
+
+
+            <div id="blogPostingsList">
+              <a href="#" ng-click="$ctrl.editPosting(entries.id)"><p>{{entries.clean_date}}</p>
+              <p >{{entries.id}} : {{entries.title}}</p></a>
+
+
+            </div>
+
+          </main>
+        </div>
+
+
+      </div>
+      <div id="readSinglePost" class="pure-u-3-4">
+        <div>
+          <button id="exitSingleRead" class="miniButtons" type="button" name="button" >EXIT</button>
+        </div>
+        <div class="blogPost">
+          <h1 class="blogTitle">{{$ctrl.singlePost.title}}</h1>
+          <br><p ng-bind-html="$ctrl.singlePost.bodyClean"></p>
+        </div>
+        <div class="blogTags">
+          <br><p>TAGS: <em>{{$ctrl.singlePost.tagString}}</em></p>
+        </div>
+      </div>
     </div>
 
   </div>

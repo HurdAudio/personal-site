@@ -33,6 +33,36 @@
       vm.deleteFeedback = deleteFeedback;
       vm.serveUpFeedback = serveUpFeedback;
       vm.sortBy = '-created_at';
+      vm.blogSortBy = '-created_at';
+      vm.editPosting = editPosting;
+
+      function generateTagString(tagsOfJson) {
+        var theString = '';
+        var theArray = [];
+
+        for (var key in tagsOfJson) {
+          theArray[parseInt(key)] = tagsOfJson[key];
+        }
+        for (let i = 0; i < (theArray.length - 1); i++) {
+          theString += theArray[i] + ', ';
+        }
+        theString += theArray[theArray.length-1];
+
+        return(theString);
+      }
+
+      function editPosting(idNo) {
+        bloggingState = 'singleRead';
+        setBloggingState();
+        postID = idNo;
+        $http.get(`/user_blogs/${idNo}`)
+        .then(data=>{
+          vm.singlePost = data.data;
+          vm.singlePost.tagString = generateTagString(vm.singlePost.tags);
+          vm.singlePost.bodyClean = vm.singlePost.body.replace(/\r\n|\n|\r/gm, '<br>');
+        });
+
+      }
 
       function cleanUpDates(messages) {
         var time = "";
@@ -46,13 +76,13 @@
           } else {
             messages[i].response_status = "NO";
           }
-          if (messages[i].created_at[11] === 0) {
+          if (messages[i].created_at[11] === '0') {
             time = messages[i].created_at.slice(12,16);
           } else {
             time = messages[i].created_at.slice(11,16);
           }
-          if (messages[i].created_at[5] === 0) {
-            day = messages[i].created_at[6];
+          if (messages[i].created_at[8] === '0') {
+            day = messages[i].created_at[9];
           } else {
             day = messages[i].created_at.slice(8, 10);
           }
@@ -191,7 +221,9 @@
         var blogR = document.getElementById('blogRead');
         var blogU = document.getElementById('blogUpdate');
         var blogD = document.getElementById('blogDelete');
+        var singleReader = document.getElementById('readSinglePost');
         var newBlogForm = document.getElementById('newBlogPostEntry');
+        var reader = document.getElementById('readPosts');
 
         switch(bloggingState) {
           case('initial'):
@@ -200,13 +232,36 @@
             blogU.setAttribute("style", "display: none;");
             blogD.setAttribute("style", "display: none;");
             newBlogForm.setAttribute("style", "display: none;");
+            reader.setAttribute("style", "display: none;");
+            singleReader.setAttribute("style", "display: none;");
             break;
+
           case('authorNewPost'):
             newBlogForm.setAttribute("style", "display: initial;");
             blogC.setAttribute("style", "display: none;");
             blogR.setAttribute("style", "display: none;");
             blogU.setAttribute("style", "display: none;");
             blogD.setAttribute("style", "display: initial;");
+            reader.setAttribute("style", "display: none;");
+            singleReader.setAttribute("style", "display: none;");
+            break;
+          case('reading'):
+            newBlogForm.setAttribute("style", "display: none;");
+            blogC.setAttribute("style", "display: none;");
+            blogR.setAttribute("style", "display: none;");
+            blogU.setAttribute("style", "display: none;");
+            blogD.setAttribute("style", "display: none;");
+            reader.setAttribute("style", "display: initial;");
+            singleReader.setAttribute("style", "display: none;");
+            break;
+          case ('singleRead'):
+            reader.setAttribute("style", "display: none;");
+            singleReader.setAttribute("style", "display: initial;");
+            blogC.setAttribute("style", "display: none;");
+            blogR.setAttribute("style", "display: none;");
+            blogU.setAttribute("style", "display: initial;");
+            blogD.setAttribute("style", "display: none;");
+            newBlogForm.setAttribute("style", "display: none;");
             break;
           default:
             // blogC.setAttribute("style", "display: initial;");
@@ -219,14 +274,20 @@
 
       function publishPost() {
         var publishObj = {};
-        if (postID === null) {
-          savePosting(true);
-        } else {
-          publishObj.published = true;
-          $http.patch(`/user_blogs/${postID}`, publishObj)
-          .then(data=>{
-            console.log(data.data);
-          });
+        var title = document.getElementById('newPostTitleField');
+        var body = document.getElementById('newPostBodyField');
+        var tags = document.getElementById('newPostTagsField');
+        // prevent saving several blank records in user_blogs database
+        if ((title.value.length > 0) || (body.value.length > 0) || (tags.value.length > 0)){
+          if (postID === null) {
+            savePosting(true);
+          } else {
+            publishObj.published = true;
+            $http.patch(`/user_blogs/${postID}`, publishObj)
+            .then(data=>{
+              console.log(data.data);
+            });
+          }
         }
       }
 
@@ -255,13 +316,37 @@
         }
       }
 
+      function readTheBlogs () {
+        $http.get('/user_blogs')
+        .then(blogData=>{
+          vm.blogPosts = cleanUpDates(blogData.data);
+        });
+      }
+
+      function populateEditingPost() {
+        $http.get(`/user_blogs/${postID}`)
+        .then(data=>{
+          var posting = data.data;
+          var titleBarField = document.getElementById('newPostTitleField');
+          var bodyBarField = document.getElementById('newPostBodyField');
+          var tagsBarField = document.getElementById('newPostTagsField');
+          titleBarField.value = posting.title;
+          bodyBarField.value = posting.body;
+          tagsBarField.value = generateTagString(posting.tags);
+        });
+      }
+
 
 
       function onInit() {
         console.log("Admin is lit.");
         var saveButton = document.getElementById('saveNewPost');
         var publishButton = document.getElementById('publishNewPost');
+        var readPostsButton = document.getElementById('blogRead');
         var adminAccess = document.getElementById('buttonAdmin');
+        var editButton = document.getElementById('blogUpdate');
+        var exitReader = document.getElementById('exitRead');
+        var exitSingleRead = document.getElementById('exitSingleRead');
         var blogDel = document.getElementById('blogDelete');
         adminAccess.setAttribute("style", "display: none;");
         var blogHQ = document.getElementById('bloggingHQ');
@@ -293,6 +378,15 @@
             communictionsButton.setAttribute("style", "display: none;");
             setBloggingState();
           });
+          exitReader.addEventListener('click', ()=>{
+            bloggingState = 'initial';
+            setBloggingState();
+          });
+          exitSingleRead.addEventListener('click', ()=>{
+            postID = null;
+            bloggingState = 'initial';
+            setBloggingState();
+          });
           blogToggle.addEventListener('click', ()=>{
             blogHQ.setAttribute("style", "display: none;");
             bloggingButton.setAttribute("style", "display: inital;");
@@ -320,6 +414,16 @@
 
             deletePost();
           });
+          readPostsButton.addEventListener('click', ()=>{
+            bloggingState = "reading";
+            setBloggingState();
+            readTheBlogs();
+          });
+          editButton.addEventListener('click', ()=>{
+            bloggingState = 'authorNewPost';
+            setBloggingState();
+            populateEditingPost();
+          })
 
         } else {
           alert("FORBIDDEN");
