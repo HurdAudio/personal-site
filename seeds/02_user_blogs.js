@@ -14,6 +14,16 @@ exports.seed = function(knex, Promise) {
           tags: { "0": "lorem ipsum", "1": "dque partem", "2": "gubergren" },
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2016-03-22 14:55:18 UTC')
+        }),
+        knex('user_blogs').insert({
+          id: 2,
+          author: 1,
+          title: 'Hello World',
+          body: "World, hello!\n\nWelcome to the HurdAudio blog now hosted at DevinHurd.com. \n\nMany of the features are in progress and now that a bare-bones blogging platform is enabled I will use this space to keep visitors up to date on feature plans and rollouts. At present we have a solid landing page with links to a resume page, projects page, HurdAudio page (which this blog is a subset of), HurdReads page and a contact page. Not all the subsets are wired in. But we have a blog!\n\nRecently completed feature: full Create/Read/Update/Delete functionality for the blog on both the user and admin side. Blogging may begin in earnest. Filtering by tags and comments are not yet enabled. But I've left the display components for those in place for the time being as they help with spacing on screen.\n\nNow working on: Media queries for the Projects page. Right now it displays poorly on phones and tablets. That will be changed shortly.\n\nOn deck: Mock-up page for the Technical Reading List subpage of HurdReads. The plan is to link to an example of what this section will look like.\n\nComments aren't enabled below just yet. But do feel free to shoot me a message on the Contact page. \n",
+          published: true,
+          tags: { "0": "admin", "1": "feature rollout", "2": "introduction" },
+          created_at: new Date('2017-04-04T16:58:42.068Z'),
+          updated_at: new Date('2017-04-04T16:58:42.068Z')
         })
       ]);
     })
