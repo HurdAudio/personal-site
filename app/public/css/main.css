@@ -2183,7 +2183,7 @@ input[value="back"]:checked ~ .cubeContainer .cubeCube {
   .clip-text_one p {
     font-family: 'Kanit', serif;
     font-weight: bolder;
-    font-size: 42px;
+    font-size: 24px;
     z-index: -1;
   }
 
@@ -2197,6 +2197,7 @@ input[value="back"]:checked ~ .cubeContainer .cubeCube {
     opacity: 1.0;
     height: 80%;
     width: 80%;
+    align-self: center;
   }
 
   .clip-text_one img:hover {
@@ -2214,7 +2215,7 @@ input[value="back"]:checked ~ .cubeContainer .cubeCube {
   .clip-text_two p {
     font-family: 'Kanit', serif;
     font-weight: bolder;
-    font-size: 42px;
+    font-size: 24px;
   }
 
   .clip-text_two img {
@@ -2233,6 +2234,7 @@ input[value="back"]:checked ~ .cubeContainer .cubeCube {
     opacity: 1.0;
     height: 80%;
     width: 80%;
+    align-self: center;
   }
 
 
@@ -2245,7 +2247,7 @@ input[value="back"]:checked ~ .cubeContainer .cubeCube {
   .clip-text_twelve p {
     font-family: 'Kanit', serif;
     font-weight: bolder;
-    font-size: 42px;
+    font-size: 24px;
   }
 
   .clip-text_twelve img {
@@ -2264,6 +2266,7 @@ input[value="back"]:checked ~ .cubeContainer .cubeCube {
     opacity: 1.0;
     height: 80%;
     width: 80%;
+    align-self: center;
   }
 
 
@@ -2276,7 +2279,7 @@ input[value="back"]:checked ~ .cubeContainer .cubeCube {
   .clip-text_fourteen p {
     font-family: 'Kanit', serif;
     font-weight: bolder;
-    font-size: 42px;
+    font-size: 24px;
   }
 
   .clip-text_fourteen img {
@@ -2295,6 +2298,7 @@ input[value="back"]:checked ~ .cubeContainer .cubeCube {
     opacity: 1.0;
     height: 80%;
     width: 80%;
+    align-self: center;
 
   }
 

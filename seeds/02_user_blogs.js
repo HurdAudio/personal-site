@@ -24,6 +24,16 @@ exports.seed = function(knex, Promise) {
           tags: { "0": "admin", "1": "feature rollout", "2": "introduction" },
           created_at: new Date('2017-04-04T16:58:42.068Z'),
           updated_at: new Date('2017-04-04T16:58:42.068Z')
+        }),
+        knex('user_blogs').insert({
+          id: 3,
+          author: 1,
+          title: 'Projecting',
+          body: "Recently completed feature: Projects page now resizes for small screens. We try to be friendly to phones and tablets here at devinhurd.com.\n\nNow working on: Mock-up page for the Technical Reading List subpage of HurdReads. I'm looking at a number of creative directions to go with this.\n\nOn deck: Writing the introduction material for the Harmonic Theory subpage of HurdAudio. Content. Content. Content.\n",
+          published: true,
+          tags: { "0": "admin", "1": "feature rollout" },
+          created_at: new Date('2017-04-05T01:39:42.068Z'),
+          updated_at: new Date('2017-04-05T01:39:42.068Z')
         })
       ]);
     })
