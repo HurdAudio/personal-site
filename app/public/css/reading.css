@@ -1,0 +1,50 @@
+
+.bookTech {
+	width: 190px;
+	height: 190px;
+	position: relative;
+	z-index: 20;
+	margin: 10px;
+	display: inline-block;
+	text-align: center;
+	transition: -webkit-transform 1.8s ease-in;
+	-webkit-transform: rotateX(15deg);
+	box-shadow: 10px 10px 30px;
+  -webkit-transform: rotateY(30deg);
+}
+
+#shelf {
+  background-image: url(../img/shelf-575409.svg) no-repeat ;
+
+
+}
+
+.bookTech:hover {
+  transition: -webkit-transform 2.8s ease-in;
+	-webkit-transform: rotateY(-25deg);
+
+}
+
+.bookTech img {
+	width: 100%;
+	position: relative;
+}
+
+
+
+#braced-corners {
+  height: auto;
+	border-image: url(../img/background-1430115.svg) 50 50;
+	background-color: rgba(255,255,255,0.3);
+	border-style: inset;
+	border-width: 10px;
+  transition: 1.8s;
+  margin: 2rem;
+  padding: 0 2% 0 2%;
+  background-image: url(../img/chip-1710300.svg);
+  background-size: 40%;
+	}
+#braced-corners:hover {
+  border-image: url(../img/background-1430115.svg) 25 25;
+  background-size: 20%;
+}

@@ -34,6 +34,16 @@ exports.seed = function(knex, Promise) {
           tags: { "0": "admin", "1": "feature rollout" },
           created_at: new Date('2017-04-05T01:39:42.068Z'),
           updated_at: new Date('2017-04-05T01:39:42.068Z')
+        }),
+        knex('user_blogs').insert({
+          id: 4,
+          author: 1,
+          title: 'Tech Reads Mock-up is Go',
+          body: "Recently completed feature: Tech Reading List mock-up is in place and served up via Angular off of the HurdReads page. Stay tuned as functionality gets added to this side.\n\nNow working on: Writing the Introduction section for the Harmonic Theory portion of the HurdAudio page. I'm going to incorporate the Web Audio API and make this an interactive explanation of my intonation theory. So it's time to pour a little love into it.\n\nOn deck: Bringing the Reading List page from mock-up to dynamically functioning CRUD (Create, Read, Update, Delete). This will bring a significant portion of the HurdReads feature set online.\n",
+          published: true,
+          tags: { "0": "admin", "1": "feature rollout" },
+          created_at: new Date('2017-04-05T16:28:57.847Z'),
+          updated_at: new Date('2017-04-05T16:28:57.847Z')
         })
       ]);
     })
