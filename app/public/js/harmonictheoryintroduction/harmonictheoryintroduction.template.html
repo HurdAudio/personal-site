@@ -1,0 +1,247 @@
+<div>
+  <div class="container fake-nav">
+    <div class="pure-menu pure-menu-horizontal">
+      <nav><div class="hit-the-floor">
+        <div class="pure-g">
+          <div class="pure-u-1-5"><p><a href="/resume" class="pure-menu-heading pure-menu-link">Resume</a></p></div>
+          <div class="pure-u-1-5"><p><a href="/projects" class="pure-menu-heading pure-menu-link">Projects</a></p></div>
+          <div class="pure-u-1-5"><p><a href="/" class="pure-menu-heading pure-menu-link">Home</a></p></div>
+          <div class="pure-u-1-5"><p><a href="/hurdreads" class="pure-menu-heading pure-menu-link">HurdReads</a></p></div>
+          <div class="pure-u-1-5"><p><a href="/contact" class="pure-menu-heading pure-menu-link">Contact</a></p></div>
+        </div>
+      </div></nav>
+    </div>
+  </div>
+
+  <div id="blogBody" class="pure-g">
+    <div class="pure-u-1-4">
+    </div>
+    <div class="pure-u-3-4">
+      <div class="blogPost">
+        <h1 class="blogTitle">Introduction</h1>
+        <p>This is a systematic exploration of harmonic potentialities. An attempt to cover both the pragmatic and the impossible. To cast a net that draws in both the microscopic densities contained within a semitone and the impossible leaps of intervals larger than the range of human perception. It is motivated by a need to understand what is possible by including the impossible. And we get there by starting with what is known and audible.</p>
+        <br>
+        <p>My harmonic theory manifests itself as an ordered approach to carving up frequency space. And then questioning the assumptions built into each definition. It is presented here as an explanation and a suggested series of exercises. I recommend hearing these frequencies and these frequency relationships. I make extensive use of musical and mathematical notation to describe these harmonic structures. I also provide sonic examples through simple synthesis with the Web Audio API. I recommend that the reader also take the time to apply these to their own musical context. To tune their own instrument(s). And to get these scales and pitch sets into the ears and under the fingers.</p>
+        <h2 class="subHeading">Pitch</h2>
+        <p>What is pitch? And how many pitches are there?</p>
+        <br>
+        <p>We have eighty-eight of them on a standard, western piano. The violin typically has four strings with pitches selected by the position of the player’s finger upon a fretless board. Traditional notation offers up twelve discreet points within each octave. Music from Persia or India offers up different divisions - and these are often more than twelve per octave.</p>
+        <br>
+        <p>The answer is that pitch is a discreet point along a continuum of frequencies. Human hearing roughly encompasses a range from 5Hertz to 23,000Hertz. When we refer to a pitch, we’re looking at a fixed point. And there are an infinite number of them. Convention and physical limitations often whittle the possibilities down to a small subset that is easier for humans to perceive and work with. The forward thinking musician and theorist will understand both convention and the unrealized potential lurking within the physics of vibrating tones.</p>
+        <br>
+        <p>When exploring infinite possibilities, it helps to start from somewhere. Let’s begin by selecting a single pitch:</p>
+        <div id="eflat3"></div>
+        <p>This is the traditional, Western notation for E-flat. More specifically, it is the E-flat below middle-C. When “in tune,” it sounds at a frequency of 155.5635 Hertz. In actual practice, vocalists and instrumentalists are in the general vicinity of 155.5635 Hertz. Computers, however, can be completely precise. For the purposes of exploring this harmonic theory, we will work with the assumption that 155.5635 Hertz and the notation above are interchangeable representations of a fixed point along the frequency spectrum.</p>
+        <br>
+        <p>Let’s examine another pitch:</p>
+        <div id="eflat4"></div>
+        <p>This is the traditional, Western notation for E-flat above middle C. It is a full octave higher than our first E-flat. When we talk about the relationship between these pitches - or any set of pitches - we are talking about harmony.</p>
+        <br>
+        <p>So let’s talk about harmony with regard to our two pitches. The second E-flat sounds at a frequency of 311.1270 Hertz. We now have two different ways to represent these pitches: (1) the notated E-flats using traditional musical notation and (2) the sounding frequencies of 155.5635 Hertz and 311.1270 Hertz respectively.</p>
+        <div id="eflat4WithHertz"></div>
+        <h4>311.1270 Hz</h4>
+        <div id="eflat3WithHertz"></div>
+        <h4>155.5635 Hz</h4>
+        <p>There are a couple more notation standards to introduce here, frequency ratio and cents:</p>
+        <div id="eflat4WithRatioAndCents"></div>
+        <h4>2/1 (1200.00-cents)</h4>
+        <div id="eflat3WithRatioAndCents"></div>
+        <h4>1/1 (0.00-cents)</h4>
+        <p>Frequency ratio is the relationship to an origin (in this case, the E-flat below middle-C as 1/1). Given the sounding frequency of 155.5635 Hertz, the E-flat one octave higher would have a frequency ratio of 2/1. 311.1270 Hertz is exactly double 155.5635 hertz, or 2/1. In this manner, we can use frequency ratios as an option for notating pitch in a manner that is harmonically descriptive.</p>
+        <br>
+        <p>Cents are a standard intervallic unit. There are 1200-cents per octave. Each equal-tempered semitone (the standard Western semitone) is exactly 100-cents. Cents can be a relatively intuitive way to understand how tuning systems differ from Western tuning. With our two pitches, we can also notate their harmonic relationship as 0.00-cents and 1200.00-cents respectively.</p>
+        <br>
+        <p>This study of harmonic theory will use a combination of these four representations of pitch to best express the harmonic related-ness of a given set of pitches. With this set, consisting of 1/1 and 2/1, the harmonic-relatedness is relatively simple. The standard notation gives us two different pitches that go by the same name: E-flat. This is called pitch-class. In most music, pitches that are separated by an octave (or multiple-octaves) are understood to be so strongly related as to be virtually interchangeable. Or at least serve the same harmonic function regardless of register. This is why a vocalist can sing a phrase “an octave lower” without disrupting the cognitive perception of how the phrase functions harmonically.</p>
+        <br>
+        <h2 class="subHeading">Scale</h2>
+        <p>What is a scale? How many are there?</p>
+        <br>
+        <p>A scale is essentially a set of fixed frequency points (pitches). These are typically represented as an ordered sequence of intervals that repeat. In most music, this sequence repeats at the octave - reinforcing the strong related-ness of pitch-classes at the octave. As we will explore later, the octave need not be assumed.</p>
+        <br>
+        <p>There are an infinite number of scales. Even within the fixed eighty-eight pitches found on a piano, there is an astronomically large number of possible scales. By introducing divisions of the frequency spectrum at any possible point we begin to glimpse into the infinite possibilities for harmony.</p>
+        <br>
+        <p>This study of harmonic theory focuses on scales. Their construction. Their transformation. And the multiple systems we can use to re-tune and alter them. It begins with a standard Lydian Scale and builds outward from there to encompass less traditional structures and many impractical ones. The curious ear should be eager to hear the impossible and the impractical. The tuning, hearing and playing with scales in considered invaluable practice. It is recommended that one follows where their ear leads when following along with this study. The online format of this harmonic theory allows for both linear and non-linear exploration of this systematic approach to harmony.</p>
+        <br>
+        <h2 class="subHeading">Structure</h2>
+        <p>A few introductory words about the structure and conventions observed in this harmonic study.</p>
+        <br>
+        <p>There are essentially two paths to follow. The sequence of “chapters” is an attempt to exhaustively explore every scale within an infinite number of possibilities. Each chapter adds a new scale to our lexicon. And then often reviews some the scales we have previously examined. It begins with an E-flat Lydian Scale, and then moves on to the E-flat Ionian Scale. Then returns to the Lydians with a straight transposition of the E-flat to E. This is generally the pattern: new scale type, then an examination of new scales within old types. The other path drills more specifically within each scale type. It begins with the Lydian Scale and then examines the infinite possibilities contained within Lydian structures. This approach is repeated for Ionian Scales, Mixolydian Scales, Dorian Scales and so on. This approach also branches out to include more generative scales (such as simply dividing an octave into x-number of steps or exploring harmonic systems derived from harmonic lattice structures). Feel free to follow along either path or even bounce freely between them.</p>
+        <br>
+        <p>Conventions observed in this presentation:</p>
+        <br>
+        <ul id="conventions">
+          <li><p>Volume Control knob is provided at the bottom left corner of each page.</p>
+          <ul>
+            <li>
+              <p>Listen to audible examples at a comfortable volume level.</p>
+            </li>
+          </ul></li>
+          <li><p>Hertz notation is rounded off to four decimal points.</p>
+            <ul>
+              <li>
+                <p>This is the compromise arrived at for accuracy and visual clarity.</p>
+              </li>
+            </ul>
+          </li>
+          <li><p>Cents notation is rounded off to two decimal points.</p>
+            <ul>
+              <li>
+                <p>Few people can discern the harmonic difference between two tones just 1-cent apart. By working at an accuracy level of hundredths-of-a-cent I am attempting to stay well within a range where rounding-error won’t produce audible differences.</p>
+              </li>
+            </ul>
+          </li>
+          <li><p>Scales are synthesized and audible.</p>
+            <ul>
+              <li>
+                <p>The synthesizer embedded within your browser in the form of the Web Audio API is utilized to render precise frequencies so that their harmonic relatedness can be heard. It would be crazy not to take advantage of this medium when talking about sound.</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <h2 class="subHeading">The Harmonic Series</h2>
+        <p>We conclude this introduction with study of the physics of pitch as it relates to the harmonic series.</p>
+        <div id="eFlatHarmonicSeries"></div>
+        <p>The acoustic properties of vibrating strings, columns of air, wooden or metallic bars, membranes, etc. typically involve vibrations along the harmonic series. That is, a string will vibrate along its full length (producing the fundamental frequency) and also exhibit modes of vibration at 1/2, 1/3, 1/4, 1/5, etc. its length at varying degrees of amplitude. The distribution of energy along these frequencies is a primary characteristic of timbre. By turning different tones of the harmonic series on/off and varying their volume one can explore a simple drone state based upon this physical property of sound.</p>
+        <br>
+        <p>In this example, it is worth noting how the higher frequencies diverge from the tuning expressed by the standard notations. The fundamental frequency sounds at 77.7817 Hertz - which matches the sounding frequency of the second E-flat below middle-C. The second partial is our old friend E-flat below middle-C at 155.5635 Hertz. At the third partial our B-flat below middle-C is 233.3452 Hertz while the Western tuning for that pitch would be 233.0819 Hertz. That’s a relatively small difference of 0.2634 Hertz, or 1.96-cents. But it’s the first of many discrepancies as we travel along the harmonic series:</p>
+        <table class="pure-table">
+          <thead>
+            <tr>
+              <th><p>Harmonic Partial</p></th>
+              <th><p>Sounding Hertz</p></th>
+              <th><p>"Western" Hertz</p></th>
+              <th><p>Difference in Hertz</p></th>
+              <th><p>Difference in Cents</p></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><p>1</p></td>
+              <td><p>77.7817Hz</p></td>
+              <td><p>77.7817Hz</p></td>
+              <td><p>0 Hz</p></td>
+              <td><p>0 cents</p></td>
+            </tr>
+            <tr>
+              <td><p>2</p></td>
+              <td><p>155.5635Hz</p></td>
+              <td><p>155.5635Hz</p></td>
+              <td><p>0 Hz</p></td>
+              <td><p>0 cents</p></td>
+            </tr>
+            <tr>
+              <td><p>3</p></td>
+              <td><p>233.3452Hz</p></td>
+              <td><p>233.0819Hz</p></td>
+              <td><p>0.2634Hz</p></td>
+              <td><p>1.96cents</p></td>
+            </tr>
+            <tr>
+              <td><p>4</p></td>
+              <td><p>311.1270Hz</p></td>
+              <td><p>311.1270Hz</p></td>
+              <td><p>0 Hz</p></td>
+              <td><p>0 cents</p></td>
+            </tr>
+            <tr>
+              <td><p>5</p></td>
+              <td><p>388.9087Hz</p></td>
+              <td><p>391.9954Hz</p></td>
+              <td><p>3.0867Hz</p></td>
+              <td><p>13.69cents</p></td>
+            </tr>
+            <tr>
+              <td><p>6</p></td>
+              <td><p>466.6905Hz</p></td>
+              <td><p>466.1638Hz</p></td>
+              <td><p>0.5267Hz</p></td>
+              <td><p>1.96cents</p></td>
+            </tr>
+            <tr>
+              <td><p>7</p></td>
+              <td><p>544.4722Hz</p></td>
+              <td><p>554.3653Hz</p></td>
+              <td><p>9.8930Hz</p></td>
+              <td><p>31.17cents</p></td>
+            </tr>
+            <tr>
+              <td><p>8</p></td>
+              <td><p>622.2540Hz</p></td>
+              <td><p>622.2540Hz</p></td>
+              <td><p>0 Hz</p></td>
+              <td><p>0 cents</p></td>
+            </tr>
+            <tr>
+              <td><p>9</p></td>
+              <td><p>700.0357Hz</p></td>
+              <td><p>698.4565Hz</p></td>
+              <td><p>1.5793Hz</p></td>
+              <td><p>3.91cents</p></td>
+            </tr>
+            <tr>
+              <td><p>10</p></td>
+              <td><p>777.8175Hz</p></td>
+              <td><p>783.9909Hz</p></td>
+              <td><p>6.1735Hz</p></td>
+              <td><p>13.69cents</p></td>
+            </tr>
+            <tr>
+              <td><p>11</p></td>
+              <td><p>855.5992Hz</p></td>
+              <td><p>880.0000Hz</p></td>
+              <td><p>24.4008Hz</p></td>
+              <td><p>48.68cents</p></td>
+            </tr>
+            <tr>
+              <td><p>12</p></td>
+              <td><p>933.3810Hz</p></td>
+              <td><p>932.3275Hz</p></td>
+              <td><p>1.0534Hz</p></td>
+              <td><p>1.96cents</p></td>
+            </tr>
+            <tr>
+              <td><p>13</p></td>
+              <td><p>1011.16727Hz</p></td>
+              <td><p>987.7666Hz</p></td>
+              <td><p>23.3961Hz</p></td>
+              <td><p>40.53cents</p></td>
+            </tr>
+            <tr>
+              <td><p>14</p></td>
+              <td><p>1088.9444Hz</p></td>
+              <td><p>1108.7305Hz</p></td>
+              <td><p>19.7861Hz</p></td>
+              <td><p>31.17cents</p></td>
+            </tr>
+            <tr>
+              <td><p>15</p></td>
+              <td><p>1166.7262Hz</p></td>
+              <td><p>1174.6591Hz</p></td>
+              <td><p>7.9329Hz</p></td>
+              <td><p>11.73cents</p></td>
+            </tr>
+            <tr>
+              <td><p>16</p></td>
+              <td><p>1244.5079Hz</p></td>
+              <td><p>1244.5079Hz</p></td>
+              <td><p>0 Hz</p></td>
+              <td><p>0 cents</p></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>These discrepancies point to the fundamental differences between equal tempered tuning (where we have 100-cents per semitone and easy modulations between key centers) and just intonation. Learning to hear these differences is the first step toward having a more nuanced understanding of harmony. Ultimately, this presentation of harmonic theory is a desire to expand one’s cognitive facility to be inclusive of all pitch relationships.</p>
+        <br>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="wrapper">
+     <h1>hurdaudio</h1>
+     <h2>hurdaudio</h2>
+     <h3>hurdaudio</h3>
+   </div>
+</div>

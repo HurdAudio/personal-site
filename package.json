@@ -35,7 +35,8 @@
     "nodemon": "^1.11.0",
     "pg": "^6.1.5",
     "request": "^2.81.0",
-    "supertest": "^3.0.0"
+    "supertest": "^3.0.0",
+    "vexflow": "^1.2.83"
   },
   "engines": {
     "node": "7.0.0"

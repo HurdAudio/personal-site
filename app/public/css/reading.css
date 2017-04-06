@@ -48,3 +48,10 @@
   border-image: url(../img/background-1430115.svg) 25 25;
   background-size: 20%;
 }
+
+.subHeading {
+	align-items: center;
+	align-self: center;
+	align-content: center;
+	text-align: center;
+}
