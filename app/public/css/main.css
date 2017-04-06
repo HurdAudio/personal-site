@@ -1957,7 +1957,7 @@ label:hover {
 	background: #eee;
 }
 
-input {
+/*input {
 	position: absolute;
 	left: -9999px;
 }
@@ -1988,7 +1988,7 @@ input[value="bottom"]:checked ~ .cubeContainer .cubeCube {
 
 input[value="back"]:checked ~ .cubeContainer .cubeCube {
 	-webkit-transform: translateZ(-300px) rotateY(180deg);
-}
+}*/
 
 .cubeContainer {
   width: 900px;

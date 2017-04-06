@@ -16,6 +16,8 @@
 
       vm.$onInit = onInit;
 
+      
+
       function renderEflat3() {
         var VF = Vex.Flow;
 

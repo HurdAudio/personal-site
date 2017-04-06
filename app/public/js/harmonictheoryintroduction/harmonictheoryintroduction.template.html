@@ -13,6 +13,12 @@
     </div>
   </div>
 
+  <form id="volumeControl" class="volumeKnob">
+    <h5>Master Volume</h5>
+    <input type="range" min="0" max="100" value="40" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+    <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="40" oninput="this.form.amountRange.value=this.value" />
+  </form>
+
   <div id="blogBody" class="pure-g">
     <div class="pure-u-1-4">
     </div>
@@ -231,10 +237,19 @@
         </table>
         <p>These discrepancies point to the fundamental differences between equal tempered tuning (where we have 100-cents per semitone and easy modulations between key centers) and just intonation. Learning to hear these differences is the first step toward having a more nuanced understanding of harmony. Ultimately, this presentation of harmonic theory is a desire to expand one’s cognitive facility to be inclusive of all pitch relationships.</p>
         <br>
+        <div class="subHeading">
+          <a href="/harmonictheory"><button>RETURN TO CONTENTS</button></a>
+          <img src="../img/music_natural_sign_u266E_icon_256x256.png" height="5%" width="5%">
+          <button>CHAPTER 1</button>
+        </div>
+        <br>
       </div>
     </div>
 
   </div>
+
+
+
 
 
 
