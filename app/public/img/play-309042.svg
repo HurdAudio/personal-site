@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <filter id="a">
+   <feGaussianBlur stdDeviation="0.586716"/>
+  </filter>
+ </defs>
+ <g fill-rule="evenodd">
+  <path d="m502.9 252.5a148.02 140.61 0 1 1 -296.03 0 148.02 140.61 0 1 1 296.03 0z" filter="url(#a)" stroke="#000"/>
+  <g stroke-opacity=".183">
+   <path d="m458.94 253l-82.238 43.346-82.238 43.346 0.3134-87.195 0.3164-87.195 81.922 43.848 81.925 43.848z" fill="#e6e6e6" stroke="#fff"/>
+   <path d="m353.55 114.83c-79.445 1.37e-4 -143.95 63.019-143.95 140.64 127.91-27.476 159.06-27.839 287.81 0 0-77.619-64.418-140.64-143.86-140.64z" fill="#fff" opacity=".5" stroke="#000"/>
+  </g>
+ </g>
+</svg>

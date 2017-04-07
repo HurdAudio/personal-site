@@ -36,22 +36,38 @@
         <p>The answer is that pitch is a discreet point along a continuum of frequencies. Human hearing roughly encompasses a range from 5Hertz to 23,000Hertz. When we refer to a pitch, we’re looking at a fixed point. And there are an infinite number of them. Convention and physical limitations often whittle the possibilities down to a small subset that is easier for humans to perceive and work with. The forward thinking musician and theorist will understand both convention and the unrealized potential lurking within the physics of vibrating tones.</p>
         <br>
         <p>When exploring infinite possibilities, it helps to start from somewhere. Let’s begin by selecting a single pitch:</p>
-        <div class="vexflowNotation" id="eflat3"></div>
+        <div class="vexflowNotation" id="eflat3">
+        <button class="audioExample" id="playEflat3"></button></div>
         <p>This is the traditional, Western notation for E-flat. More specifically, it is the E-flat below middle-C. When “in tune,” it sounds at a frequency of 155.5635 Hertz. In actual practice, vocalists and instrumentalists are in the general vicinity of 155.5635 Hertz. Computers, however, can be completely precise. For the purposes of exploring this harmonic theory, we will work with the assumption that 155.5635 Hertz and the notation above are interchangeable representations of a fixed point along the frequency spectrum.</p>
         <br>
         <p>Let’s examine another pitch:</p>
-        <div class="vexflowNotation" id="eflat4"></div>
+        <div class="vexflowNotation" id="eflat4">
+
+          <button class="audioExample" id="playEflat4"></button>
+        </div>
         <p>This is the traditional, Western notation for E-flat above middle C. It is a full octave higher than our first E-flat. When we talk about the relationship between these pitches - or any set of pitches - we are talking about harmony.</p>
         <br>
         <p>So let’s talk about harmony with regard to our two pitches. The second E-flat sounds at a frequency of 311.1270 Hertz. We now have two different ways to represent these pitches: (1) the notated E-flats using traditional musical notation and (2) the sounding frequencies of 155.5635 Hertz and 311.1270 Hertz respectively.</p>
-        <div class="vexflowNotation" id="eflat4WithHertz"></div>
+        <div class="vexflowNotation" id="eflat4WithHertz">
+
+          <button class="audioExample" id="playEflat4WithHertz"></button>
+        </div>
         <h4 class="vexflowNotation">311.1270 Hz</h4>
-        <div class="vexflowNotation" id="eflat3WithHertz"></div>
+        <div class="vexflowNotation" id="eflat3WithHertz">
+
+          <button class="audioExample" id="playEflat3WithHertz"></button>
+        </div>
         <h4 class="vexflowNotation">155.5635 Hz</h4>
         <p>There are a couple more notation standards to introduce here, frequency ratio and cents:</p>
-        <div class="vexflowNotation" id="eflat4WithRatioAndCents"></div>
+        <div class="vexflowNotation" id="eflat4WithRatioAndCents">
+
+          <button class="audioExample" id="playEflat4WithRatioAndCents"></button>
+        </div>
         <h4 class="vexflowNotation">2/1 (1200.00-cents)</h4>
-        <div class="vexflowNotation" id="eflat3WithRatioAndCents"></div>
+        <div class="vexflowNotation" id="eflat3WithRatioAndCents">
+
+          <button class="audioExample" id="playEflat3WithRatioAndCents"></button>
+        </div>
         <h4 class="vexflowNotation">1/1 (0.00-cents)</h4>
         <p>Frequency ratio is the relationship to an origin (in this case, the E-flat below middle-C as 1/1). Given the sounding frequency of 155.5635 Hertz, the E-flat one octave higher would have a frequency ratio of 2/1. 311.1270 Hertz is exactly double 155.5635 hertz, or 2/1. In this manner, we can use frequency ratios as an option for notating pitch in a manner that is harmonically descriptive.</p>
         <br>
@@ -106,132 +122,327 @@
         </ul>
         <h2 class="subHeading">The Harmonic Series</h2>
         <p>We conclude this introduction with study of the physics of pitch as it relates to the harmonic series. Below we have a traditional notation of the approximate pitches of the first sixteen partials of the harmonic series of E-flat (second E-flat below middle-C).</p>
-        <div class="vexflowNotation" id="eFlatHarmonicSeries"></div>
+        <div class="vexflowNotation" id="eFlatHarmonicSeries">
+
+          <button class="audioExample" id="playEflat2HarmonicSeries"></button>
+        </div>
         <p>The acoustic properties of vibrating strings, columns of air, wooden or metallic bars, membranes, etc. typically involve vibrations along the harmonic series. That is, a string will vibrate along its full length (producing the fundamental frequency) and also exhibit modes of vibration at 1/2, 1/3, 1/4, 1/5, etc. its length at varying degrees of amplitude. The distribution of energy along these frequencies is a primary characteristic of timbre. By turning different tones of the harmonic series on/off and varying their volume one can explore a simple drone state based upon this physical property of sound.</p>
         <br>
         <p>In this example, it is worth noting how the higher frequencies diverge from the tuning expressed by the standard notations. The fundamental frequency sounds at 77.7817 Hertz - which matches the sounding frequency of the second E-flat below middle-C. The second partial is our old friend E-flat below middle-C at 155.5635 Hertz. At the third partial our B-flat below middle-C is 233.3452 Hertz while the Western tuning for that pitch would be 233.0819 Hertz. That’s a relatively small difference of 0.2634 Hertz, or 1.96-cents. But it’s the first of many discrepancies as we travel along the harmonic series:</p>
         <table class="pure-table">
           <thead>
             <tr>
-              <th><p>Harmonic Partial</p></th>
+              <th><h4>Harmonic Partial</h4></th>
               <th><p>Sounding Hertz</p></th>
               <th><p>"Western" Hertz</p></th>
-              <th><p>Difference in Hertz</p></th>
-              <th><p>Difference in Cents</p></th>
+              <th><h4>Difference in Hertz</h4></th>
+              <th><h4>Difference in Cents</h4></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><p>1</p></td>
-              <td><p>77.7817Hz</p></td>
-              <td><p>77.7817Hz</p></td>
-              <td><p>0 Hz</p></td>
-              <td><p>0 cents</p></td>
+              <td><h1>1</h1></td>
+              <td>
+                <form id="firstPartialJust" class="partialSlider">
+                  <p class="hertzRead">77.7817Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td>
+                <form id="firstPartialEqual" class="partialSlider">
+                  <p class="hertzRead">77.7817Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td><h3>0 Hz</h3></td>
+              <td><h2>0 cents</h2></td>
             </tr>
             <tr>
-              <td><p>2</p></td>
-              <td><p>155.5635Hz</p></td>
-              <td><p>155.5635Hz</p></td>
-              <td><p>0 Hz</p></td>
-              <td><p>0 cents</p></td>
+              <td><h1>2</h1></td>
+              <td>
+                <form id="secondPartialJust" class="partialSlider">
+                  <p class="hertzRead">155.5635Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td>
+                <form id="secondPartialEqual" class="partialSlider">
+                  <p class="hertzRead">155.5635Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td><h3>0 Hz</h3></td>
+              <td><h2>0 cents</h2></td>
             </tr>
             <tr>
-              <td><p>3</p></td>
-              <td><p>233.3452Hz</p></td>
-              <td><p>233.0819Hz</p></td>
-              <td><p>0.2634Hz</p></td>
-              <td><p>1.96cents</p></td>
+              <td><h1>3</h1></td>
+              <td>
+                <form id="thirdPartialJust" class="partialSlider">
+                  <p class="hertzRead">233.3452Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td>
+                <form id="thirdPartialEqual" class="partialSlider">
+                  <p class="hertzRead">233.0819Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td><h3>0.2634Hz</h3></td>
+              <td><h2>1.96cents</h2></td>
             </tr>
             <tr>
-              <td><p>4</p></td>
-              <td><p>311.1270Hz</p></td>
-              <td><p>311.1270Hz</p></td>
-              <td><p>0 Hz</p></td>
-              <td><p>0 cents</p></td>
+              <td><h1>4</h1></td>
+              <td>
+                <form id="fourthPartialJust" class="partialSlider">
+                  <p class="hertzRead">311.1270Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td>
+                <form id="fourthPartialEqual" class="partialSlider">
+                  <p class="hertzRead">311.1270Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td><h3>0 Hz</h3></td>
+              <td><h2>0 cents</h2></td>
             </tr>
             <tr>
-              <td><p>5</p></td>
-              <td><p>388.9087Hz</p></td>
-              <td><p>391.9954Hz</p></td>
-              <td><p>3.0867Hz</p></td>
-              <td><p>13.69cents</p></td>
+              <td><h1>5</h1></td>
+              <td>
+                <form id="fifthPartialJust" class="partialSlider">
+                  <p class="hertzRead">388.9087Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td>
+                <form id="fifthPartialEqual" class="partialSlider">
+                  <p class="hertzRead">391.9954Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td><h3>3.0867Hz</h3></td>
+              <td><h2>13.69cents</h2></td>
             </tr>
             <tr>
-              <td><p>6</p></td>
-              <td><p>466.6905Hz</p></td>
-              <td><p>466.1638Hz</p></td>
-              <td><p>0.5267Hz</p></td>
-              <td><p>1.96cents</p></td>
+              <td><h1>6</h1></td>
+              <td>
+                <form id="sixthPartialJust" class="partialSlider">
+                  <p class="hertzRead">466.6905Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td>
+                <form id="sixthPartialEqual" class="partialSlider">
+                  <p class="hertzRead">466.1638Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td><h3>0.5267Hz</h3></td>
+              <td><h2>1.96cents</h2></td>
             </tr>
             <tr>
-              <td><p>7</p></td>
-              <td><p>544.4722Hz</p></td>
-              <td><p>554.3653Hz</p></td>
-              <td><p>9.8930Hz</p></td>
-              <td><p>31.17cents</p></td>
+              <td><h1>7</h1></td>
+              <td>
+                <form id="seventhPartialJust" class="partialSlider">
+                  <p class="hertzRead">544.4722Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td>
+                <form id="seventhPartialEqual" class="partialSlider">
+                  <p class="hertzRead">554.3653Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td><h3>9.8930Hz</h3></td>
+              <td><h2>31.17cents</h2></td>
             </tr>
             <tr>
-              <td><p>8</p></td>
-              <td><p>622.2540Hz</p></td>
-              <td><p>622.2540Hz</p></td>
-              <td><p>0 Hz</p></td>
-              <td><p>0 cents</p></td>
+              <td><h1>8</h1></td>
+              <td>
+                <form id="eighthPartialJust" class="partialSlider">
+                  <p class="hertzRead">622.2540Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td>
+                <form id="eighthPartialEqual" class="partialSlider">
+                  <p class="hertzRead">622.2540Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td><h3>0 Hz</h3></td>
+              <td><h2>0 cents</h2></td>
             </tr>
             <tr>
-              <td><p>9</p></td>
-              <td><p>700.0357Hz</p></td>
-              <td><p>698.4565Hz</p></td>
-              <td><p>1.5793Hz</p></td>
-              <td><p>3.91cents</p></td>
+              <td><h1>9</h1></td>
+              <td>
+                <form id="ninthPartialJust" class="partialSlider">
+                  <p class="hertzRead">700.0357Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td>
+                <form id="ninthPartialEqual" class="partialSlider">
+                  <p class="hertzRead">698.4565Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td><h3>1.5793Hz</h3></td>
+              <td><h2>3.91cents</h2></td>
             </tr>
             <tr>
-              <td><p>10</p></td>
-              <td><p>777.8175Hz</p></td>
-              <td><p>783.9909Hz</p></td>
-              <td><p>6.1735Hz</p></td>
-              <td><p>13.69cents</p></td>
+              <td><h1>10</h1></td>
+              <td>
+                <form id="tenthPartialJust" class="partialSlider">
+                  <p class="hertzRead">777.8175Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td>
+                <form id="tenthPartialEqual" class="partialSlider">
+                  <p class="hertzRead">783.9909Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td><h3>6.1735Hz</h3></td>
+              <td><h2>13.69cents</h2></td>
             </tr>
             <tr>
-              <td><p>11</p></td>
-              <td><p>855.5992Hz</p></td>
-              <td><p>880.0000Hz</p></td>
-              <td><p>24.4008Hz</p></td>
-              <td><p>48.68cents</p></td>
+              <td><h1>11</h1></td>
+              <td>
+                <form id="eleventhPartialJust" class="partialSlider">
+                  <p class="hertzRead">855.5992Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td>
+                <form id="eleventhPartialEqual" class="partialSlider">
+                  <p class="hertzRead">880.0000Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td><h3>24.4008Hz</h3></td>
+              <td><h2>48.68cents</h2></td>
             </tr>
             <tr>
-              <td><p>12</p></td>
-              <td><p>933.3810Hz</p></td>
-              <td><p>932.3275Hz</p></td>
-              <td><p>1.0534Hz</p></td>
-              <td><p>1.96cents</p></td>
+              <td><h1>12</h1></td>
+              <td>
+                <form id="twelfthPartialJust" class="partialSlider">
+                  <p class="hertzRead">933.3810Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td>
+                <form id="twelfthPartialEqual" class="partialSlider">
+                  <p class="hertzRead">932.3275Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td><h3>1.0534Hz</h3></td>
+              <td><h2>1.96cents</h2></td>
             </tr>
             <tr>
-              <td><p>13</p></td>
-              <td><p>1011.16727Hz</p></td>
-              <td><p>987.7666Hz</p></td>
-              <td><p>23.3961Hz</p></td>
-              <td><p>40.53cents</p></td>
+              <td><h1>13</h1></td>
+              <td>
+                <form id="thirteenthPartialJust" class="partialSlider">
+                  <p class="hertzRead">1011.1672Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td>
+                <form id="thirteenthPartialEqual" class="partialSlider">
+                  <p class="hertzRead">987.7666Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td><h3>23.3961Hz</h3></td>
+              <td><h2>40.53cents</h2></td>
             </tr>
             <tr>
-              <td><p>14</p></td>
-              <td><p>1088.9444Hz</p></td>
-              <td><p>1108.7305Hz</p></td>
-              <td><p>19.7861Hz</p></td>
-              <td><p>31.17cents</p></td>
+              <td><h1>14</h1></td>
+              <td>
+                <form id="fourteenthPartialJust" class="partialSlider">
+                  <p class="hertzRead">1088.9444Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td>
+                <form id="fourteenthPartialEqual" class="partialSlider">
+                  <p class="hertzRead">1108.7305Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td><h3>19.7861Hz</h3></td>
+              <td><h2>31.17cents</h2></td>
             </tr>
             <tr>
-              <td><p>15</p></td>
-              <td><p>1166.7262Hz</p></td>
-              <td><p>1174.6591Hz</p></td>
-              <td><p>7.9329Hz</p></td>
-              <td><p>11.73cents</p></td>
+              <td><h1>15</h1></td>
+              <td>
+                <form id="fifteenthPartialJust" class="partialSlider">
+                  <p class="hertzRead">1166.7262Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td>
+                <form id="fifteenthPartialEqual" class="partialSlider">
+                  <p class="hertzRead">1174.6591Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td><h3>7.9329Hz</h3></td>
+              <td><h2>11.73cents</h2></td>
             </tr>
             <tr>
-              <td><p>16</p></td>
-              <td><p>1244.5079Hz</p></td>
-              <td><p>1244.5079Hz</p></td>
-              <td><p>0 Hz</p></td>
-              <td><p>0 cents</p></td>
+              <td><h1>16</h1></td>
+              <td>
+                <form id="sixteenthPartialJust" class="partialSlider">
+                  <p class="hertzRead">1244.5079Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td>
+                <form id="sixteenthPartialEqual" class="partialSlider">
+                  <p class="hertzRead">1244.5079Hz</p>
+                  <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                </form>
+              </td>
+              <td><h3>0 Hz</h3></td>
+              <td><h2>0 cents</h2></td>
             </tr>
           </tbody>
         </table>

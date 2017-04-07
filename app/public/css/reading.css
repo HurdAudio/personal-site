@@ -78,11 +78,47 @@
 	background-image: url(../img/banner-2143662_640.jpg);
 }
 
+.partialSlider {
+	padding-left: 0.5em;
+	padding-top: 0.6em;
+	padding-bottom: 0.7em;
+	border-radius: 5%;
+	margin: 0;
+	background-image: url(../img/texture-1821533_640.jpg);
+	background-size: 390%;
+}
+
+.partialSlider:hover {
+	background-size: 450%;
+}
+
 .vexflowNotation {
 	align-items: center;
 	align-self: center;
 	align-content: center;
 	text-align: center;
+}
+
+.audioExample {
+	align-items: center;
+	align-self: center;
+	align-content: center;
+	text-align: center;
+	float: left;
+	height: 50px;
+	width: 10%;
+	border-radius: 15%;
+	z-index: 20;
+	background: url(../img/play-309042.svg) rgba(0, 0, 0, 0.5) center center no-repeat;
+}
+
+
+.audioExample:hover {
+	background: url(../img/play-24809.svg) rgba(0,0,0,0.5) center center no-repeat;
+}
+
+.audioExample:active {
+	background: url(../img/start-button-305427.svg) rgba(127, 0, 0, 1.0) center center no-repeat;
 }
 
 /*input[type=range] {
@@ -178,7 +214,12 @@ input[type='range']::-webkit-slider-thumb::before {
 .volumeRead {
 	font-family: 'Share Tech', serif;
 	font-size: 200%;
-	width: 37%;
+	width: 82%;
+	height: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 0;
+	padding-bottom: 0;
 	color: #0091E5;
 	background-color: #E7E7E7;
 }
@@ -187,4 +228,13 @@ input[type='range']::-webkit-slider-thumb::before {
 	font-family: 'Share Tech', serif;
 	font-size: 18px;
 	text-align: center;
+}
+
+.hertzRead {
+	font-family: 'Share Tech', serif;
+	color: #000;
+	text-align: center;
+	font-size: 120%;
+	background-color: #E7E7E7;
+	width: 82%;
 }
