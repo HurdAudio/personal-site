@@ -16,7 +16,7 @@
 
       vm.$onInit = onInit;
 
-      
+
 
       function renderEflat3() {
         var VF = Vex.Flow;
@@ -258,6 +258,103 @@
         voice.draw(context, stave);
       }
 
+      function renderOvertoneSeries() {
+        var VF = Vex.Flow;
+
+        // Create an SVG renderer and attach it to the DIV element named "boo".
+        var div = document.getElementById("eFlatHarmonicSeries");
+        var renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
+
+        // Configure the rendering context.
+        renderer.resize(900, 300);
+        var context = renderer.getContext();
+        context.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
+
+        // Create a stave of width 400 at position 10, 40 on the canvas.
+        var staveTreble = new VF.Stave(10, 40, 800);
+        var staveBass = new VF.Stave(10, 160, 800);
+
+        // Add a clef and time signature.
+        staveTreble.addClef("treble");
+        staveBass.addClef("bass");
+
+        // Connect it to the rendering context and draw!
+        staveTreble.setContext(context).draw();
+        staveBass.setContext(context).draw();
+
+        // Create the notes
+        var notes = [
+          // A quarter-note C.
+          new VF.GhostNote({ keys: ["b/4"], duration: "hr" }),
+
+          new VF.GhostNote({ keys: ["b/4"], duration: "qr" }),
+
+          new VF.StaveNote({ keys: ["e/4"], duration: "q" }).addAccidental(0, new VF.Accidental("b")),
+
+          new VF.StaveNote({ keys: ["g/4"], duration: "q" }),
+
+          new VF.StaveNote({ keys: ["b/4"], duration: "q", stem_direction: -1 }).addAccidental(0, new VF.Accidental("b")),
+
+
+          new VF.StaveNote({ keys: ["d/5"], duration: "q", stem_direction: -1 }).addAccidental(0, new VF.Accidental("b")),
+
+          new VF.StaveNote({ keys: ["e/5"], duration: "q", stem_direction: -1 }).addAccidental(0, new VF.Accidental("b")),
+
+          new VF.StaveNote({ keys: ["f/5"], duration: "q", stem_direction: -1 }),
+
+          new VF.StaveNote({ keys: ["g/5"], duration: "q", stem_direction: -1 }),
+
+          new VF.StaveNote({ keys: ["a/5"], duration: "q", stem_direction: -1 }),
+
+          new VF.StaveNote({ keys: ["b/5"], duration: "q", stem_direction: -1 }).addAccidental(0, new VF.Accidental("b")),
+
+          new VF.StaveNote({ keys: ["c/6"], duration: "q", stem_direction: -1 }).addAccidental(0, new VF.Accidental("b")),
+
+          new VF.StaveNote({ keys: ["d/6"], duration: "q", stem_direction: -1 }).addAccidental(0, new VF.Accidental("b")),
+
+          new VF.StaveNote({ keys: ["e/6"], duration: "q", stem_direction: -1 }).addAccidental(0, new VF.Accidental("b"))
+        ];
+        var notes2 = [
+
+          new VF.StaveNote({ clef: "bass", keys: ["e/2"], duration: "q" }).addAccidental(0, new VF.Accidental("b")),
+
+          new VF.StaveNote({ clef: "bass", keys: ["e/3"], duration: "q", stem_direction: -1 }).addAccidental(0, new VF.Accidental("b")),
+
+          new VF.StaveNote({ clef: "bass", keys: ["b/3"], duration: "q", stem_direction: -1 }).addAccidental(0, new VF.Accidental("b")),
+
+          new VF.GhostNote({ keys: ["b/4"], duration: "qr" }),
+
+          new VF.GhostNote({ keys: ["b/4"], duration: "wr" }),
+
+          new VF.GhostNote({ keys: ["b/4"], duration: "wr" }),
+
+          new VF.GhostNote({ keys: ["b/4"], duration: "hr" }),
+
+          new VF.GhostNote({ keys: ["b/4"], duration: "qr" })
+        ]
+
+        var voice = new VF.Voice({num_beats: 15,  beat_value: 4, resolution:Vex.Flow.RESOLUTION});
+        var voice2 = new VF.Voice({num_beats: 15, beat_value: 4, resolution:Vex.Flow.RESOLUTION});
+        voice.addTickables(notes).setStave(staveTreble);
+        voice2.addTickables(notes2).setStave(staveBass);
+
+        var startX = Math.max(staveTreble.getNoteStartX(), staveBass.getNoteStartX());
+        staveTreble.setNoteStartX(startX);
+        staveBass.setNoteStartX(startX);
+
+        // Format and justify the notes to 400 pixels.
+        var formatter = new VF.Formatter().joinVoices([voice]).joinVoices([voice2]).format([voice, voice2], 800 - (startX));
+        // var formatter2 = new VF.Formatter().joinVoices([voice2]).format([voice2], 400);
+        //var formatter = new VF.Formatter();
+        //formatter.joinVoices([voice]);
+        //formatter.joinVoices([voice2]);
+        //formatter.format([voice1, voice2], 400 - (startX - staveTreble));
+
+        // Render voice
+        voice.draw(context, staveTreble);
+        voice2.draw(context, staveBass);
+      }
+
       function onInit() {
         console.log("Introduction to harmonic theory");
         renderEflat3();
@@ -266,6 +363,7 @@
         renderEflat4WithHertz();
         renderEflat3WithRatioAndCents();
         renderEflat4WithRatioAndCents();
+        renderOvertoneSeries();
 
       }
 
