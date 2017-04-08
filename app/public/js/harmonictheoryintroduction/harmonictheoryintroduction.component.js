@@ -538,10 +538,10 @@
           new VF.GhostNote({ keys: ["b/4"], duration: "hr" }),
 
           new VF.GhostNote({ keys: ["b/4"], duration: "hr" })
-        ]
+        ];
 
-        var voice = new VF.Voice({num_beats: 16,  beat_value: 4, resolution:Vex.Flow.RESOLUTION});
-        var voice2 = new VF.Voice({num_beats: 16, beat_value: 4, resolution:Vex.Flow.RESOLUTION});
+        var voice = new VF.Voice({num_beats: 16,  beat_value: 4, resolution:VF.RESOLUTION});
+        var voice2 = new VF.Voice({num_beats: 16, beat_value: 4, resolution:VF.RESOLUTION});
         voice.addTickables(notes).setStave(staveTreble);
         voice2.addTickables(notes2).setStave(staveBass);
 
