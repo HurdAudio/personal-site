@@ -93,6 +93,12 @@
         url: '/techreadinglist',
         parent: 'app',
         component: 'techreadinglist'
+      })
+      .state({
+        name: 'harmonictheoryintroduction',
+        url: '/harmonictheoryintroduction',
+        parent: 'app',
+        component: 'harmonictheoryintroduction'
       });
 
 

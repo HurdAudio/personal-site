@@ -44,6 +44,16 @@ exports.seed = function(knex, Promise) {
           tags: { "0": "admin", "1": "feature rollout" },
           created_at: new Date('2017-04-05T16:28:57.847Z'),
           updated_at: new Date('2017-04-05T16:28:57.847Z')
+        }),
+        knex('user_blogs').insert({
+          id: 5,
+          author: 1,
+          title: "Now Vibrating Harmonic Theory",
+          body: "Now Vibrating Harmonic TheoryRecently completed feature: The \"Introduction\" section of the Harmonic Theory (found in the HurdAudio section of this site) now has content. This content includes audio examples rendered via Web Audio API and examples in rendered musical notation via Vexflow. This is the first time I've managed to explain the underpinnings of my harmonic theory with such interactive examples. This section will be a joy to build out.\n\nNow working on: I'm adding a simple-text .pdf version of my resume for downloading. Also, full CRUD capability for the Reading List section of HurdReads. This is a huge section and I expect it to present well.\n\nOn deck: enabling comments in this here blog space.\n",
+          published: true,
+          tags: { "0": "admin", "1": "feature rollout" },
+          created_at: new Date('2017-04-08T22:13:54.221Z'),
+          updated_at: new Date('2017-04-08T22:13:54.221Z')
         })
       ]);
     })

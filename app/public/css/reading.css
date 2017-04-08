@@ -48,3 +48,200 @@
   border-image: url(../img/background-1430115.svg) 25 25;
   background-size: 20%;
 }
+
+.subHeading {
+	align-items: center;
+	align-self: center;
+	align-content: center;
+	text-align: center;
+}
+
+.volumeKnob {
+	position:fixed;
+	left: 3%;
+	bottom: 5%;
+	display: initial;
+
+}
+
+.harmonicTheory {
+	position: fixed;
+	left: 3%;
+	top: 12%;
+	display: initial;
+}
+
+#volumeControl {
+	font-family: 'Tauri', serif;
+	font-size: 24px;
+	width: 20%;
+	color: black;
+	align-items: center;
+	align-content: center;
+	text-align: center;
+	align-self: center;
+	height: 9em;
+	border-radius: 10%;
+	background-image: url(../img/banner-2143662_640.jpg);
+}
+
+.partialSlider {
+	padding-left: 0.5em;
+	padding-top: 0.6em;
+	padding-bottom: 0.7em;
+	border-radius: 5%;
+	margin: 0;
+	background-image: url(../img/texture-1821533_640.jpg);
+	background-size: 390%;
+}
+
+.partialSlider:hover {
+	background-size: 450%;
+}
+
+.vexflowNotation {
+	align-items: center;
+	align-self: center;
+	align-content: center;
+	text-align: center;
+}
+
+.audioExample {
+	align-items: center;
+	align-self: center;
+	align-content: center;
+	text-align: center;
+	float: left;
+	height: 50px;
+	width: 10%;
+	border-radius: 15%;
+	z-index: 20;
+	background: url(../img/play-309042.svg) rgba(0, 0, 0, 0.5) center center no-repeat;
+}
+
+
+.audioExample:hover {
+	background: url(../img/play-24809.svg) rgba(0,0,0,0.5) center center no-repeat;
+}
+
+.audioExample:active {
+	background: url(../img/start-button-305427.svg) rgba(127, 0, 0, 1.0) center center no-repeat;
+}
+
+/*input[type=range] {
+    margin: auto;
+    outline: none;
+    padding: 0;
+    width: 50%;
+    height: 6px;
+    background-color: #feebc5;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #473e4f), color-stop(100%, #51475a));
+    background-image: -webkit-linear-gradient(#473e4f, #51475a);
+    background-image: -moz-linear-gradient(#473e4f, #51475a);
+    background-image: -o-linear-gradient(#473e4f, #51475a);
+    background-image: linear-gradient(#9e6957, #9e6957);
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    -webkit-appearance: none;
+}
+
+input[type=range]::-moz-range-track {
+    box-shadow: none;
+    border: none;
+    background: transparent;
+}
+
+input[type=range]::-moz-focus-outer {
+    border: 0;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    width: 14px;
+    height: 14px;
+    border: 0;
+    background: #fff;
+    border-radius: 100%;
+    box-shadow: 0 0 1px 0px rgba(0,0,0,0.1);
+    -webkit-appearance: none;
+}
+
+input[type=range]::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border: 0;
+    background: #fff;
+    border-radius: 100%;
+    box-shadow: 0 0 1px 0px rgba(0,0,0,0.1);
+}*/
+
+input[type='range'] {
+  width: 85%;
+  height: 30px;
+  overflow: hidden;
+  cursor: pointer;
+}
+input[type='range'],
+input[type='range']::-webkit-slider-runnable-track,
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+input[type='range']::-webkit-slider-runnable-track {
+  width: 80%;
+  height: 10px;
+  background: #AAA;
+}
+input[type='range']::-webkit-slider-thumb {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  margin-top: -10px;
+  background: #0091E5;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+input[type='range']::-webkit-slider-thumb::before {
+  position: absolute;
+  content: '';
+  height: 10px; /* equal to height of runnable track */
+  width: 500px; /* make this bigger than the widest range input element */
+  left: -502px; /* this should be -2px - width */
+  top: 8px; /* don't change this */
+  background: #E7E7E7;
+}
+
+.volumeRead {
+	font-family: 'Share Tech', serif;
+	font-size: 200%;
+	width: 82%;
+	height: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	color: #0091E5;
+	background-color: #E7E7E7;
+}
+
+.copyNotice {
+	font-family: 'Share Tech', serif;
+	font-size: 18px;
+	text-align: center;
+}
+
+.hertzRead {
+	font-family: 'Share Tech', serif;
+	color: #000;
+	text-align: center;
+	font-size: 120%;
+	background-color: #E7E7E7;
+	width: 82%;
+}

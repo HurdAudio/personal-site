@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
     table.increments().primary();
     table.integer('author').notNullable().defaultTo(1).references('id').inTable('users').onDelete('CASCADE').index();
     table.string('title').notNullable().defaultTo('');
-    table.text('body', 1000000).notNullable().defaultTo('');
+    table.text('body', 10000000).notNullable().defaultTo('');
     table.boolean('published').notNullable().defaultTo(false);
     table.json('tags').defaultTo(null);
     table.timestamps(true, true);
