@@ -64,6 +64,13 @@
 
 }
 
+.harmonicTheory {
+	position: fixed;
+	left: 3%;
+	top: 12%;
+	display: initial;
+}
+
 #volumeControl {
 	font-family: 'Tauri', serif;
 	font-size: 24px;

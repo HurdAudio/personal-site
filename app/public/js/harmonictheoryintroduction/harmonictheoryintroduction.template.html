@@ -13,10 +13,14 @@
     </div>
   </div>
 
+  <div class="harmonicTheory">
+    <a href="/harmonictheory"><h4>HurdAudio Harmonic Theory</h4></a>
+  </div>
+
   <form id="volumeControl" class="volumeKnob">
     <h5>Master Volume</h5>
     <input type="range" min="0" max="100" value="40" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-    <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="40" oninput="this.form.amountRange.value=this.value" />
+    <input id="masterGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="40" oninput="this.form.amountRange.value=this.value" />
   </form>
 
   <div id="blogBody" class="pure-g">
@@ -146,14 +150,14 @@
                 <form id="firstPartialJust" class="partialSlider">
                   <p class="hertzRead">77.7817Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="firstJustPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td>
                 <form id="firstPartialEqual" class="partialSlider">
                   <p class="hertzRead">77.7817Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="firstEqualPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td><h3>0 Hz</h3></td>
@@ -165,14 +169,14 @@
                 <form id="secondPartialJust" class="partialSlider">
                   <p class="hertzRead">155.5635Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="secondJustPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td>
                 <form id="secondPartialEqual" class="partialSlider">
                   <p class="hertzRead">155.5635Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="secondEqualPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td><h3>0 Hz</h3></td>
@@ -184,14 +188,14 @@
                 <form id="thirdPartialJust" class="partialSlider">
                   <p class="hertzRead">233.3452Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="thirdJustPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td>
                 <form id="thirdPartialEqual" class="partialSlider">
                   <p class="hertzRead">233.0819Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="thirdEqualPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td><h3>0.2634Hz</h3></td>
@@ -203,14 +207,14 @@
                 <form id="fourthPartialJust" class="partialSlider">
                   <p class="hertzRead">311.1270Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="fourthJustPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td>
                 <form id="fourthPartialEqual" class="partialSlider">
                   <p class="hertzRead">311.1270Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="fourthEqualPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td><h3>0 Hz</h3></td>
@@ -222,14 +226,14 @@
                 <form id="fifthPartialJust" class="partialSlider">
                   <p class="hertzRead">388.9087Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="fifthJustPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td>
                 <form id="fifthPartialEqual" class="partialSlider">
                   <p class="hertzRead">391.9954Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="fifthEqualPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td><h3>3.0867Hz</h3></td>
@@ -241,14 +245,14 @@
                 <form id="sixthPartialJust" class="partialSlider">
                   <p class="hertzRead">466.6905Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="sixthJustPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td>
                 <form id="sixthPartialEqual" class="partialSlider">
                   <p class="hertzRead">466.1638Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="sixthEqualPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td><h3>0.5267Hz</h3></td>
@@ -260,14 +264,14 @@
                 <form id="seventhPartialJust" class="partialSlider">
                   <p class="hertzRead">544.4722Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="seventhJustPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td>
                 <form id="seventhPartialEqual" class="partialSlider">
                   <p class="hertzRead">554.3653Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="seventhEqualPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td><h3>9.8930Hz</h3></td>
@@ -279,14 +283,14 @@
                 <form id="eighthPartialJust" class="partialSlider">
                   <p class="hertzRead">622.2540Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="eighthJustPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td>
                 <form id="eighthPartialEqual" class="partialSlider">
                   <p class="hertzRead">622.2540Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="eighthEqualPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td><h3>0 Hz</h3></td>
@@ -298,14 +302,14 @@
                 <form id="ninthPartialJust" class="partialSlider">
                   <p class="hertzRead">700.0357Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="ninthJustPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td>
                 <form id="ninthPartialEqual" class="partialSlider">
                   <p class="hertzRead">698.4565Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="ninthEqualPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td><h3>1.5793Hz</h3></td>
@@ -317,14 +321,14 @@
                 <form id="tenthPartialJust" class="partialSlider">
                   <p class="hertzRead">777.8175Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="tenthJustPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td>
                 <form id="tenthPartialEqual" class="partialSlider">
                   <p class="hertzRead">783.9909Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="tenthEqualPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td><h3>6.1735Hz</h3></td>
@@ -336,14 +340,14 @@
                 <form id="eleventhPartialJust" class="partialSlider">
                   <p class="hertzRead">855.5992Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="eleventhJustPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td>
                 <form id="eleventhPartialEqual" class="partialSlider">
                   <p class="hertzRead">880.0000Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="eleventhEqualPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td><h3>24.4008Hz</h3></td>
@@ -355,14 +359,14 @@
                 <form id="twelfthPartialJust" class="partialSlider">
                   <p class="hertzRead">933.3810Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="twelfthJustPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td>
                 <form id="twelfthPartialEqual" class="partialSlider">
                   <p class="hertzRead">932.3275Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="twelfthEqualPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td><h3>1.0534Hz</h3></td>
@@ -374,14 +378,14 @@
                 <form id="thirteenthPartialJust" class="partialSlider">
                   <p class="hertzRead">1011.1672Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="thirteenthJustPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td>
                 <form id="thirteenthPartialEqual" class="partialSlider">
                   <p class="hertzRead">987.7666Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="thirteenthEqualPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td><h3>23.3961Hz</h3></td>
@@ -393,14 +397,14 @@
                 <form id="fourteenthPartialJust" class="partialSlider">
                   <p class="hertzRead">1088.9444Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="fourteenthJustPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td>
                 <form id="fourteenthPartialEqual" class="partialSlider">
                   <p class="hertzRead">1108.7305Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="fourteenthEqualPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td><h3>19.7861Hz</h3></td>
@@ -412,14 +416,14 @@
                 <form id="fifteenthPartialJust" class="partialSlider">
                   <p class="hertzRead">1166.7262Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="fifteenthJustPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td>
                 <form id="fifteenthPartialEqual" class="partialSlider">
                   <p class="hertzRead">1174.6591Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="fifteenthEqualPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td><h3>7.9329Hz</h3></td>
@@ -431,14 +435,14 @@
                 <form id="sixteenthPartialJust" class="partialSlider">
                   <p class="hertzRead">1244.5079Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="sixteenthJustPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td>
                 <form id="sixteenthPartialEqual" class="partialSlider">
                   <p class="hertzRead">1244.5079Hz</p>
                   <input type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
-                  <input class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+                  <input id="sixteenthEqualPartialGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
                 </form>
               </td>
               <td><h3>0 Hz</h3></td>
