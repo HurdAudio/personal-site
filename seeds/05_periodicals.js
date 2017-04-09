@@ -172,6 +172,20 @@ exports.seed = function(knex, Promise) {
           description: "The New York Times (sometimes abbreviated NYT and The Times) is an American daily newspaper, founded and continuously published in New York City since September 18, 1851, by The New York Times Company. The New York Times has won 119 Pulitzer Prizes, more than any other newspaper",
           created_at: new Date('2017-04-02 14:55:16 UTC'),
           updated_at: new Date('2017-04-02 14:55:18 UTC')
+        }),
+        knex('periodicals').insert({
+          id: 13,
+          name: 'New York Times',
+          issue: 'Sunday, April 9, 2017',
+          editor: 'Dean Baquet',
+          editor_url: 'http://pixel.nymag.com/imgs/daily/intelligencer/2014/05/14/14-dean-baquet.w245.h368.2x.jpg',
+          edition: 'Kindle Edition',
+          publication_date: '2017-03-29 0:00:01 UTC',
+          pages: 200,
+          img_url: 'http://a341-47.so.clients.cdn13.com/wp-content/uploads/2017/03/5sNTboycMso.jpg',
+          description: "The New York Times (sometimes abbreviated NYT and The Times) is an American daily newspaper, founded and continuously published in New York City since September 18, 1851, by The New York Times Company. The New York Times has won 119 Pulitzer Prizes, more than any other newspaper",
+          created_at: new Date('2017-04-09 14:55:16 UTC'),
+          updated_at: new Date('2017-04-09 14:55:18 UTC')
         })
       ]);
     })

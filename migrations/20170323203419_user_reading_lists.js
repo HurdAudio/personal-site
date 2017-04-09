@@ -144,6 +144,7 @@ exports.up = function(knex, Promise) {
     table.integer('contemporary_pulp_4').defaultTo(null).references('id').inTable('user_book_reviews').onDelete('CASCADE').index();
     table.integer('vintage_pulp_4').defaultTo(null).references('id').inTable('user_book_reviews').onDelete('CASCADE').index();
     table.integer('prize_10').defaultTo(null).references('id').inTable('user_book_reviews').onDelete('CASCADE').index();
+    table.json('completed_readings').defaultTo(null);
     table.timestamps(true, true);
   });
 };

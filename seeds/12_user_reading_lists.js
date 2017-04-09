@@ -149,6 +149,7 @@ exports.seed = function(knex, Promise) {
           contemporary_pulp_4: 116,
           vintage_pulp_4: 118,
           prize_10: 122,
+          completed_readings: { "0": 1, "1": 2, "2": 3, "3": 4, "4": 5, "5": 6, "6": 7, "7": 8, "8": 9, "9": 10, "10": 11, "11": 12, "12": 13, "13": 14, "14": 15, "15": 16, "16": 17 },
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
