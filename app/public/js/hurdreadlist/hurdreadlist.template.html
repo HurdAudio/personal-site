@@ -16,7 +16,7 @@
 
   <div id="theShelf" class="bookshelf">
     <main id="bookStream" ng-repeat="readings in $ctrl.readingOrder">
-      <div ng-click="$ctrl.viewBook(readings.user_review)">
+      <div ng-click="$ctrl.viewBook(readings.index)">
         <div id="{{readings.author + readings.title + readings.user_review}}" class="book book-one" style="background-image: url({{readings.cover_url}});">
           <h2>{{readings.author}}</h2><h3>{{readings.title}}</h3>
         </div>
@@ -24,159 +24,56 @@
       </div>
 
 
-    <!-- <div class="book book-one">
-      <h2>Nell Zink:</h2> <h3><em>Mislaid</em></h3>
-    </div><div class="book book-two">
-      <h2>Parker Bilal:</h2> <h3><em>City of Jackals</em></h3>
-    </div><div class="book book-three">
-      <h2>Helen Oyeyemi: </h2><h3><em>What is Not Yours is Not Yours</em></h3>
-    </div><div class="book book-four">
-      <h2>Susan Kaye Quinn: </h2><h3><em>Fallen - Debt Collector #6</em></h3>
-    </div><div class="book book-five">
-      <h2>Elizabeth Kelly:</h2> <h3><em>The Miracle on Monhegan Island</em></h3>
-    </div><div class="book book-six">
-      <h2>M.R. Carey:</h2> <h3><em>The Girl with All the Gifts</em></h3>
-    </div><div class="book book-seven">
-      <h2>Vera Caspary: </h2><h3><em>Laura</em></h3>
-    </div><div class="book book-eight">
-      <h2>Phil Klay:</h2><h3>Redeployment</h3>
-    </div><div class="book-tilted"><div class="book book-four">
-      <h2>Susan Kaye Quinn: </h2><h3><em>Promise - Debt Collector #7</em></h3>
-    </div></div><div class="book book-nine">
-      <h2>Conjunctions 65: </h2><h3>Sleights of Hand:Deception Issue</h3>
-    </div><div class="book book-ten">
-      <h2>Jeremy Robert Johnson: </h2><h3>Skullcrack City</h3>
-    </div><div class="book book-eleven">
-      <h2>Asimov's Science Fiction</h2><h3>October/November 2016</h3>
-    </div><div class="book book-twelve">
-      <h2>Bram Stoker</h2><h3><em>DRACULA</em></h3>
-    </div><div class="book book-thirteen">
-      <h2>ONE Story Magazine</h2>
-    </div><div class="book book-fourteen">
-      <h2>Robert E. Howard</h2><h3>The Hour of the Dragon</h3>
-    </div><div class="book book-one">
-      <h2>Catriona McPherson</h2><h3>The Child Garden</h3>
-    </div><div class="book book-two">
-      <h2>Ben H. Winters</h2><h3><em>Underground Airlines</em></h3>
-    </div><div class="book book-three">
-      <h2>Helen Eustis</h2><h3>The Horizontal Man</h3>
-    </div><div class="book book-five">
-      <h2>Sara Jaffe</h2><h3><em>Dryland</em></h3>
-    </div><div class="book book-four">
-      <h2>Susan Kaye Quinn:</h2><h3>Ruthless - Debt Collector #8</h3>
-    </div><div class="book book-six">
-      <h2>Ron Childress</h2><h3>And West is West</h3>
-    </div><div class="book book-seven">
-      <h2>Dorthy B. Hughes</h2><h3>In a Lonely Place</h3>
-    </div><div class="book book-eight">
-      <h2>Ken Follett:</h2><h3><em>Writing the Blockbuster Novel</em></h3>
-    </div><div class="book-tilted"><div class="book book-four">
-      <h2>Susan Kaye Quinn:</h2><h3>Passion - Debt Collector #9</h3>
-    </div></div><div class="book book-eleven">
-      <h2>Asimov's Science Fiction</h2><h3>December 2016</h3>
-    </div><div class="book book-nine">
-      <h2>Shawn Coyne</h2><h3>The Story Grid</h3>
-    </div><div class="book book-thirteen">
-      <h2>ONE Story Magazine</h2>
-    </div><div class="book book-ten">
-      <h2>The Long List Anthology</h2><h3>More Hugo Nominated Stories</h3>
-    </div><div class="book book-eleven">
-      <h2>Asimov's Science Fiction</h2><h3>January/February 2017</h3>
-    </div><div class="book-tilted"><div class="book book-twelve">
-      <h2>Andre Norton</h2><h3><em>All Cats are Grey</em></h3></div>
-    </div><div class="book book-thirteen">
-      <h2>Laura Lippman:</h2><h3>After I'm Gone</h3>
-    </div><div class="book book-one">
-      <h2>Bitch Planet Vol. 1</h2><h3>Extraordinary Machine</h3>
-    </div><div class="book book-two">
-      <h2>Samantha Hunt</h2><h3>Mr. Splitfoot</h3>
-    </div><div class="book book-three">
-      <h2>Elisabeth Sanxay Holding</h2><h3><em>The Blank Wall</em></h3>
-    </div><div class="book book-five">
-      <h2>Diane Cook</h2><h3>Man V. Nature</h3>
-    </div><div class="book book-four">
-      <h2>Susan Kaye Quinn:</h2><h3>Wraith - Debt Collector #10</h3>
-    </div><div class="book book-thirteen">
-      <h2>ONE Story Magazine</h2>
-    </div><div class="book-tilted"><div class="book book-six">
-      <h2>Alexander Chee:</h2><h3>The Queen of the Night</h3></div>
-    </div><div class="book book-seven">
-      <h2>Tana French</h2><h3>The Trespasser</h3>
-    </div><div class="book book-eight">
-      <h2>D.J. Butler:</h2><h3>The City of the Saints</h3>
-    </div><div class="book book-four">
-      <h2>Susan Kaye Quinn:</h2><h3>Spectre - Debt Collector #11</h3>
-    </div><div class="book book-eleven">
-      <h2>Asimov's Science Fiction</h2><h3>March 2017</h3>
-    </div><div class="book book-nine">
-      <h2>Laird Hunt</h2><h3>Neverhome</h3>
-    </div><div class="book book-thirteen">
-      <h2>ONE Story Magazine</h2>
-    </div><div class="book book-ten">
-      <h2>The Book of Chinese Fairy Tales</h2>
-    </div><div class="book book-eleven">
-      <h2>Asimov's Science Fiction</h2><h3>April 2017</h3>
-    </div><div class="book book-twelve">
-      <h2>Brian Allen Carr</h2><h3>Motherfucking Sharks</h3>
-    </div><div class="book book-one">
-      <h2>Claire North</h2><h3>The First Fifteen Lives of Harry August</h3>
-    </div><div class="book-tilted"><div class="book book-two">
-      <h2>Kem Nunn</h2><h3>Chance</h3></div>
-    </div><div class="book book-three">
-      <h2>Charlotte Armstrong</h2><h3><em>Mischief</em></h3>
-    </div><div class="book book-six">
-      <h2>Tanwi Nandini Islam</h2><h3>Bright Lines</h3>
-    </div><div class="book book-four">
-      <h2>Susan Kaye Quinn:</h2><h3>Menace - Debt Collector #12</h3>
-    </div><div class="book book-thirteen">
-      <h2>ONE Story Magazine</h2>
-    </div><div class="book book-seven">
-      <h2>Sean Michaels</h2><h3><em>Us Conductors</em></h3>
-    </div><div class="book book-eight">
-      <h2>Patricia Highsmith</h2><h3>The Blunderer</h3>
-    </div><div class="book book-nine">
-      <h2>Nnedi Okorafor</h2><h3>Binti</h3>
-    </div><div class="book book-four">
-      <h2>Susan Kaye Quinn:</h2><h3>Temptation - Debt Collector #13</h3>
-    </div><div class="book book-eleven">
-      <h2>Asimov's Science Fiction</h2><h3>May 2017</h3>
-    </div><div class="book book-ten">
-      <h2>Mark Twain</h2><h3><em>The Adventures of Tom Sawyer</em></h3>
-    </div><div class="book book-thirteen">
-      <h2>ONE Story Magazine</h2>
-    </div><div class="book book-twelve">
-      <h2>H.P. Lovecraft</h2><h3>The Tomb</h3>
-    </div><div class="book book-eleven">
-      <h2>Asimov's Science Fiction</h2><h3>Jun 2017</h3>
-    </div><div class="book book-one">
-      <h2>James Scott Bell</h2><h3>27 Fiction Writing Blunders</h3>
-    </div><div class="book book-two">
-      <h2>Allen Eskens</h2><h3><em>The Life We Bury</em></h3>
-    </div><div class="book book-three">
-      <h2>Bitch Planet, Vol. 2</h2><h3>President Bitch</h3>
-    </div><div class="book book-six">
-      <h2>Charles F. Millhouse</h2><h3>Captain Hawlkin and the Skyhook Pirates</h3>
-    </div><div class="book book-seven">
-      <h2>Dashiell Hammett</h2><h3>The Thin Man</h3>
-    </div><div class="book-tilted"><div class="book book-eight">
-      <h2>James Chalk</h2><h3>The Meat Market</h3></div>
-    </div><div class="book book-nine">
-      <h2>James M. Cain</h2><h3>The Postman Always Rings Twice</h3>
-    </div><div class="book book-ten">
-      <h2>Paul Trembley</h2><h3>A Head Full of Ghosts</h3>
-    </div><div class="book book-eleven">
-      <h2>Cynthia D'Aprix Sweeney</h2><h3>The Nest</h3>
-    </div><div class="book book-one">
-      <h2>Margaret Millar</h2><h3>Beast in View</h3>
-    </div><div class="book book-three">
-      <h2>Carlos Hernandez</h2><h3>The Assimilated Cuban's Guide to Quantum Santeria</h3>
-    </div><div class="book book-four">
-      <h2>Susan Kaye Quinn:</h2><h3>Shattered - Debt Collector #14</h3>
-    </div><div class="book book-six">
-      <h2>Michael Chabon</h2><h3>Moonglow</h3>
-    </div> -->
+
 
     </main>
+  </div>
+
+  <div id="bookCube">
+
+    <div class="cubeBox">
+      <input id="front" name="transforms" type="radio" value="front">
+      <label for="front">Cover</label>
+
+    <input id="left" name="transforms" type="radio" value="left">
+      <label for="left">Author/Title</label>
+
+      <input id="right" name="transforms" type="radio" value="right">
+      <label for="right">Description</label>
+
+      <input id="top" name="transforms" type="radio" value="top">
+      <label for="top">Rating</label>
+
+      <input id="bottom" name="transforms" type="radio" value="bottom">
+      <label for="bottom">Review</label>
+
+      <input id="back" name="transforms" type="radio" value="back">
+      <label for="back">Comments</label>
+
+
+      <div class="cubeContainer">
+        <figure id="cubistContraption" class="cubeCube">
+          <div id="coverCube" class="frontCover"><img src="{{$ctrl.singleBook.cover_url}}" height="100%" width="100%"></div>
+          <div id="authorCube" class="leftTitleAuthor"><h3>{{$ctrl.singleBook.author}}
+            <img src="{{$ctrl.singleBook.author_url}}" width="20%"></h3>
+          <h2><em>{{$ctrl.singleBook.title}}</em></h2>
+        <p>{{$ctrl.singleBook.edition}}, {{$ctrl.singleBook.number_of_pages}} pages</p>
+        <p>{{$ctrl.singleBook.publish_string}}</p></div>
+          <div id="descriptorCube" class="rightDescription"><p>{{$ctrl.singleBook.description}}</p></div>
+          <div id="ratingsFace" class="topRating"><h1>{{$ctrl.singleBook.rating}}/100</h1></div>
+          <div id="reviewFace" class="bottomReview"><h2>{{$ctrl.singleBook.review_title}}</h2><p>{{$ctrl.singleBook.review_body}}</p>
+          <p>{{$ctrl.singleBook.posted_at}}</p></div>
+          <div id="commentFace" class="backComments"><p>Comments</p>
+          <button class="commentButton">post a comment</button></div>
+        </figure>
+      </div>
+      <button class="commentButton">Previous Book</button>
+      <button id="backToShelf" class="commentButton">Back To Shelf</button>
+      <button class="commentButton">Next Book</button>
+
+
+
+    </div>
   </div>
 
 </div>

@@ -2031,6 +2031,7 @@ input[value="back"]:checked ~ .cubeContainer .cubeCube {
 	padding-top: 0;
 	color: #fff;
 	font: 3em arial;
+  opacity: 1.0;
 }
 
 .cubeCube div h3 {
@@ -2041,6 +2042,7 @@ input[value="back"]:checked ~ .cubeContainer .cubeCube {
 }
 
 .cubeCube .frontCover {
+  opacity: 1.0;
 }
 
 .cubeCube .rightDescription {
@@ -2071,6 +2073,8 @@ input[value="back"]:checked ~ .cubeContainer .cubeCube {
 .leftTitleAuthor {
   color: #000000;
   background-color: #fff;
+  opacity: 1.0;
+  overflow:scroll;
 }
 
 .cubeCube div h2 {
