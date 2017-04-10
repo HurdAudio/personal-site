@@ -527,11 +527,15 @@
         var leanRandom = 0;
         var randomizeBookBase = 0;
         var bookID = '';
+        var pages = 0;
+        var leanPixels = 0;
 
         for (let i = 0; i < vm.readingOrder.length; i++) {
           div = document.getElementById(vm.readingOrder[i].author + vm.readingOrder[i].title + vm.readingOrder[i].user_review);
+          pages = vm.readingOrder[i].number_of_pages;
+          console.log(pages);
 
-          if (leaner > 5) {
+          if ((leaner > 5) && (pages < 450)) {
             leanRandom = Math.floor(Math.random()*7);
             if (leanRandom === 1) {
               leaner = 0;
@@ -593,143 +597,40 @@
               bookID = "book book-one";
           }
           div.setAttribute("class", bookID);
-
-
-          if (vm.readingOrder[i].number_of_pages < 100) {
-            console.log('smallbook');
-             bookSize = 34;
-           } else if (vm.readingOrder[i].number_of_pages < 200) {
-             bookSize = 39;
-          } else if (vm.readingOrder[i].number_of_pages < 300) {
-            bookSize = 44;
-          } else if (vm.readingOrder[i].number_of_pages < 400) {
-            bookSize = 49;
-          } else if (vm.readingOrder[i].number_of_pages < 500) {
-            bookSize = 54;
-          } else if (vm.readingOrder[i].number_of_pages < 600) {
-            bookSize = 59;
-          } else if (vm.readingOrder[i].number_of_pages < 700) {
-            bookSize = 64;
-          } else if (vm.readingOrder[i].number_of_pages < 800) {
-            bookSize = 69;
-          } else if (vm.readingOrder[i].number_of_pages < 900) {
-            bookSize = 74;
-          } else if (vm.readingOrder[i].number_of_pages < 1000) {
-            bookSize=79;
-          } else if (vm.readingOrder[i].number_of_pages < 5000) {
-            bookSize = 84;
+          console.log(vm.readingOrder[i]);
+          console.log(vm.readingOrder[i].books_id);
+          if (!isNaN(vm.readingOrder[i].number_of_pages)) {
+            if (vm.readingOrder[i].number_of_pages < 100) {
+              bookSize = 1.4;
+            } else {
+              bookSize = vm.readingOrder[i].number_of_pages/80;
+            }
           } else {
-            bookSize = 24;
+            bookSize = 1.5;
           }
-          div.setAttribute("style", "width: " + bookSize + "px; background-image: url(" + vm.readingOrder[i].cover_url + ");");
 
+          div.setAttribute("style", "width: " + bookSize + "em; background-image: url(" + vm.readingOrder[i].cover_url + ");");
+          if (leaning) {
+            leanPixels = bookSize * 2.4;
+            leanDiv.setAttribute("style", "margin-right:" + leanPixels +"px;");
+          }
         }
 
 
-
-
-
-
-
-
-        // console.log(vm.readingOrder);
-        // var leaning = 0;
-        // var leaner = 0;
-        // var lean = false;
-        // var shelfRandom = 0;
-        // var leaningDiv = null;
-        // var bookDiv = null;
-        // var booktype = 0;
-        // var bookID = '';
-        // var anchorHref = "$ctrl.viewBook(readings.user_review)";
-        // var shelf = document.getElementById('bookStream');
-        // var author = null;
-
-        // for (let i = 0; i < vm.readingOrder.length; i++) {
-        //   if (leaning > 5) {
-        //     leaner = Math.floor(Math.random()*12);
-        //     if (leaner === 11) {
-        //       lean = true;
-        //       leaning = 0;
-        //     }
-        //   } else {
-        //     ++lean;
-        //   }
-        //   booktype = Math.floor(Math.random()*14);
-        //   switch (booktype) {
-        //     case (0):
-        //       bookID = 'book book-one';
-        //       break;
-        //     case (1):
-        //       bookID = 'book book-two';
-        //       break;
-        //     case (2):
-        //       bookID = "book book-three";
-        //       break;
-        //     case (3):
-        //       bookID = "book book-four";
-        //       break;
-        //     case (4):
-        //       bookID = "book book-five";
-        //       break;
-        //     case(5):
-        //       bookID = "book book-six";
-        //       break;
-        //     case(6):
-        //       bookID = "book book-seven";
-        //       break;
-        //     case(7):
-        //       bookID = "book book-eight";
-        //       break;
-        //     case(8):
-        //       bookID = "book book-nine";
-        //       break;
-        //     case(9):
-        //       bookID = "book book-ten";
-        //       break;
-        //     case(10):
-        //       bookID = "book book-eleven";
-        //       break;
-        //     case(11):
-        //       bookID = "book book-twelve";
-        //       break;
-        //     case(12):
-        //       bookID = "book book-thirteen";
-        //       break;
-        //     case(13):
-        //       bookID = "book book-fourteen";
-        //       break;
-        //     default:
-        //       bookID = "book book-one";
-        //   }
-        //   bookDiv = document.createElement('div');
-        //   bookDiv.setAttribute("class", bookID);
-        //
-        //   if (lean) {
-        //     leaningDiv = document.createElement('div');
-        //     shelf.appendChild(leaningDiv);
-        //     leaningDiv.setAttribute("class", "book-tilted");
-        //     leaningDiv.setAttribute("ng-click", anchorHref);
-        //     leaningDiv.appendChild(bookDiv);
-        //     lean = false;
-        //
-        //   } else {
-        //     shelf.appendChild(bookDiv);
-        //     bookDiv.setAttribute("ng-click", anchorHref);
-        //   }
-        //   author = document.createElement('h2');
-        //   bookDiv.appendChild(author);
-        //   author.value = '{{readings.author}}';
-        // }
       }
 
       function initialPopulation() {
+        var shelfDiv = document.getElementById('theShelf');
         for (let j = 0; j < vm.readingOrder.length; j++) {
           vm.readingOrder[j] = getReadingData(vm.readingOrder[j]);
         }
         Promise.all(requests).then((results)=>{
           console.log(results);
-          populateBookshelf();
+          setTimeout(()=>{
+            populateBookshelf();
+          }, 3000);
+
+          shelfDiv.setAttribute("style", "display: inherit;");
         })
         .catch((err)=>{
           console.log(err);
@@ -739,6 +640,9 @@
 
       function onInit() {
         console.log("Readinglist is lit.");
+        var shelf = document.getElementById('theShelf');
+        console.log(shelf);
+        shelf.setAttribute("style", "display: none;");
         //TODO get reading order (books completed + curently reading + interrupt-if-applicable + reading-list)
         $http.get('/user_reading_lists/1')
         .then(userList=>{

@@ -14,7 +14,7 @@
   </div>
 
 
-  <div class="bookshelf">
+  <div id="theShelf" class="bookshelf">
     <main id="bookStream" ng-repeat="readings in $ctrl.readingOrder">
       <div ng-click="$ctrl.viewBook(readings.user_review)">
         <div id="{{readings.author + readings.title + readings.user_review}}" class="book book-one" style="background-image: url({{readings.cover_url}});">

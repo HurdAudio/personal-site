@@ -1790,8 +1790,8 @@ input:focus, textarea:focus {
 }
 
 .book {
+  width: 1em;
   height: 200px;
-  width: 40px;
   float: left;
   color: white;
   font-size: 0.9em;
@@ -1827,7 +1827,6 @@ input:focus, textarea:focus {
 
 .book-two {
   background-color: #bfff00;
-  width: 54px;
   color: #ffffff;
   border-left: 2px solid lighten(#bfff00, 8%);
   border-right: 2px solid darken(#bfff00, 4%);
@@ -1835,7 +1834,6 @@ input:focus, textarea:focus {
 
 .book-three {
   background-color: #0040FF;
-  width: 64px;
   color: #ffffff;
   border-left: 2px solid lighten(#0040FF, 8%);
   border-right: 2px solid darken(#0040FF, 4%);
@@ -1843,7 +1841,6 @@ input:focus, textarea:focus {
 
 .book-four {
   background-color: #ff4000;
-  width: 34px;
   color: #ffffff;
   border-left: 2px solid lighten(#ff4000, 8%);
   border-right: 2px solid darken(#ff4000, 4%);
@@ -1851,7 +1848,6 @@ input:focus, textarea:focus {
 
 .book-five {
   background-color: #0C347D;
-  width: 60px;
   color: #ffffff;
   border-left: 2px solid lighten(#0C347D, 8%);
   border-right: 2px solid darken(#0C347D, 4%);
@@ -1867,7 +1863,6 @@ input:focus, textarea:focus {
 .book-six {
   background-color: #54290C;
   color: #ffffff;
-  width: 46px;
   border-left: 2px solid lighten(#54290C, 4%);
   border-right: 2px solid darken(#54290C, 4%);
 }
@@ -1909,7 +1904,6 @@ input:focus, textarea:focus {
 
 .book-thirteen {
   background-color: #40dc44;
-  width: 34px;
   border-left: 2px solid lighten(#40dc44, 4%);
   border-right: 2px solid darken(#40dc44, 4%);
   color: #ffffff;
@@ -1917,7 +1911,6 @@ input:focus, textarea:focus {
 
 .book-fourteen {
   background-color: #ff293b;
-  width: 34px;
   border-left: 2px solid lighten(#ff293b, 4%);
   border-right: 2px solid darken(#ff293b, 4%);
   color: #ffffff;
@@ -1953,7 +1946,7 @@ input:focus, textarea:focus {
 .book img {
   heigth: 100%;
   width: 100%;
-  -webkit-transform: rotateY(45deg);
+  -webkit-transform: rotateY(-40deg);
 }
 
 .cubeBox {
