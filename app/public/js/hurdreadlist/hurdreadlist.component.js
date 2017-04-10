@@ -33,6 +33,9 @@
         if (readingObject.user_review === null) {
           // fill in object data
           readingObject.rating = null;
+          readingObject.author = Math.floor(Math.random()*127);
+          readingObject.title = Math.floor(Math.random()*127);
+          readingObject.user_review = -1;
           readingObject.review_title = "Review Pending";
           readingObject.review_body = "This item is not yet reviewed.";
           switch (readingObject.slot_type) {
@@ -500,6 +503,7 @@
                 readingObject.edition = magazine.edition;
                 readingObject.publication_date = magazine.publication_date;
                 readingObject.pages = magazine.pages;
+                readingObject.number_of_pages = magazine.pages
                 readingObject.img_url = magazine.img_url;
                 readingObject.description = magazine.description;
                 return(readingObject);
@@ -508,6 +512,137 @@
           });
         }
         return(readingObject);
+      }
+
+      function populateBookshelf () {
+        var div = null;
+
+        for (let i = 0; i < vm.readingOrder.length; i++) {
+          div = document.getElementById(vm.readingOrder[i].author + vm.readingOrder[i].title + vm.readingOrder[i].user_review);
+          console.log(div);
+          if (vm.readingOrder[i].number_of_pages < 100) {
+             div.setAttribute("style", "width: 34px; background-image: url(" + vm.readingOrder[i].cover_url + ");");
+           } else if (vm.readingOrder[i].number_of_pages < 200) {
+             div.setAttribute("style", "width: 44px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
+          } else if (vm.readingOrder[i].number_of_pages < 300) {
+            div.setAttribute("style", "width: 54px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
+          } else if (vm.readingOrder[i].number_of_pages < 400) {
+            div.setAttribute("style", "width: 64px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
+          } else if (vm.readingOrder[i].number_of_pages < 500) {
+            div.setAttribute("style", "width: 74px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
+          } else if (vm.readingOrder[i].number_of_pages < 600) {
+            div.setAttribute("style", "width: 84px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
+          } else if (vm.readingOrder[i].number_of_pages < 700) {
+            div.setAttribute("style", "width: 94px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
+          } else if (vm.readingOrder[i].number_of_pages < 800) {
+            div.setAttribute("style", "width: 104px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
+          } else if (vm.readingOrder[i].number_of_pages < 900) {
+            div.setAttribute("style", "width: 114px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
+          } else if (vm.readingOrder[i].number_of_pages < 1000) {
+            div.setAttribute("style", "width: 124px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
+          } else if (vm.readingOrder[i].number_of_pages < 5000) {
+            div.setAttribute("style", "width: 134px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
+          }else {
+            div.setAttribute("style", "width: 24px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
+          }
+        }
+
+
+
+
+
+
+
+
+        // console.log(vm.readingOrder);
+        // var leaning = 0;
+        // var leaner = 0;
+        // var lean = false;
+        // var shelfRandom = 0;
+        // var leaningDiv = null;
+        // var bookDiv = null;
+        // var booktype = 0;
+        // var bookID = '';
+        // var anchorHref = "$ctrl.viewBook(readings.user_review)";
+        // var shelf = document.getElementById('bookStream');
+        // var author = null;
+
+        // for (let i = 0; i < vm.readingOrder.length; i++) {
+        //   if (leaning > 5) {
+        //     leaner = Math.floor(Math.random()*12);
+        //     if (leaner === 11) {
+        //       lean = true;
+        //       leaning = 0;
+        //     }
+        //   } else {
+        //     ++lean;
+        //   }
+        //   booktype = Math.floor(Math.random()*14);
+        //   switch (booktype) {
+        //     case (0):
+        //       bookID = 'book book-one';
+        //       break;
+        //     case (1):
+        //       bookID = 'book book-two';
+        //       break;
+        //     case (2):
+        //       bookID = "book book-three";
+        //       break;
+        //     case (3):
+        //       bookID = "book book-four";
+        //       break;
+        //     case (4):
+        //       bookID = "book book-five";
+        //       break;
+        //     case(5):
+        //       bookID = "book book-six";
+        //       break;
+        //     case(6):
+        //       bookID = "book book-seven";
+        //       break;
+        //     case(7):
+        //       bookID = "book book-eight";
+        //       break;
+        //     case(8):
+        //       bookID = "book book-nine";
+        //       break;
+        //     case(9):
+        //       bookID = "book book-ten";
+        //       break;
+        //     case(10):
+        //       bookID = "book book-eleven";
+        //       break;
+        //     case(11):
+        //       bookID = "book book-twelve";
+        //       break;
+        //     case(12):
+        //       bookID = "book book-thirteen";
+        //       break;
+        //     case(13):
+        //       bookID = "book book-fourteen";
+        //       break;
+        //     default:
+        //       bookID = "book book-one";
+        //   }
+        //   bookDiv = document.createElement('div');
+        //   bookDiv.setAttribute("class", bookID);
+        //
+        //   if (lean) {
+        //     leaningDiv = document.createElement('div');
+        //     shelf.appendChild(leaningDiv);
+        //     leaningDiv.setAttribute("class", "book-tilted");
+        //     leaningDiv.setAttribute("ng-click", anchorHref);
+        //     leaningDiv.appendChild(bookDiv);
+        //     lean = false;
+        //
+        //   } else {
+        //     shelf.appendChild(bookDiv);
+        //     bookDiv.setAttribute("ng-click", anchorHref);
+        //   }
+        //   author = document.createElement('h2');
+        //   bookDiv.appendChild(author);
+        //   author.value = '{{readings.author}}';
+        // }
       }
 
       function onInit() {
@@ -521,14 +656,17 @@
 
 
           vm.readingOrder = [];
-          console.log(vm.readingOrder);
           for (let key in userReadingList.completed_readings) {
             vm.readingOrder[parseInt(key)] = {};
             vm.readingOrder[parseInt(key)].user_review = userReadingList.completed_readings[key];
+            vm.readingOrder[parseInt(key)].author="anon";
+            vm.readingOrder[parseInt(key)].title="anon";
           }
           indexOfList = (vm.readingOrder.length);
           vm.readingOrder[indexOfList] = {};
           vm.readingOrder[indexOfList].user_review = userReadingList[userReadingList.current_position];
+          vm.readingOrder[indexOfList].author="anon";
+          vm.readingOrder[indexOfList].title="anon";
           indexOfReadingOrder = incrementIndexOfReadingOrder();
           ++indexOfList;
           $http.get('/interrupts')
@@ -544,6 +682,8 @@
               if (unreadInterruptID !== null) {
                 vm.readingOrder[indexOfList] = {};
                 vm.readingOrder[indexOfList].user_review = unreadInterruptID;
+                vm.readingOrder[indexOfList].author = "anon";
+                vm.readingOrder[indexOfList].title = "anon";
                 ++indexOfList;
               }
             }
@@ -551,13 +691,19 @@
               vm.readingOrder[indexOfList] = {};
               vm.readingOrder[indexOfList].user_review = userReadingList[readingOrderArray[indexOfReadingOrder]];
               vm.readingOrder[indexOfList].slot_type = readingOrderArray[indexOfReadingOrder];
+              vm.readingOrder[indexOfList].author = "anon";
+              vm.readingOrder[indexOfList].title = "anon";
               ++indexOfList;
               indexOfReadingOrder = incrementIndexOfReadingOrder();
             }
-            console.log(vm.readingOrder);
+
             for (let j = 0; j < vm.readingOrder.length; j++) {
               vm.readingOrder[j] = getReadingData(vm.readingOrder[j]);
             }
+            setTimeout(()=>{
+              populateBookshelf();
+            },9000);
+
 
           });
 

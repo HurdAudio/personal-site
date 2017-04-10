@@ -13,8 +13,17 @@
     </div>
   </div>
 
+
   <div class="bookshelf">
-    <div class="book book-one">
+    <main id="bookStream" ng-repeat="readings in $ctrl.readingOrder">
+      <div id="{{readings.author + readings.title + readings.user_review}}" class="book book-one" style="background-image: url({{readings.cover_url}});">
+        <h2>{{readings.author}}</h2><h3>{{readings.title}}</h3>
+
+
+      </div>
+
+
+    <!-- <div class="book book-one">
       <h2>Nell Zink:</h2> <h3><em>Mislaid</em></h3>
     </div><div class="book book-two">
       <h2>Parker Bilal:</h2> <h3><em>City of Jackals</em></h3>
@@ -164,8 +173,9 @@
       <h2>Susan Kaye Quinn:</h2><h3>Shattered - Debt Collector #14</h3>
     </div><div class="book book-six">
       <h2>Michael Chabon</h2><h3>Moonglow</h3>
-    </div>
-  </div>
+    </div> -->
 
+    </main>
+  </div>
 
 </div>

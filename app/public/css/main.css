@@ -1928,6 +1928,8 @@ input:focus, textarea:focus {
   transform-origin: 0% 0%;
   transform: rotate(0.25turn) translateY(-35px);
   width: 170px;
+  text-shadow: 1px 1px 0px black;
+  text-shadow: -1px -1px 0px black;
 }
 
 .book h3 {
@@ -1936,6 +1938,12 @@ input:focus, textarea:focus {
   transform-origin: 0 0;
   transform: rotate(0.25turn) translateY(-15px) translateX(-20px);
   width: 150px;
+}
+
+.book img {
+  heigth: 100%;
+  width: 100%;
+  -webkit-transform: rotateY(45deg);
 }
 
 .cubeBox {
