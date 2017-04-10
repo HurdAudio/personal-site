@@ -1799,6 +1799,8 @@ input:focus, textarea:focus {
   margin-bottom: 10px;
   margin-top: 20px;
   transition: transform 0.4s ease;
+  z-index: 1;
+  opacity: 1.0;
 }
 
 .book-tilted {
@@ -1807,16 +1809,17 @@ input:focus, textarea:focus {
 }
 
 .book-tilted > .book {
-  transform: translateY(-3px) translateX(15px) rotate(9deg) ;
+  transform: translateY(-6px) translateX(18px) rotate(12deg) ;
+  z-index: 1;
 }
 
 .book:hover {
-  transform: scale(1.25);
+  transform: scale(1.75);
+  z-index: 7;
 }
 
 .book-one {
   background-color: #ff00b1;
-  opacity: 0.8;
   color: #ffffff;
   border-left: 2px solid lighten(#ff00b1, 8%);
   border-right: 2px solid darken(#ff00b1, 4%);
@@ -1825,8 +1828,7 @@ input:focus, textarea:focus {
 .book-two {
   background-color: #bfff00;
   width: 54px;
-  opacity: 0.9;
-  color: #000000;
+  color: #ffffff;
   border-left: 2px solid lighten(#bfff00, 8%);
   border-right: 2px solid darken(#bfff00, 4%);
 }
@@ -1834,7 +1836,6 @@ input:focus, textarea:focus {
 .book-three {
   background-color: #0040FF;
   width: 64px;
-  opacity: 01.0;
   color: #ffffff;
   border-left: 2px solid lighten(#0040FF, 8%);
   border-right: 2px solid darken(#0040FF, 4%);
@@ -1843,7 +1844,6 @@ input:focus, textarea:focus {
 .book-four {
   background-color: #ff4000;
   width: 34px;
-  opacity: 0.8;
   color: #ffffff;
   border-left: 2px solid lighten(#ff4000, 8%);
   border-right: 2px solid darken(#ff4000, 4%);
@@ -1861,6 +1861,7 @@ input:focus, textarea:focus {
   background-color: #8000ff;
   border-left: 2px solid lighten(#8000ff, 4%);
   border-right: 2px solid darken(#8000ff, 4%);
+  color: #ffffff;
 }
 
 .book-six {
@@ -1875,21 +1876,21 @@ input:focus, textarea:focus {
   background-color: #EDED80;
   border-left: 2px solid lighten(#EDED80, 4%);
   border-right: 2px solid darken(#EDED80, 4%);
-  color: black;
+  color: #ffffff;
 }
 
 .book-nine {
   background-color: #a297b2;
   border-left: 2px solid lighten(#a297b2, 4%);
   border-right: 2px solid darken(#a297b2, 4%);
-  color: black;
+  color: #ffffff;
 }
 
 .book-ten {
   background-color: #fff;
   border-left: 2px solid lighten(#fff, 4%);
   border-right: 2px solid darken(#fff, 4%);
-  color: #000000;
+  color: #red;
 }
 
 .book-eleven {
@@ -1924,20 +1925,29 @@ input:focus, textarea:focus {
 
 .book h2 {
   padding: 0;
+
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 1em;
   font-size: 1em;
   transform-origin: 0% 0%;
   transform: rotate(0.25turn) translateY(-35px);
   width: 170px;
-  text-shadow: 1px 1px 0px black;
-  text-shadow: -1px -1px 0px black;
+  text-shadow: 1px 1px 0px black,
+ -1px -1px 0px black;
+  position: relative;
+  right: 0%;
 }
 
 .book h3 {
-  padding: 0;
+  padding: 0.4em;
+  margin-left: 0;
   font-size: 0.7em;
   transform-origin: 0 0;
   transform: rotate(0.25turn) translateY(-15px) translateX(-20px);
   width: 150px;
+  text-shadow: 1px 1px 0px black,
+ -1px -1px 0px black;
 }
 
 .book img {

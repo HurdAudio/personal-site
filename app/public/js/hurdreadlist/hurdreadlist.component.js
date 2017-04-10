@@ -5,6 +5,7 @@
   var readingOrderArray = ['female_author_selection_1', 'crime_series_1', 'backlog_ebook_1', 'science_fiction_series_1', 'free_selection_1', 'crime_series_2', 'insert_1', 'science_fiction_series_2', 'literary_journal_1', 'bizarro_fiction_1', 'genre_journal_1', 'classic_1', 'literary_journal_2', 'compendium_1', 'prize_1', 'male_author_selection_1', 'crime_series_3', 'backlog_physical_book_1', 'science_fiction_series_3', 'free_selection_2', 'crime_series_4', 'insert_2', 'science_fiction_series_4', 'genre_journal_2', 'non_fiction_1', 'literary_journal_3', 'anthology_1', 'genre_journal_3', 'roulette_1', 'prize_2', 'graphic_novel_1', 'female_author_selection_2', 'crime_series_5', 'backlog_ebook_2', 'science_fiction_series_5', 'literary_journal_4', 'free_selection_3', 'crime_series_6', 'insert_3', 'science_fiction_series_6', 'genre_journal_4', 'roulette_2', 'literary_journal_5', 'occult_reading_1', 'genre_journal_5', 'bizarro_fiction_2', 'prize_3', 'male_author_selection_2', 'crime_series_7', 'backlog_physical_book_2', 'science_fiction_series_7', 'literary_journal_6', 'free_selection_4', 'crime_series_8', 'insert_4', 'science_fiction_series_8', 'genre_journal_6', 'classic_2', 'literary_journal_7', 'compendium_2', 'genre_journal_7', 'non_fiction_2', 'prize_4', 'graphic_novel_2', 'contemporary_pulp_1', 'vintage_pulp_1', 'contemporary_pulp_2', 'vintage_pulp_2', 'prize_5', 'female_author_selection_3', 'crime_series_9', 'backlog_ebook_3', 'science_fiction_series_9', 'free_selection_5', 'crime_series_10', 'insert_5', 'science_fiction_series_10', 'literary_journal_8', 'anthology_2', 'genre_journal_8', 'roulette_3', 'literary_journal_9', 'roulette_4', 'prize_6', 'male_author_selection_3', 'crime_series_11', 'backlog_physical_book_3', 'science_fiction_series_11', 'free_selection_6', 'crime_series_12', 'insert_6', 'science_fiction_series_12', 'genre_journal_9', 'occult_reading_2', 'literary_journal_10', 'bizarro_fiction_3', 'genre_journal_10', 'classic_3', 'prize_7', 'graphic_novel_3','female_author_selection_4', 'crime_series_13', 'backlog_ebook_4', 'science_fiction_series_13', 'literary_journal_11', 'free_selection_7', 'crime_series_14', 'insert_7', 'science_fiction_series_14', 'genre_journal_11', 'compendium_3', 'literary_journal_12', 'non_fiction_3', 'genre_journal_12', 'anthology_3', 'prize_8', 'male_author_selection_4', 'crime_series_15', 'backlog_physical_book_4', 'science_fiction_series_15', 'literary_journal_13', 'free_selection_8', 'crime_series_16', 'insert_8', 'science_fiction_series_16', 'genre_journal_13', 'roulette_5', 'literary_journal_14', 'roulette_6', 'genre_journal_14', 'occult_reading_3', 'prize_9', 'graphic_novel_4', 'contemporary_pulp_3', 'vintage_pulp_3', 'contemporary_pulp_4', 'vintage_pulp_4', 'prize_10'];
   var indexOfList = 0;
   var indexOfReadingOrder = 0;
+  var requests = [];
 
   function incrementIndexOfReadingOrder() {
     ++indexOfReadingOrder;
@@ -456,6 +457,7 @@
             default:
               readingObject.description = "Unknown type unselected";
           }
+          requests.push(readingObject);
           return (readingObject);
         } else {
           $http.get(`/user_book_reviews/${readingObject.user_review}`)
@@ -487,6 +489,7 @@
                 readingObject.author_gender = book.author_gender;
                 readingObject.author_nationality = book.author_nationality;
                 readingObject.description = book.description;
+                requests.push(readingObject);
                 return(readingObject);
               });
             } else {
@@ -503,9 +506,10 @@
                 readingObject.edition = magazine.edition;
                 readingObject.publication_date = magazine.publication_date;
                 readingObject.pages = magazine.pages;
-                readingObject.number_of_pages = magazine.pages
+                readingObject.number_of_pages = magazine.pages;
                 readingObject.img_url = magazine.img_url;
                 readingObject.description = magazine.description;
+                requests.push(readingObject);
                 return(readingObject);
               });
             }
@@ -516,35 +520,109 @@
 
       function populateBookshelf () {
         var div = null;
+        var bookSize = 0;
+        var leanDiv = null;
+        var leaner = 0;
+        var leaning = false;
+        var leanRandom = 0;
+        var randomizeBookBase = 0;
+        var bookID = '';
 
         for (let i = 0; i < vm.readingOrder.length; i++) {
           div = document.getElementById(vm.readingOrder[i].author + vm.readingOrder[i].title + vm.readingOrder[i].user_review);
-          console.log(div);
-          if (vm.readingOrder[i].number_of_pages < 100) {
-             div.setAttribute("style", "width: 34px; background-image: url(" + vm.readingOrder[i].cover_url + ");");
-           } else if (vm.readingOrder[i].number_of_pages < 200) {
-             div.setAttribute("style", "width: 44px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
-          } else if (vm.readingOrder[i].number_of_pages < 300) {
-            div.setAttribute("style", "width: 54px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
-          } else if (vm.readingOrder[i].number_of_pages < 400) {
-            div.setAttribute("style", "width: 64px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
-          } else if (vm.readingOrder[i].number_of_pages < 500) {
-            div.setAttribute("style", "width: 74px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
-          } else if (vm.readingOrder[i].number_of_pages < 600) {
-            div.setAttribute("style", "width: 84px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
-          } else if (vm.readingOrder[i].number_of_pages < 700) {
-            div.setAttribute("style", "width: 94px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
-          } else if (vm.readingOrder[i].number_of_pages < 800) {
-            div.setAttribute("style", "width: 104px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
-          } else if (vm.readingOrder[i].number_of_pages < 900) {
-            div.setAttribute("style", "width: 114px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
-          } else if (vm.readingOrder[i].number_of_pages < 1000) {
-            div.setAttribute("style", "width: 124px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
-          } else if (vm.readingOrder[i].number_of_pages < 5000) {
-            div.setAttribute("style", "width: 134px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
-          }else {
-            div.setAttribute("style", "width: 24px;background-image: url(" + vm.readingOrder[i].cover_url + ");");
+
+          if (leaner > 5) {
+            leanRandom = Math.floor(Math.random()*7);
+            if (leanRandom === 1) {
+              leaner = 0;
+              leaning = true;
+              leanDiv = div.parentNode;
+              leanDiv.setAttribute("class", "book-tilted");
+            } else {
+              ++leaner;
+              leaning = false;
+            }
+          } else {
+            ++leaner;
           }
+          randomizeBookBase = Math.floor(Math.random()*14);
+          switch (randomizeBookBase) {
+            case (0):
+              bookID = 'book book-one';
+              break;
+            case (1):
+              bookID = 'book book-two';
+              break;
+            case (2):
+              bookID = "book book-three";
+              break;
+            case (3):
+              bookID = "book book-four";
+              break;
+            case (4):
+              bookID = "book book-five";
+              break;
+            case(5):
+              bookID = "book book-six";
+              break;
+            case(6):
+              bookID = "book book-seven";
+              break;
+            case(7):
+              bookID = "book book-eight";
+              break;
+            case(8):
+              bookID = "book book-nine";
+              break;
+            case(9):
+              bookID = "book book-ten";
+              break;
+            case(10):
+              bookID = "book book-eleven";
+              break;
+            case(11):
+              bookID = "book book-twelve";
+              break;
+            case(12):
+              bookID = "book book-thirteen";
+              break;
+            case(13):
+              bookID = "book book-fourteen";
+              break;
+            default:
+              bookID = "book book-one";
+          }
+          div.setAttribute("class", bookID);
+
+
+          if (vm.readingOrder[i].number_of_pages < 100) {
+            console.log('smallbook');
+             bookSize = 34;
+           } else if (vm.readingOrder[i].number_of_pages < 200) {
+             bookSize = 39;
+          } else if (vm.readingOrder[i].number_of_pages < 300) {
+            bookSize = 44;
+          } else if (vm.readingOrder[i].number_of_pages < 400) {
+            bookSize = 49;
+          } else if (vm.readingOrder[i].number_of_pages < 500) {
+            bookSize = 54;
+          } else if (vm.readingOrder[i].number_of_pages < 600) {
+            bookSize = 59;
+          } else if (vm.readingOrder[i].number_of_pages < 700) {
+            bookSize = 64;
+          } else if (vm.readingOrder[i].number_of_pages < 800) {
+            bookSize = 69;
+          } else if (vm.readingOrder[i].number_of_pages < 900) {
+            bookSize = 74;
+          } else if (vm.readingOrder[i].number_of_pages < 1000) {
+            bookSize=79;
+          } else if (vm.readingOrder[i].number_of_pages < 5000) {
+            bookSize = 84;
+          } else {
+            bookSize = 24;
+          }
+          div.setAttribute("style", "width: " + bookSize + "px; background-image: url(" + vm.readingOrder[i].cover_url + ");");
+
         }
 
 
@@ -645,6 +723,20 @@
         // }
       }
 
+      function initialPopulation() {
+        for (let j = 0; j < vm.readingOrder.length; j++) {
+          vm.readingOrder[j] = getReadingData(vm.readingOrder[j]);
+        }
+        Promise.all(requests).then((results)=>{
+          console.log(results);
+          populateBookshelf();
+        })
+        .catch((err)=>{
+          console.log(err);
+        });
+
+      }
+
       function onInit() {
         console.log("Readinglist is lit.");
         //TODO get reading order (books completed + curently reading + interrupt-if-applicable + reading-list)
@@ -697,12 +789,10 @@
               indexOfReadingOrder = incrementIndexOfReadingOrder();
             }
 
-            for (let j = 0; j < vm.readingOrder.length; j++) {
-              vm.readingOrder[j] = getReadingData(vm.readingOrder[j]);
-            }
-            setTimeout(()=>{
-              populateBookshelf();
-            },9000);
+            initialPopulation();
+
+
+
 
 
           });
