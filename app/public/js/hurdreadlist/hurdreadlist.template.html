@@ -54,20 +54,20 @@
       <div class="cubeContainer">
         <figure id="cubistContraption" class="cubeCube">
           <div id="coverCube" class="frontCover"><img src="{{$ctrl.singleBook.cover_url}}" height="100%" width="100%"></div>
-          <div id="authorCube" class="leftTitleAuthor"><h3>{{$ctrl.singleBook.author}}
-            <img src="{{$ctrl.singleBook.author_url}}" width="20%"></h3>
+          <div id="authorCube" class="leftTitleAuthor"><h3 id="authorName">{{$ctrl.singleBook.author}}
+            <img id="authorPic" src="{{$ctrl.singleBook.author_url}}" width="20%"></h3>
           <h2><em>{{$ctrl.singleBook.title}}</em></h2>
         <p>{{$ctrl.singleBook.edition}}, {{$ctrl.singleBook.number_of_pages}} pages</p>
         <p>{{$ctrl.singleBook.publish_string}}</p></div>
-          <div id="descriptorCube" class="rightDescription"><p>{{$ctrl.singleBook.description}}</p></div>
+          <div id="descriptorCube" class="rightDescription"><h2><em>{{$ctrl.singleBook.title}}</em></h2><p ng-bind-html="$ctrl.singleBook.description_clean"></p></div>
           <div id="ratingsFace" class="topRating"><h1>{{$ctrl.singleBook.rating}}/100</h1></div>
-          <div id="reviewFace" class="bottomReview"><h2>{{$ctrl.singleBook.review_title}}</h2><p>{{$ctrl.singleBook.review_body}}</p>
+          <div id="reviewFace" class="bottomReview"><h2>{{$ctrl.singleBook.review_title}}</h2><p ng-bind-html="$ctrl.singleBook.review_body_clean"></p>
           <p>{{$ctrl.singleBook.posted_at}}</p></div>
           <div id="commentFace" class="backComments"><p>Comments</p>
           <button class="commentButton">post a comment</button></div>
         </figure>
       </div>
-      <button class="commentButton">Previous Book</button>
+      <button id="previousBook" class="commentButton">Previous Book</button>
       <button id="backToShelf" class="commentButton">Back To Shelf</button>
       <button class="commentButton">Next Book</button>
 

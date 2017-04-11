@@ -30,6 +30,24 @@
 	position: relative;
 }
 
+#cubeNavContainer {
+	align-items: center;
+	align-self: center;
+	align-content: center;
+}
+
+#cubeNavContainer .commentButton {
+	width: 11em;
+}
+
+#multiCubeNav {
+	margin-top: 6em;
+	margin-bottom: 2em;
+	align-items: center;
+	align-self: center;
+	align-content: center;
+}
+
 
 
 #braced-corners {

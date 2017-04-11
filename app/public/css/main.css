@@ -2027,11 +2027,18 @@ input[value="back"]:checked ~ .cubeContainer .cubeCube {
 	background: rgba(0, 0, 0, 0.4);
 	position: absolute;
 	border: 1px solid #fff;
-	text-align: center;
+
 	padding-top: 0;
 	color: #fff;
-	font: 3em arial;
   opacity: 1.0;
+  text-align: left;
+  font-family: 'Marcellus', sans-serif;
+}
+
+.cubeCube div p {
+  text-align: left;
+  font-family: 'Latos', sans-serif;
+  font-size: 36px;
 }
 
 .cubeCube div h3 {

@@ -99,6 +99,12 @@
         url: '/harmonictheoryintroduction',
         parent: 'app',
         component: 'harmonictheoryintroduction'
+      })
+      .state({
+        name: 'singlebookcube',
+        url: '/singlebookcube/:id',
+        parent: 'app',
+        component: 'singlebookcube'
       });
 
 

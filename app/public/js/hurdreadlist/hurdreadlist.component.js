@@ -140,11 +140,14 @@
 
         book.posted_at = reviewString;
         book.publish_string = pubString;
+        book.description_clean = book.description.replace(/\r\n|\n|\r/gm, '<br>');
+        book.review_body_clean = book.review_body.replace(/\r\n|\n|\r/gm, '<br>');
         return(book);
       }
 
+
+
       function viewBook(index) {
-        console.log(index);
         var current = index;
         var cube = document.getElementById('bookCube');
         var shelves = document.getElementById('theShelf');
@@ -162,6 +165,13 @@
         var reviewCube = document.getElementById('reviewFace');
         var commentsSide = document.getElementById('back');
         var commentCube = document.getElementById('commentFace');
+        var previousButton = document.getElementById('previousBook');
+
+        if (current === 0) {
+          previousButton.setAttribute("style", "display: none;");
+        } else {
+          previousButton.setAttribute("style", "display: initial;");
+        }
 
         coverCube.setAttribute("style", "z-index: 2;");
         authorTitleCube.setAttribute("style", "z-index: -2;");
@@ -175,7 +185,6 @@
         cube.setAttribute("style", "display: initial;");
         vm.singleBook = vm.readingOrder[current];
         vm.singleBook = publishDate(vm.singleBook);
-        console.log(vm.singleBook);
 
         ratingSide.addEventListener('click', ()=>{
           cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateX(-90deg);");
@@ -195,7 +204,7 @@
           ratingCube.setAttribute("style", "z-index: -2;");
           reviewCube.setAttribute("style", "z-index: -2;");
           commentCube.setAttribute("style", "z-index: 5;");
-        })
+        });
         reviewSide.addEventListener('click', ()=>{
           cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateX(90deg);");
           coverCube.setAttribute("style", "z-index: -2;");
@@ -234,6 +243,15 @@
           ratingCube.setAttribute("style", "z-index: -2;");
           reviewCube.setAttribute("style", "z-index: -2;");
           commentCube.setAttribute("style", "z-index: -2;");
+
+        });
+        previousButton.addEventListener('click', ()=>{
+          --current;
+          vm.singleBook = vm.readingOrder[current];
+          vm.singleBook = publishDate(vm.singleBook);
+          if (current === 0) {
+            previousButton.setAttribute("style", "display: none;");
+          }
 
         });
         buttonReturn.addEventListener('click', function toggle() {
