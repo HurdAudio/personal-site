@@ -208,6 +208,127 @@
         return(indexUpdate);
       }
 
+      function setCubeNavigation() {
+        var cube = document.getElementById('bookCube');
+        var coverSide = document.getElementById('front');
+        var coverCube = document.getElementById('coverCube');
+        var cubist = document.getElementById('cubistContraption');
+        var authorTitleSide = document.getElementById('left');
+        var authorTitleCube = document.getElementById('authorCube');
+        var descriptionSide = document.getElementById('right');
+        var descriptionCube = document.getElementById('descriptorCube');
+        var ratingSide = document.getElementById('top');
+        var ratingCube = document.getElementById('ratingsFace');
+        var reviewSide = document.getElementById('bottom');
+        var reviewCube = document.getElementById('reviewFace');
+        var commentsSide = document.getElementById('back');
+        var commentCube = document.getElementById('commentFace');
+
+        cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateY(0);");
+        coverCube.setAttribute("style", "z-index: 2;");
+        authorTitleCube.setAttribute("style", "z-index: -2;");
+        descriptionCube.setAttribute("style", "z-index: -2;");
+        ratingCube.setAttribute("style", "z-index: -2;");
+        reviewCube.setAttribute("style", "z-index: -2;");
+        commentCube.setAttribute("style", "z-index: -2;");
+
+
+
+        ratingSide.addEventListener('click', ()=>{
+          cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateX(-90deg);");
+          coverCube.setAttribute("style", "z-index: -2;");
+          authorTitleCube.setAttribute("style", "z-index: -2;");
+          descriptionCube.setAttribute("style", "z-index: -2;");
+          ratingCube.setAttribute("style", "z-index: 5;");
+          reviewCube.setAttribute("style", "z-index: -2;");
+          commentCube.setAttribute("style", "z-index: -2;");
+
+        });
+        commentsSide.addEventListener('click', ()=>{
+          cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateY(180deg);");
+          coverCube.setAttribute("style", "z-index: -2;");
+          authorTitleCube.setAttribute("style", "z-index: -2;");
+          descriptionCube.setAttribute("style", "z-index: -2;");
+          ratingCube.setAttribute("style", "z-index: -2;");
+          reviewCube.setAttribute("style", "z-index: -2;");
+          commentCube.setAttribute("style", "z-index: 5;");
+        });
+        reviewSide.addEventListener('click', ()=>{
+          cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateX(90deg);");
+          coverCube.setAttribute("style", "z-index: -2;");
+          authorTitleCube.setAttribute("style", "z-index: -2;");
+          descriptionCube.setAttribute("style", "z-index: -2;");
+          ratingCube.setAttribute("style", "z-index: -2;");
+          reviewCube.setAttribute("style", "z-index: 5;");
+          commentCube.setAttribute("style", "z-index: -2;");
+        });
+        coverSide.addEventListener('click', ()=>{
+          cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateY(0);");
+          coverCube.setAttribute("style", "z-index: 5;");
+          authorTitleCube.setAttribute("style", "z-index: -2;");
+          descriptionCube.setAttribute("style", "z-index: -2;");
+          ratingCube.setAttribute("style", "z-index: -2;");
+          reviewCube.setAttribute("style", "z-index: -2;");
+          commentCube.setAttribute("style", "z-index: -2;");
+
+
+        });
+        authorTitleSide.addEventListener('click', ()=>{
+          cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateY(90deg);");
+          coverCube.setAttribute("style", "z-index: -2;");
+          authorTitleCube.setAttribute("style", "z-index: 5;");
+          descriptionCube.setAttribute("style", "z-index: -2;");
+          ratingCube.setAttribute("style", "z-index: -2;");
+          reviewCube.setAttribute("style", "z-index: -2;");
+          commentCube.setAttribute("style", "z-index: -2;");
+
+        });
+        descriptionSide.addEventListener('click', ()=>{
+          cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateY(-90deg);");
+          coverCube.setAttribute("style", "z-index: -2;");
+          authorTitleCube.setAttribute("style", "z-index: -2;");
+          descriptionCube.setAttribute("style", "z-index: 5;");
+          ratingCube.setAttribute("style", "z-index: -2;");
+          reviewCube.setAttribute("style", "z-index: -2;");
+          commentCube.setAttribute("style", "z-index: -2;");
+
+        });
+      }
+
+      function nullOutCube() {
+        console.log("here");
+        var coverSide = document.getElementById('coverImage');
+        var authorH3 = document.getElementById('authorName');
+        var authorImg = document.getElementById('authorPic');
+        var titleString = document.getElementById('singleTitle');
+        var editionData = document.getElementById('editionandpages');
+        var publish = document.getElementById('publisherBox');
+        var title2 = document.getElementById('secondTitle');
+        var description = document.getElementById('descriptor');
+        var rater = document.getElementById('rateMe');
+        var revTitle = document.getElementById('reviewTitle');
+        var revBody = document.getElementById('reviewBody');
+        var posted = document.getElementById('posterDate');
+        var coverCue = document.getElementById('coverCube');
+
+        coverSide.innHTML = "ITEM NOT YET SELECTED";
+
+        // coverSide.setAttribute("style", "display: none;");
+        coverSide.src = 'http://icons.iconarchive.com/icons/icojam/blue-bits/256/document-empty-icon.png';
+        authorH3.setAttribute("style", "display: none;");
+        authorImg.setAttribute("style", "display: none;");
+        titleString.innerHTML = "NOT SELECTED YET";
+        editionData.setAttribute("style", "display: none;");
+        publish.setAttribute("style", "display: none;");
+        title2.innerHTML = "NOT SELECTED YET";
+        description.setAttribute("style", "display: none;");
+        rater.setAttribute("style", "display: none;");
+        revTitle.innerHTML = "NOT SELECTED YET";
+        revBody.setAttribute("style", "display: none;");
+        posted.setAttribute("style", "display: none;");
+      }
+
+
       function onInit() {
         console.log("SingleBookCube is lit");
         var userReadingOrder = [];
@@ -273,7 +394,7 @@
                 nextBook = -1;
               }
               populateObject(bookReview);
-              //setCubeNavigation();
+              setCubeNavigation();
               previousBookButton.addEventListener('click', ()=>{
                 if (userReadingOrder[previousBook] === null) {
                   nextBook = viewingBookOrder;
@@ -284,7 +405,7 @@
                   } else {
                     previousBookButton.setAttribute("style", "display: initial;");
                   }
-                  //nullOutCube();
+                  nullOutCube();
                 } else {
                   $http.get(`/singlebookcube/${userReadingOrder[previousBook]}`).then(()=>{
                     $state.go('singlebookcube', {id: userReadingOrder[previousBook]});
@@ -299,9 +420,9 @@
                   if (nextBook >= userReadingOrder.length) {
                     nextBookButton.setAttribute("style", "display: none;");
                   } else {
-                    nextBookButton.setAttirbute("style", "display: initial;");
+                    nextBookButton.setAttribute("style", "display: initial;");
                   }
-                  //nullOutCube();
+                  nullOutCube();
                 } else {
                   $http.get(`/singlebookcube/${userReadingOrder[nextBook]}`).then(()=>{
                     $state.go('singlebookcube', {id: userReadingOrder[nextBook]});
