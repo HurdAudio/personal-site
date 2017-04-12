@@ -33,7 +33,7 @@
       function viewBook(reviewID) {
         console.log(reviewID);
         console.log("here");
-        if (reviewID !== null) {
+        if ((reviewID !== null) && (reviewID !== -1)) {
 
           $http.get(`/singlebookcube/${reviewID}`).then(()=>{
             $state.go('singlebookcube', {id: reviewID});
