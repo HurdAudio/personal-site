@@ -1,0 +1,104 @@
+<div id="bookCube">
+
+  <div class="container fake-nav">
+    <div class="pure-menu pure-menu-horizontal">
+      <nav><div class="hit-the-floor">
+        <div class="pure-g">
+          <div class="pure-u-1-5"><p><a href="/resume" class="pure-menu-heading pure-menu-link">Resume</a></p></div>
+          <div class="pure-u-1-5"><p><a href="/projects" class="pure-menu-heading pure-menu-link">Projects</a></p></div>
+          <div class="pure-u-1-5"><p><a href="/hurdaudio" class="pure-menu-heading pure-menu-link">HurdAudio</a></p></div>
+          <div class="pure-u-1-5"><p><a href="/" class="pure-menu-heading pure-menu-link">Home</a></p></div>
+          <div class="pure-u-1-5"><p><a href="/contact" class="pure-menu-heading pure-menu-link">Contact</a></p></div>
+        </div>
+      </div></nav>
+    </div>
+  </div>
+
+  <div id="multiCubeNav">
+    <div class="pure-g">
+
+      <div class="pure-u-1-5">
+      </div>
+      <div class="pure-u-1-5">
+        <button id="previousBook" class="commentButton">Previous Book</button>
+      </div>
+      <div class="pure-u-1-5">
+        <button id="backToShelf" class="commentButton">Back To Shelf</button>
+      </div>
+      <div class="pure-u-1-5">
+        <button id="nextBook" class="commentButton">Next Book</button>
+      </div>
+      <div class="pure-u-1-5">
+      </div>
+    </div>
+  </div>
+
+
+
+    <div id="cubeNavContainer">
+
+      <div class="pure-g">
+
+        <div class="pure-u-1-8">
+        </div>
+
+        <div class="pure-u-1-8">
+          <input id="front" name="transforms" type="radio" value="front"><br>
+          <label class="commentButton" for="front">Cover</label>
+        </div>
+        <div class="pure-u-1-8">
+          <input id="left" name="transforms" type="radio" value="left"><br>
+          <label class="commentButton" for="left">Author/Title</label>
+        </div>
+        <div class="pure-u-1-8">
+          <input id="right" name="transforms" type="radio" value="right"><br>
+          <label class="commentButton" for="right">Description</label>
+        </div>
+        <div class="pure-u-1-8">
+          <input id="top" name="transforms" type="radio" value="top"><br>
+          <label class="commentButton" for="top">Rating</label>
+        </div>
+        <div class="pure-u-1-8">
+          <input id="bottom" name="transforms" type="radio" value="bottom"><br>
+          <label class="commentButton" for="bottom">Review</label>
+        </div>
+        <div class="pure-u-1-8">
+          <input id="back" name="transforms" type="radio" value="back"><br>
+          <label class="commentButton" for="back">Comments</label>
+        </div>
+
+        <div class="pure-u-1-8">
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="cubeBox">
+
+
+    <div class="cubeContainer">
+      <figure id="cubistContraption" class="cubeCube">
+        <div id="coverCube" class="frontCover"><img id="coverImage" src="{{$ctrl.singleBook.cover_url}}" height="100%" width="100%"></div>
+        <div id="authorCube" class="leftTitleAuthor"><h3  id="authorName">{{$ctrl.singleBook.author}}
+          <img id="authorPic" src="{{$ctrl.singleBook.author_url}}" width="20%"></h3>
+        <h2 id="singleTitle"><em>{{$ctrl.singleBook.title}}</em></h2>
+      <p id="editionandpages">{{$ctrl.singleBook.edition}}, {{$ctrl.singleBook.number_of_pages}} pages</p>
+      <p id="publisherBox">{{$ctrl.singleBook.publish_string}}</p></div>
+        <div id="descriptorCube" class="rightDescription"><h2><em id="secondTitle">{{$ctrl.singleBook.title}}</em></h2><p id="descriptor" ng-bind-html="$ctrl.singleBook.description_clean"></p></div>
+        <div id="ratingsFace" class="topRating"><h1 id="rateMe">{{$ctrl.singleBook.rating}}/100</h1></div>
+        <div id="reviewFace" class="bottomReview"><h2 id="reviewTitle">{{$ctrl.singleBook.review_title}}</h2><p id="reviewBody" ng-bind-html="$ctrl.singleBook.review_body_clean"></p>
+        <p id="posterDate">{{$ctrl.singleBook.posted_at}}</p></div>
+        <div id="commentFace" class="backComments"><p>Comments</p>
+        <button class="commentButton">post a comment</button></div>
+      </figure>
+    </div>
+  </div>
+
+
+
+
+
+
+
+</div>

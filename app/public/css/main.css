@@ -1790,8 +1790,8 @@ input:focus, textarea:focus {
 }
 
 .book {
+  width: 1em;
   height: 200px;
-  width: 40px;
   float: left;
   color: white;
   font-size: 0.9em;
@@ -1799,6 +1799,8 @@ input:focus, textarea:focus {
   margin-bottom: 10px;
   margin-top: 20px;
   transition: transform 0.4s ease;
+  z-index: 1;
+  opacity: 1.0;
 }
 
 .book-tilted {
@@ -1807,16 +1809,17 @@ input:focus, textarea:focus {
 }
 
 .book-tilted > .book {
-  transform: translateY(-3px) translateX(15px) rotate(9deg) ;
+  transform: translateY(-6px) translateX(18px) rotate(12deg) ;
+  z-index: 1;
 }
 
 .book:hover {
-  transform: scale(1.25);
+  transform: scale(1.75);
+  z-index: 7;
 }
 
 .book-one {
   background-color: #ff00b1;
-  opacity: 0.8;
   color: #ffffff;
   border-left: 2px solid lighten(#ff00b1, 8%);
   border-right: 2px solid darken(#ff00b1, 4%);
@@ -1824,17 +1827,13 @@ input:focus, textarea:focus {
 
 .book-two {
   background-color: #bfff00;
-  width: 54px;
-  opacity: 0.9;
-  color: #000000;
+  color: #ffffff;
   border-left: 2px solid lighten(#bfff00, 8%);
   border-right: 2px solid darken(#bfff00, 4%);
 }
 
 .book-three {
   background-color: #0040FF;
-  width: 64px;
-  opacity: 01.0;
   color: #ffffff;
   border-left: 2px solid lighten(#0040FF, 8%);
   border-right: 2px solid darken(#0040FF, 4%);
@@ -1842,8 +1841,6 @@ input:focus, textarea:focus {
 
 .book-four {
   background-color: #ff4000;
-  width: 34px;
-  opacity: 0.8;
   color: #ffffff;
   border-left: 2px solid lighten(#ff4000, 8%);
   border-right: 2px solid darken(#ff4000, 4%);
@@ -1851,7 +1848,6 @@ input:focus, textarea:focus {
 
 .book-five {
   background-color: #0C347D;
-  width: 60px;
   color: #ffffff;
   border-left: 2px solid lighten(#0C347D, 8%);
   border-right: 2px solid darken(#0C347D, 4%);
@@ -1861,12 +1857,12 @@ input:focus, textarea:focus {
   background-color: #8000ff;
   border-left: 2px solid lighten(#8000ff, 4%);
   border-right: 2px solid darken(#8000ff, 4%);
+  color: #ffffff;
 }
 
 .book-six {
   background-color: #54290C;
   color: #ffffff;
-  width: 46px;
   border-left: 2px solid lighten(#54290C, 4%);
   border-right: 2px solid darken(#54290C, 4%);
 }
@@ -1875,21 +1871,21 @@ input:focus, textarea:focus {
   background-color: #EDED80;
   border-left: 2px solid lighten(#EDED80, 4%);
   border-right: 2px solid darken(#EDED80, 4%);
-  color: black;
+  color: #ffffff;
 }
 
 .book-nine {
   background-color: #a297b2;
   border-left: 2px solid lighten(#a297b2, 4%);
   border-right: 2px solid darken(#a297b2, 4%);
-  color: black;
+  color: #ffffff;
 }
 
 .book-ten {
   background-color: #fff;
   border-left: 2px solid lighten(#fff, 4%);
   border-right: 2px solid darken(#fff, 4%);
-  color: #000000;
+  color: #red;
 }
 
 .book-eleven {
@@ -1908,7 +1904,6 @@ input:focus, textarea:focus {
 
 .book-thirteen {
   background-color: #40dc44;
-  width: 34px;
   border-left: 2px solid lighten(#40dc44, 4%);
   border-right: 2px solid darken(#40dc44, 4%);
   color: #ffffff;
@@ -1916,7 +1911,6 @@ input:focus, textarea:focus {
 
 .book-fourteen {
   background-color: #ff293b;
-  width: 34px;
   border-left: 2px solid lighten(#ff293b, 4%);
   border-right: 2px solid darken(#ff293b, 4%);
   color: #ffffff;
@@ -1924,18 +1918,35 @@ input:focus, textarea:focus {
 
 .book h2 {
   padding: 0;
+
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 1em;
   font-size: 1em;
   transform-origin: 0% 0%;
   transform: rotate(0.25turn) translateY(-35px);
   width: 170px;
+  text-shadow: 1px 1px 0px black,
+ -1px -1px 0px black;
+  position: relative;
+  right: 0%;
 }
 
 .book h3 {
-  padding: 0;
+  padding: 0.4em;
+  margin-left: 0;
   font-size: 0.7em;
   transform-origin: 0 0;
   transform: rotate(0.25turn) translateY(-15px) translateX(-20px);
   width: 150px;
+  text-shadow: 1px 1px 0px black,
+ -1px -1px 0px black;
+}
+
+.book img {
+  heigth: 100%;
+  width: 100%;
+  -webkit-transform: rotateY(-40deg);
 }
 
 .cubeBox {
@@ -2016,10 +2027,18 @@ input[value="back"]:checked ~ .cubeContainer .cubeCube {
 	background: rgba(0, 0, 0, 0.4);
 	position: absolute;
 	border: 1px solid #fff;
-	text-align: center;
+
 	padding-top: 0;
 	color: #fff;
-	font: 3em arial;
+  opacity: 1.0;
+  text-align: left;
+  font-family: 'Marcellus', sans-serif;
+}
+
+.cubeCube div p {
+  text-align: left;
+  font-family: 'Latos', sans-serif;
+  font-size: 36px;
 }
 
 .cubeCube div h3 {
@@ -2030,6 +2049,7 @@ input[value="back"]:checked ~ .cubeContainer .cubeCube {
 }
 
 .cubeCube .frontCover {
+  opacity: 1.0;
 }
 
 .cubeCube .rightDescription {
@@ -2060,6 +2080,8 @@ input[value="back"]:checked ~ .cubeContainer .cubeCube {
 .leftTitleAuthor {
   color: #000000;
   background-color: #fff;
+  opacity: 1.0;
+  overflow:scroll;
 }
 
 .cubeCube div h2 {
