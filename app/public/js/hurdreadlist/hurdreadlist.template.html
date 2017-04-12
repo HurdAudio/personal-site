@@ -16,7 +16,7 @@
 
   <div id="theShelf" class="bookshelf">
     <main id="bookStream" ng-repeat="readings in $ctrl.readingOrder">
-      <div ng-click="$ctrl.viewBook(readings.index)">
+      <div ng-click="$ctrl.viewBook(readings.user_review)">
         <div id="{{readings.author + readings.title + readings.user_review}}" class="book book-one" style="background-image: url({{readings.cover_url}});">
           <h2>{{readings.author}}</h2><h3>{{readings.title}}</h3>
         </div>
@@ -29,51 +29,6 @@
     </main>
   </div>
 
-  <div id="bookCube">
 
-    <div class="cubeBox">
-      <input id="front" name="transforms" type="radio" value="front">
-      <label for="front">Cover</label>
-
-    <input id="left" name="transforms" type="radio" value="left">
-      <label for="left">Author/Title</label>
-
-      <input id="right" name="transforms" type="radio" value="right">
-      <label for="right">Description</label>
-
-      <input id="top" name="transforms" type="radio" value="top">
-      <label for="top">Rating</label>
-
-      <input id="bottom" name="transforms" type="radio" value="bottom">
-      <label for="bottom">Review</label>
-
-      <input id="back" name="transforms" type="radio" value="back">
-      <label for="back">Comments</label>
-
-
-      <div class="cubeContainer">
-        <figure id="cubistContraption" class="cubeCube">
-          <div id="coverCube" class="frontCover"><img src="{{$ctrl.singleBook.cover_url}}" height="100%" width="100%"></div>
-          <div id="authorCube" class="leftTitleAuthor"><h3 id="authorName">{{$ctrl.singleBook.author}}
-            <img id="authorPic" src="{{$ctrl.singleBook.author_url}}" width="20%"></h3>
-          <h2><em>{{$ctrl.singleBook.title}}</em></h2>
-        <p>{{$ctrl.singleBook.edition}}, {{$ctrl.singleBook.number_of_pages}} pages</p>
-        <p>{{$ctrl.singleBook.publish_string}}</p></div>
-          <div id="descriptorCube" class="rightDescription"><h2><em>{{$ctrl.singleBook.title}}</em></h2><p ng-bind-html="$ctrl.singleBook.description_clean"></p></div>
-          <div id="ratingsFace" class="topRating"><h1>{{$ctrl.singleBook.rating}}/100</h1></div>
-          <div id="reviewFace" class="bottomReview"><h2>{{$ctrl.singleBook.review_title}}</h2><p ng-bind-html="$ctrl.singleBook.review_body_clean"></p>
-          <p>{{$ctrl.singleBook.posted_at}}</p></div>
-          <div id="commentFace" class="backComments"><p>Comments</p>
-          <button class="commentButton">post a comment</button></div>
-        </figure>
-      </div>
-      <button id="previousBook" class="commentButton">Previous Book</button>
-      <button id="backToShelf" class="commentButton">Back To Shelf</button>
-      <button class="commentButton">Next Book</button>
-
-
-
-    </div>
-  </div>
 
 </div>

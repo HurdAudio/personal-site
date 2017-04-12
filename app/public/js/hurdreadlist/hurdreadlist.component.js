@@ -30,236 +30,22 @@
       vm.$onInit = onInit;
       vm.viewBook = viewBook;
 
-      function publishDate(book) {
+      function viewBook(reviewID) {
+        console.log(reviewID);
+        console.log("here");
+        if (reviewID !== null) {
 
-        var pubString = 'Published ';
-        var reviewString = 'Posted ';
-        var day = '';
-        var month = '';
-        var year = '';
-        var publisher = '';
-
-        if (book.publication_date[8] === '0') {
-          day = book.publication_date[9];
-        } else {
-          day = book.publication_date.slice(8, 10);
+          $http.get(`/singlebookcube/${reviewID}`).then(()=>{
+            $state.go('singlebookcube', {id: reviewID});
+          });
         }
-        month = book.publication_date.slice(5, 7);
-        switch(month) {
-          case('01'):
-            month = "January";
-            break;
-          case('02'):
-            month = "February";
-            break;
-          case('03'):
-            month = "March";
-            break;
-          case('04'):
-            month = "April";
-            break;
-          case('05'):
-            month = "May";
-            break;
-          case('06'):
-            month = "June";
-            break;
-          case('07'):
-            month = "July";
-            break;
-          case('08'):
-            month = "August";
-            break;
-          case('09'):
-            month = "September";
-            break;
-          case('10'):
-            month = "October";
-            break;
-          case('11'):
-            month = "November";
-            break;
-          case('12'):
-            month = "December";
-            break;
-          default:
-            console.log('bad month data');
-        }
-        publisher = book.publisher;
-        year = book.publication_date.slice(0,4);
-        pubString += day + " " + month + " " + year + " by " + publisher + ".";
-        if (book.updated_at[8] === '0') {
-          day = book.updated_at[9];
-        } else {
-          day = book.updated_at.slice(8, 10);
-        }
-        month = book.updated_at.slice(5, 7);
-        switch(month) {
-          case('01'):
-            month = "January";
-            break;
-          case('02'):
-            month = "February";
-            break;
-          case('03'):
-            month = "March";
-            break;
-          case('04'):
-            month = "April";
-            break;
-          case('05'):
-            month = "May";
-            break;
-          case('06'):
-            month = "June";
-            break;
-          case('07'):
-            month = "July";
-            break;
-          case('08'):
-            month = "August";
-            break;
-          case('09'):
-            month = "September";
-            break;
-          case('10'):
-            month = "October";
-            break;
-          case('11'):
-            month = "November";
-            break;
-          case('12'):
-            month = "December";
-            break;
-          default:
-            console.log('bad month data');
-        }
-        year = book.updated_at.slice(0,4);
-        reviewString += day + " " + month + " " + year + " by Devin Hurd";
-
-
-        book.posted_at = reviewString;
-        book.publish_string = pubString;
-        book.description_clean = book.description.replace(/\r\n|\n|\r/gm, '<br>');
-        book.review_body_clean = book.review_body.replace(/\r\n|\n|\r/gm, '<br>');
-        return(book);
       }
 
 
 
-      function viewBook(index) {
-        var current = index;
-        var cube = document.getElementById('bookCube');
-        var shelves = document.getElementById('theShelf');
-        var buttonReturn = document.getElementById('backToShelf');
-        var coverSide = document.getElementById('front');
-        var coverCube = document.getElementById('coverCube');
-        var cubist = document.getElementById('cubistContraption');
-        var authorTitleSide = document.getElementById('left');
-        var authorTitleCube = document.getElementById('authorCube');
-        var descriptionSide = document.getElementById('right');
-        var descriptionCube = document.getElementById('descriptorCube');
-        var ratingSide = document.getElementById('top');
-        var ratingCube = document.getElementById('ratingsFace');
-        var reviewSide = document.getElementById('bottom');
-        var reviewCube = document.getElementById('reviewFace');
-        var commentsSide = document.getElementById('back');
-        var commentCube = document.getElementById('commentFace');
-        var previousButton = document.getElementById('previousBook');
-
-        if (current === 0) {
-          previousButton.setAttribute("style", "display: none;");
-        } else {
-          previousButton.setAttribute("style", "display: initial;");
-        }
-
-        coverCube.setAttribute("style", "z-index: 2;");
-        authorTitleCube.setAttribute("style", "z-index: -2;");
-        descriptionCube.setAttribute("style", "z-index: -2;");
-        ratingCube.setAttribute("style", "z-index: -2;");
-        reviewCube.setAttribute("style", "z-index: -2;");
-        commentCube.setAttribute("style", "z-index: -2;");
 
 
-        shelves.setAttribute("style", "display: none;");
-        cube.setAttribute("style", "display: initial;");
-        vm.singleBook = vm.readingOrder[current];
-        vm.singleBook = publishDate(vm.singleBook);
 
-        ratingSide.addEventListener('click', ()=>{
-          cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateX(-90deg);");
-          coverCube.setAttribute("style", "z-index: -2;");
-          authorTitleCube.setAttribute("style", "z-index: -2;");
-          descriptionCube.setAttribute("style", "z-index: -2;");
-          ratingCube.setAttribute("style", "z-index: 5;");
-          reviewCube.setAttribute("style", "z-index: -2;");
-          commentCube.setAttribute("style", "z-index: -2;");
-
-        });
-        commentsSide.addEventListener('click', ()=>{
-          cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateY(180deg);");
-          coverCube.setAttribute("style", "z-index: -2;");
-          authorTitleCube.setAttribute("style", "z-index: -2;");
-          descriptionCube.setAttribute("style", "z-index: -2;");
-          ratingCube.setAttribute("style", "z-index: -2;");
-          reviewCube.setAttribute("style", "z-index: -2;");
-          commentCube.setAttribute("style", "z-index: 5;");
-        });
-        reviewSide.addEventListener('click', ()=>{
-          cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateX(90deg);");
-          coverCube.setAttribute("style", "z-index: -2;");
-          authorTitleCube.setAttribute("style", "z-index: -2;");
-          descriptionCube.setAttribute("style", "z-index: -2;");
-          ratingCube.setAttribute("style", "z-index: -2;");
-          reviewCube.setAttribute("style", "z-index: 5;");
-          commentCube.setAttribute("style", "z-index: -2;");
-        });
-        coverSide.addEventListener('click', ()=>{
-          cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateY(0);");
-          coverCube.setAttribute("style", "z-index: 5;");
-          authorTitleCube.setAttribute("style", "z-index: -2;");
-          descriptionCube.setAttribute("style", "z-index: -2;");
-          ratingCube.setAttribute("style", "z-index: -2;");
-          reviewCube.setAttribute("style", "z-index: -2;");
-          commentCube.setAttribute("style", "z-index: -2;");
-
-
-        });
-        authorTitleSide.addEventListener('click', ()=>{
-          cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateY(90deg);");
-          coverCube.setAttribute("style", "z-index: -2;");
-          authorTitleCube.setAttribute("style", "z-index: 5;");
-          descriptionCube.setAttribute("style", "z-index: -2;");
-          ratingCube.setAttribute("style", "z-index: -2;");
-          reviewCube.setAttribute("style", "z-index: -2;");
-          commentCube.setAttribute("style", "z-index: -2;");
-
-        });
-        descriptionSide.addEventListener('click', ()=>{
-          cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateY(-90deg);");
-          coverCube.setAttribute("style", "z-index: -2;");
-          authorTitleCube.setAttribute("style", "z-index: -2;");
-          descriptionCube.setAttribute("style", "z-index: 5;");
-          ratingCube.setAttribute("style", "z-index: -2;");
-          reviewCube.setAttribute("style", "z-index: -2;");
-          commentCube.setAttribute("style", "z-index: -2;");
-
-        });
-        previousButton.addEventListener('click', ()=>{
-          --current;
-          vm.singleBook = vm.readingOrder[current];
-          vm.singleBook = publishDate(vm.singleBook);
-          if (current === 0) {
-            previousButton.setAttribute("style", "display: none;");
-          }
-
-        });
-        buttonReturn.addEventListener('click', function toggle() {
-
-          buttonReturn.removeEventListener('click', toggle);
-          onInit();
-        });
-      }
 
       function getReadingData (readingObject) {
 
@@ -862,7 +648,6 @@
             populateBookshelf();
           }, 3000);
 
-          shelfDiv.setAttribute("style", "display: inherit;");
         })
         .catch((err)=>{
           console.log(err);
@@ -872,10 +657,6 @@
 
       function onInit() {
         console.log("Readinglist is lit.");
-        var shelf = document.getElementById('theShelf');
-        var cube = document.getElementById('bookCube');
-        shelf.setAttribute("style", "display: none;");
-        cube.setAttribute("style", "display: none;");
         //TODO get reading order (books completed + curently reading + interrupt-if-applicable + reading-list)
         $http.get('/user_reading_lists/1')
         .then(userList=>{
