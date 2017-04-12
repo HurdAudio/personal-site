@@ -339,12 +339,12 @@
 
         });
         descriptionCube.addEventListener('click', ()=>{
-          cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateX(90deg);");
+          cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateX(-90deg);");
           coverCube.setAttribute("style", "z-index: -2;");
           authorTitleCube.setAttribute("style", "z-index: -2;");
           descriptionCube.setAttribute("style", "z-index: -2;");
-          ratingCube.setAttribute("style", "z-index: -2;");
-          reviewCube.setAttribute("style", "z-index: 5;");
+          ratingCube.setAttribute("style", "z-index: 5;");
+          reviewCube.setAttribute("style", "z-index: -2;");
           commentCube.setAttribute("style", "z-index: -2;");
         });
       }
