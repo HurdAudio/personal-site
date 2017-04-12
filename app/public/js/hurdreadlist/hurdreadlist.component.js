@@ -646,7 +646,7 @@
           console.log(results);
           setTimeout(()=>{
             populateBookshelf();
-          }, 3000);
+          }, 6000);
 
         })
         .catch((err)=>{
