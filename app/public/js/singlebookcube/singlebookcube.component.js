@@ -244,6 +244,15 @@
           commentCube.setAttribute("style", "z-index: -2;");
 
         });
+        ratingCube.addEventListener('click', ()=>{
+          cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateX(90deg);");
+          coverCube.setAttribute("style", "z-index: -2;");
+          authorTitleCube.setAttribute("style", "z-index: -2;");
+          descriptionCube.setAttribute("style", "z-index: -2;");
+          ratingCube.setAttribute("style", "z-index: -2;");
+          reviewCube.setAttribute("style", "z-index: 5;");
+          commentCube.setAttribute("style", "z-index: -2;");
+        });
         commentsSide.addEventListener('click', ()=>{
           cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateY(180deg);");
           coverCube.setAttribute("style", "z-index: -2;");
@@ -253,6 +262,15 @@
           reviewCube.setAttribute("style", "z-index: -2;");
           commentCube.setAttribute("style", "z-index: 5;");
         });
+        commentCube.addEventListener('click', ()=>{
+          cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateY(0);");
+          coverCube.setAttribute("style", "z-index: 5;");
+          authorTitleCube.setAttribute("style", "z-index: -2;");
+          descriptionCube.setAttribute("style", "z-index: -2;");
+          ratingCube.setAttribute("style", "z-index: -2;");
+          reviewCube.setAttribute("style", "z-index: -2;");
+          commentCube.setAttribute("style", "z-index: -2;");
+        });
         reviewSide.addEventListener('click', ()=>{
           cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateX(90deg);");
           coverCube.setAttribute("style", "z-index: -2;");
@@ -261,6 +279,15 @@
           ratingCube.setAttribute("style", "z-index: -2;");
           reviewCube.setAttribute("style", "z-index: 5;");
           commentCube.setAttribute("style", "z-index: -2;");
+        });
+        reviewCube.addEventListener('click', ()=>{
+          cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateY(180deg);");
+          coverCube.setAttribute("style", "z-index: -2;");
+          authorTitleCube.setAttribute("style", "z-index: -2;");
+          descriptionCube.setAttribute("style", "z-index: -2;");
+          ratingCube.setAttribute("style", "z-index: -2;");
+          reviewCube.setAttribute("style", "z-index: -2;");
+          commentCube.setAttribute("style", "z-index: 5;");
         });
         coverSide.addEventListener('click', ()=>{
           cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateY(0);");
@@ -273,6 +300,15 @@
 
 
         });
+        coverCube.addEventListener('click', ()=>{
+          cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateY(90deg);");
+          coverCube.setAttribute("style", "z-index: -2;");
+          authorTitleCube.setAttribute("style", "z-index: 5;");
+          descriptionCube.setAttribute("style", "z-index: -2;");
+          ratingCube.setAttribute("style", "z-index: -2;");
+          reviewCube.setAttribute("style", "z-index: -2;");
+          commentCube.setAttribute("style", "z-index: -2;");
+        });
         authorTitleSide.addEventListener('click', ()=>{
           cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateY(90deg);");
           coverCube.setAttribute("style", "z-index: -2;");
@@ -283,6 +319,15 @@
           commentCube.setAttribute("style", "z-index: -2;");
 
         });
+        authorTitleCube.addEventListener('click', ()=>{
+          cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateY(-90deg);");
+          coverCube.setAttribute("style", "z-index: -2;");
+          authorTitleCube.setAttribute("style", "z-index: -2;");
+          descriptionCube.setAttribute("style", "z-index: 5;");
+          ratingCube.setAttribute("style", "z-index: -2;");
+          reviewCube.setAttribute("style", "z-index: -2;");
+          commentCube.setAttribute("style", "z-index: -2;");
+        });
         descriptionSide.addEventListener('click', ()=>{
           cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateY(-90deg);");
           coverCube.setAttribute("style", "z-index: -2;");
@@ -292,6 +337,15 @@
           reviewCube.setAttribute("style", "z-index: -2;");
           commentCube.setAttribute("style", "z-index: -2;");
 
+        });
+        descriptionCube.addEventListener('click', ()=>{
+          cubist.setAttribute("style", "-webkit-transform: translateZ(-300px) rotateX(90deg);");
+          coverCube.setAttribute("style", "z-index: -2;");
+          authorTitleCube.setAttribute("style", "z-index: -2;");
+          descriptionCube.setAttribute("style", "z-index: -2;");
+          ratingCube.setAttribute("style", "z-index: -2;");
+          reviewCube.setAttribute("style", "z-index: 5;");
+          commentCube.setAttribute("style", "z-index: -2;");
         });
       }
 
