@@ -352,30 +352,53 @@
         var blogHQ = document.getElementById('bloggingHQ');
         blogHQ.setAttribute("style", "display: none;");
         var messageContent = document.getElementById('communicationsCenter');
+        var readingListHQDiv = document.getElementById('readingListHQ');
         var commToggle = document.getElementById('toggleComm');
         var blogToggle = document.getElementById('toggleBlogHQ');
+        var readListToggle = document.getElementById('toggleReadingListHQ');
+        var readingListContent = document.getElementById('readingListHQ');
 
 
         messageContent.setAttribute("style", "display: none;");
+        readingListContent.setAttribute("style", "display: none;");
+
         var communictionsButton = document.getElementById('toggleCommunications');
         var bloggingButton = document.getElementById('toggleBlogCRUD');
+        var readCRUDButton = document.getElementById('readingListButton');
         var newBlogButton = document.getElementById('blogCreate');
+        var readListButton = document.getElementById('toggleReadingList');
         if (getCookie("qwerty") === "whip it good") {
           communictionsButton.addEventListener('click', ()=> {
             messageContent.setAttribute("style", "display: initial;");
             communictionsButton.setAttribute("style", "display: none;");
             serveUpFeedback();
             bloggingButton.setAttribute("style", "display: none;");
+            readListButton.setAttribute("style", "display: none;");
+          });
+          readCRUDButton.addEventListener('click', ()=>{
+            communictionsButton.setAttribute("style", "display: none;");
+            bloggingButton.setAttribute("style", "display: none;");
+            readListButton.setAttribute("style", "display: none;");
+            readingListContent.setAttribute("style", "display: initial;");
           });
           commToggle.addEventListener('click', ()=>{
             messageContent.setAttribute("style", "display: none;");
             communictionsButton.setAttribute("style", "display: initial;");
             bloggingButton.setAttribute("style", "display: initial;");
+            readListButton.setAttribute("style", "display: initial;");
+          });
+          readListToggle.addEventListener('click', ()=>{
+            console.log("read a book");
+            readingListHQDiv.setAttribute("style", "display: none;");
+            communictionsButton.setAttribute("style", "display: initial;");
+            bloggingButton.setAttribute("style", "display: initial;");
+            readListButton.setAttribute("style", "display: initial;");
           });
           bloggingButton.addEventListener('click', ()=>{
             blogHQ.setAttribute("style", "display: initial;");
             bloggingButton.setAttribute("style", "display: none;");
             communictionsButton.setAttribute("style", "display: none;");
+            readListButton.setAttribute("style", "display: none;");
             setBloggingState();
           });
           exitReader.addEventListener('click', ()=>{
@@ -391,6 +414,7 @@
             blogHQ.setAttribute("style", "display: none;");
             bloggingButton.setAttribute("style", "display: inital;");
             communictionsButton.setAttribute("style", "display: initial;");
+            readListButton.setAttribute("style", "display: initial;");
           });
           newBlogButton.addEventListener('click', ()=>{
             bloggingState = "authorNewPost";
@@ -423,7 +447,7 @@
             bloggingState = 'authorNewPost';
             setBloggingState();
             populateEditingPost();
-          })
+          });
 
         } else {
           alert("FORBIDDEN");

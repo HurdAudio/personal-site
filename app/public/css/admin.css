@@ -9,7 +9,7 @@
   color: #e80606;
   text-align: center;
   align-content: center;
-  width: 25%;
+  width: 90%;
   height: 7.4em;
 }
 
@@ -24,6 +24,10 @@
 
 #BlogCrudButton {
   background-image: url(../img/banner-2143662_640.jpg);
+}
+
+#readingListButton {
+  background-image: url(../img/paper-1468882_640.jpg);
 }
 
 
