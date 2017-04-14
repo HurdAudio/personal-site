@@ -336,7 +336,86 @@
         });
       }
 
+      function handleInterruptDisplay (interruptReviewID) {
+        $http.get('/interrupts')
+        .then(interruptListData=>{
+          var interruptList = interruptListData.data;
+          var weHaveInterrupt = false;
+          var activeInterruptID = null;
+          for (let i = 0; i < interruptList.length; i++) {
+            if (!interruptList[i].is_completed) {
+              weHaveInterrupt = true;
+              if (activeInterruptID === null) {
+                activeInterruptID = interruptList[i].id;
+              }
+            }
+          }
+          if (weHaveInterrupt) {
+            vm.interruptSelection = {};
+            $http.get(`/interrupts/${activeInterruptID}`)
+            .then(ourInterruptData=>{
+              var ourInterrupt = ourInterruptData.data;
+              if (ourInterrupt.periodical_or_book === "book") {
+                $http.get(`/books/${ourInterrupt.books_id}`)
+                .then(interruptBookData=>{
+                  var interruptBook = interruptBookData.data;
+                  vm.interruptSelection.cover_url = interruptBook.cover_url;
+                  vm.interruptSelection.title = interruptBook.title;
+                  vm.interruptSelection.author = interruptBook.author;
+                });
+              } else {
+                $http.get(`/periodicals/${ourInterrupt.periodicals_id}`)
+                .then(interruptMagazineData=>{
+                  var interruptMagazine = interruptMagazineData.data;
+                  vm.interruptSelection.cover_url = interruptMagazine.img_url;
+                  vm.interruptSelection.title = interruptMagazine.name + " " + interruptMagazine.issue;
+                  vm.interruptSelection.author = interruptMagazine.editor + "(editor)";
+                });
+              }
+            });
+          } else {
+            var interruptDisplayDiv = document.getElementById('interruptSelectionBook');
+            interruptDisplayDiv.setAttribute("style", "display: none;");
+          }
+        });
+      }
 
+      function nowReading() {
+        vm.currentSelection = {};
+        $http.get('/user_reading_lists/1')
+        .then(nowReadingData=>{
+          var userReadingList = nowReadingData.data;
+          var interruptID = userReadingList.interrupt;
+          var currentReviewNumber = userReadingList[userReadingList.current_position];
+          $http.get(`/user_book_reviews/${currentReviewNumber}`)
+          .then(currentReviewData=>{
+            var currentReview = currentReviewData.data;
+            if (currentReview.periodical_or_book === "book") {
+              $http.get(`/books/${currentReview.books_id}`)
+              .then(bookData=>{
+                var currentBook = bookData.data;
+                vm.currentSelection.cover_url = currentBook.cover_url;
+                vm.currentSelection.title = currentBook.title;
+                vm.currentSelection.author = currentBook.author;
+                if (userReadingList.interrupt_enabled) {
+                  handleInterruptDisplay(interruptID);
+                }
+              });
+            } else {
+              $http.get(`/periodicals/${currentReview.periodicals_id}`)
+              .then(periodicalData=>{
+                var periodical = periodicalData.data;
+                vm.currentSelection.cover_url = periodical.img_url;
+                vm.currentSelection.title = periodical.name + " " + periodical.issue;
+                vm.currentSelection.author = periodical.editor + "(editor)";
+                if (userReadingList.interrupt_enabled) {
+                  handleInterruptDisplay(interruptID);
+                }
+              });
+            }
+          });
+        });
+      }
 
       function onInit() {
         console.log("Admin is lit.");
@@ -361,12 +440,17 @@
 
         messageContent.setAttribute("style", "display: none;");
         readingListContent.setAttribute("style", "display: none;");
+        var currentlyReadingColumn = document.getElementById('currentlyReadingBook');
+        currentlyReadingColumn.setAttribute("style", "display:none;");
+        var interruptColumn = document.getElementById('interruptSelectionBook');
+        interruptColumn.setAttribute("style", "display: none;");
 
         var communictionsButton = document.getElementById('toggleCommunications');
         var bloggingButton = document.getElementById('toggleBlogCRUD');
         var readCRUDButton = document.getElementById('readingListButton');
         var newBlogButton = document.getElementById('blogCreate');
         var readListButton = document.getElementById('toggleReadingList');
+        var readingNow = document.getElementById('currentReadButton');
         if (getCookie("qwerty") === "whip it good") {
           communictionsButton.addEventListener('click', ()=> {
             messageContent.setAttribute("style", "display: initial;");
@@ -447,6 +531,12 @@
             bloggingState = 'authorNewPost';
             setBloggingState();
             populateEditingPost();
+          });
+          readingNow.addEventListener('click', ()=>{
+            currentlyReadingColumn.setAttribute("style", "display: initial;");
+            interruptColumn.setAttribute("style", "display: initial;");
+            readingNow.setAttribute("style", "display: none;");
+            nowReading();
           });
 
         } else {

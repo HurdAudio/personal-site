@@ -124,6 +124,20 @@
         <button id="updateList" class="miniButtons">UPDATE LIST</button>
         <button id="addBookList" class="miniButtons">ADD BOOK</button>
       </div>
+      <div id="currentlyReadingBook" class="pure-u-1-4">
+        <h4>Currently Reading:</h4>
+        <img src="{{$ctrl.currentSelection.cover_url}}">
+        <p><em>{{$ctrl.currentSelection.title}}</em> by {{$ctrl.currentSelection.author}}</p>
+        <button id="iAmDone" class="miniButtons">I'M DONE</button>
+        <button id="stillReadingIt" class="miniButtons">STILL READING IT</button>
+      </div>
+      <div id="interruptSelectionBook" class="pure-u-1-4">
+        <h4>Interrupt: </h4>
+        <img src="{{$ctrl.interruptSelection.cover_url}}">
+        <p><em>{{$ctrl.interruptSelection.title}}</em> by {{$ctrl.interruptSelection.author}}</p>
+        <button id="interruptDone" class="miniButtons">I'M DONE</button>
+        <button id="interruptStillReading" class="miniButtons">STILL READING IT</button>
+      </div>
     </div>
   </div>
 
