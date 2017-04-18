@@ -181,7 +181,8 @@ router.post('/', (req, res, next) => {
     contemporary_pulp_4: req.body.contemporary_pulp_4,
     vintage_pulp_4: req.body.vintage_pulp_4,
     prize_10: req.body.prize_10,
-    completed_readings: req.body.completed_readings
+    completed_readings: req.body.completed_readings,
+    updated_at: req.body.updated_at
   }, '*')
   .then((result) => {
     res.status(200).send(result);
@@ -338,7 +339,8 @@ router.patch('/:id', (req, res, next) => {
     contemporary_pulp_4: req.body.contemporary_pulp_4,
     vintage_pulp_4: req.body.vintage_pulp_4,
     prize_10: req.body.prize_10,
-    completed_readings: req.body.completed_readings
+    completed_readings: req.body.completed_readings,
+    updated_at: req.body.updated_at
   }, '*')
     .then((results)=>{
        res.status(200).send(results[0]);

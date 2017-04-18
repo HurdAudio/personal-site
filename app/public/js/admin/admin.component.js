@@ -406,6 +406,7 @@
         $http.get(`/${catLookup}/${listID}`)
         .then(unreadEntryData=>{
           var unreadEntry = unreadEntryData.data;
+          console.log(unreadEntry);
           if (unreadEntry.periodical_or_book === 'book') {
             $http.get('/user_book_reviews')
             .then(reviewsData=>{
@@ -770,11 +771,187 @@
           });
         } else {
           //update read status on prize list
-          updatePrizeListPrize (positionInList);
+          // updatePrizeListPrize (positionInList);
           $http.get('/prize_lists/1')
           .then(prizeListData=>{
             var prizeList = prizeListData.data;
             var prizeTitle = prizeList[positionInList];
+            // switch (prizeTitle) {
+            //   case('agatha_awards'):
+            //     prizeTitle = 'shamus_awards';
+            //     break;
+            //   case('anthony_awards'):
+            //     prizeTitle = 'shirley_jackson_awards';
+            //     break;
+            //   case ('arthur_c_clark_awards'):
+            //     prizeTitle = 'sidewise_awards';
+            //     break;
+            //   case ('barry_awards'):
+            //     prizeTitle = 'spur_awards';
+            //     break;
+            //   case ('bram_stoker_awards'):
+            //     prizeTitle = 'sunburst_awards';
+            //     break;
+            //   case ('british_science_fiction_association_awards'):
+            //     prizeTitle = 'this_is_horror_awards';
+            //     break;
+            //   case ('chicago_tribune_heartland_prizes'):
+            //     prizeTitle = 'thurber_prizes';
+            //     break;
+            //   case ('compton_crook_awards'):
+            //     prizeTitle = 'walter_scott_prizes';
+            //     break;
+            //   case ('costa_book_awards'):
+            //     prizeTitle = 'world_fantasy_awards';
+            //     break;
+            //   case ('crime_writers_association_new_blood_daggers'):
+            //     prizeTitle = 'wonderland_book_awards';
+            //     break;
+            //   case ('desmond_elliott_prizes'):
+            //     prizeTitle = 'agatha_awards';
+            //     break;
+            //   case ('edgar_awards'):
+            //     prizeTitle = 'anthony_awards';
+            //     break;
+            //   case ('encore_awards'):
+            //     prizeTitle = 'arthur_c_clark_awards';
+            //     break;
+            //   case ('flannery_oconnor_award_for_short_fictions'):
+            //     prizeTitle = 'barry_awards';
+            //     break;
+            //   case ('goodreads_choice_awards'):
+            //     prizeTitle = 'bram_stoker_awards';
+            //     break;
+            //   case ('governor_general_literary_awards'):
+            //     prizeTitle = 'british_science_fiction_association_awards';
+            //     break;
+            //   case ('hammett_awards'):
+            //     prizeTitle = 'chicago_tribune_heartland_prizes';
+            //     break;
+            //   case ('hugo_awards'):
+            //     prizeTitle = 'compton_crook_awards';
+            //     break;
+            //   case ('international_impac_dublin_awards'):
+            //     prizeTitle = 'costa_book_awards';
+            //     break;
+            //   case ('itw_thriller_awards'):
+            //     prizeTitle = 'crime_writers_association_new_blood_daggers';
+            //     break;
+            //   case ('james_tait_black_memorial_prizes'):
+            //     prizeTitle = 'desmond_elliott_prizes';
+            //     break;
+            //   case ('james_tiptree_jr_literary_awards'):
+            //     prizeTitle = 'edgar_awards';
+            //     break;
+            //   case ('kiriyama_prizes'):
+            //     prizeTitle = 'encore_awards';
+            //     break;
+            //   case ('kirkus_prizes'):
+            //     prizeTitle = 'flannery_oconnor_award_for_short_fictions';
+            //     break;
+            //   case ('kitschies'):
+            //     prizeTitle = 'goodreads_choice_awards';
+            //     break;
+            //   case ('los_angeles_times_book_prizes'):
+            //     prizeTitle = 'governor_general_literary_awards';
+            //     break;
+            //   case ('locus_awards'):
+            //     prizeTitle = 'hammett_awards';
+            //     break;
+            //   case ('macavity_awards'):
+            //     prizeTitle = 'hugo_awards';
+            //     break;
+            //   case ('man_booker_prizes'):
+            //     prizeTitle = 'international_impac_dublin_awards';
+            //     break;
+            //   case ('mary_mccarthy_prizes'):
+            //     prizeTitle = 'itw_thriller_awards';
+            //     break;
+            //   case ('mckittrick_prizes'):
+            //     prizeTitle = 'james_tait_black_memorial_prizes';
+            //     break;
+            //   case ('minnesota_book_awards'):
+            //     prizeTitle = 'james_tiptree_jr_literary_awards';
+            //     break;
+            //   case ('mythopoeic_awards'):
+            //     prizeTitle = 'kiriyama_prizes';
+            //     break;
+            //   case ('national_book_awards'):
+            //     prizeTitle = 'kirkus_prizes';
+            //     break;
+            //   case ('national_book_critics_circle_awards'):
+            //     prizeTitle = 'kitschies';
+            //     break;
+            //   case ('nebula_awards'):
+            //     prizeTitle = 'los_angeles_times_book_prizes';
+            //     break;
+            //   case ('orange_prizes'):
+            //     prizeTitle = 'locus_awards';
+            //     break;
+            //   case ('pen_bellwether_prize_for_socially_engaged_fictions'):
+            //     prizeTitle = 'macavity_awards';
+            //     break;
+            //   case ('pen_faulkner_awards'):
+            //     prizeTitle = 'man_booker_prizes';
+            //     break;
+            //   case ('pen_hemingway_awards'):
+            //     prizeTitle = 'mary_mccarthy_prizes';
+            //     break;
+            //   case ('pen_open_book_awards'):
+            //     prizeTitle = 'mckittrick_prizes';
+            //     break;
+            //   case ('pen_translation_prizes'):
+            //     prizeTitle = 'minnesota_book_awards';
+            //     break;
+            //   case ('philip_k_dick_awards'):
+            //     prizeTitle = 'mythopoeic_awards';
+            //     break;
+            //   case ('pulitzer_prize_for_fictions'):
+            //     prizeTitle = 'national_book_awards';
+            //     break;
+            //   case ('pulp_ark_new_pulp_awards'):
+            //     prizeTitle = 'national_book_critics_circle_awards';
+            //     break;
+            //   case ('rogers_writers_trust_fiction_prizes'):
+            //     prizeTitle = "nebula_awards";
+            //     break;
+            //   case ('scotiabank_giller_prizes'):
+            //     prizeTitle = 'orange_prizes';
+            //     break;
+            //   case ('shamus_awards'):
+            //     prizeTitle = 'pen_bellwether_prize_for_socially_engaged_fictions';
+            //     break;
+            //   case ('shirley_jackson_awards'):
+            //     prizeTitle = 'pen_faulkner_awards';
+            //     break;
+            //   case ('sidewise_awards'):
+            //     prizeTitle = 'pen_hemingway_awards';
+            //     break;
+            //   case ('spur_awards'):
+            //     prizeTitle = 'pen_open_book_awards';
+            //     break;
+            //   case ('sunburst_awards'):
+            //     prizeTitle = 'pen_translation_prizes';
+            //     break;
+            //   case ('this_is_horror_awards'):
+            //     prizeTitle = 'philip_k_dick_awards';
+            //     break;
+            //   case ('thurber_prizes'):
+            //     prizeTitle = 'pulitzer_prize_for_fictions';
+            //     break;
+            //   case ('walter_scott_prizes'):
+            //     prizeTitle = 'pulp_ark_new_pulp_awards';
+            //     break;
+            //   case ('world_fantasy_awards'):
+            //     prizeTitle = 'rogers_writers_trust_fiction_prizes';
+            //     break;
+            //   case ('wonderland_book_awards'):
+            //     prizeTitle = 'scotiabank_giller_prizes';
+            //     break;
+            //   default:
+            //     console.log('unhandled exception');
+            //
+            // }
             $http.get(`/${prizeTitle}`)
             .then(prizeReadsData=>{
               var prizeReads = prizeReadsData.data;
@@ -793,9 +970,11 @@
                     }
                   }
                   splicer.is_completed = true;
+                  console.log(indexPoint);
                   $http.patch(`/${prizeTitle}/${indexPoint}`, splicer)
                   .then(data=>{
                     console.log(data.data);
+                    updatePrizeListPrize (positionInList);
                   });
                 } else {
                   var periodicalID = review.periodicals_id;
@@ -812,12 +991,30 @@
                   $http.patch(`/${prizeTitle}/${indexPoint2}`, splicer2)
                   .then(data=>{
                     console.log(data.data);
+                    updatePrizeListPrize (positionInList);
                   });
                 }
               });
             });
           });
         }
+      }
+
+      function sortIdArray (numbersArr) {
+        var sortedArr = numbersArr;
+        var swapped = false;
+
+        do {
+          swapped = false;
+          for (let i = 0; i < (sortedArr.length-1); i++) {
+            if (sortedArr[i] > sortedArr[i+1]) {
+              swapped = true;
+              [sortedArr[i], sortedArr[i+1]] = [sortedArr[i+1], sortedArr[i]];
+            }
+          }
+        } while (swapped);
+
+        return(sortedArr);
       }
 
       function updateAdvanceReadingList (userReviewID) {
@@ -833,9 +1030,9 @@
           readList[readList.length] = userReviewID;
           readingListObject.completed_readings = (convertToObject(readList));
           console.log(readingListObject);
-          if ((theList[theList.current_position] !== userReviewID) || (theList.interrupt !== userReviewID)) {
-            alert("Logic Error - review ID mismatch");
-          }
+          // if ((theList[theList.current_position] !== userReviewID) || (theList.interrupt !== userReviewID)) {
+          //   alert("Logic Error - review ID mismatch");
+          // }
 
           switch (theList.current_position) {
             case ('female_author_selection_1'):
@@ -928,7 +1125,7 @@
               nextLikeness = ['backlog_physical_book_2', 'backlog_physical_book_3', 'backlog_physical_book_4', 'backlog_physical_book_1'];
               break;
             case ('science_fiction_series_3'):
-              lookupList = "science_fictions_series";
+              lookupList = "science_fiction_series";
               nextStep = 'free_selection_2';
               nextLikeness = ['science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3'];
               break;
@@ -948,13 +1145,13 @@
               nextLikeness = ['insert_3', 'insert_4', 'insert_5', 'insert_6', 'insert_7', 'insert_8', 'insert_1', 'insert_2'];
               break;
             case ('science_fiction_series_4'):
-              lookupList = "science_fictions_series";
+              lookupList = "science_fiction_series";
               nextStep = 'genre_journal_2';
               nextLikeness = ['science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4'];
               break;
             case ('genre_journal_2'):
               lookupList = "genre_journals";
-              nextStep = 'non_fictions_1';
+              nextStep = 'non_fiction_1';
               nextLikeness = ['genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre-journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2'];
               break;
             case ('non_fiction_1'):
@@ -1194,7 +1391,7 @@
                 nextLikeness = ['backlog_ebook_4', 'backlog_ebook_1', 'backlog_ebook_2', 'backlog_ebook_3'];
               break;
             case ('science_fiction_series_9'):
-              lookupList = "science_fictions_series";
+              lookupList = "science_fiction_series";
               nextStep = 'free_selection_5';
               nextLikeness = ['science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9'];
               break;
@@ -1527,24 +1724,38 @@
           readingListObject[theList.current_position] = null;
           readingListObject.current_position = nextStep;
           if (lookupList !== 'prize_lists') {
+            console.log(lookupList);
             $http.get(`/${lookupList}`)
             .then(readListData=>{
               var categoryList = readListData.data;
-              var likenessIndex = 0;
+              console.log(categoryList);
+              // var likenessIndex = 0;
               var assignLikenessArr = [];
               for (let j = 0; j < categoryList.length; j++) {
                 if (!categoryList[j].is_completed) {
                   assignLikenessArr.push(categoryList[j].id);
                 }
               }
+
+              assignLikenessArr = sortIdArray(assignLikenessArr);
+              console.log(assignLikenessArr);
               $http.patch('/user_reading_lists/1', readingListObject)
               .then(data=>{
                 console.log(data.data);
-                updateList(lookupList, nextLikeness, categoryList);
+                updateList(lookupList, nextLikeness, assignLikenessArr);
               });
             });
           } else {
             //update prize position
+            var prizeJustCompleted = theList[theList.current_position];
+            console.log(prizeJustCompleted);
+            patchCompletionStatus (lookupList, prizeJustCompleted, theList.current_position);
+            // update completion status
+            $http.patch('/user_reading_lists/1', readingListObject)
+            .then(postPrize=>{
+              console.log(postPrize.data);
+            });
+
           }
 
         });
