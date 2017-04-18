@@ -115,6 +115,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, '/../', 'node_modules')));
 app.use('/scripts', express.static(path.join(__dirname, '../node_modules/vexflow/releases/')));
+app.use('/moment', express.static(path.join(__dirname, '../node_modules/moment/min/')));
 
 
 

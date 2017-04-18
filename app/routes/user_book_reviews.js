@@ -45,7 +45,8 @@ router.post('/', (req, res, next) => {
     periodicals_id: req.body.periodicals_id,
     rating: req.body.rating,
     review_title: req.body.review_title,
-    review_body: req.body.review_body
+    review_body: req.body.review_body,
+    updated_at: req.body.updated_at
 
   }, '*')
   .then((result) => {

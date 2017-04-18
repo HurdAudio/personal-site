@@ -488,8 +488,10 @@
 
       function updateList(categoryLookup, nextSameCategoryArr, listOfUnreadIDsArr) {
         //convert ID to review number
-        for (let i = 0; i < listOfUnreadIDsArr; i++) {
-          checkAndPatch(categoryLookup, nextSameCategoryArr, listOfUnreadIDsArr[i]);
+        if (listOfUnreadIDsArr.length > 0) {
+          for (let i = 0; i < listOfUnreadIDsArr; i++) {
+            checkAndPatch(categoryLookup, nextSameCategoryArr, listOfUnreadIDsArr[i]);
+          }
         }
         // check for review number in reading list
         // if not there, patch review number into next available list point
@@ -1017,11 +1019,65 @@
         return(sortedArr);
       }
 
+      function setTimestampFormat (dateString) {
+        var formattedString = '';
+        var year = dateString.slice(11,15);
+        var month = '00';
+        var day = dateString.slice(8,10);
+        var time = dateString.slice(16,24);
+
+        switch (dateString.slice(4,7)) {
+          case ('Jan'):
+            month = '01-';
+            break;
+          case ('Feb'):
+            month = '02-';
+            break;
+          case ('Mar'):
+            month = '03-';
+            break;
+          case ("Apr"):
+            month = '04-';
+            break;
+          case ('May'):
+            month = '05-';
+            break;
+          case ('Jun'):
+            month = '06-';
+            break;
+          case ('Jul'):
+            month = '07-';
+            break;
+          case ('Aug'):
+            month = '08-';break;
+          case ('Sep'):
+            month = '09-';
+            break;
+          case ('Oct'):
+            month = '10-';
+            break;
+          case ('Nov'):
+            month = '11-';
+            break;
+          case ('Dec'):
+            month = '12-';
+            break;
+          default:
+            month = '00-';
+        }
+
+        formattedString = year + '-' + month + day + "T" + time + '.000Z';
+        return(formattedString);
+      }
+
       function updateAdvanceReadingList (userReviewID) {
         var readingListObject = {};
         var lookupList = '';
         var nextStep = '';
         var nextLikeness = [];
+        var timestampe = new Date();
+        var timestamp = setTimestampFormat(timestampe.toString());
+        // var moment = require('moment');
 
         $http.get('/user_reading_lists/1')
         .then(theListData=>{
@@ -1029,6 +1085,8 @@
           var readList = convertToArray(theList.completed_readings);
           readList[readList.length] = userReviewID;
           readingListObject.completed_readings = (convertToObject(readList));
+
+          readingListObject.updated_at = timestamp;
           console.log(readingListObject);
           // if ((theList[theList.current_position] !== userReviewID) || (theList.interrupt !== userReviewID)) {
           //   alert("Logic Error - review ID mismatch");
@@ -1763,12 +1821,15 @@
 
       function patchReview(reviewID, rating, title, body) {
         var reviewObject = {};
+        var timestampe = new Date();
+        var timestamp = setTimestampFormat(timestampe.toString());
 
 
 
         reviewObject.rating = rating;
         reviewObject.review_title = title;
         reviewObject.review_body = body;
+        reviewObject.updated_at = timestamp;
 
         $http.patch(`/user_book_reviews/${reviewID}`, reviewObject)
         .then(savedReview=>{
