@@ -9,8 +9,8 @@ exports.seed = function(knex, Promise) {
           id: 1,
           user_id: 1,
           interrupt_enabled: true,
-          current_position: 'crime_series_3',
-          interrupt: 6,
+          current_position: 'backlog_physical_book_1',
+          interrupt: null,
           female_author_selection_1: 79,
           crime_series_1: null,
           backlog_ebook_1: 83,
@@ -27,7 +27,7 @@ exports.seed = function(knex, Promise) {
           compendium_1: 99,
           prize_1: 123,
           male_author_selection_1: 170,
-          crime_series_3: 18,
+          crime_series_3: null,
           backlog_physical_book_1: 19,
           science_fiction_series_3: 20,
           free_selection_2: 21,
@@ -149,7 +149,7 @@ exports.seed = function(knex, Promise) {
           contemporary_pulp_4: 116,
           vintage_pulp_4: 118,
           prize_10: 122,
-          completed_readings: { "0": 1, "1": 2, "2": 3, "3": 4, "4": 5, "5": 6, "6": 7, "7": 8, "8": 9, "9": 10, "10": 11, "11": 12, "12": 13, "13": 14, "14": 15, "15": 16, "16": 17 },
+          completed_readings: { "0": 1, "1": 2, "2": 3, "3": 4, "4": 5, "5": 6, "6": 7, "7": 8, "8": 9, "9": 10, "10": 11, "11": 12, "12": 13, "13": 14, "14": 15, "15": 16, "16": 17, "17": 18 },
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         })

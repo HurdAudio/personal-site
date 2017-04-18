@@ -207,7 +207,7 @@ exports.seed = function(knex, Promise) {
           review_title: 'Runaway Slaves in Modern Days',
           review_body: "I trust Ben H. Winters implicitly when it comes to telling this kind of story. He has a knack for thinking through all the ramifications of his speculative universe and weaving in just enough of the familiar to make the whole thing unsettling. The very notion that slavery would still be an enshrined, legal practice in the United States should be unsettling to any thinking person. Winters casts an unflinching eye at this evil.\n\nVictor, a.k.a. Brother, a.k.a any number of aliases is a tightly wound ball of contradictions of a main character. A former slave. A gifted slave tracker who captures runaways. An invisible anti-hero caught up in the slavery politics of the twenty-first century. A brilliant observer of racism that has been enshrined in the Constitution. He notices everything.\n\nAnd yet he is human and his arc bends toward doing the right thing even as everything devolves toward evil all around him. This is a compelling read and a wildly entertaining ride.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-03-31 14:55:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 18,
@@ -215,8 +215,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 15,
           periodicals_id: null,
+          rating: 56,
+          review_title: 'Noir in Sepiatones',
+          review_body: 'There is a taut thriller lurking underneath the labored stories of coeds and hapless college presidents of Hollymount College circa 1940-something. The drama unfolds with an almost Hitchockian pacing and one could almost hear the Bernard Hermann soundtrack unfolding at each page turn. But like early Hitchcock, so much of the interactions between the sexes ring false. Or at least dated.\n\nAnd then there is the Freudian plot twist telegraphed from several miles away.\n\nThere is a great deal that works as a thriller even if so many of the details have grown grey. This has become more curiosity than escapist plot. Worth reading to understand how far crime fiction has come over the decades and generations.',
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-04-17 14:55:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 19,

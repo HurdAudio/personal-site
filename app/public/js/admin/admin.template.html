@@ -138,6 +138,22 @@
         <button id="interruptDone" class="miniButtons">I'M DONE</button>
         <button id="interruptStillReading" class="miniButtons">STILL READING IT</button>
       </div>
+      <div id="reviewNewlyCompletedBook" class="pure-u-3-4">
+        <form class="pure-form pure-form-stacked" name="reviewRead">
+          <fieldset>
+            <h4>Rating</h4>
+            <input id="scoreLever" type="range" min="0" max="100" value="0" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+            <input id="reviewScore" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="0" oninput="this.form.amountRange.value=this.value" />
+
+            <p><label for="reviewTitle" id="newReviewTitle"><textarea class="reviewTitle" type="text" name="reviewTitle" placeholder="Review Title" id="reviewTitle" ></textarea></label></p>
+
+            <p><label for="reviewBody" id="newReviewBody"><textarea class="reviewBody" placeholder="Review" type="text" name="reviewBody" id="reviewBody"></textarea></label></p>
+            <button id="saveReview" class="miniButtons">SAVE</button>
+            <button id="completeReview" class="miniButtons">PUBLISH</button>
+          </fieldset>
+        </form>
+        <img src="./img/typewriter-312748.svg" height="50%">
+      </div>
     </div>
   </div>
 
