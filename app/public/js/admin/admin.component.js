@@ -3,6 +3,15 @@
 
   var bloggingState = "initial";
   var postID = null;
+  var readingOrderArray = ['female_author_selection_1', 'crime_series_1', 'backlog_ebook_1', 'science_fiction_series_1', 'free_selection_1', 'crime_series_2', 'insert_1', 'science_fiction_series_2', 'literary_journal_1', 'bizarro_fiction_1', 'genre_journal_1', 'classic_1', 'literary_journal_2', 'compendium_1', 'prize_1', 'male_author_selection_1', 'crime_series_3', 'backlog_physical_book_1', 'science_fiction_series_3', 'free_selection_2', 'crime_series_4', 'insert_2', 'science_fiction_series_4', 'genre_journal_2', 'non_fiction_1', 'literary_journal_3', 'anthology_1', 'genre_journal_3', 'roulette_1', 'prize_2', 'graphic_novel_1', 'female_author_selection_2', 'crime_series_5', 'backlog_ebook_2', 'science_fiction_series_5', 'literary_journal_4', 'free_selection_3', 'crime_series_6', 'insert_3', 'science_fiction_series_6', 'genre_journal_4', 'roulette_2', 'literary_journal_5', 'occult_reading_1', 'genre_journal_5', 'bizarro_fiction_2', 'prize_3', 'male_author_selection_2', 'crime_series_7', 'backlog_physical_book_2', 'science_fiction_series_7', 'literary_journal_6', 'free_selection_4', 'crime_series_8', 'insert_4', 'science_fiction_series_8', 'genre_journal_6', 'classic_2', 'literary_journal_7', 'compendium_2', 'genre_journal_7', 'non_fiction_2', 'prize_4', 'graphic_novel_2', 'contemporary_pulp_1', 'vintage_pulp_1', 'contemporary_pulp_2', 'vintage_pulp_2', 'prize_5', 'female_author_selection_3', 'crime_series_9', 'backlog_ebook_3', 'science_fiction_series_9', 'free_selection_5', 'crime_series_10', 'insert_5', 'science_fiction_series_10', 'literary_journal_8', 'anthology_2', 'genre_journal_8', 'roulette_3', 'literary_journal_9', 'roulette_4', 'prize_6', 'male_author_selection_3', 'crime_series_11', 'backlog_physical_book_3', 'science_fiction_series_11', 'free_selection_6', 'crime_series_12', 'insert_6', 'science_fiction_series_12', 'genre_journal_9', 'occult_reading_2', 'literary_journal_10', 'bizarro_fiction_3', 'genre_journal_10', 'classic_3', 'prize_7', 'graphic_novel_3','female_author_selection_4', 'crime_series_13', 'backlog_ebook_4', 'science_fiction_series_13', 'literary_journal_11', 'free_selection_7', 'crime_series_14', 'insert_7', 'science_fiction_series_14', 'genre_journal_11', 'compendium_3', 'literary_journal_12', 'non_fiction_3', 'genre_journal_12', 'anthology_3', 'prize_8', 'male_author_selection_4', 'crime_series_15', 'backlog_physical_book_4', 'science_fiction_series_15', 'literary_journal_13', 'free_selection_8', 'crime_series_16', 'insert_8', 'science_fiction_series_16', 'genre_journal_13', 'roulette_5', 'literary_journal_14', 'roulette_6', 'genre_journal_14', 'occult_reading_3', 'prize_9', 'graphic_novel_4', 'contemporary_pulp_3', 'vintage_pulp_3', 'contemporary_pulp_4', 'vintage_pulp_4', 'prize_10'];
+
+  function incrementReadOrder (position) {
+    var nextPosition = position + 1;
+    if (nextPosition >= readingOrderArray.length) {
+      nextPosition = 0;
+    }
+    return(nextPosition);
+  }
 
   function getCookie (name) {
     var cookies = document.cookie.split(';');
@@ -35,6 +44,75 @@
       vm.sortBy = '-created_at';
       vm.blogSortBy = '-created_at';
       vm.editPosting = editPosting;
+      vm.editReview = editReview;
+
+      function editReview(reviewIdentifier) {
+        var readingListDiv = document.getElementById('viewReadingList');
+        var editAReviewDiv = document.getElementById('editExistingReview');
+        var editScoreLeverValue = document.getElementById('editorReviewScore');
+        var editReviewTitleValue = document.getElementById('editorForreviewTitle');
+        var editReviewBodyValue = document.getElementById('editorForReviewBody');
+        var saveButton = document.getElementById('editorSaveReview');
+        var publishButton = document.getElementById('editorCompleteReview');
+        var editSpace = document.getElementById('editExistingReview');
+        var viewListButton = document.getElementById('viewReadingListButton');
+        vm.editBook = {};
+
+        console.log(reviewIdentifier);
+        readingListDiv.setAttribute("style", "display: none;");
+        editAReviewDiv.setAttribute("style", "display: initial;");
+
+        saveButton.addEventListener('click', ()=>{
+          var patchObj = {};
+          patchObj.rating = editScoreLeverValue.value;
+          patchObj.review_title = editReviewTitleValue.value;
+          patchObj.review_body = editReviewBodyValue.value;
+          $http.patch(`/user_book_reviews/${reviewIdentifier}`, patchObj)
+          .then(data=>{
+            console.log(data.data);
+          });
+        });
+        publishButton.addEventListener('click', ()=>{
+          var publishObj = {};
+          publishObj.rating = editScoreLeverValue.value;
+          publishObj.review_title = editReviewTitleValue.value;
+          publishObj.review_body = editReviewBodyValue.value;
+          $http.patch(`/user_book_reviews/${reviewIdentifier}`, publishObj)
+          .then(publishData=>{
+            console.log(publishData.data);
+            editSpace.setAttribute("style", "display: none;");
+            viewListButton.setAttribute("style", "display: initial;");
+          });
+        });
+
+        $http.get(`/user_book_reviews/${reviewIdentifier}`)
+        .then(reviewForEditData=>{
+          var reviewForEdit = reviewForEditData.data;
+          vm.editBook.score = reviewForEdit.rating;
+          vm.editBook.reviewTitle = reviewForEdit.review_title;
+          vm.editBook.reviewBody = reviewForEdit.review_body;
+          editScoreLeverValue.value = reviewForEdit.rating;
+          editReviewTitleValue.value = reviewForEdit.review_title;
+          editReviewBodyValue.value = reviewForEdit.review_body;
+          if (reviewForEdit.periodical_or_book === 'book') {
+            $http.get(`/books/${reviewForEdit.books_id}`)
+            .then(bookEditData=>{
+              var bookEdit = bookEditData.data;
+              vm.editBook.cover_url = bookEdit.cover_url;
+              vm.editBook.title = bookEdit.title;
+              vm.editBook.author = bookEdit.author;
+            });
+          } else {
+            $http.get(`/periodicals/${reviewForEdit.periodicals_id}`)
+            .then(magEditData=>{
+              var magEdit = magEditData.data;
+              vm.editBook.cover_url = magEdit.img_url;
+              vm.editBook.title = magEdit.name + " " + magEdit.issue;
+              vm.editBook.author = magEdit.editor + " - editor.";
+            });
+          }
+        });
+      }
 
       function generateTagString(tagsOfJson) {
         var theString = '';
@@ -1090,7 +1168,7 @@
         return(formattedString);
       }
 
-      function updateAdvanceReadingList (userReviewID) {
+      function updateAdvanceReadingList (userReviewID, intSwitch) {
         var readingListObject = {};
         var lookupList = '';
         var nextStep = '';
@@ -1112,728 +1190,735 @@
           //   alert("Logic Error - review ID mismatch");
           // }
 
-          switch (theList.current_position) {
-            case ('female_author_selection_1'):
-              lookupList = "female_author_selections";
-              nextStep = 'crime_series_1';
-              nextLikeness = ['female_author_selection_2', 'female_author_selection_3', 'female_author_selection_4', 'female_author_selection_1'];
-              break;
-            case ('crime_series_1'):
-              lookupList = "crime_series";
-              nextStep = 'backlog_ebook_1';
-              nextLikeness = ['crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series"10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_seriees_1'];
-              break;
-            case ('backlog_ebook_1'):
-              lookupList = "backlog_ebooks";
-              nextStep = "science_fiction_series_1";
-              nextLikeness = ['backlog_ebook_2', 'backlog_ebook_3', 'backlog_ebook_4', 'backlog_ebook_1'];
-              break;
-            case ('science_fiction_series_1'):
-              lookupList = "science_fiction_series";
-              nextStep = "free_selection_1";
-              nextLikeness = ['science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_4', 'science_fiction_5', 'science_fiction_6', 'science_fiction_7', 'science_fiction_8', 'science_fiction_9', 'science_fiction_10', 'science_fictin_11', 'science_fiction_12', 'science_fictin_13', 'science_fiction_14', 'science_fiction_15', 'science_fiction_16', 'science_fiction_1'];
-              break;
-            case ('free_selection_1'):
-              lookupList = "free_selections";
-              nextStep = "crime_series_2";
-              nextLikeness = ['free_selection_2', 'free_selection_3', 'free_selection_4', 'free_selection_5', 'free_selection_6', 'free_selection_7', 'free_selection_8', 'free_selection_1'];
-              break;
-            case ('crime_series_2'):
-              lookupList = "crime_series";
-              nextStep = "insert_1";
-              nextLikeness = ['crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2'];
-              break;
-            case ('insert_1'):
-              lookupList = 'inserts';
-              nextStep = 'science_fiction_series_2';
-              nextLikeness = ['insert_2', 'insert_3', 'insert_4', 'insert_5', 'insert_6', 'insert_7', 'insert_8', 'insert_1'];
-              break;
-            case ('science_fiction_series_2'):
-              lookupList = "science_fiction_series";
-              nextStep = 'literary_journal_1';
-              nextLikeness = ['science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2'];
-              break;
-            case ('literary_journal_1'):
-              lookupList = "literary_journals";
-              nextStep = 'bizarro_fiction_1';
-              nextLikeness = ['literary_journal_2', 'literary_journal_3', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1'];
-              break;
-            case ('bizarro_fiction_1'):
-              lookupList = "bizarro_fictions";
-              nextStep = 'genre_journal_1';
-              nextLikeness = ['bizarro_fiction_2', 'bizarro_fiction_3', 'bizarro_fiction_1'];
-              break;
-            case ('genre_journal_1'):
-              lookupList = "genre_journals";
-              nextStep = 'classic_1';
-              nextLikeness = ['genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1'];
-              break;
-            case ('classic_1'):
-              lookupList = "classics";
-              nextStep = 'literary_journal_2';
-              nextLikeness = ['classic_2', 'classic_3', 'classic_1'];
-              break;
-            case ('literary_journal_2'):
-              lookupList = "literary_journals";
-              nextStep = 'compendium_1';
-              nextLikeness = ['literary_journal_3', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2'];
-              break;
-            case ('compendium_1'):
-              lookupList = "compendiums";
-              nextStep = "prize_1";
-              nextLikeness = ['compendium_2', 'compendium_3', 'compendium_1'];
-              break;
-            case ('prize_1'):
-              lookupList = "prize_lists";
-              nextStep = 'male_author_selection_1';
-              break;
-            case ('male_author_selection_1'):
-              lookupList = "male_author_selections";
-              nextStep = 'crime_series_3';
-              nextLikeness = ['male_author_selection_2', 'male_author_selection_3', 'male_author_selection_4', 'male_author_selection_1'];
-              break;
-            case ('crime_series_3'):
-              lookupList = "crime_series";
-              nextStep = 'backlog_physical_book_1';
-              nextLikeness = ['crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3'];
-              break;
-            case ('backlog_physical_book_1'):
-              lookupList = "backlog_physical_books";
-              nextStep = 'science_fiction_series_3';
-              nextLikeness = ['backlog_physical_book_2', 'backlog_physical_book_3', 'backlog_physical_book_4', 'backlog_physical_book_1'];
-              break;
-            case ('science_fiction_series_3'):
-              lookupList = "science_fiction_series";
-              nextStep = 'free_selection_2';
-              nextLikeness = ['science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3'];
-              break;
-            case ('free_selection_2'):
-              lookupList = "free_selections";
-              nextStep = 'crime_series_4';
-              nextLikeness = ['free_selection_3', 'free_selection_4', 'free_selection_5', 'free_selection_6', 'free_selection_7', 'free_selection_8', 'free_selection_1', 'free_selection_2', 'free_selection_3'];
-              break;
-            case ('crime_series_4'):
-              lookupList = "crime_series";
-              nextStep = 'insert_2';
-              nextLikeness = ['crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4'];
-              break;
-            case ('insert_2'):
-              lookupList = 'inserts';
-              nextStep = 'science_fiction_series_4';
-              nextLikeness = ['insert_3', 'insert_4', 'insert_5', 'insert_6', 'insert_7', 'insert_8', 'insert_1', 'insert_2'];
-              break;
-            case ('science_fiction_series_4'):
-              lookupList = "science_fiction_series";
-              nextStep = 'genre_journal_2';
-              nextLikeness = ['science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4'];
-              break;
-            case ('genre_journal_2'):
-              lookupList = "genre_journals";
-              nextStep = 'non_fiction_1';
-              nextLikeness = ['genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre-journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2'];
-              break;
-            case ('non_fiction_1'):
-              lookupList = "non_fictions";
-              nextStep = 'literary_journal_3';
-              nextLikeness = ['non_fiction_2', 'non_fiction_3', 'non_fiction_1'];
-              break;
-            case ('literary_journal_3'):
-              lookupList = "literary_journals";
-              nextStep = 'anthology_1';
-              nextLikeness = ['literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_3'];
-              break;
-            case ('anthology_1'):
-              lookupList = "anthologies";
-              nextStep = 'genre_journal_3';
-              nextLikeness = ['anthology_2', 'anthology_3'];
-              break;
-            case ('genre_journal_3'):
-              lookupList = "genre_journals";
-              nextStep = 'roulette_1';
-              nextLikeness = ['genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre-journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3'];
-              break;
-            case ('roulette_1'):
-              lookupList = "roulettes";
-              nextStep = 'prize_2';
-              nextLikeness = ['roulette_2', 'roulette_3', 'roulette_4', 'roulette_5', 'roulette_6', 'roulette_1'];
-              break;
-            case ('prize_2'):
-              lookupList = "prize_lists";
-              nextStep = 'graphic_novel_1';
-              break;
-            case ('graphic_novel_1'):
-              lookupList = "graphic_novels";
-              nextStep = 'female_author_selection_2';
-              nextLikeness = ['graphic_novel_2', 'graphic_novel_3', 'graphic_novel_4', 'graphic_novel_1'];
-              break;
-            case ('female_author_selection_2'):
-              lookupList = "female_author_selections";
-              nextStep = 'crime_series_5';
-              nextLikeness = ['female_author_selection_3', 'female_author_selection_4', 'female_author_selection_1', 'female_author_selection_2'];
-              break;
-            case ('crime_series_5'):
-              lookupList = "crime_series";
-              nextStep = 'backlog_ebook_2';
-              nextLikeness = ['crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5'];
-              break;
-            case ('backlog_ebook_2'):
-              lookupList = "backlog_ebooks";
-              nextStep = 'science_fiction_series_5';
-              nextLikeness = ['backlog_ebook_3', 'backlog_ebook_4', 'backlog_ebook_1', 'backlog_ebook_2'];
-              break;
-            case ('science_fiction_series_5'):
-              lookupList = "science_fiction_series";
-              nextStep = 'literary_journal_4';
-              nextLikeness = ['science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5'];
-              break;
-            case ('literary_journal_4'):
-              lookupList = "literary_journals";
-              nextStep = 'free_selection_3';
-              nextLikeness = ['literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5'];
-              break;
-            case ('free_selection_3'):
-              lookupList = "free_selections";
-              nextStep = 'crime_series_6';
-              nextLikeness = ['free_selection_4', 'free_selection_5', 'free_selection_6', 'free_selection_7', 'free_selection_8', 'free_selection_1', 'free_selection_2', 'free_selection_3'];
-              break;
-            case ('crime_series_6'):
-              lookupList = "crime_series";
-              nextStep = 'insert_3';
-              nextLikeness = ['crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6'];
-              break;
-            case ('insert_3'):
-              lookupList = 'inserts';
-              nextStep = 'science_fiction_series_6';
-              nextLikeness = ['insert_4', 'insert_5', 'insert_6', 'insert_7', 'insert_8', 'insert_1', 'insert_2', 'insert_3'];
-              break;
-            case ('science_fiction_series_6'):
-              lookupList = "science_fiction_series";
-              nextStep = 'genre_journal_4';
-              nextLikeness = ['science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6'];
-              break;
-            case ('genre_journal_4'):
-              lookupList = "genre_journals";
-              nextStep = 'roulette_2';
-              nextLikeness = ['genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre-journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4'];
-              break;
-            case ('roulette_2'):
-              lookupList = "roulettes";
-              nextStep = 'literary_journal_5';
-              nextLikeness = ['roulette_3', 'roulette_4', 'roulette_5', 'roulette_6', 'roulette_1', 'roulette_2'];
-              break;
-            case ('literary_journal_5'):
-              lookupList = "literary_journals";
-              nextStep = 'occult_reading_1';
-              nextLikeness = ['literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5'];
-              break;
-            case ('occult_reading_1'):
-              lookupList = "occult_readings";
-              nextStep = 'genre_journal_5';
-              nextLikeness = ['occult_reading_2', 'occult_reading_3', 'occult_reading_1'];
-              break;
-            case ('genre_journal_5'):
-              lookupList = "genre_journals";
-              nextStep = 'bizarro_fiction_2';
-              nextLikeness = ['genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre-journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5'];
-              break;
-            case ('bizarro_fiction_2'):
-              lookupList = "bizarro_fictions";
-              nextStep = 'prize_3';
-              nextLikeness = ['bizarro_fiction_3', 'bizarro_fiction_1', 'bizarro_fiction_2'];
-              break;
-            case ('prize_3'):
-              lookupList = "prize_lists";
-              nextStep = 'male_author_selection_2';
-              break;
-            case ('male_author_selection_2'):
-              lookupList = "male_author_selections";
-              nextStep = 'crime_series_7';
-              nextLikeness = ['male_author_selection_3', 'male_author_selection_4', 'male_author_selection_1', 'male_author_selection_2'];
-              break;
-            case ('crime_series_7'):
-              lookupList = "crime_series";
-              nextStep = 'backlog_physical_book_2';
-              nextLikeness = ['crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7'];
-              break;
-            case ('backlog_physical_book_2'):
-              lookupList = "backlog_physical_books";
-              nextStep = 'science_fiction_series_7';
-              nextLikeness = ['backlog_physical_book_3', 'backlog_physical_book_4', 'backlog_phsical_book_1', 'backlog_physical_book_2'];
-              break;
-            case ('science_fiction_series_7'):
-              lookupList = "science_fiction_series";
-              nextStep = 'literary_journal_6';
-              nextLikeness = ['science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7'];
-              break;
-            case ('literary_journal_6'):
-              lookupList = "literary_journals";
-              nextStep = 'free_selection_4';
-              nextLikeness = ['literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6'];
-              break;
-            case ('free_selection_4'):
-              lookupList = "free_selections";
-              nextStep = 'crime_series_8';
-              nextLikeness = ['free_selection_5', 'free_selection_6', 'free_selection_7', 'free_selection_8', 'free_selection_1', 'free_selection_2', 'free_selection_3', 'free_selection_4'];
-              break;
-            case ('crime_series_8'):
-              lookupList = "crime_series";
-              nextStep = 'insert_4';
-              nextLikeness = ['crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8'];
-              break;
-            case ('insert_4'):
-              lookupList = 'inserts';
-              nextStep = 'science_fiction_series_8';
-              nextLikeness = ['insert_5', 'insert_6', 'insert_7', 'insert_8', 'insert_1', 'insert_2', 'insert_3', 'insert_4'];
-              break;
-            case ('science_fiction_series_8'):
-              lookupList = "science_fiction_series";
-              nextStep = 'genre_journal_6';
-              nextLikeness = ['science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8'];
-              break;
-            case ('genre_journal_6'):
-              lookupList = "genre_journals";
-              nextStep = 'classic_2';
-              nextLikeness = ['genre_journal_7', 'genre_journal_8', 'genre-journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6'];
-              break;
-            case ('classic_2'):
-              lookupList = "classics";
-              nextStep = 'literary_journal_7';
-              nextLikeness = ['classic_3', 'classic_1', 'classic_2'];
-              break;
-            case ('literary_journal_7'):
-              lookupList = "literary_journals";
-              nextStep = 'compendium_2';
-              nextLikeness = ['literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7'];
-              break;
-            case ('compendium_2'):
-              lookupList = "compendiums";
-              nextStep = 'genre_journal_7';
-              nextLikeness = ['compendium_3', 'compendium_1', 'compendium_2'];
-              break;
-            case ('genre_journal_7'):
-              lookupList = "genre_journals";
-              nextStep = 'non_fiction_2';
-              nextLikeness = ['genre_journal_8', 'genre-journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7'];
-              break;
-            case ('non_fiction_2'):
-              lookupList = "non_fictions";
-              nextStep = 'prize_4';
-              nextLikeness = ['non_fiction_3', 'non_fiction_1', 'non_fiction_2'];
-              break;
-            case ('prize_4'):
-              lookupList = "prize_lists";
-              nextStep = 'graphic_novel_2';
-              break;
-            case ('graphic_novel_2'):
-              lookupList = "graphic_novels";
-              nextStep = 'contemporary_pulp_1';
-              nextLikeness = ['graphic_novel_3', 'graphic_novel_4', 'graphic_novel_1', 'graphic_novel_2'];
-              break;
-            case ('contemporary_pulp_1'):
-              lookupList = "contemporary_pulps";
-              nextStep = 'vintage_pulp_1';
-              nextLikeness = ['contemporary_pulp_2', 'contemporary_pulp_3', 'contemporary_pulp_4', 'contemporary_pulp_1'];
-              break;
-            case ('vintage_pulp_1'):
-              lookupList = "vintage_pulps";
-              nextStep = 'contemporary_pulp_2';
-              nextLikeness = ['vintage_pulp_2', 'vintage_pulp_3', 'vintage_pulp_4', 'vintage_pulp_1'];
-              break;
-            case ('contemporary_pulp_2'):
-              lookupList = "contemporary_pulps";
-              nextStep = 'vintage_pulp_2';
-              nextLikeness = ['contemporary_pulp_3', 'contemporary_pulp_4', 'contemporary_pulp_1', 'contemporary_pulp_2'];
-              break;
-            case ('vintage_pulp_2'):
-              lookupList = "vintage_pulps";
-              nextStep = 'prize_5';
-              nextLikeness = ['vintage_pulp_3', 'vintage_pulp_4', 'vintage_pulp_1', 'vintage_pulp_2'];
-              break;
-            case ('prize_5'):
-              lookupList = "prize_lists";
-              nextStep = 'female_author_selection_3';
-              break;
-            case ('female_author_selection_3'):
-              lookupList = "female_author_selections";
-              nextStep = 'crime_series_9';
-              nextLikeness = ['female_author_selection_4', 'female_author_selection_1', 'female_author_selection_2', 'female_author_selection_3'];
-              break;
-            case ('crime_series_9'):
-              lookupList = "crime_series";
-              nextStep = 'backlog_ebook_3';
-              nextLikeness = ['crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9'];
-              break;
-            case ('backlog_ebook_3'):
-              lookupList = "backlog_ebooks";
-                nextStep = 'science_fiction_series_9';
-                nextLikeness = ['backlog_ebook_4', 'backlog_ebook_1', 'backlog_ebook_2', 'backlog_ebook_3'];
-              break;
-            case ('science_fiction_series_9'):
-              lookupList = "science_fiction_series";
-              nextStep = 'free_selection_5';
-              nextLikeness = ['science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9'];
-              break;
-            case ('free_selection_5'):
-              lookupList = "free_selections";
-              nextStep = "crime_series_10";
-              nextLikeness = ['free_selection_6', 'free_selection_7', 'free_selection_8', 'free_selection_1', 'free_selection_2', 'free_selection_3', 'free_selection_4', 'free_selection_5'];
-              break;
-            case ('crime_series_10'):
-              lookupList = "crime_series";
-              nextStep = 'insert_5';
-              nextLikeness = ['crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10'];
-              break;
-            case ('insert_5'):
-              lookupList = "inserts";
-              nextStep = 'science_fiction_series_10';
-              nextLikeness = ['insert_6', 'insert_7', 'insert_8', 'insert_1', 'insert_2', 'insert_3', 'insert_4', 'insert_5'];
-              break;
-            case ('science_fiction_series_10'):
-              lookupList = "science_fiction_series";
-              nextStep = 'literary_journal_8';
-              nextLikeness = ['science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10'];
-              break;
-            case ('literary_journal_8'):
-              lookupList = "literary_journals";
-              nextStep = 'anthology_2';
-              nextLikeness = ['literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8'];
-              break;
-            case ('anthology_2'):
-              lookupList = 'anthologies';
-              nextStep = 'genreJournal_8';
-              nextLikeness = ['anthology_3', 'anthology_1', 'anthology_2'];
-              break;
-            case ('genre_journal_8'):
-              lookupList = 'genre_journals';
-              nextStep = 'roulette_3';
-              nextLikeness = ['genre-journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8'];
-              break;
-            case ('roulette_3'):
-              lookupList = 'roulettes';
-              nextStep = 'literary_journal_9';
-              nextLikeness = ['roulette_4', 'roulette_5', 'roulette_6', 'roulette_1', 'roulette_2', 'roulette_3'];
-              break;
-            case ('literary_journal_9'):
-              lookupList = 'literary_journals';
-              nextStep = 'roulette_4';
-              nextLikeness = ['literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9'];
-              break;
-            case ('roulette_4'):
-              lookupList = 'roulettes';
-              nextStep = 'prize_6';
-              nextLikeness = ['roulette_5', 'roulette_6', 'roulette_1', 'roulette_2', 'roulette_3', 'roulette_4'];
-              break;
-            case ('prize_6'):
-              lookupList = 'prize_lists';
-              nextStep = 'male_author_selection_3';
-              break;
-            case ('male_author_selection_3'):
-              lookupList = 'male_author_selections';
-              nextStep = 'crime_series_11';
-              nextLikeness = ['male_author_selection_4', 'male_authr_selection_1', 'male_author_selection_2', 'male_author_selection_3'];
-              break;
-            case ('crime_series_11'):
-              lookupList = 'crime_series';
-              nextStep = 'backlog_physical_book_3';
-              nextLikeness = ['crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11'];
-              break;
-            case ('backlog_physical_book_3'):
-              lookupList = 'backlog_physical_books';
-              nextStep = 'science_fiction_series_11';
-              nextLikeness = ['backlog_physical_book_4', 'backlog_physical_book_1', 'backlog_physical_book_2', 'backlog_physical_book_3'];
-              break;
-            case ('science_fiction_series_11'):
-              lookupList = 'science_fiction_series';
-              nextStep = 'free_selection_6';
-              nextLikeness = ['science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'scienc_fiction_series_11'];
-              break;
-            case ('free_selection_6'):
-              lookupList = 'free_selections';
-              nextStep = 'crime_series_12';
-              nextLikeness = ['free_selection_7', 'free_selection_8', 'free_selection_1', 'free_selection_2', 'free_selection_3', 'free_selection_4', 'free_selection_5', 'free_selection_6'];
-              break;
-            case ('crime_series_12'):
-              lookupList = 'crime_series';
-              nextStep = 'insert_6';
-              nextLikeness = ['crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12'];
-              break;
-            case ('insert_6'):
-              lookupList = 'inserts';
-              nextStep = 'science_fiction_series_12';
-              nextLikeness = ['insert_7', 'insert_8', 'insert_1', 'insert_2', 'insert_3', 'insert_4', 'insert_5', 'insert_6'];
-              break;
-            case ('science_fiction_series_12'):
-              lookupList = 'science_fiction_series';
-              nextStep = 'genre_journal_9';
-              nextLikeness = ['science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'scienc_fiction_series_11', 'science_fiction_series_12'];
-              break;
-            case ('genre_journal_9'):
-              lookupList = 'genre_journals';
-              nextStep = 'occult_reading_2';
-              nextLikeness = ['genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9'];
-              break;
-            case ('occult_reading_2'):
-              lookupList = 'occult_readings';
-              nextStep = 'literary_journal_10';
-              nextLikeness = ['occult_reading_3', 'occult_reading_1', 'occult_reading_2'];
-              break;
-            case ('literary_journal_10'):
-              lookupList = 'literary_journals';
-              nextStep = 'bizarro_fiction_3';
-              nextLikeness = ['literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10'];
-              break;
-            case ('bizarro_fiction_3'):
-              lookupList = 'bizarro_fictions';
-              nextStep = 'genre_journal_10';
-              nextLikeness = ['bizarro_fiction_1', 'bizarro_fiction_2', 'bizarro_fiction_3'];
-              break;
-            case ('genre_journal_10'):
-              lookupList = 'genre_journals';
-              nextStep = 'classic_3';
-              nextLikeness = ['genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10'];
-              break;
-            case ('classic_3'):
-              lookupList = 'classics';
-              nextStep = 'prize_7';
-              nextLikeness = ['classic_1', 'classic_2', 'classic_3'];
-              break;
-            case ('prize_7'):
-              lookupList = 'prize_lists';
-              nextStep = 'graphic_novel_3';
-              break;
-            case ('graphic_novel_3'):
-              lookupList = 'graphic_novels';
-              nextStep = 'female_author_selection_4';
-              nextLikeness = ['graphic_novel_4', 'graphic_novel_1', 'graphic_novel_2', 'graphic_novel_3'];
-              break;
-            case ('female_author_selection_4'):
-              lookupList = 'female_author_selections';
-              nextStep = 'crime_series_13';
-              nextLikeness = ['female_author_selection_1', 'female_author_selection_2', 'female_author_selection_3', 'female_author_selection_4'];
-              break;
-            case ('crime_series_13'):
-              lookupList = 'crime_series';
-              nextStep = 'backlog_ebook_4';
-              nextLikeness = ['crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13'];
-              break;
-            case ('backlog_ebook_4'):
-              lookupList = 'backlog_ebooks';
-              nextStep = 'science_fiction_series_13';
-              nextLikeness = ['backlog_ebook_1', 'backlog_ebook_2', 'backlog_ebook_3', 'backlog_ebook_4'];
-              break;
-            case ('science_fiction_series_13'):
-              lookupList = 'science_fiction_series';
-              nextStep = 'literary_journal_11';
-              nextLikeness = ['science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'scienc_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13'];
-              break;
-            case ('literary_journal_11'):
-              lookupList = 'literary_journals';
-              nextStep = 'free_selection_7';
-              nextLikeness = ['literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11'];
-              break;
-            case ('free_selection_7'):
-              lookupList = 'free_selections';
-              nextStep = 'crime_series_14';
-              nextLikeness = ['free_selection_8', 'free_selection_1', 'free_selection_2', 'free_selection_3', 'free_selection_4', 'free_selection_5', 'free_selection_6', 'free_selection_7'];
-              break;
-            case ('crime_series_14'):
-              lookupList = 'crime_series';
-              nextStep = 'insert_7';
-              nextLikeness = ['crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14'];
-              break;
-            case ('insert_7'):
-              lookupList = 'inserts';
-              nextStep = 'science_fiction_series_14';
-              nextLikeness = ['insert_8', 'insert_1', 'insert_2', 'insert_3', 'insert_4', 'insert_5', 'insert_6', 'insert_7'];
-              break;
-            case ('science_fiction_series_14'):
-              lookupList = 'science_fiction_series';
-              nextStep = 'genre_journal_11';
-              nextLikeness = ['science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'scienc_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14'];
-              break;
-            case ('genre_journal_11'):
-              lookupList = 'genre_journals';
-              nextStep = 'compendium_3';
-              nextLikeness = ['genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11'];
-              break;
-            case ('compendium_3'):
-              lookupList = 'compendiums';
-              nextStep = 'literary_journal_12';
-              nextLikeness = ['compendium_1', 'compendium_2', 'compendium_3'];
-              break;
-            case ('literary_journal_12'):
-              lookupList = 'literary_journals';
-              nextStep = 'non_fiction_3';
-              nextLikeness = ['literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12'];
-              break;
-            case ('non_fiction_3'):
-              lookupList = 'non_fictions';
-              nextStep = 'genre_journal_12';
-              nextLikeness = ['non_fiction_1', 'non_fiction_2', 'non_fiction_3'];
-              break;
-            case ('genre_journal_12'):
-              lookupList = 'genre_journals';
-              nextStep = 'anthology_3';
-              nextLikeness = ['genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12'];
-              break;
-            case ('anthology_3'):
-              lookupList = 'anthologies';
-              nextStep = 'prize_8';
-              nextLikeness = ['anthology_1', 'anthology_2', 'anthology_3'];
-              break;
-            case ('prize_8'):
-              lookupList = 'prize_lists';
-              nextStep = 'male_author_selection_4';
-              break;
-            case ('male_author_selection_4'):
-              lookupList = 'male_author_selections';
-              nextStep = 'crime_series_15';
-              nextLikeness = ['male_author_selection_1', 'male_author_selection_2', 'male_author_selection_3', 'male_author_selection_4'];
-              break;
-            case ('crime_series_15'):
-              lookupList = 'crime_series';
-              nextStep = 'backlog_physical_book_4';
-              nextLikeness = ['crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15'];
-              break;
-            case ('backlog_physical_book_4'):
-              lookupList = 'backlog_physical_books';
-              nextStep = 'science_fiction_series_15';
-              nextLikeness = ['backlog_physical_book_1', 'backlog_physical_book_2', 'backlog_physical_book_3', 'backlog_physcial_4'];
-              break;
-            case ('science_fiction_series_15'):
-              lookupList = 'science_fiction_series';
-              nextStep = 'literary_journal_13';
-              nextLikeness = ['science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'scienc_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_15'];
-              break;
-            case ('literary_journal_13'):
-              lookupList = 'literary_journals';
-              nextStep = 'free_selection_8';
-              nextLikeness = ['literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13'];
-              break;
-            case ('free_selection_8'):
-              lookupList = 'free_selections';
-              nextStep = 'crime_series_16';
-              nextLikeness = ['free_selection_1', 'free_selection_2', 'free_selection_3', 'free_selection_4', 'free_selection_5', 'free_selection_6', 'free_selection_7', 'free_selection_8'];
-              break;
-            case ('crime_series_16'):
-              lookupList = 'crime_series';
-              nextStep = 'insert_8';
-              nextLikeness = ['crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16'];
-              break;
-            case ('insert_8'):
-              lookupList = 'inserts';
-              nextStep = 'science_fiction_series_16';
-              nextLikeness = ['insert_1', 'insert_2', 'insert_3', 'insert_4', 'insert_5', 'insert_6', 'insert_7', 'insert_8'];
-              break;
-            case ('science_fiction_series_16'):
-              lookupList = 'science_fiction_series';
-              nextStep = 'genre_journal_13';
-              nextLikeness = ['science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'scienc_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_15', 'science_fiction_series_16'];
-              break;
-            case ('genre_journal_13'):
-              lookupList = 'genre_journals';
-              nextStep = 'roulette_5';
-              nextLikeness = ['genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13'];
-              break;
-            case ('roulette_5'):
-              lookupList = 'roulettes';
-              nextStep = 'literary_journal_14';
-              nextLikeness = ['roulette_6', 'roulette_1', 'roulette_2', 'roulette_3', 'roulette_4', 'roulette_5'];
-              break;
-            case ('literary_journal_14'):
-              lookupList = 'literary_journals';
-              nextStep = 'roulette_6';
-              nextLikeness = ['literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14'];
-              break;
-            case ('roulette_6'):
-              lookupList = 'roulettes';
-              nextStep = 'genre_journal_14';
-              nextLikeness = ['roulette_1', 'roulette_2', 'roulette_3', 'roulette_4', 'roulette_5', 'roulette_6'];
-              break;
-            case ('genre_journal_14'):
-              lookupList = 'genre_journals';
-              nextStep = 'occult_reading_3';
-              nextLikeness = ['genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14'];
-              break;
-            case ('occult_reading_3'):
-              lookupList = 'occult_readings';
-              nextStep = 'prize_9';
-              nextLikeness = ['occult_reading_1', 'occult_reading_2', 'occult_reading_3'];
-              break;
-            case ('prize_9'):
-              lookupList = 'prize_lists';
-              nextStep = 'graphic_novel_4';
-              break;
-            case ('graphic_novel_4'):
-              lookupList = 'graphic_novels';
-              nextStep = 'contemporary_pulp_3';
-              nextLikeness = ['graphic_novel_1', 'graphic_novel_2', 'graphic_novel_3', 'graphic_novel_4'];
-              break;
-            case ('contemporary_pulp_3'):
-              lookupList = 'contemporary_pulp_3';
-              nextStep = 'vintage_pulp_3';
-              nextLikeness = ['contemporary_pulp_4', 'contemporary_pulp_1', 'contemporary_pulp_2', 'contemporary_pulp_3'];
-              break;
-            case ('vintage_pulp_3'):
-              lookupList = 'vintage_pulps';
-              nextStep = 'contemporary_pulp_4';
-              nextLikeness = ['vintage_pulp_4', 'vintage_pulp_1', 'vintage_pulp_2', 'vintage_pulp_3'];
-              break;
-            case ('contemporary_pulp_4'):
-              lookupList = 'contemporary_pulps';
-              nextStep = 'vintage_pulp_4';
-              nextLikeness = ['contemporary_pulp_1', 'contemporary_pulp_2', 'contemporary_3', 'contemporary_pulp_4'];
-              break;
-            case ('vintage_pulp_4'):
-              lookupList = 'vintage_pulps';
-              nextStep = 'prize_10';
-              nextLikeness = ['vintage_pulp_1', 'vintage_pulp_2', 'vintage_pulp_3', 'vintage_pulp_4'];
-              break;
-            case ('prize_10'):
-              lookupList = 'prize_lists';
-              nextStep = 'female_author_selection_1';
-              break;
+          if (intSwitch !== 'interrupt') {
+            switch (theList.current_position) {
+              case ('female_author_selection_1'):
+                lookupList = "female_author_selections";
+                nextStep = 'crime_series_1';
+                nextLikeness = ['female_author_selection_2', 'female_author_selection_3', 'female_author_selection_4', 'female_author_selection_1'];
+                break;
+              case ('crime_series_1'):
+                lookupList = "crime_series";
+                nextStep = 'backlog_ebook_1';
+                nextLikeness = ['crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series"10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_seriees_1'];
+                break;
+              case ('backlog_ebook_1'):
+                lookupList = "backlog_ebooks";
+                nextStep = "science_fiction_series_1";
+                nextLikeness = ['backlog_ebook_2', 'backlog_ebook_3', 'backlog_ebook_4', 'backlog_ebook_1'];
+                break;
+              case ('science_fiction_series_1'):
+                lookupList = "science_fiction_series";
+                nextStep = "free_selection_1";
+                nextLikeness = ['science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_4', 'science_fiction_5', 'science_fiction_6', 'science_fiction_7', 'science_fiction_8', 'science_fiction_9', 'science_fiction_10', 'science_fictin_11', 'science_fiction_12', 'science_fictin_13', 'science_fiction_14', 'science_fiction_15', 'science_fiction_16', 'science_fiction_1'];
+                break;
+              case ('free_selection_1'):
+                lookupList = "free_selections";
+                nextStep = "crime_series_2";
+                nextLikeness = ['free_selection_2', 'free_selection_3', 'free_selection_4', 'free_selection_5', 'free_selection_6', 'free_selection_7', 'free_selection_8', 'free_selection_1'];
+                break;
+              case ('crime_series_2'):
+                lookupList = "crime_series";
+                nextStep = "insert_1";
+                nextLikeness = ['crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2'];
+                break;
+              case ('insert_1'):
+                lookupList = 'inserts';
+                nextStep = 'science_fiction_series_2';
+                nextLikeness = ['insert_2', 'insert_3', 'insert_4', 'insert_5', 'insert_6', 'insert_7', 'insert_8', 'insert_1'];
+                break;
+              case ('science_fiction_series_2'):
+                lookupList = "science_fiction_series";
+                nextStep = 'literary_journal_1';
+                nextLikeness = ['science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2'];
+                break;
+              case ('literary_journal_1'):
+                lookupList = "literary_journals";
+                nextStep = 'bizarro_fiction_1';
+                nextLikeness = ['literary_journal_2', 'literary_journal_3', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1'];
+                break;
+              case ('bizarro_fiction_1'):
+                lookupList = "bizarro_fictions";
+                nextStep = 'genre_journal_1';
+                nextLikeness = ['bizarro_fiction_2', 'bizarro_fiction_3', 'bizarro_fiction_1'];
+                break;
+              case ('genre_journal_1'):
+                lookupList = "genre_journals";
+                nextStep = 'classic_1';
+                nextLikeness = ['genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1'];
+                break;
+              case ('classic_1'):
+                lookupList = "classics";
+                nextStep = 'literary_journal_2';
+                nextLikeness = ['classic_2', 'classic_3', 'classic_1'];
+                break;
+              case ('literary_journal_2'):
+                lookupList = "literary_journals";
+                nextStep = 'compendium_1';
+                nextLikeness = ['literary_journal_3', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2'];
+                break;
+              case ('compendium_1'):
+                lookupList = "compendiums";
+                nextStep = "prize_1";
+                nextLikeness = ['compendium_2', 'compendium_3', 'compendium_1'];
+                break;
+              case ('prize_1'):
+                lookupList = "prize_lists";
+                nextStep = 'male_author_selection_1';
+                break;
+              case ('male_author_selection_1'):
+                lookupList = "male_author_selections";
+                nextStep = 'crime_series_3';
+                nextLikeness = ['male_author_selection_2', 'male_author_selection_3', 'male_author_selection_4', 'male_author_selection_1'];
+                break;
+              case ('crime_series_3'):
+                lookupList = "crime_series";
+                nextStep = 'backlog_physical_book_1';
+                nextLikeness = ['crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3'];
+                break;
+              case ('backlog_physical_book_1'):
+                lookupList = "backlog_physical_books";
+                nextStep = 'science_fiction_series_3';
+                nextLikeness = ['backlog_physical_book_2', 'backlog_physical_book_3', 'backlog_physical_book_4', 'backlog_physical_book_1'];
+                break;
+              case ('science_fiction_series_3'):
+                lookupList = "science_fiction_series";
+                nextStep = 'free_selection_2';
+                nextLikeness = ['science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3'];
+                break;
+              case ('free_selection_2'):
+                lookupList = "free_selections";
+                nextStep = 'crime_series_4';
+                nextLikeness = ['free_selection_3', 'free_selection_4', 'free_selection_5', 'free_selection_6', 'free_selection_7', 'free_selection_8', 'free_selection_1', 'free_selection_2', 'free_selection_3'];
+                break;
+              case ('crime_series_4'):
+                lookupList = "crime_series";
+                nextStep = 'insert_2';
+                nextLikeness = ['crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4'];
+                break;
+              case ('insert_2'):
+                lookupList = 'inserts';
+                nextStep = 'science_fiction_series_4';
+                nextLikeness = ['insert_3', 'insert_4', 'insert_5', 'insert_6', 'insert_7', 'insert_8', 'insert_1', 'insert_2'];
+                break;
+              case ('science_fiction_series_4'):
+                lookupList = "science_fiction_series";
+                nextStep = 'genre_journal_2';
+                nextLikeness = ['science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4'];
+                break;
+              case ('genre_journal_2'):
+                lookupList = "genre_journals";
+                nextStep = 'non_fiction_1';
+                nextLikeness = ['genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre-journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2'];
+                break;
+              case ('non_fiction_1'):
+                lookupList = "non_fictions";
+                nextStep = 'literary_journal_3';
+                nextLikeness = ['non_fiction_2', 'non_fiction_3', 'non_fiction_1'];
+                break;
+              case ('literary_journal_3'):
+                lookupList = "literary_journals";
+                nextStep = 'anthology_1';
+                nextLikeness = ['literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_3'];
+                break;
+              case ('anthology_1'):
+                lookupList = "anthologies";
+                nextStep = 'genre_journal_3';
+                nextLikeness = ['anthology_2', 'anthology_3'];
+                break;
+              case ('genre_journal_3'):
+                lookupList = "genre_journals";
+                nextStep = 'roulette_1';
+                nextLikeness = ['genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre-journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3'];
+                break;
+              case ('roulette_1'):
+                lookupList = "roulettes";
+                nextStep = 'prize_2';
+                nextLikeness = ['roulette_2', 'roulette_3', 'roulette_4', 'roulette_5', 'roulette_6', 'roulette_1'];
+                break;
+              case ('prize_2'):
+                lookupList = "prize_lists";
+                nextStep = 'graphic_novel_1';
+                break;
+              case ('graphic_novel_1'):
+                lookupList = "graphic_novels";
+                nextStep = 'female_author_selection_2';
+                nextLikeness = ['graphic_novel_2', 'graphic_novel_3', 'graphic_novel_4', 'graphic_novel_1'];
+                break;
+              case ('female_author_selection_2'):
+                lookupList = "female_author_selections";
+                nextStep = 'crime_series_5';
+                nextLikeness = ['female_author_selection_3', 'female_author_selection_4', 'female_author_selection_1', 'female_author_selection_2'];
+                break;
+              case ('crime_series_5'):
+                lookupList = "crime_series";
+                nextStep = 'backlog_ebook_2';
+                nextLikeness = ['crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5'];
+                break;
+              case ('backlog_ebook_2'):
+                lookupList = "backlog_ebooks";
+                nextStep = 'science_fiction_series_5';
+                nextLikeness = ['backlog_ebook_3', 'backlog_ebook_4', 'backlog_ebook_1', 'backlog_ebook_2'];
+                break;
+              case ('science_fiction_series_5'):
+                lookupList = "science_fiction_series";
+                nextStep = 'literary_journal_4';
+                nextLikeness = ['science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5'];
+                break;
+              case ('literary_journal_4'):
+                lookupList = "literary_journals";
+                nextStep = 'free_selection_3';
+                nextLikeness = ['literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5'];
+                break;
+              case ('free_selection_3'):
+                lookupList = "free_selections";
+                nextStep = 'crime_series_6';
+                nextLikeness = ['free_selection_4', 'free_selection_5', 'free_selection_6', 'free_selection_7', 'free_selection_8', 'free_selection_1', 'free_selection_2', 'free_selection_3'];
+                break;
+              case ('crime_series_6'):
+                lookupList = "crime_series";
+                nextStep = 'insert_3';
+                nextLikeness = ['crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6'];
+                break;
+              case ('insert_3'):
+                lookupList = 'inserts';
+                nextStep = 'science_fiction_series_6';
+                nextLikeness = ['insert_4', 'insert_5', 'insert_6', 'insert_7', 'insert_8', 'insert_1', 'insert_2', 'insert_3'];
+                break;
+              case ('science_fiction_series_6'):
+                lookupList = "science_fiction_series";
+                nextStep = 'genre_journal_4';
+                nextLikeness = ['science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6'];
+                break;
+              case ('genre_journal_4'):
+                lookupList = "genre_journals";
+                nextStep = 'roulette_2';
+                nextLikeness = ['genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre-journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4'];
+                break;
+              case ('roulette_2'):
+                lookupList = "roulettes";
+                nextStep = 'literary_journal_5';
+                nextLikeness = ['roulette_3', 'roulette_4', 'roulette_5', 'roulette_6', 'roulette_1', 'roulette_2'];
+                break;
+              case ('literary_journal_5'):
+                lookupList = "literary_journals";
+                nextStep = 'occult_reading_1';
+                nextLikeness = ['literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5'];
+                break;
+              case ('occult_reading_1'):
+                lookupList = "occult_readings";
+                nextStep = 'genre_journal_5';
+                nextLikeness = ['occult_reading_2', 'occult_reading_3', 'occult_reading_1'];
+                break;
+              case ('genre_journal_5'):
+                lookupList = "genre_journals";
+                nextStep = 'bizarro_fiction_2';
+                nextLikeness = ['genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre-journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5'];
+                break;
+              case ('bizarro_fiction_2'):
+                lookupList = "bizarro_fictions";
+                nextStep = 'prize_3';
+                nextLikeness = ['bizarro_fiction_3', 'bizarro_fiction_1', 'bizarro_fiction_2'];
+                break;
+              case ('prize_3'):
+                lookupList = "prize_lists";
+                nextStep = 'male_author_selection_2';
+                break;
+              case ('male_author_selection_2'):
+                lookupList = "male_author_selections";
+                nextStep = 'crime_series_7';
+                nextLikeness = ['male_author_selection_3', 'male_author_selection_4', 'male_author_selection_1', 'male_author_selection_2'];
+                break;
+              case ('crime_series_7'):
+                lookupList = "crime_series";
+                nextStep = 'backlog_physical_book_2';
+                nextLikeness = ['crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7'];
+                break;
+              case ('backlog_physical_book_2'):
+                lookupList = "backlog_physical_books";
+                nextStep = 'science_fiction_series_7';
+                nextLikeness = ['backlog_physical_book_3', 'backlog_physical_book_4', 'backlog_phsical_book_1', 'backlog_physical_book_2'];
+                break;
+              case ('science_fiction_series_7'):
+                lookupList = "science_fiction_series";
+                nextStep = 'literary_journal_6';
+                nextLikeness = ['science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7'];
+                break;
+              case ('literary_journal_6'):
+                lookupList = "literary_journals";
+                nextStep = 'free_selection_4';
+                nextLikeness = ['literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6'];
+                break;
+              case ('free_selection_4'):
+                lookupList = "free_selections";
+                nextStep = 'crime_series_8';
+                nextLikeness = ['free_selection_5', 'free_selection_6', 'free_selection_7', 'free_selection_8', 'free_selection_1', 'free_selection_2', 'free_selection_3', 'free_selection_4'];
+                break;
+              case ('crime_series_8'):
+                lookupList = "crime_series";
+                nextStep = 'insert_4';
+                nextLikeness = ['crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8'];
+                break;
+              case ('insert_4'):
+                lookupList = 'inserts';
+                nextStep = 'science_fiction_series_8';
+                nextLikeness = ['insert_5', 'insert_6', 'insert_7', 'insert_8', 'insert_1', 'insert_2', 'insert_3', 'insert_4'];
+                break;
+              case ('science_fiction_series_8'):
+                lookupList = "science_fiction_series";
+                nextStep = 'genre_journal_6';
+                nextLikeness = ['science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8'];
+                break;
+              case ('genre_journal_6'):
+                lookupList = "genre_journals";
+                nextStep = 'classic_2';
+                nextLikeness = ['genre_journal_7', 'genre_journal_8', 'genre-journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6'];
+                break;
+              case ('classic_2'):
+                lookupList = "classics";
+                nextStep = 'literary_journal_7';
+                nextLikeness = ['classic_3', 'classic_1', 'classic_2'];
+                break;
+              case ('literary_journal_7'):
+                lookupList = "literary_journals";
+                nextStep = 'compendium_2';
+                nextLikeness = ['literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7'];
+                break;
+              case ('compendium_2'):
+                lookupList = "compendiums";
+                nextStep = 'genre_journal_7';
+                nextLikeness = ['compendium_3', 'compendium_1', 'compendium_2'];
+                break;
+              case ('genre_journal_7'):
+                lookupList = "genre_journals";
+                nextStep = 'non_fiction_2';
+                nextLikeness = ['genre_journal_8', 'genre-journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7'];
+                break;
+              case ('non_fiction_2'):
+                lookupList = "non_fictions";
+                nextStep = 'prize_4';
+                nextLikeness = ['non_fiction_3', 'non_fiction_1', 'non_fiction_2'];
+                break;
+              case ('prize_4'):
+                lookupList = "prize_lists";
+                nextStep = 'graphic_novel_2';
+                break;
+              case ('graphic_novel_2'):
+                lookupList = "graphic_novels";
+                nextStep = 'contemporary_pulp_1';
+                nextLikeness = ['graphic_novel_3', 'graphic_novel_4', 'graphic_novel_1', 'graphic_novel_2'];
+                break;
+              case ('contemporary_pulp_1'):
+                lookupList = "contemporary_pulps";
+                nextStep = 'vintage_pulp_1';
+                nextLikeness = ['contemporary_pulp_2', 'contemporary_pulp_3', 'contemporary_pulp_4', 'contemporary_pulp_1'];
+                break;
+              case ('vintage_pulp_1'):
+                lookupList = "vintage_pulps";
+                nextStep = 'contemporary_pulp_2';
+                nextLikeness = ['vintage_pulp_2', 'vintage_pulp_3', 'vintage_pulp_4', 'vintage_pulp_1'];
+                break;
+              case ('contemporary_pulp_2'):
+                lookupList = "contemporary_pulps";
+                nextStep = 'vintage_pulp_2';
+                nextLikeness = ['contemporary_pulp_3', 'contemporary_pulp_4', 'contemporary_pulp_1', 'contemporary_pulp_2'];
+                break;
+              case ('vintage_pulp_2'):
+                lookupList = "vintage_pulps";
+                nextStep = 'prize_5';
+                nextLikeness = ['vintage_pulp_3', 'vintage_pulp_4', 'vintage_pulp_1', 'vintage_pulp_2'];
+                break;
+              case ('prize_5'):
+                lookupList = "prize_lists";
+                nextStep = 'female_author_selection_3';
+                break;
+              case ('female_author_selection_3'):
+                lookupList = "female_author_selections";
+                nextStep = 'crime_series_9';
+                nextLikeness = ['female_author_selection_4', 'female_author_selection_1', 'female_author_selection_2', 'female_author_selection_3'];
+                break;
+              case ('crime_series_9'):
+                lookupList = "crime_series";
+                nextStep = 'backlog_ebook_3';
+                nextLikeness = ['crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9'];
+                break;
+              case ('backlog_ebook_3'):
+                lookupList = "backlog_ebooks";
+                  nextStep = 'science_fiction_series_9';
+                  nextLikeness = ['backlog_ebook_4', 'backlog_ebook_1', 'backlog_ebook_2', 'backlog_ebook_3'];
+                break;
+              case ('science_fiction_series_9'):
+                lookupList = "science_fiction_series";
+                nextStep = 'free_selection_5';
+                nextLikeness = ['science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9'];
+                break;
+              case ('free_selection_5'):
+                lookupList = "free_selections";
+                nextStep = "crime_series_10";
+                nextLikeness = ['free_selection_6', 'free_selection_7', 'free_selection_8', 'free_selection_1', 'free_selection_2', 'free_selection_3', 'free_selection_4', 'free_selection_5'];
+                break;
+              case ('crime_series_10'):
+                lookupList = "crime_series";
+                nextStep = 'insert_5';
+                nextLikeness = ['crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10'];
+                break;
+              case ('insert_5'):
+                lookupList = "inserts";
+                nextStep = 'science_fiction_series_10';
+                nextLikeness = ['insert_6', 'insert_7', 'insert_8', 'insert_1', 'insert_2', 'insert_3', 'insert_4', 'insert_5'];
+                break;
+              case ('science_fiction_series_10'):
+                lookupList = "science_fiction_series";
+                nextStep = 'literary_journal_8';
+                nextLikeness = ['science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10'];
+                break;
+              case ('literary_journal_8'):
+                lookupList = "literary_journals";
+                nextStep = 'anthology_2';
+                nextLikeness = ['literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8'];
+                break;
+              case ('anthology_2'):
+                lookupList = 'anthologies';
+                nextStep = 'genreJournal_8';
+                nextLikeness = ['anthology_3', 'anthology_1', 'anthology_2'];
+                break;
+              case ('genre_journal_8'):
+                lookupList = 'genre_journals';
+                nextStep = 'roulette_3';
+                nextLikeness = ['genre-journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8'];
+                break;
+              case ('roulette_3'):
+                lookupList = 'roulettes';
+                nextStep = 'literary_journal_9';
+                nextLikeness = ['roulette_4', 'roulette_5', 'roulette_6', 'roulette_1', 'roulette_2', 'roulette_3'];
+                break;
+              case ('literary_journal_9'):
+                lookupList = 'literary_journals';
+                nextStep = 'roulette_4';
+                nextLikeness = ['literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9'];
+                break;
+              case ('roulette_4'):
+                lookupList = 'roulettes';
+                nextStep = 'prize_6';
+                nextLikeness = ['roulette_5', 'roulette_6', 'roulette_1', 'roulette_2', 'roulette_3', 'roulette_4'];
+                break;
+              case ('prize_6'):
+                lookupList = 'prize_lists';
+                nextStep = 'male_author_selection_3';
+                break;
+              case ('male_author_selection_3'):
+                lookupList = 'male_author_selections';
+                nextStep = 'crime_series_11';
+                nextLikeness = ['male_author_selection_4', 'male_authr_selection_1', 'male_author_selection_2', 'male_author_selection_3'];
+                break;
+              case ('crime_series_11'):
+                lookupList = 'crime_series';
+                nextStep = 'backlog_physical_book_3';
+                nextLikeness = ['crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11'];
+                break;
+              case ('backlog_physical_book_3'):
+                lookupList = 'backlog_physical_books';
+                nextStep = 'science_fiction_series_11';
+                nextLikeness = ['backlog_physical_book_4', 'backlog_physical_book_1', 'backlog_physical_book_2', 'backlog_physical_book_3'];
+                break;
+              case ('science_fiction_series_11'):
+                lookupList = 'science_fiction_series';
+                nextStep = 'free_selection_6';
+                nextLikeness = ['science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'scienc_fiction_series_11'];
+                break;
+              case ('free_selection_6'):
+                lookupList = 'free_selections';
+                nextStep = 'crime_series_12';
+                nextLikeness = ['free_selection_7', 'free_selection_8', 'free_selection_1', 'free_selection_2', 'free_selection_3', 'free_selection_4', 'free_selection_5', 'free_selection_6'];
+                break;
+              case ('crime_series_12'):
+                lookupList = 'crime_series';
+                nextStep = 'insert_6';
+                nextLikeness = ['crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12'];
+                break;
+              case ('insert_6'):
+                lookupList = 'inserts';
+                nextStep = 'science_fiction_series_12';
+                nextLikeness = ['insert_7', 'insert_8', 'insert_1', 'insert_2', 'insert_3', 'insert_4', 'insert_5', 'insert_6'];
+                break;
+              case ('science_fiction_series_12'):
+                lookupList = 'science_fiction_series';
+                nextStep = 'genre_journal_9';
+                nextLikeness = ['science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'scienc_fiction_series_11', 'science_fiction_series_12'];
+                break;
+              case ('genre_journal_9'):
+                lookupList = 'genre_journals';
+                nextStep = 'occult_reading_2';
+                nextLikeness = ['genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9'];
+                break;
+              case ('occult_reading_2'):
+                lookupList = 'occult_readings';
+                nextStep = 'literary_journal_10';
+                nextLikeness = ['occult_reading_3', 'occult_reading_1', 'occult_reading_2'];
+                break;
+              case ('literary_journal_10'):
+                lookupList = 'literary_journals';
+                nextStep = 'bizarro_fiction_3';
+                nextLikeness = ['literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10'];
+                break;
+              case ('bizarro_fiction_3'):
+                lookupList = 'bizarro_fictions';
+                nextStep = 'genre_journal_10';
+                nextLikeness = ['bizarro_fiction_1', 'bizarro_fiction_2', 'bizarro_fiction_3'];
+                break;
+              case ('genre_journal_10'):
+                lookupList = 'genre_journals';
+                nextStep = 'classic_3';
+                nextLikeness = ['genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10'];
+                break;
+              case ('classic_3'):
+                lookupList = 'classics';
+                nextStep = 'prize_7';
+                nextLikeness = ['classic_1', 'classic_2', 'classic_3'];
+                break;
+              case ('prize_7'):
+                lookupList = 'prize_lists';
+                nextStep = 'graphic_novel_3';
+                break;
+              case ('graphic_novel_3'):
+                lookupList = 'graphic_novels';
+                nextStep = 'female_author_selection_4';
+                nextLikeness = ['graphic_novel_4', 'graphic_novel_1', 'graphic_novel_2', 'graphic_novel_3'];
+                break;
+              case ('female_author_selection_4'):
+                lookupList = 'female_author_selections';
+                nextStep = 'crime_series_13';
+                nextLikeness = ['female_author_selection_1', 'female_author_selection_2', 'female_author_selection_3', 'female_author_selection_4'];
+                break;
+              case ('crime_series_13'):
+                lookupList = 'crime_series';
+                nextStep = 'backlog_ebook_4';
+                nextLikeness = ['crime_series_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13'];
+                break;
+              case ('backlog_ebook_4'):
+                lookupList = 'backlog_ebooks';
+                nextStep = 'science_fiction_series_13';
+                nextLikeness = ['backlog_ebook_1', 'backlog_ebook_2', 'backlog_ebook_3', 'backlog_ebook_4'];
+                break;
+              case ('science_fiction_series_13'):
+                lookupList = 'science_fiction_series';
+                nextStep = 'literary_journal_11';
+                nextLikeness = ['science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'scienc_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13'];
+                break;
+              case ('literary_journal_11'):
+                lookupList = 'literary_journals';
+                nextStep = 'free_selection_7';
+                nextLikeness = ['literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11'];
+                break;
+              case ('free_selection_7'):
+                lookupList = 'free_selections';
+                nextStep = 'crime_series_14';
+                nextLikeness = ['free_selection_8', 'free_selection_1', 'free_selection_2', 'free_selection_3', 'free_selection_4', 'free_selection_5', 'free_selection_6', 'free_selection_7'];
+                break;
+              case ('crime_series_14'):
+                lookupList = 'crime_series';
+                nextStep = 'insert_7';
+                nextLikeness = ['crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14'];
+                break;
+              case ('insert_7'):
+                lookupList = 'inserts';
+                nextStep = 'science_fiction_series_14';
+                nextLikeness = ['insert_8', 'insert_1', 'insert_2', 'insert_3', 'insert_4', 'insert_5', 'insert_6', 'insert_7'];
+                break;
+              case ('science_fiction_series_14'):
+                lookupList = 'science_fiction_series';
+                nextStep = 'genre_journal_11';
+                nextLikeness = ['science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'scienc_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14'];
+                break;
+              case ('genre_journal_11'):
+                lookupList = 'genre_journals';
+                nextStep = 'compendium_3';
+                nextLikeness = ['genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11'];
+                break;
+              case ('compendium_3'):
+                lookupList = 'compendiums';
+                nextStep = 'literary_journal_12';
+                nextLikeness = ['compendium_1', 'compendium_2', 'compendium_3'];
+                break;
+              case ('literary_journal_12'):
+                lookupList = 'literary_journals';
+                nextStep = 'non_fiction_3';
+                nextLikeness = ['literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12'];
+                break;
+              case ('non_fiction_3'):
+                lookupList = 'non_fictions';
+                nextStep = 'genre_journal_12';
+                nextLikeness = ['non_fiction_1', 'non_fiction_2', 'non_fiction_3'];
+                break;
+              case ('genre_journal_12'):
+                lookupList = 'genre_journals';
+                nextStep = 'anthology_3';
+                nextLikeness = ['genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12'];
+                break;
+              case ('anthology_3'):
+                lookupList = 'anthologies';
+                nextStep = 'prize_8';
+                nextLikeness = ['anthology_1', 'anthology_2', 'anthology_3'];
+                break;
+              case ('prize_8'):
+                lookupList = 'prize_lists';
+                nextStep = 'male_author_selection_4';
+                break;
+              case ('male_author_selection_4'):
+                lookupList = 'male_author_selections';
+                nextStep = 'crime_series_15';
+                nextLikeness = ['male_author_selection_1', 'male_author_selection_2', 'male_author_selection_3', 'male_author_selection_4'];
+                break;
+              case ('crime_series_15'):
+                lookupList = 'crime_series';
+                nextStep = 'backlog_physical_book_4';
+                nextLikeness = ['crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15'];
+                break;
+              case ('backlog_physical_book_4'):
+                lookupList = 'backlog_physical_books';
+                nextStep = 'science_fiction_series_15';
+                nextLikeness = ['backlog_physical_book_1', 'backlog_physical_book_2', 'backlog_physical_book_3', 'backlog_physcial_4'];
+                break;
+              case ('science_fiction_series_15'):
+                lookupList = 'science_fiction_series';
+                nextStep = 'literary_journal_13';
+                nextLikeness = ['science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'scienc_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_15'];
+                break;
+              case ('literary_journal_13'):
+                lookupList = 'literary_journals';
+                nextStep = 'free_selection_8';
+                nextLikeness = ['literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13'];
+                break;
+              case ('free_selection_8'):
+                lookupList = 'free_selections';
+                nextStep = 'crime_series_16';
+                nextLikeness = ['free_selection_1', 'free_selection_2', 'free_selection_3', 'free_selection_4', 'free_selection_5', 'free_selection_6', 'free_selection_7', 'free_selection_8'];
+                break;
+              case ('crime_series_16'):
+                lookupList = 'crime_series';
+                nextStep = 'insert_8';
+                nextLikeness = ['crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16'];
+                break;
+              case ('insert_8'):
+                lookupList = 'inserts';
+                nextStep = 'science_fiction_series_16';
+                nextLikeness = ['insert_1', 'insert_2', 'insert_3', 'insert_4', 'insert_5', 'insert_6', 'insert_7', 'insert_8'];
+                break;
+              case ('science_fiction_series_16'):
+                lookupList = 'science_fiction_series';
+                nextStep = 'genre_journal_13';
+                nextLikeness = ['science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'scienc_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_15', 'science_fiction_series_16'];
+                break;
+              case ('genre_journal_13'):
+                lookupList = 'genre_journals';
+                nextStep = 'roulette_5';
+                nextLikeness = ['genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13'];
+                break;
+              case ('roulette_5'):
+                lookupList = 'roulettes';
+                nextStep = 'literary_journal_14';
+                nextLikeness = ['roulette_6', 'roulette_1', 'roulette_2', 'roulette_3', 'roulette_4', 'roulette_5'];
+                break;
+              case ('literary_journal_14'):
+                lookupList = 'literary_journals';
+                nextStep = 'roulette_6';
+                nextLikeness = ['literary_journal_1', 'literary_journal_2', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14'];
+                break;
+              case ('roulette_6'):
+                lookupList = 'roulettes';
+                nextStep = 'genre_journal_14';
+                nextLikeness = ['roulette_1', 'roulette_2', 'roulette_3', 'roulette_4', 'roulette_5', 'roulette_6'];
+                break;
+              case ('genre_journal_14'):
+                lookupList = 'genre_journals';
+                nextStep = 'occult_reading_3';
+                nextLikeness = ['genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14'];
+                break;
+              case ('occult_reading_3'):
+                lookupList = 'occult_readings';
+                nextStep = 'prize_9';
+                nextLikeness = ['occult_reading_1', 'occult_reading_2', 'occult_reading_3'];
+                break;
+              case ('prize_9'):
+                lookupList = 'prize_lists';
+                nextStep = 'graphic_novel_4';
+                break;
+              case ('graphic_novel_4'):
+                lookupList = 'graphic_novels';
+                nextStep = 'contemporary_pulp_3';
+                nextLikeness = ['graphic_novel_1', 'graphic_novel_2', 'graphic_novel_3', 'graphic_novel_4'];
+                break;
+              case ('contemporary_pulp_3'):
+                lookupList = 'contemporary_pulp_3';
+                nextStep = 'vintage_pulp_3';
+                nextLikeness = ['contemporary_pulp_4', 'contemporary_pulp_1', 'contemporary_pulp_2', 'contemporary_pulp_3'];
+                break;
+              case ('vintage_pulp_3'):
+                lookupList = 'vintage_pulps';
+                nextStep = 'contemporary_pulp_4';
+                nextLikeness = ['vintage_pulp_4', 'vintage_pulp_1', 'vintage_pulp_2', 'vintage_pulp_3'];
+                break;
+              case ('contemporary_pulp_4'):
+                lookupList = 'contemporary_pulps';
+                nextStep = 'vintage_pulp_4';
+                nextLikeness = ['contemporary_pulp_1', 'contemporary_pulp_2', 'contemporary_3', 'contemporary_pulp_4'];
+                break;
+              case ('vintage_pulp_4'):
+                lookupList = 'vintage_pulps';
+                nextStep = 'prize_10';
+                nextLikeness = ['vintage_pulp_1', 'vintage_pulp_2', 'vintage_pulp_3', 'vintage_pulp_4'];
+                break;
+              case ('prize_10'):
+                lookupList = 'prize_lists';
+                nextStep = 'female_author_selection_1';
+                break;
 
-            default:
-              console.log("Unhandled Exception");
-              alert("unhandled exception");
-          }
-          patchCompletionStatus(lookupList, theList[theList.current_position], theList.current_position);
-          readingListObject[theList.current_position] = null;
-          readingListObject.current_position = nextStep;
-          if (lookupList !== 'prize_lists') {
-            console.log(lookupList);
-            $http.get(`/${lookupList}`)
-            .then(readListData=>{
-              var categoryList = readListData.data;
-              console.log(categoryList);
-              // var likenessIndex = 0;
-              var assignLikenessArr = [];
-              for (let j = 0; j < categoryList.length; j++) {
-                if (!categoryList[j].is_completed) {
-                  assignLikenessArr.push(categoryList[j].id);
+              default:
+                console.log("Unhandled Exception");
+                alert("unhandled exception");
+            }
+            patchCompletionStatus(lookupList, theList[theList.current_position], theList.current_position);
+            readingListObject[theList.current_position] = null;
+            readingListObject.current_position = nextStep;
+            if (lookupList !== 'prize_lists') {
+              console.log(lookupList);
+              $http.get(`/${lookupList}`)
+              .then(readListData=>{
+                var categoryList = readListData.data;
+                console.log(categoryList);
+                // var likenessIndex = 0;
+                var assignLikenessArr = [];
+                for (let j = 0; j < categoryList.length; j++) {
+                  if (!categoryList[j].is_completed) {
+                    assignLikenessArr.push(categoryList[j].id);
+                  }
                 }
-              }
 
-              assignLikenessArr = sortIdArray(assignLikenessArr);
-              console.log(assignLikenessArr);
-              $http.patch('/user_reading_lists/1', readingListObject)
-              .then(data=>{
-                console.log(data.data);
-                updateList(lookupList, nextLikeness, assignLikenessArr);
+                assignLikenessArr = sortIdArray(assignLikenessArr);
+                console.log(assignLikenessArr);
+                $http.patch('/user_reading_lists/1', readingListObject)
+                .then(data=>{
+                  console.log(data.data);
+                  updateList(lookupList, nextLikeness, assignLikenessArr);
+                });
               });
-            });
-          } else {
-            //update prize position
-            var prizeJustCompleted = theList[theList.current_position];
-            console.log(prizeJustCompleted);
-            patchCompletionStatus (lookupList, prizeJustCompleted, theList.current_position);
-            // update completion status
-            $http.patch('/user_reading_lists/1', readingListObject)
-            .then(postPrize=>{
-              console.log(postPrize.data);
-            });
+            } else {
+              //update prize position
+              var prizeJustCompleted = theList[theList.current_position];
+              console.log(prizeJustCompleted);
+              patchCompletionStatus (lookupList, prizeJustCompleted, theList.current_position);
+              // update completion status
+              $http.patch('/user_reading_lists/1', readingListObject)
+              .then(postPrize=>{
+                console.log(postPrize.data);
+              });
 
+            }
+          } else {
+            $http.patch('/user_reading_lists/1', readingListObject)
+            .then(data=>{
+              console.log(data.data);
+            });
           }
 
         });
@@ -1989,9 +2074,10 @@
             .then(readingListData=>{
               var readingList = readingListData.data;
               if (selectionString === "current") {
-                updateAdvanceReadingList(readingList[readingList.current_position]);
+                updateAdvanceReadingList(readingList[readingList.current_position], "regular");
               } else {
                 //update interrupt here
+                updateAdvanceReadingList(readingList[readingList.interrupt], 'interrupt');
 
                 //update read status of newly completed interrupt
                 updateInterruptList(readingList.interrupt);
@@ -2012,27 +2098,39 @@
         var currentButton = document.getElementById('currentReadButton');
         var currentStillReading = document.getElementById('stillReadingIt');
         var interruptDone = document.getElementById('interruptDone');
+        var readingListDiv = document.getElementById('viewReadingList');
+        var divOfReadingList = document.getElementById('readingListHQ');
+        var existingReview = document.getElementById('editExistingReview');
         var interruptStillReading = document.getElementById('interruptStillReading');
         var currentDoneButton = document.getElementById('iAmDone');
         interruptDone.addEventListener('click', ()=>{
           reviewForm.setAttribute("style", "display: initial;");
           currentReadingDiv.setAttribute("style", "display: none;");
           interruptDiv.setAttribute("style", "display: none;");
+          readingListDiv.setAttribute("style", "display: none;");
+          existingReview.setAttribute("style", "display: none;");
           writeReview("interrupt");
         });
         currentDoneButton.addEventListener('click', ()=>{
           reviewForm.setAttribute("style", "display: initial;");
           currentReadingDiv.setAttribute("style", "display: none;");
           interruptDiv.setAttribute("style", "display: none;");
+          readingListDiv.setAttribute("style", "display: none;");
+          existingReview.setAttribute("style", "display: none;");
           writeReview("current");
         });
         currentStillReading.addEventListener('click', ()=>{
           currentReadingDiv.setAttribute("style", "display: none;");
           currentButton.setAttribute("style", "display: initial;");
+          readingListDiv.setAttribute("style", "display: none;");
+          // divOfReadingList.setAttribute("style", "display: none;");
+          existingReview.setAttribute("style", "display: none;");
         });
         interruptStillReading.addEventListener('click', ()=>{
           currentReadingDiv.setAttribute("style", "display: none;");
           currentButton.setAttribute("style", "display: initial;");
+          // readingListDiv.setAttribute("style", "display: none;");
+          existingReview.setAttribute("style", "display: none;");
         });
         $http.get('/user_reading_lists/1')
         .then(nowReadingData=>{
@@ -2073,9 +2171,219 @@
         });
       }
 
+      function fillCompletionDetails (index) {
+
+
+        console.log('functionCall');
+
+
+        console.log(vm.completes[index]);
+        $http.get(`/user_book_reviews/${vm.completes[index].reviewId}`)
+        .then(singleReviewData=>{
+          var singleReview = singleReviewData.data;
+          if (singleReview.periodical_or_book === 'book') {
+            $http.get(`/books/${singleReview.books_id}`)
+            .then(bookData=>{
+              var book = bookData.data;
+              vm.completes[index].cover_url = book.cover_url;
+              vm.completes[index].title = book.title;
+              vm.completes[index].author = book.author;
+              vm.completes[index].number_of_pages = book.number_of_pages;
+              vm.completes[index].edition = book.edition;
+
+            });
+          } else {
+            $http.get(`/periodicals/${singleReview.periodicals_id}`)
+            .then(periodicalReviewData=>{
+              var periodicalReview = periodicalReviewData.data;
+              vm.completes[index].cover_url = periodicalReview.img_url;
+              vm.completes[index].title = periodicalReview.name + " " + periodicalReview.issue;
+              vm.completes[index].author = periodicalReview.editor + ' - editor.';
+              vm.completes[index].number_of_pages = periodicalReview.pages;
+              vm.completes[index].edition = periodicalReview.edition;
+            });
+          }
+        });
+      }
+
+      function generatedCompletedReads () {
+        var readJSON = [];
+        $http.get('/user_reading_lists/1')
+        .then(data=>{
+          var userList = data.data;
+          readJSON = convertToArray(userList.completed_readings);
+          console.log(readJSON.length);
+          for (let i = 0; i < readJSON.length; i++) {
+
+            vm.completes[i] = {};
+            console.log(i);
+            console.log(readJSON[i]);
+            vm.completes[i].reviewId = readJSON[i];
+            fillCompletionDetails(i);
+          }
+        });
+      }
+
+      function populateCurrentReadingSelection () {
+        $http.get('/user_reading_lists/1')
+        .then(readingListData=>{
+          var readingList = readingListData.data;
+          $http.get(`/user_book_reviews/${readingList[readingList.current_position]}`)
+          .then(currentReviewData=>{
+            var currentReview = currentReviewData.data;
+            if (currentReview.periodical_or_book === 'book') {
+              $http.get(`/books/${currentReview.books_id}`)
+              .then(currentBookData=>{
+                var currentBook = currentBookData.data;
+                vm.currentReadingSelection.cover_url = currentBook.cover_url;
+                vm.currentReadingSelection.title = currentBook.title;
+                vm.currentReadingSelection.author = currentBook.author;
+                vm.currentReadingSelection.number_of_pages = currentBook.number_of_pages;
+                vm.currentReadingSelection.edition = currentBook.edition;
+                vm.currentReadingSelection.position_string = readingList.current_position;
+              });
+            } else {
+              $http.get(`/periodicals/${currentReview.periodicals_id}`)
+              .then(currentMagData=>{
+                var currentMag = currentMagData.data;
+                vm.currentReadingSelection.cover_url = currentMag.img_url;
+                vm.currentReadingSelection.title = currentMag.name + ' ' + currentMag.issue;
+                vm.currentReadingSelection.author = currentMag.editor + ' - editor.';
+                vm.currentReadingSelection.number_of_pages = currentMag.pages;
+                vm.currentReadingSelection.edition = currentMag.edition;
+                vm.currentReadingSelection.position_string = readingList.current_position;
+              });
+
+            }
+          });
+        });
+      }
+
+      function populateInterruptSelection() {
+        $http.get('/user_reading_lists/1')
+        .then(userReadData=>{
+          var userRead = userReadData.data;
+          if (userRead.interrupt === null) {
+            vm.interruptReadingSelection.cover_url = "https://s-media-cache-ak0.pinimg.com/originals/b8/bd/3f/b8bd3f935d3c7270a454da6903096706.jpg";
+            vm.interruptReadingSelection.title = 'no title';
+            vm.interruptReadingSelection.author = 'no author';
+            vm.interruptReadingSelection.number_of_pages = 0;
+            vm.interruptReadingSelection.edition = '';
+            vm.interruptReadingSelection.position_string = "No Interrupt at this time";
+          } else {
+            $http.get(`/user_book_reviews/${userRead.interrupt}`)
+            .then(interruptReviewData=>{
+              var interruptReview = interruptReviewData.data;
+              if (interruptReview.periodical_or_book === 'book') {
+                $http.get(`/books/${interruptReview.books_id}`)
+                .then(interruptBookData=>{
+                  var interruptBook = interruptBookData.data;
+                  vm.interruptReadingSelection.cover_url = interruptBook.cover_url;
+                  vm.interruptReadingSelection.title = interruptBook.title;
+                  vm.interruptReadingSelection.author = interruptBook.author;
+                  vm.interruptReadingSelection.number_of_pages = interruptBook.number_of_pages;
+                  vm.interruptReadingSelection.edition = interruptBook.edition;
+                  vm.interruptReadingSelection.position_string = "interrupt";
+                });
+              } else {
+                $http.get(`/periodicals/${interruptReview.periodicals_id}`)
+                .then(interruptMagData=>{
+                  var interruptMag = interruptMagData.data;
+                  vm.interruptReadingSelection.cover_url = interruptMag.img_url;
+                  vm.interruptReadingSelection.title = interruptMag.name + ' ' + interruptMag.issue;
+                  vm.interruptReadingSelection.author = interruptMag.editor + ' editor.';
+                  vm.interruptReadingSelection.number_of_pages = interruptMag.pages;
+                  vm.interruptReadingSelection.edition = interruptMag.edition;
+                  vm.interruptReadingSelection.position_string = "interrupt";
+                });
+              }
+            });
+          }
+        });
+      }
+
+      function generateBookInfos (indexPoint, orderString) {
+        $http.get('/user_reading_lists/1')
+        .then(userReadingListData=>{
+          var userReadingList = userReadingListData.data;
+          if ((userReadingList[orderString] !== null) && (userReadingList[orderString] !== undefined)) {
+            $http.get(`/user_book_reviews/${userReadingList[orderString]}`)
+            .then(futureReviewData=>{
+              var futureReview = futureReviewData.data;
+              if (futureReview.periodical_or_book === 'book') {
+                $http.get(`/books/${futureReview.books_id}`)
+                .then(futureBookData=>{
+                  var futureBook = futureBookData.data;
+                  vm.futures[indexPoint].cover_url = futureBook.cover_url;
+                  vm.futures[indexPoint].title = futureBook.title;
+                  vm.futures[indexPoint].author = futureBook.author;
+                  vm.futures[indexPoint].number_of_pages = futureBook.number_of_pages;
+                  vm.futures[indexPoint].edition = futureBook.edition;
+                  vm.futures[indexPoint].position_string = orderString;
+                });
+              } else {
+                $http.get(`/periodicals/${futureReview.periodicals_id}`)
+                .then(futureMagData=>{
+                  var futureMag = futureMagData.data;
+                  vm.futures[indexPoint].cover_url = futureMag.img_url;
+                  vm.futures[indexPoint].title = futureMag.name + " " + futureMag.issue;
+                  vm.futures[indexPoint].author = futureMag.editor + ' editor.';
+                  vm.futures[indexPoint].number_of_pages = futureMag.pages;
+                  vm.futures[indexPoint].edition = futureMag.edition;
+                  vm.futures[indexPoint].position_string = orderString;
+                });
+
+              }
+            });
+          } else {
+            vm.futures[indexPoint].cover_url = "https://s-media-cache-ak0.pinimg.com/originals/b8/bd/3f/b8bd3f935d3c7270a454da6903096706.jpg";
+            vm.futures[indexPoint].title = 'no title';
+            vm.futures[indexPoint].author = 'no author';
+            vm.futures[indexPoint].number_of_pages = 0;
+            vm.futures[indexPoint].edition = 'NOT SELECTED YET';
+            vm.futures[indexPoint].position_string = orderString;
+          }
+        });
+      }
+
+      function generateFutureReads () {
+        var readPosition = null;
+        var futureIndex = 0;
+
+        $http.get('/user_reading_lists/1')
+        .then(readingData=>{
+          var reading = readingData.data;
+          readPosition = readingOrderArray.indexOf(reading.current_position);
+          readPosition = incrementReadOrder(readPosition);
+          while (readingOrderArray[readPosition] !== reading.current_position) {
+            vm.futures[futureIndex] = {};
+            generateBookInfos(futureIndex, readingOrderArray[readPosition]);
+            ++futureIndex;
+            readPosition = incrementReadOrder(readPosition);
+          }
+        });
+      }
+
+      function populateReadingList () {
+        // vm.completedReadings = array of objects populated by user_reading_lists .json
+        // vm.currentReadingSelection = object of current_position
+        // vm.interruptReadingSelection = object of interrupt (if not null)
+        // vm.futures = array of objects populated by user_reading_lists in order after current_position
+        vm.completes = [];
+        generatedCompletedReads();
+        vm.currentReadingSelection = {};
+        populateCurrentReadingSelection();
+        vm.interruptReadingSelection = {};
+        populateInterruptSelection();
+        vm.futures = [];
+        generateFutureReads();
+      }
+
       function onInit() {
         console.log("Admin is lit.");
+        populateReadingList();
         var reviewSubmissionForm = document.getElementById('reviewNewlyCompletedBook');
+        var divOfReadingList = document.getElementById('viewReadingList');
         var saveButton = document.getElementById('saveNewPost');
         var publishButton = document.getElementById('publishNewPost');
         var readPostsButton = document.getElementById('blogRead');
@@ -2093,8 +2401,10 @@
         var blogToggle = document.getElementById('toggleBlogHQ');
         var readListToggle = document.getElementById('toggleReadingListHQ');
         var readingListContent = document.getElementById('readingListHQ');
+        var viewReadingListButton = document.getElementById('viewReadingListButton');
+        var editReviewDiv = document.getElementById('editExistingReview');
 
-
+        divOfReadingList.setAttribute("style", "display: none;");
         messageContent.setAttribute("style", "display: none;");
         readingListContent.setAttribute("style", "display: none;");
         var currentlyReadingColumn = document.getElementById('currentlyReadingBook');
@@ -2102,6 +2412,7 @@
         var interruptColumn = document.getElementById('interruptSelectionBook');
         interruptColumn.setAttribute("style", "display: none;");
         reviewSubmissionForm.setAttribute("style", "display: none;");
+        editReviewDiv.setAttribute("style", "display: none;");
 
         var communictionsButton = document.getElementById('toggleCommunications');
         var bloggingButton = document.getElementById('toggleBlogCRUD');
@@ -2157,6 +2468,7 @@
             bloggingButton.setAttribute("style", "display: inital;");
             communictionsButton.setAttribute("style", "display: initial;");
             readListButton.setAttribute("style", "display: initial;");
+            editReviewDiv.setAttribute("style", "display:none;");
           });
           newBlogButton.addEventListener('click', ()=>{
             bloggingState = "authorNewPost";
@@ -2194,7 +2506,19 @@
             currentlyReadingColumn.setAttribute("style", "display: initial;");
             interruptColumn.setAttribute("style", "display: initial;");
             readingNow.setAttribute("style", "display: none;");
+            divOfReadingList.setAttribute("style", "display: none;");
+            viewReadingListButton.setAttribute("style", "display: initial;");
+            editReviewDiv.setAttribute("style", "display:none;");
             nowReading();
+          });
+          viewReadingListButton.addEventListener('click', ()=>{
+            divOfReadingList.setAttribute("style", "display: initial;");
+            currentlyReadingColumn.setAttribute("style", "display: none;");
+            interruptColumn.setAttribute("style", "display: none;");
+            readingNow.setAttribute("style", "display: initial;");
+            viewReadingListButton.setAttribute("style", "display: none;");
+            editReviewDiv.setAttribute("style", "display:none;");
+            //populateReadingList();
           });
 
         } else {

@@ -154,6 +154,79 @@
         </form>
         <img src="./img/typewriter-312748.svg" height="50%">
       </div>
+      <div id="viewReadingList" class="pure-u-3-4">
+        <div id="completionPile">
+          <h3>Completed Readings:</h3>
+          <main id="completionStream" ng-repeat="completedReadings in $ctrl.completes">
+            <div class="bookCoverImg">
+              <img src="{{completedReadings.cover_url}}">
+            </div>
+            <div class="bookInfoLine">
+              <button class="miniButtons" ng-click="$ctrl.editReview(completedReadings.reviewId)">EDIT REVIEW</button>
+              <p><em>{{completedReadings.title}}</em> by {{completedReadings.author}}</p><br>
+              <p>{{completedReadings.number_of_pages}} pages - {{completedReadings.edition}}</p>
+
+            </div>
+          </main>
+        </div>
+        <div id="currentAndInterruptPile">
+          <h3>Current Position and/or Interrupt</h3>
+          <div class="bookCoverImg">
+            <img src="{{$ctrl.currentReadingSelection.cover_url}}">
+          </div>
+          <div class="bookInfoLine">
+            <p>{{$ctrl.currentReadingSelection.position_string}}</p>
+            <p><em>{{$ctrl.currentReadingSelection.title}}</em> by {{$ctrl.currentReadingSelection.author}}</p>
+            <p>{{$ctrl.currentReadingSelection.number_of_pages}} pages - {{$ctrl.currentReadingSelection.edition}}</p>
+
+          </div>
+          <div class="bookCoverImg">
+            <img src="{{$ctrl.interruptReadingSelection.cover_url}}">
+          </div>
+          <div class="bookInfoLine">
+            <p>Interrupt</p>
+            <p><em>{{$ctrl.interruptReadingSelection.title}}</em> by {{$ctrl.interruptReadingSelection.author}}</p>
+            <p>{{$ctrl.interruptReadingSelection.number_of_pages}} pages - {{$ctrl.interruptReadingSelection.edition}}</p>
+            <p>{{$ctrl.interruptReadingSelection.position_string}}</p>
+          </div>
+        </div>
+        <div id="futureReadingPile">
+          <h3>Reading List:</h3>
+          <main id="futureReadingStream" ng-repeat="futureReadings in $ctrl.futures">
+            <div class="bookCoverImg">
+              <img src="{{futureReadings.cover_url}}">
+            </div>
+            <div class="bookInfoLine">
+              <p><em>{{futureReadings.title}}</em> by {{futureReadings.author}}</p><br>
+              <p>{{futureReadings.number_of_pages}} pages - {{futureReadings.edition}}</p>
+              <p>{{futureReadings.position_string}}</p>
+            </div>
+          </main>
+        </div>
+      </div>
+      <div id="editExistingReview" class="pure-u-3-4">
+        <h3>Edit Review:</h3>
+        <div class="bookCoverImg">
+          <img src="{{$ctrl.editBook.cover_url}}">
+        </div>
+        <div class="bookInfoLine">
+          <p><em>{{$ctrl.editBook.title}}</em> by {{$ctrl.editBook.author}}</p>
+        </div>
+        <form class="pure-form pure-form-stacked" name="reviewRead">
+          <fieldset>
+            <h4>Rating</h4>
+            <input id="editorScoreLever" type="range" min="0" max="100" value="{{$ctrl.editBook.score}}" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+            <input id="editorReviewScore" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="{{$ctrl.editBook.score}}" oninput="this.form.amountRange.value=this.value" />
+
+            <p><label for="reviewTitle" id="editorReviewTitle"><textarea class="reviewTitle" type="text" name="reviewTitle" placeholder="{{$ctrl.editBook.reviewTitle}}" id="editorForreviewTitle" ></textarea></label></p>
+
+            <p><label for="reviewBody" id="editorReviewBody"><textarea class="reviewBody" placeholder="{{$ctrl.editBook.reviewBody}}" type="text" name="reviewBody" id="editorForReviewBody"></textarea></label></p>
+            <button id="editorSaveReview" class="miniButtons">SAVE</button>
+            <button id="editorCompleteReview" class="miniButtons">PUBLISH</button>
+          </fieldset>
+        </form>
+        <img src="./img/typewriter-312748.svg" height="50%">
+      </div>
     </div>
   </div>
 
