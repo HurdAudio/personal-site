@@ -403,87 +403,95 @@
       }
 
       function checkAndPatch(catLookup, nextSameCat, listID) {
-        $http.get(`/${catLookup}/${listID}`)
-        .then(unreadEntryData=>{
-          var unreadEntry = unreadEntryData.data;
-          console.log(unreadEntry);
-          if (unreadEntry.periodical_or_book === 'book') {
-            $http.get('/user_book_reviews')
-            .then(reviewsData=>{
-              var reviews = reviewsData.data;
-              var userReview = null;
-              for (let i = 0; i < reviews.length; i++) {
-                if (reviews[i].books_id === unreadEntry.books_id) {
-                  userReview = reviews[i].id;
-                  break;
-                }
-              }
-              $http.get('/user_reading_lists/1')
-              .then(userListData=>{
-                var userList = userListData.data;
-                var listedOneIsAccountedFor = false;
-                for (let j = 0; j < nextSameCat.length; j++) {
-                  if (userList[nextSameCat[j]] === userReview) {
-                    listedOneIsAccountedFor = true;
+        if ((listID !== null) && (listID !== undefined)) {
+          $http.get(`/${catLookup}/${listID}`)
+          .then(unreadEntryData=>{
+            var unreadEntry = unreadEntryData.data;
+            console.log(unreadEntry);
+            if (unreadEntry.periodical_or_book === 'book') {
+              $http.get('/user_book_reviews')
+              .then(reviewsData=>{
+                var reviews = reviewsData.data;
+                var userReview = null;
+                if (reviews.length > 0) {
+                  for (let i = 0; i < reviews.length; i++) {
+                    if (reviews[i].books_id === unreadEntry.books_id) {
+                      userReview = reviews[i].id;
+                      break;
+                    }
                   }
                 }
-                if (!listedOneIsAccountedFor) {
-                  var index = 0;
-                  while ((index < nextSameCat.length) && (userList[nextSameCat[index]] !== null)) {
-                    ++index;
+                $http.get('/user_reading_lists/1')
+                .then(userListData=>{
+                  var userList = userListData.data;
+                  var listedOneIsAccountedFor = false;
+                  for (let j = 0; j < nextSameCat.length; j++) {
+                    if (userList[nextSameCat[j]] === userReview) {
+                      listedOneIsAccountedFor = true;
+                    }
                   }
-                  if (userList[nextSameCat[index]] === null) {
-                    var patchObj = {};
-                    patchObj[userList[nextSameCat[index]]] = userReview;
-                    $http.patch('/user_reading_lists/1', patchObj)
-                    .then(patchData=>{
-                      console.log(patchData.data);
-                    });
+                  if (!listedOneIsAccountedFor) {
+                    var index = 0;
+                    while ((index < nextSameCat.length) && (userList[nextSameCat[index]] !== null)) {
+                      ++index;
+                    }
+                    if ((userList[nextSameCat[index]] === null) && (userList[nextSameCat[index]] !== undefined)) {
+                      var patchObj = {};
+                      patchObj[userList[nextSameCat[index]]] = userReview;
+                      $http.patch('/user_reading_lists/1', patchObj)
+                      .then(patchData=>{
+                        console.log(patchData.data);
+                      });
+                    }
+                  }
+                });
+
+              });
+            } else {
+              $http.get('/user_book_reviews')
+              .then(reviewsData=>{
+                var reviews = reviewsData.data;
+                var userReview = null;
+                if (reviews.length > 0) {
+                  for (let i = 0; i < reviews.length; i++) {
+                    if (reviews[i].periodicals_id === unreadEntry.periodicals_id) {
+                      userReview = reviews[i].id;
+                      break;
+                    }
                   }
                 }
+                $http.get('/user_reading_lists/1')
+                .then(userListData=>{
+                  var userList = userListData.data;
+                  var listedOneIsAccountedFor = false;
+                  for (let j = 0; j < nextSameCat.length; j++) {
+                    if (userList[nextSameCat[j]] === userReview) {
+                      listedOneIsAccountedFor = true;
+                    }
+                  }
+                  if (!listedOneIsAccountedFor) {
+                    var index = 0;
+                    while ((index < nextSameCat.length) && (userList[nextSameCat[index]] !== null)) {
+                      ++index;
+                    }
+                    if (userList[nextSameCat[index]] === null) {
+                      var patchObj = {};
+                      if ((userReview !== null) && (userReview !== undefined)) {
+                        patchObj[userList[nextSameCat[index]]] = userReview;
+                        $http.patch('/user_reading_lists/1', patchObj)
+                        .then(patchData=>{
+                          console.log(patchData.data);
+                        });
+                      }
+                    }
+                  }
+                });
+
               });
 
-            });
-          } else {
-            $http.get('/user_book_reviews')
-            .then(reviewsData=>{
-              var reviews = reviewsData.data;
-              var userReview = null;
-              for (let i = 0; i < reviews.length; i++) {
-                if (reviews[i].periodicals_id === unreadEntry.periodicals_id) {
-                  userReview = reviews[i].id;
-                  break;
-                }
-              }
-              $http.get('/user_reading_lists/1')
-              .then(userListData=>{
-                var userList = userListData.data;
-                var listedOneIsAccountedFor = false;
-                for (let j = 0; j < nextSameCat.length; j++) {
-                  if (userList[nextSameCat[j]] === userReview) {
-                    listedOneIsAccountedFor = true;
-                  }
-                }
-                if (!listedOneIsAccountedFor) {
-                  var index = 0;
-                  while ((index < nextSameCat.length) && (userList[nextSameCat[index]] !== null)) {
-                    ++index;
-                  }
-                  if (userList[nextSameCat[index]] === null) {
-                    var patchObj = {};
-                    patchObj[userList[nextSameCat[index]]] = userReview;
-                    $http.patch('/user_reading_lists/1', patchObj)
-                    .then(patchData=>{
-                      console.log(patchData.data);
-                    });
-                  }
-                }
-              });
-
-            });
-
-          }
-        });
+            }
+          });
+        }
       }
 
       function updateList(categoryLookup, nextSameCategoryArr, listOfUnreadIDsArr) {
@@ -727,50 +735,56 @@
 
       function patchCompletionStatus (specificList, completedReviewBook, positionInList) {
         if (specificList !== 'prize_lists') {
-          $http.get(`/user_book_reviews/${completedReviewBook}`)
-          .then(reviewData=>{
-            var review = reviewData.data;
-            if (review.periodical_or_book === "book") {
-              var bookID = review.books_id;
-              $http.get(`/${specificList}`)
-              .then(subListData=>{
-                var subList = subListData.data;
-                console.log(subList);
-                var indexPoint = null;
-                var splicer = {};
-                for (let i = 0; i < subList.length; i++) {
-                  if (subList[i].books_id === bookID) {
-                    indexPoint = subList[i].id;
-                    break;
+          if ((completedReviewBook !== null) && (completedReviewBook !== undefined)) {
+            $http.get(`/user_book_reviews/${completedReviewBook}`)
+            .then(reviewData=>{
+              var review = reviewData.data;
+              if (review.periodical_or_book === "book") {
+                var bookID = review.books_id;
+                $http.get(`/${specificList}`)
+                .then(subListData=>{
+                  var subList = subListData.data;
+                  console.log(subList);
+                  var indexPoint = null;
+                  var splicer = {};
+                  for (let i = 0; i < subList.length; i++) {
+                    if (subList[i].books_id === bookID) {
+                      indexPoint = subList[i].id;
+                      break;
+                    }
                   }
-                }
-                splicer.is_completed = true;
-                $http.patch(`/${specificList}/${indexPoint}`, splicer)
-                .then(data=>{
-                  console.log(data.data);
-                });
-              });
-            } else {
-              var periodicalID = review.periodicals_id;
-              $http.get(`/${specificList}`)
-              .then(subListData=>{
-                var subList = subListData.data;
-                var indexPoint = null;
-                var splicer = {};
-                for (let i = 0; i < subList.length; i++) {
-                  if (subList[i].periodicals_id === periodicalID) {
-                    indexPoint = subList[i].id;
-                    break;
+                  splicer.is_completed = true;
+                  if ((indexPoint !== null) && (indexPoint !== undefined)) {
+                    $http.patch(`/${specificList}/${indexPoint}`, splicer)
+                    .then(data=>{
+                      console.log(data.data);
+                    });
                   }
-                }
-                splicer.is_completed = true;
-                $http.patch(`/${specificList}/${indexPoint}`, splicer)
-                .then(data=>{
-                  console.log(data.data);
                 });
-              });
-            }
-          });
+              } else {
+                var periodicalID = review.periodicals_id;
+                $http.get(`/${specificList}`)
+                .then(subListData=>{
+                  var subList = subListData.data;
+                  var indexPoint = null;
+                  var splicer = {};
+                  for (let i = 0; i < subList.length; i++) {
+                    if (subList[i].periodicals_id === periodicalID) {
+                      indexPoint = subList[i].id;
+                      break;
+                    }
+                  }
+                  splicer.is_completed = true;
+                  if ((indexPoint !== null) && (indexPoint !== undefined)) {
+                    $http.patch(`/${specificList}/${indexPoint}`, splicer)
+                    .then(data=>{
+                      console.log(data.data);
+                    });
+                  }
+                });
+              }
+            });
+          }
         } else {
           //update read status on prize list
           // updatePrizeListPrize (positionInList);
@@ -957,46 +971,52 @@
             $http.get(`/${prizeTitle}`)
             .then(prizeReadsData=>{
               var prizeReads = prizeReadsData.data;
-              $http.get(`/user_book_reviews/${completedReviewBook}`)
-              .then(reviewData=>{
-                var review = reviewData.data;
-                if (review.periodical_or_book === "book") {
-                  var bookID = review.books_id;
+              if (completedReviewBook !== null) {
+                $http.get(`/user_book_reviews/${completedReviewBook}`)
+                .then(reviewData=>{
+                  var review = reviewData.data;
+                  if (review.periodical_or_book === "book") {
+                    var bookID = review.books_id;
 
-                  var indexPoint = null;
-                  var splicer = {};
-                  for (let i = 0; i < prizeReads.length; i++) {
-                    if (prizeReads[i].books_id === bookID) {
-                      indexPoint = prizeReads[i].id;
-                      break;
+                    var indexPoint = null;
+                    var splicer = {};
+                    for (let i = 0; i < prizeReads.length; i++) {
+                      if (prizeReads[i].books_id === bookID) {
+                        indexPoint = prizeReads[i].id;
+                        break;
+                      }
+                    }
+                    splicer.is_completed = true;
+                    console.log(indexPoint);
+                    if ((indexPoint !== null) && (indexPoint !== undefined)) {
+                      $http.patch(`/${prizeTitle}/${indexPoint}`, splicer)
+                      .then(data=>{
+                        console.log(data.data);
+                        updatePrizeListPrize (positionInList);
+                      });
+                    }
+                  } else {
+                    var periodicalID = review.periodicals_id;
+
+                    var indexPoint2 = null;
+                    var splicer2 = {};
+                    for (let i = 0; i < prizeReads.length; i++) {
+                      if (prizeReads[i].books_id === periodicalID) {
+                        indexPoint2 = prizeReads[i].id;
+                        break;
+                      }
+                    }
+                    splicer2.is_completed = true;
+                    if ((indexPoint2 !== null) && (indexPoint2 !== undefined)) {
+                      $http.patch(`/${prizeTitle}/${indexPoint2}`, splicer2)
+                      .then(data=>{
+                        console.log(data.data);
+                        updatePrizeListPrize (positionInList);
+                      });
                     }
                   }
-                  splicer.is_completed = true;
-                  console.log(indexPoint);
-                  $http.patch(`/${prizeTitle}/${indexPoint}`, splicer)
-                  .then(data=>{
-                    console.log(data.data);
-                    updatePrizeListPrize (positionInList);
-                  });
-                } else {
-                  var periodicalID = review.periodicals_id;
-
-                  var indexPoint2 = null;
-                  var splicer2 = {};
-                  for (let i = 0; i < prizeReads.length; i++) {
-                    if (prizeReads[i].books_id === periodicalID) {
-                      indexPoint2 = prizeReads[i].id;
-                      break;
-                    }
-                  }
-                  splicer2.is_completed = true;
-                  $http.patch(`/${prizeTitle}/${indexPoint2}`, splicer2)
-                  .then(data=>{
-                    console.log(data.data);
-                    updatePrizeListPrize (positionInList);
-                  });
-                }
-              });
+                });
+              }
             });
           });
         }
@@ -1831,11 +1851,107 @@
         reviewObject.review_body = body;
         reviewObject.updated_at = timestamp;
 
-        $http.patch(`/user_book_reviews/${reviewID}`, reviewObject)
-        .then(savedReview=>{
-          var review = savedReview.data;
-          console.log(review);
-          // updateAdvanceReadingList(reviewID, review.periodical_or_book, review.books_id, review.periodicals_id);
+        if ((reviewID !== null) && (reviewID !== undefined)) {
+          $http.patch(`/user_book_reviews/${reviewID}`, reviewObject)
+          .then(savedReview=>{
+            var review = savedReview.data;
+            console.log(review);
+            // updateAdvanceReadingList(reviewID, review.periodical_or_book, review.books_id, review.periodicals_id);
+          });
+        }
+      }
+
+      function checkForNewInterrupt() {
+        var unreadsArray = [];
+        $http.get('/interrupts')
+        .then(intListData=>{
+          var intList = intListData.data;
+          for (let i = 0; i < intList.length; i++) {
+            if (!intList[i].is_completed) {
+              unreadsArray.push(intList[i].id);
+            }
+          }
+          if (unreadsArray.length > 0) {
+            unreadsArray = sortIdArray(unreadsArray);
+            $http.get(`/interrupts/${unreadsArray[0]}`)
+            .then(newInterruptData=>{
+              var newInterrupt = newInterruptData.data;
+              $http.get('/user_book_reviews')
+              .then(reviewsData=>{
+                var reviews = reviewsData.data;
+                var reviewId = null;
+                for (let j = 0; j < reviews.length; j++) {
+                  if (newInterrupt.periodical_or_book === 'book') {
+                    if (reviews[j].books_id === newInterrupt.books_id) {
+                      reviewId = reviews[j].id;
+                      break;
+                    }
+                  } else {
+                    if (reviews[j].periodicals_id === newInterrupt.periodicals_id) {
+                      reviewId = reviews[j].id;
+                      break;
+                    }
+                  }
+                }
+                var interruptPatch = {};
+                interruptPatch.interrupt = reviewId;
+                $http.patch('/user_reading_lists/1', interruptPatch)
+                .then(datadata=>{
+                  console.log(datadata.data);
+                });
+              });
+            });
+          }
+        });
+      }
+
+      function updateInterruptList(reviewId) {
+        $http.get(`/user_book_reviews/${reviewId}`)
+        .then(reviewData=>{
+          var review = reviewData.data;
+          if (review.periodical_or_book === 'book') {
+            var bookId = review.books_id;
+            $http.get('/interrupts')
+            .then(interruptListData=>{
+              var interruptList = interruptListData.data;
+              var interruptId = null;
+              var patchObj = {};
+              for (let i = 0; i < interruptList.length; i++) {
+                if (interruptList[i].books_id === bookId) {
+                  interruptId = interruptList[i].id;
+                  patchObj.is_completed = true;
+                }
+              }
+              if (interruptId !== null) {
+                $http.patch(`/interrupts/${interruptId}`, patchObj)
+                .then(updatedInterruptData=>{
+                  console.log(updatedInterruptData.data);
+                  checkForNewInterrupt();
+                });
+              }
+            });
+          } else {
+            var magazineId = review.periodicals_id;
+            $http.get('/interrupts')
+            .then(interuptsData=>{
+              var interupts = interuptsData.data;
+              var interuptId = null;
+              var periodPatch = {};
+              for (let j = 0; j <interupts.length; j++) {
+                if (interupts[j].periodicals_id === magazineId) {
+                  interuptId = interupts[j].id;
+                  periodPatch.is_completed = true;
+                }
+              }
+              if (interuptId !== null) {
+                $http.patch(`/interrupts/${interuptId}`)
+                .then(updatedData=>{
+                  console.log(updatedData.data);
+                  checkForNewInterrupt();
+                });
+              }
+            });
+          }
         });
       }
 
@@ -1872,7 +1988,16 @@
             $http.get('/user_reading_lists/1')
             .then(readingListData=>{
               var readingList = readingListData.data;
-              updateAdvanceReadingList(readingList[readingList.current_position]);
+              if (selectionString === "current") {
+                updateAdvanceReadingList(readingList[readingList.current_position]);
+              } else {
+                //update interrupt here
+
+                //update read status of newly completed interrupt
+                updateInterruptList(readingList.interrupt);
+                //check for further unread interrupts
+                // set interrupt on reading list to new value or null
+              }
             });
           });
         });
@@ -1886,8 +2011,15 @@
         var reviewForm = document.getElementById('reviewNewlyCompletedBook');
         var currentButton = document.getElementById('currentReadButton');
         var currentStillReading = document.getElementById('stillReadingIt');
+        var interruptDone = document.getElementById('interruptDone');
         var interruptStillReading = document.getElementById('interruptStillReading');
         var currentDoneButton = document.getElementById('iAmDone');
+        interruptDone.addEventListener('click', ()=>{
+          reviewForm.setAttribute("style", "display: initial;");
+          currentReadingDiv.setAttribute("style", "display: none;");
+          interruptDiv.setAttribute("style", "display: none;");
+          writeReview("interrupt");
+        });
         currentDoneButton.addEventListener('click', ()=>{
           reviewForm.setAttribute("style", "display: initial;");
           currentReadingDiv.setAttribute("style", "display: none;");
@@ -1907,33 +2039,37 @@
           var userReadingList = nowReadingData.data;
           var interruptID = userReadingList.interrupt;
           var currentReviewNumber = userReadingList[userReadingList.current_position];
-          $http.get(`/user_book_reviews/${currentReviewNumber}`)
-          .then(currentReviewData=>{
-            var currentReview = currentReviewData.data;
-            if (currentReview.periodical_or_book === "book") {
-              $http.get(`/books/${currentReview.books_id}`)
-              .then(bookData=>{
-                var currentBook = bookData.data;
-                vm.currentSelection.cover_url = currentBook.cover_url;
-                vm.currentSelection.title = currentBook.title;
-                vm.currentSelection.author = currentBook.author;
-                if (userReadingList.interrupt_enabled) {
-                  handleInterruptDisplay(interruptID);
+          if ((currentReviewNumber !== null) && (currentReviewNumber !== undefined)) {
+            $http.get(`/user_book_reviews/${currentReviewNumber}`)
+            .then(currentReviewData=>{
+              var currentReview = currentReviewData.data;
+              if (currentReview.periodical_or_book === "book") {
+                $http.get(`/books/${currentReview.books_id}`)
+                .then(bookData=>{
+                  var currentBook = bookData.data;
+                  vm.currentSelection.cover_url = currentBook.cover_url;
+                  vm.currentSelection.title = currentBook.title;
+                  vm.currentSelection.author = currentBook.author;
+                  if (userReadingList.interrupt_enabled) {
+                    handleInterruptDisplay(interruptID);
+                  }
+                });
+              } else {
+                if ((currentReview.periodicals_id !== null) && (currentReview.periodicals_id !== undefined)) {
+                  $http.get(`/periodicals/${currentReview.periodicals_id}`)
+                  .then(periodicalData=>{
+                    var periodical = periodicalData.data;
+                    vm.currentSelection.cover_url = periodical.img_url;
+                    vm.currentSelection.title = periodical.name + " " + periodical.issue;
+                    vm.currentSelection.author = periodical.editor + "(editor)";
+                    if (userReadingList.interrupt_enabled) {
+                      handleInterruptDisplay(interruptID);
+                    }
+                  });
                 }
-              });
-            } else {
-              $http.get(`/periodicals/${currentReview.periodicals_id}`)
-              .then(periodicalData=>{
-                var periodical = periodicalData.data;
-                vm.currentSelection.cover_url = periodical.img_url;
-                vm.currentSelection.title = periodical.name + " " + periodical.issue;
-                vm.currentSelection.author = periodical.editor + "(editor)";
-                if (userReadingList.interrupt_enabled) {
-                  handleInterruptDisplay(interruptID);
-                }
-              });
-            }
-          });
+              }
+            });
+          }
         });
       }
 
