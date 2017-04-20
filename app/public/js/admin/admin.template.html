@@ -226,6 +226,165 @@
         </form>
         <img src="./img/typewriter-312748.svg" height="50%">
       </div>
+      <div id="bookOrPeriodicalQuery" class="pure-u-2-4">
+        <h3>Adding a book or periodical?</h3>
+        <button id="bookAddButton" class="miniButtons">BOOK</button>
+        <button id="periodicalAddButton" class="miniButtons">PERIODICAL</button>
+      </div>
+        <div id="bookAddForm" class="pure-u-3-4">
+          <h2><em>ADD BOOK FORM  --  ADD BOOK FORM  --  ADD BOOK FORM  --  ADD BOOK FORM</em></h2>
+          <div id="bookCatDropdown">
+            <h3 id="bookListName">Please select category:</h3>
+            <div class="dropdownMenu"><button id="bookCategoryButton" class="dropButton"><p>Category:</p></button>
+              <ul id="categoryList1" class="dropdownList">
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Anthology', 'anthologies')">Anthology</li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Backlog eBook', 'backlog_ebooks')">Backlog eBook</li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Backlog Physical Book', 'backlog_physical_books')">Backlog Physical Book</li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Bizarro Fiction', 'bizarro_fictions')">Bizarro Fiction</li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Classic', 'classics')">Classic</li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Compendium', 'compendiums')">Compendium</li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Contemporary Pulp', 'contemporary_pulps')">Contemporary Pulp</li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Crime Series', 'crime_series')">Crime Series</li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Female Author Selection', 'female_author_selections')">Female Author Selection</li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Free Selection', 'free_selections')">Free Selection</li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Genre Journal', 'genre_journals')">Genre Journal</li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Graphic Novel', 'graphic_novels')">Graphic Novel</li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Insert', 'inserts')">Insert</li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Interrupt', 'interrupts')">Interrupt</li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Literary Journal', 'literary_journals')">Literary Journal</li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Male Author Selection', 'male_author_selections')">Male Author Selection</li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Non Fiction', 'non_fictions')">Non Fiction</li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Occult Reading', 'occult_readings')">Occult Reading</li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Prize', 'prize_lists')">Prize...
+
+                </li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Roulette', 'roulettes')">Roulette</li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Science Fiction Series', 'science_fiction_series')">Science Fiction Series</li>
+                <li class="menuItem" ng-click="$ctrl.bookCategorySelected('Vintage Pulp', 'vintage_pulps')">Vintage Pulp</li>
+              </ul>
+              <ul id="catagoryPrizes1" class="prizeSubmenu">
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Agatha Award', 'agatha_awards')">Agatha Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Anthony Award', 'anthony_awards')">Anthony Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Arthur C Clark Award', 'arthur_c_clark_awards')">Arthur C Clark Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Barry Award', 'barry_awards')">Barry Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Bram Stoker Award', 'bram_stoker_awards')">Bram Stoker Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: British Science Fiction Association Award', 'british_science_fiction_association_awards')">British Science Fiction Association Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Chicago Tribune Heartland Prize', 'chicago_tribune_heartland_prizes')">Chicago Tribune Heartland Prize</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Compton Crook Award', 'compton_crook_awards')">Compton Crook Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Costa Book Award', 'costa_book_awards')">Costa Book Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Crime Writer\'s Association New Blood Dagger', 'crime_writers_association_new_blood_daggers')">Crime Writer's Association New Blood Dagger</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Desmond Elliott Prize', 'desmond_elliott_prizes')">Desmond Elliott Prize</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Edgar Award', 'edgar_awards')">Edgar Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Encore Award', 'encore_awards')">Encore Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Flannery O\'Connor Award for Short Fiction', 'flannery_oconnor_award_for_short_fictions')">Flannery O'Connor Award for Short Fiction</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Goodreads Choice Award', 'goodreads_choice_awards')">Goodreads Choice Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Governor General Literary Award', 'governor_general_literary_awards')">Governor General Literary Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Hammett Award', 'hammett_awards')">Hammett Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Hugo Award', 'hugo_awards')">Hugo Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: International IMPAC Dublin Award', 'international_impac_dublin_awards')">International IMPAC Dublin Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: ITW Thriller Award', 'itw_thriller_awards')">ITW Thriller Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: James Tait Black Memorial Prize', 'james_tait_black_memorial_prizes')">James Tait Black Memorial Prize</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: James Tiptree Jr. Literary Award', 'james_tiptree_jr_literary_awards')">James Tiptree Jr. Literary Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Kiriyama Prize', 'kiriyama_prizes')">Kiriyama Prize</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Kirkus Prize', 'kirkus_prizes')">Kirkus Prize</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Kitschies', 'kitschies')">Kitschies</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Los Angeles Times Book Prize', 'los_angeles_times_book_prizes')">Los Angeles Times Book Prize</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Locus Award', 'locus_awards')">Locus Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Macavity Award', 'macavity_awards')">Macavity Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Man-Booker Prize', 'man_booker_prizes')">Man-Booker Prize</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Mary McCarthy Prize', 'mary_mccarthy_prizes')">Mary McCarthy Prize</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: McKittrick Prize', 'mckittrick_prizes')">McKittrick Prize</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Minnesota Book Award', 'minnesota_book_awards')">Minnesota Book Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Mythopoeic Award', 'mythopoeic_awards')">Mythopoeic Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: National Book Award', 'national_book_awards')">National Book Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: National Book Critics Circle Award', 'national_book_critics_circle_awards')">National Book Critics Circle Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Nebla Award', 'nebula_awards')">Nebula Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Orange Prize', 'orange_prizes')">Orange Prize</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Pen/Bellwether Prize for Socially Engaged Fiction', 'pen_bellwether_prize_for_socially_engaged_fictions')">Pen/Bellwether Prize for Socially Engaged Fiction</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Pen/Faulkner Award', 'pen_faulkner_awards')">Pen/Faulkner Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Pen/Hemingway Award', 'pen_hemingway_awards')">Pen/Hemingway Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Pen/Open Book Award', 'pen_open_book_awards')">Pen/Open Book Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Pen/Translation Prize', 'pen_translation_prizes')">Pen/Translation Prize</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Philip K Dick Award', 'philip_k_dick_awards')">Philip K Dick Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Pulp Ark New Pulp Award', 'pulp_ark_new_pulp_awards')">Pulp Ark New Pulp Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Rogers Writers Trust Fiction Prize', 'rogers_writers_trust_fiction_prizes')">Rogers Writers Trust Fiction Prize</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Scotiabank Giller Prize', 'scotiabank_giller_prizes')">Scotiabank Giller Prize</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Shamus Award', 'shamus_awards')">Shamus Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Shirley Jackson Award', 'shirley_jackson_awards')">Shirley Jackson Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Sidewise Award', 'sidewise_awards')">Sidewise Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Spur Award', 'spur_awards')">Spur Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Sunburst Award', 'sunburst_awards')">Sunburst Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: This Is Horror Award', 'this_is_horror_awards')">This Is Horror Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Thurber Prize', 'thurber_prizes')">Thurber Prize</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Walter Scott Prize', 'walter_scott_prizes')">Walter Scott Prize</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: World Fantasy Award', 'world_fantasy_awards')">World Fantasy Award</li>
+                <li class="submenuItem" ng-click="$ctrl.bookCategorySelected('Prize: Wonderland Book Award', 'wonderland_book_awards')">Wonderland Book Award</li>
+              </ul>
+
+            </div>
+          </div>
+          <div id="verifyCategory">
+            <div id="tableOutput">
+              <main id="categoryListList" ng-repeat="listedTitles in $ctrl.categoryList">
+                <div class="bookCoverImg">
+                  <img src="{{listedTitles.cover_url}}">
+                </div>
+                <div class="bookInfoLine">
+
+                  <p><em>{{listedTitles.title}}</em> by {{listedTitles.author}}</p><br>
+                  <p>{{listedTitles.number_of_pages}} pages - {{listedTitles.edition}}</p><br>
+                  <p>Completed: {{listedTitles.completion}}</p>
+
+
+                </div>
+              </main>
+              <h4>Add book to this list?</h4>
+              <button id="confirmListAdd" class="miniButtons">YES</button>
+              <button id="denyListAdd" class="miniButtons">NO</button>
+
+            </div>
+          </div>
+          <div id="bookForm">
+            <form class="pure-form pure-form-stacked" name="reviewRead">
+              <fieldset>
+                <h3>Add Book</h3>
+
+                <p><label for="authorName" id="authorName"><textarea class="reviewTitle" type="text" name="authorName" placeholder="Author Name" id="authorNameValue" ></textarea></label></p>
+
+                <p><label for="title" id="bookTitle"><textarea class="reviewTitle" placeholder="Title" type="text" name="bookTitle" id="bookTitleValue"></textarea></label></p>
+
+                <p><label for="coverURL" id="coverURL"><textarea class="reviewTitle" placeholder="Cover URL i.e. https://3.bp.blogspot.com/-fYS8_h9GjLA/T_B0mGBQp9I/AAAAAAAAKCo/-uCGUNXfOyI/s320/NoCoverArt_Book_3.png" type="text" name="coverURL" id="coverURLValue"></textarea></label></p>
+
+                <p><label for="authorURL" id="authorURL"><textarea class="reviewTitle" placeholder="Author URL i.e. https://assets.rbl.ms/9241419/980x.jpg" type="text" name="authorURL" id="authorURLValue"></textarea></label></p>
+
+                <p><label for="publisher" id="publisher"><textarea class="reviewTitle" placeholder="Publisher" type="text" name="bookTitle" id="publisherValue"></textarea></label></p>
+
+                <p><label for="publicationDate" id="publicationDate"><textarea class="reviewTitle" placeholder="Publication Date - i.e. 2015-05-19T04:00:00.000Z" type="text" name="publicationDate" id="publicationDateValue"></textarea></label></p>
+
+                <p><label for="edition" id="edition"><textarea class="reviewTitle" placeholder="Edition" type="text" name="edition" id="editionValue"></textarea></label></p>
+
+                <p><label for="partOfSeries" id="partOfSeries">Is Part of Series<input type="checkbox" name="partOfSeries" id="partOfSeriesValue"></label></p>
+
+                <p><label for="nameOfSeries" id="nameOfSeries"><textarea class="reviewTitle" placeholder="Name of Series - i.e. The Wizard of Oz" type="text" name="nameOfSeries" id="nameOfSeriesValue"></textarea></label></p>
+
+                <p><label for="numberInSeries" id="numberInSeries"><textarea class="reviewTitle" placeholder="Number in series - i.e. 1" type="text" name="numberInSeries" id="numberInSeriesValue"></textarea></label></p>
+
+                <p><label for="description" id="bookDescription"><textarea class="reviewBody" placeholder="Description - i.e. Set in the harsh Puritan community of seventeenth-century Boston, this tale of an adulterous entanglement that results in an illegitimate birth reveals Nathaniel Hawthorne's concerns with the tension between the public and the private selves. Publicly disgraced and ostracized, Hester Prynne draws on her inner strength and certainty of spirit to emerge as the first true heroine of American fiction. Arthur Dimmesdale, trapped by the rules of society, stands as a classic study of a self divided." type="text" name="description" id="bookDescriptionValue"></textarea></label></p>
+
+                <p><label for="numberOfPages" id="numberOfPages"><textarea class="reviewTitle" placeholder="Number of pages - i.e. 666" type="text" name="numberOfPages" id="numberOfPagesValue"></textarea></label></p>
+
+                <p><label for="authorGender" id="authorGender"><textarea class="reviewTitle" placeholder="Author gender - i.e. female" type="text" name="authorGender" id="authorGenderValue"></textarea></label></p>
+
+                <p><label for="authorNationality" id="authorNationality"><textarea class="reviewTitle" placeholder="Author nationality - i.e. USA" type="text" name="authorNationality" id="authorNationalityValue"></textarea></label></p>
+
+
+
+                <button id="addBookSubmit" class="miniButtons">SUBMIT</button>
+
+              </fieldset>
+            </form>
+          </div>
+        </div>
     </div>
   </div>
 

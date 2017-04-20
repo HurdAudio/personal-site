@@ -143,12 +143,368 @@
   height: 2.4em;
 }
 
-#newReviewBody {
+#authorName {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 93.5%;
+  height: 2.4em;
+  margin-left: 0.3em;
+}
+
+#authorNameValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+#bookTitle {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 93.5%;
+  height: 2.4em;
+  margin-left: 0.3em;
+}
+
+#bookTitleValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+#coverURL {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 93.5%;
+  height: 2.4em;
+  margin-left: 0.3em;
+}
+
+#coverURLValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+#authorURL {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 93.5%;
+  height: 2.4em;
+  margin-left: 0.3em;
+}
+
+#authorURLValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+#publisher {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 27.17%;
+  height: 2.4em;
+  margin-left: 0.3em;
+}
+
+#publisherValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+#publicationDate {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 27.17%;
+  height: 2.4em;
+  margin-left: 0.3em;
+}
+
+#publicationDateValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+#edition {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 27.17%;
+  height: 2.4em;
+  margin-left: 0.3em;
+}
+
+#editionValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+#partOfSeries {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 27.17%;
+  height: 2.4em;
+  margin-left: 0.3em;
+}
+
+#partOfSeriesValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 100%;
+  height: 1.4em;
+}
+
+#nameOfSeries {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 27.17%;
+  height: 2.4em;
+  margin-left: 0.3em;
+}
+
+#nameOfSeriesValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+#numberOfPages {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 27.17%;
+  height: 2.4em;
+  margin-left: 0.3em;
+}
+
+#numberOfPagesValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+#authorGender {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 27.17%;
+  height: 2.4em;
+  margin-left: 0.3em;
+}
+
+#authorGenderValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+#authorNationality {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 27.17%;
+  height: 2.4em;
+  margin-left: 0.3em;
+}
+
+#authorNationalityValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+#addBookSubmit {
+  width: 97.5%;
+  height: 3em;
+  font-size: 48px;
+  margin-top: 0.8em;
+  margin-left: 0.3em;
+}
+
+#numberInSeries {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 27.17%;
+  height: 2.4em;
+  margin-left: 0.3em;
+}
+
+#numberInSeriesValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+#authorURL {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 93.5%;
+  height: 2.4em;
+  margin-left: 0.3em;
+}
+
+#bookDescription {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  width: 93.5%;
+  height: 21em;
+  margin-left: 0.3em;
+}
+
+#bookDescriptionValue {
   font-family: 'Michroma', sans-serif;
   font-size: 24px;
   color: #000000;
-  width: 80%;
+  width: 100%;
   height: 21em;
+}
+
+#bookOrPeriodicalQuery {
+  margin-top: 14em;
+  border: 8px solid black;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  text-align: center;
+  padding-bottom: 7em;
+  background-color: #95A5A5;
+}
+
+#bookAddForm {
+  margin-top: 3em;
+  border: 8px solid black;
+  width: 70%;
+  padding-bottom: 3em;
+  background-color: #95A5A5;
+}
+
+#bookAddForm h2 {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  color: #000000;
+  margin-left: 5em;
+}
+
+.dropButton {
+  background-color: #95a5a5;
+  width: 17em;
+  height: 5em;
+  margin-left: 7em;
+}
+
+.dropButton:hover {
+  background-color: #6B5B5B;
+}
+
+.dropButton p {
+  font-family: 'Michroma', sans-serif;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.dropdownList {
+  margin-top: 3em;
+  margin-left: 7em;
+  padding: 1.1em;
+  width: 23em;
+}
+
+.menuItem {
+  font-family: 'Michroma', sans-serif;
+  font-size: 21px;
+  color: #ffffff;
+  padding-left: 1.1em;
+  text-decoration: none;
+  list-style: none;
+  margin-top: 0.75em;
+  margin-bottom: 0.35em;
+  z-index: -2;
+}
+
+#tableOutput h4 {
+  font-family: 'Michroma', sans-serif;
+  font-size: 21px;
+  color: #000000;
+  margin-left: 13em;
+}
+
+#tableOutput button {
+  margin-left: 7em;
+}
+
+.menuItem:hover {
+  background-color: #ffffff;
+  cursor: pointer;
+  color: #dd1122;
+}
+
+.prizeSubmenu {
+  margin-left: 0.7em;
+  padding: 1.1em;
+  width: 13.7em;
+}
+
+.prizeSubmenu:hover {
+  background-color: #ffffff;
+  cursor: pointer;
+  color: #dd1122;
+}
+
+.submenuItem {
+  font-family: 'Michroma', sans-serif;
+  font-size: 21px;
+  color: #ffffff;
+  padding-left: 1.1em;
+  text-decoration: none;
+  list-style: none;
+  margin-top: 0.35em;
+  margin-bottom: 0.35em;
+  z-index: 2;
+}
+
+.submenuitem:hover {
+  background-color: #ffffff;
+  cursor: pointer;
+  color: #dd1122;
 }
 
 #editorReviewBody {
