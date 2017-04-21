@@ -384,6 +384,30 @@
               </fieldset>
             </form>
           </div>
+          <div id="verifyBookDetails">
+            <div class="bookCoverImg">
+              <img src="{{$ctrl.bookCandidate.cover_url}}">
+            </div>
+            <div class="bookInfoLine">
+              <p><em>{{$ctrl.bookCandidate.title}}</em> by {{$ctrl.bookCandidate.author}}</p>
+              <p>Published by {{$ctrl.bookCandidate.publisher}}</p>
+              <p>Release date: {{$ctrl.bookCandidate.publication_date}}</p>
+            </div>
+            <div class="bookCoverImg">
+              <img src="{{$ctrl.bookCandidate.author_url}}">
+            </div>
+            <div class="bookInfoLine">
+              <p>{{$ctrl.bookCandidate.edition}}</p>
+              <p>Part of Series {{$ctrl.bookCandidate.part_of_series}}</p>
+              <p>{{$ctrl.bookCandidate.name_of_series}} {{$ctrl.bookCandidate.number_in_series}}</p>
+              <p>{{$ctrl.bookCandidate.number_of_pages}} pages</p>
+              <p>{{$ctrl.bookCandidate.author_gender}} - {{$ctrl.bookCandidate.author_nationality}}</p><br>
+              <p>{{$ctrl.bookCandidate.description}}</p>
+            </div>
+            <h3>Add to database?</h3>
+            <button id="yesToBookAdd" class="miniButtons">YES</button>
+            <button id="noToBookAdd" class="miniButtons">NO</button>
+          </div>
         </div>
     </div>
   </div>
