@@ -35,7 +35,7 @@
 
     AdminController.$inject = ['$http', '$state', '$stateParams'];
 
-    function AdminController($http, $state, $stateParams){
+    function AdminController($http, $state, $stateParams) {
       const vm = this;
 
       vm.$onInit = onInit;
@@ -47,6 +47,35 @@
       vm.editPosting = editPosting;
       vm.editReview = editReview;
       vm.bookCategorySelected = bookCategorySelected;
+      vm.periodicalCategorySelected = periodicalCategorySelected;
+
+      function setCategoryListListList (listObj, index) {
+        if (listObj.periodical_or_book === 'book') {
+          if ((listObj.books_id !== null) && (listObj.books_id !== undefined)) {
+            $http.get(`/books/${listObj.books_id}`)
+            .then(listBookData=>{
+              var listBook = listBookData.data;
+              vm.magazineList[index].cover_url = listBook.cover_url;
+              vm.magazineList[index].title = listBook.title;
+              vm.magazineList[index].author = listBook.author;
+              vm.magazineList[index].edition = listBook.edition;
+              vm.magazineList[index].number_of_pages = listBook.number_of_pages;
+
+            });
+          }
+        } else {
+          $http.get(`/periodicals/${listObj.periodicals_id}`)
+          .then(listMagazineData=>{
+            var listMagazine = listMagazineData.data;
+            vm.magazineList[index].cover_url = listMagazine.img_url;
+            vm.magazineList[index].title = listMagazine.name + " " + listMagazine.issue;
+            vm.magazineList[index].author = listMagazine.editor + ' editor.';
+            vm.magazineList[index].edition = listMagazine.edition;
+            vm.magazineList[index].number_of_pages = listMagazine.pages;
+
+          });
+        }
+      }
 
       function setCategoryListList (listObj, index) {
 
@@ -91,6 +120,475 @@
           return (arrOfObj);
         } while(swapped);
 
+      }
+
+      function updateReadingListPeriodical(reviewId, subList) {
+        var nextItemsArray = [];
+        var openSlots = false;
+        var orderedListOfUnreads = [];
+        $http.get('/user_reading_lists/1')
+        .then(readListData=>{
+          var readList = readListData.data;
+          switch (subList) {
+            case ('female_author_selections'):
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('female_author_selection_1')) {
+                nextItemsArray = ['female_author_selection_1', 'female_author_selection_2', 'female_author_selection_3', 'female_author_selection_4'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('female_author_selection_2')) {
+                nextItemsArray = ['female_author_selection_2', 'female_author_selection_3', 'female_author_selection_4', 'female_author_selection_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('female_author_selection_3')) {
+                nextItemsArray = ['female_author_selection_3', 'female_author_selection_4', 'female_author_selection_1', 'female_author_selection_2'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('female_author_selection_4')) {
+                nextItemsArray = ['female_author_selection_4', 'female_author_selection_1', 'female_author_selection_2', 'female_author_selection_3'];
+              } else {
+                nextItemsArray = ['female_author_selection_1', 'female_author_selection_2', 'female_author_selection_3', 'female_author_selection_4'];
+              }
+              break;
+            case ('crime_series'):
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('crime_series_1')) {
+                nextItemsArray = ['crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_sereis_14', 'crime_series_15', 'crime_series_16'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('crime_series_2')) {
+                nextItemsArray = ['crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_sereis_14', 'crime_series_15', 'crime_series_16', 'crime_series_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('crime_series_3')) {
+                nextItemsArray = ['crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_sereis_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('crime_series_4')) {
+                nextItemsArray = ['crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_sereis_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('crime_series_5')) {
+                nextItemsArray = ['crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_sereis_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('crime_series_6')) {
+                nextItemsArray = ['crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_sereis_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('crime_series_7')) {
+                nextItemsArray = ['crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_sereis_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('crime_series_8')) {
+                nextItemsArray = ['crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_sereis_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('crime_series_9')) {
+                nextItemsArray = ['crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_sereis_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('crime_series_10')) {
+                nextItemsArray = ['crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_sereis_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('crime_series_11')) {
+                nextItemsArray = ['crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_sereis_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('crime_series_12')) {
+                nextItemsArray = ['crime_series_12', 'crime_series_13', 'crime_sereis_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('crime_series_13')) {
+                nextItemsArray = ['crime_series_13', 'crime_sereis_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('crime_series_14')) {
+                nextItemsArray = ['crime_sereis_14', 'crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('crime_series_15')) {
+                nextItemsArray = ['crime_series_15', 'crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('crime_series_16')) {
+                nextItemsArray = ['crime_series_16', 'crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15'];
+              } else {
+                nextItemsArray = ['crime_series_1', 'crime_series_2', 'crime_series_3', 'crime_series_4', 'crime_series_5', 'crime_series_6', 'crime_series_7', 'crime_series_8', 'crime_series_9', 'crime_series_10', 'crime_series_11', 'crime_series_12', 'crime_series_13', 'crime_series_14', 'crime_series_15', 'crime_series_16'];
+              }
+              break;
+            case ('backlog_ebooks'):
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('backlog_ebook_1')) {
+                nextItemsArray = ['backlog_ebook_1', 'backlog_ebook_2', 'backlog_ebook_3', 'backlog_ebook_4'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('backlog_ebook_2')) {
+                nextItemsArray = ['backlog_ebook_2', 'backlog_ebook_3', 'backlog_ebook_4', 'backlog_ebook_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('backlog_ebook_3')) {
+                nextItemsArray = ['backlog_ebook_3', 'backlog_ebook_4', 'backlog_ebook_1', 'backlog_ebook_2'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('backlog_ebook_4')) {
+                nextItemsArray = ['backlog_ebook_4', 'backlog_ebook_1', 'backlog_ebook_2', 'backlog_ebook_3'];
+              } else {
+                nextItemsArray = ['backlog_ebook_1', 'backlog_ebook_2', 'backlog_ebook_3', 'backlog_ebook_4'];
+              }
+              break;
+            case ('science_fiction_series'):
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('science_fiction_series_1')) {
+                nextItemsArray = ['science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('science_fiction_series_2')) {
+                nextItemsArray = ['science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('science_fiction_series_3')) {
+                nextItemsArray = ['science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('science_fiction_series_4')) {
+                nextItemsArray = ['science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('science_fiction_series_5')) {
+                nextItemsArray = ['science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('science_fiction_series_6')) {
+                nextItemsArray = ['science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('science_fiction_series_7')) {
+                nextItemsArray = ['science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('science_fiction_series_8')) {
+                nextItemsArray = ['science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('science_fiction_series_9')) {
+                nextItemsArray = ['science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('science_fiction_series_10')) {
+                nextItemsArray = ['science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('science_fiction_series_11')) {
+                nextItemsArray = ['science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('science_fiction_series_12')) {
+                nextItemsArray = ['science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('science_fiction_series_13')) {
+                nextItemsArray = ['science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('science_fiction_series_14')) {
+                nextItemsArray = ['science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('science_fiction_series_15')) {
+                nextItemsArray = ['science_fiction_series_15', 'science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('science_fiction_series_16')) {
+                nextItemsArray = ['science_fiction_series_16', 'science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15'];
+              } else {
+                nextItemsArray = ['science_fiction_series_1', 'science_fiction_series_2', 'science_fiction_series_3', 'science_fiction_series_4', 'science_fiction_series_5', 'science_fiction_series_6', 'science_fiction_series_7', 'science_fiction_series_8', 'science_fiction_series_9', 'science_fiction_series_10', 'science_fiction_series_11', 'science_fiction_series_12', 'science_fiction_series_13', 'science_fiction_series_14', 'science_fiction_series_15', 'science_fiction_series_16'];
+              }
+              break;
+            case ('free_selections'):
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('free_selection_1')) {
+                nextItemsArray = ['free_selection_1', 'free_selection_2', 'free_selection_3', 'free_selection_4', 'free_selection_5', 'free_selection_6', 'free_selection_7', 'free_selection_8'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('free_selection_2')) {
+                nextItemsArray = ['free_selection_2', 'free_selection_3', 'free_selection_4', 'free_selection_5', 'free_selection_6', 'free_selection_7', 'free_selection_8', 'free_selection_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('free_selection_3')) {
+                nextItemsArray = ['free_selection_3', 'free_selection_4', 'free_selection_5', 'free_selection_6', 'free_selection_7', 'free_selection_8', 'free_selection_1', 'free_selection_2'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('free_selection_4')) {
+                nextItemsArray = ['free_selection_4', 'free_selection_5', 'free_selection_6', 'free_selection_7', 'free_selection_8', 'free_selection_1', 'free_selection_2', 'free_selection_3'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < nextItemsArray.indexOf('free_selection_5')) {
+                nextItemsArray = ['free_selection_5', 'free_selection_6', 'free_selection_7', 'free_selection_8', 'free_selection_1', 'free_selection_2', 'free_selection_3', 'free_selection_4'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('free_selection_6')) {
+                nextItemsArray = ['free_selection_6', 'free_selection_7', 'free_selection_8', 'free_selection_1', 'free_selection_2', 'free_selection_3', 'free_selection_4', 'free_selection_5'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('free_selection_7')) {
+                nextItemsArray = ['free_selection_7', 'free_selection_8', 'free_selection_1', 'free_selection_2', 'free_selection_3', 'free_selection_4', 'free_selection_5', 'free_selection_6'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('free_selection_8')) {
+                nextItemsArray = ['free_selection_8', 'free_selection_1', 'free_selection_2', 'free_selection_3', 'free_selection_4', 'free_selection_5', 'free_selection_6', 'free_selection_7'];
+              } else {
+                nextItemsArray = ['free_selection_1', 'free_selection_2', 'free_selection_3', 'free_selection_4', 'free_selection_5', 'free_selection_6', 'free_selection_7', 'free_selection_8'];
+              }
+              break;
+            case ('inserts'):
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('insert_1')) {
+                nextItemsArray = ['insert_1', 'insert_2', 'insert_3', 'insert_4', 'insert_5', 'insert_6', 'insert_7', 'insert_8'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('insert_2')) {
+                nextItemsArray = ['insert_2', 'insert_3', 'insert_4', 'insert_5', 'insert_6', 'insert_7', 'insert_8', 'insert_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('insert_3')) {
+                nextItemsArray = ['insert_3', 'insert_4', 'insert_5', 'insert_6', 'insert_7', 'insert_8', 'insert_1', 'insert_2'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('insert_4')) {
+                nextItemsArray = ['insert_4', 'insert_5', 'insert_6', 'insert_7', 'insert_8', 'insert_1', 'insert_2', 'insert_3'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('insert_5')) {
+                nextItemsArray = ['insert_5', 'insert_6', 'insert_7', 'insert_8', 'insert_1', 'insert_2', 'insert_3', 'insert_4'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('insert_6')) {
+                nextItemsArray = ['insert_6', 'insert_7', 'insert_8', 'insert_1', 'insert_2', 'insert_3', 'insert_4', 'insert_5'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('insert_7')) {
+                nextItemsArray = ['insert_7', 'insert_8', 'insert_1', 'insert_2', 'insert_3', 'insert_4', 'insert_5', 'insert_6'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('insert_8')) {
+                nextItemsArray = ['insert_8', 'insert_1', 'insert_2', 'insert_3', 'insert_4', 'insert_5', 'insert_6', 'insert_7'];
+              } else {
+                nextItemsArray = ['insert_1', 'insert_2', 'insert_3', 'insert_4', 'insert_5', 'insert_6', 'insert_7', 'insert_8'];
+              }
+              break;
+            case ('literary_journals'):
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('literary_journal_1')) {
+                nextItemsArray = ['literary_journal_1', 'literary_journal_2', 'literary_journal_3', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14'];
+              } else if (readingOrderArray .indexOf(readList.current_position) < readingOrderArray.indexOf('literary_journal_2')) {
+                nextItemsArray = ['literary_journal_2', 'literary_journal_3', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('literary_journal_3')) {
+                nextItemsArray = ['literary_journal_3', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('literary_journal_4')) {
+                nextItemsArray = ['literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_3'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('literary_journal_5')) {
+                nextItemsArray = ['literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_3', 'literary_journal_4'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('literary_journal_6')) {
+                nextItemsArray = ['literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_3', 'literary_journal_4', 'literary_journal_5'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('literary_journal_7')) {
+                nextItemsArray = ['literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_3', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('literary_journal_8')) {
+                nextItemsArray = ['literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_3', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('literary_journal_9')) {
+                nextItemsArray = ['literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_3', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('literary_journal_10')) {
+                nextItemsArray = ['literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_3', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('literary_journal_11')) {
+                nextItemsArray = ['literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_3', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('literary_journal_12')) {
+                nextItemsArray = ['literary_journal_12', 'literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_3', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('literary_journal_13')) {
+                nextItemsArray = ['literary_journal_13', 'literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_3', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('literary_journal_14')) {
+                nextItemsArray = ['literary_journal_14', 'literary_journal_1', 'literary_journal_2', 'literary_journal_3', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13'];
+              } else {
+                nextItemsArray = ['literary_journal_1', 'literary_journal_2', 'literary_journal_3', 'literary_journal_4', 'literary_journal_5', 'literary_journal_6', 'literary_journal_7', 'literary_journal_8', 'literary_journal_9', 'literary_journal_10', 'literary_journal_11', 'literary_journal_12', 'literary_journal_13', 'literary_journal_14'];
+              }
+              break;
+            case ('bizarro_fictions'):
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('bizarro_fiction_1')) {
+                nextItemsArray = ['bizarro_fiction_1', 'bizarro_fiction_2', 'bizarro_fiction_3'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('bizarro_fiction_2')) {
+                nextItemsArray = ['bizarro_fiction_2', 'bizarro_fiction_3', 'bizarro_fiction_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('bizarro_fiction_3')) {
+                nextItemsArray = ['bizarro_fiction_3', 'bizarro_fiction_1', 'bizarro_fiction_2'];
+              } else {
+                nextItemsArray = ['bizarro_fiction_1', 'bizarro_fiction_2', 'bizarro_fiction_3'];
+              }
+              break;
+            case ('genre_journals'):
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('genre_journal_1')) {
+                nextItemsArray = ['genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('genre_journal_2')) {
+                nextItemsArray = ['genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('genre_journal_3')) {
+                nextItemsArray = ['genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('genre_journal_4')) {
+                nextItemsArray = ['genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('genre_journal_5')) {
+                nextItemsArray = ['genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('genre_journal_6')) {
+                nextItemsArray = ['genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('genre_journal_7')) {
+                nextItemsArray = ['genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('genre_journal_8')) {
+                nextItemsArray = ['genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('genre_journal_9')) {
+                nextItemsArray = ['genre_journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('genre_journal_10')) {
+                nextItemsArray = ['genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('genre_journal_11')) {
+                nextItemsArray = ['genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('genre_journal_12')) {
+                nextItemsArray = ['genre_journal_12', 'genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('genre_journal_13')) {
+                nextItemsArray = ['genre_journal_13', 'genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('genre_journal_14')) {
+                nextItemsArray = ['genre_journal_14', 'genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13'];
+              } else {
+                nextItemsArray = ['genre_journal_1', 'genre_journal_2', 'genre_journal_3', 'genre_journal_4', 'genre_journal_5', 'genre_journal_6', 'genre_journal_7', 'genre_journal_8', 'genre_journal_9', 'genre_journal_10', 'genre_journal_11', 'genre_journal_12', 'genre_journal_13', 'genre_journal_14'];
+              }
+              break;
+            case ('classics'):
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('classic_1')) {
+                nextItemsArray = ['classic_1', 'classic_2', 'classic_3'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('classic_2')) {
+                nextItemsArray = ['classic_2', 'classic_3', 'classic_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('classic-3')) {
+                nextItemsArray = ['classic_3', 'classic_1', 'classic_2'];
+              } else {
+                nextItemsArray = ['classic_1', 'classic_2', 'classic_3'];
+              }
+              break;
+            case ('compendiums'):
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('compendium_1')) {
+                nextItemsArray = ['compendium_1', 'compendium_2', 'compendium_3'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('compendium_2')) {
+                nextItemsArray = ['compendium_2', 'compendium_3', 'compendium_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('compendium_3')) {
+                nextItemsArray = ['compendium_3', 'compendium_1', 'compendium_2'];
+              } else {
+                nextItemsArray = ['compendium_1', 'compendium_2', 'compendium_3'];
+              }
+              break;
+            case ('male_author_selections'):
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('male_author_selection_1')) {
+                nextItemsArray = ['male_author_selection_1', 'male_author_selection_2', 'male_author_selection_3', 'male_author_selection_4'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('male_author_selection_2')) {
+                nextItemsArray = ['male_author_selection_2', 'male_author_selection_3', 'male_author_selection_4', 'male_author_selection_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('male_author_selection_3')) {
+                nextItemsArray = ['male_author_selection_3', 'male_author_selection_4', 'male_author_selection_1', 'male_author_selection_2'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('male_author_selection_4')) {
+                nextItemsArray = ['male_author_selection_4', 'male_author_selection_1', 'male_author_selection_2', 'male_author_selection_3'];
+              } else {
+                nextItemsArray = ['male_author_selection_1', 'male_author_selection_2', 'male_author_selection_3', 'male_author_selection_4'];
+              }
+              break;
+            case ('backlog_physical_books'):
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('backlog_physical_book_1')) {
+                nextItemsArray = ['backlog_physical_book_1', 'backlog_physical_book_2', 'backlog_physical_book_3', 'backlog_physical_book_4'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('backlog_physical_book_2')) {
+                nextItemsArray = ['backlog_physical_book_2', 'backlog_physical_book_3', 'backlog_physical_book_4', 'backlog_physical_book_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('backlog_physical_book_3')) {
+                nextItemsArray = ['backlog_physical_book_3', 'backlog_physical_book_4', 'backlog_physical_book_1', 'backlog_physical_book_2'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('backlog_physical_book_4')) {
+                nextItemsArray = ['backlog_physical_book_4', 'backlog_physical_book_1', 'backlog_physical_book_2', 'backlog_physical_book_3'];
+              } else {
+                nextItemsArray = ['backlog_physical_book_1', 'backlog_physical_book_2', 'backlog_physical_book_3', 'backlog_physical_book_4'];
+              }
+              break;
+            case ('non_fictions'):
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('non_fiction_1')) {
+                nextItemsArray = ['non_fiction_1', 'non_fiction_2', 'non_fiction_3'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('non_fiction_2')) {
+                nextItemsArray = ['non_fiction_2', 'non_fiction_3', 'non_fiction_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('non_fiction_3')) {
+                nextItemsArray = ['non_fiction_3', 'non_fiction_1', 'non_fiction_2'];
+              } else {
+                nextItemsArray = ['non_fiction_1', 'non_fiction_2', 'non_fiction_3'];
+              }
+              break;
+            case ('anthologies'):
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('anthology_1')) {
+                nextItemsArray = ['anthology_1', 'anthology_2', 'anthology_3'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('anthology_2')) {
+                nextItemsArray = ['anthology_2', 'anthology_3', 'anthology_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('anthology_3')) {
+                nextItemsArray = ['anthology_3', 'anthology_1', 'anthology_2'];
+              } else {
+                nextItemsArray = ['anthology_1', 'anthology_2', 'anthology_3'];
+              }
+              break;
+            case ('roulettes'):
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('roulette_1')) {
+                nextItemsArray = ['roulette_1', 'roulette_2', 'roulette_3', 'roulette_4', 'roulette_5', 'roulette_6'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('roulette_2')) {
+                nextItemsArray = ['roulette_2', 'roulette_3', 'roulette_4', 'roulette_5', 'roulette_6', 'roulette_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('roulette_3')) {
+                nextItemsArray = ['roulette_3', 'roulette_4', 'roulette_5', 'roulette_6', 'roulette_1', 'roulette_2'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('roulette_4')) {
+                nextItemsArray = ['roulette_4', 'roulette_5', 'roulette_6', 'roulette_1', 'roulette_2', 'roulette_3'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('roulette_5')) {
+                nextItemsArray = ['roulette_5', 'roulette_6', 'roulette_1', 'roulette_2', 'roulette_3', 'roulette_4'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('roulette_6')) {
+                nextItemsArray = ['roulette_6', 'roulette_1', 'roulette_2', 'roulette_3', 'roulette_4', 'roulette_5'];
+              } else {
+                nextItemsArray = ['roulette_1', 'roulette_2', 'roulette_3', 'roulette_4', 'roulette_5', 'roulette_6'];
+              }
+              break;
+            case ('graphic_novels'):
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('graphic_novel_1')) {
+                nextItemsArray = ['graphic_novel_1', 'graphic_novel_2', 'graphic_novel_3', 'graphic_novel_4'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('graphic_novel_2')) {
+                nextItemsArray = ['graphic_novel_2', 'graphic_novel_3', 'graphic_novel_4', 'graphic_novel_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('graphic_novel_3')) {
+                nextItemsArray = ['graphic_novel_3', 'graphic_novel_4', 'graphic_novel_1', 'graphic_novel_2'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('graphic_novel_4')) {
+                nextItemsArray = ['graphic_novel_4', 'graphic_novel_1', 'graphic_novel_2', 'graphic_novel_3'];
+              } else {
+                nextItemsArray = ['graphic_novel_1', 'graphic_novel_2', 'graphic_novel_3', 'graphic_novel_4'];
+              }
+              break;
+            case ('occult_readings'):
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('occult_reading_1')) {
+                nextItemsArray = ['occult_reading_1', 'occult_reading_2', 'occult_reading_3'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('occult_reading_2')) {
+                nextItemsArray = ['occult_reading_2', 'occult_reading_3', 'occult_reading_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('occult_reading_3')) {
+                nextItemsArray = ['occult_reading_3', 'occult_reading_1', 'occult_reading_2'];
+              } else {
+                nextItemsArray = ['occult_reading_1', 'occult_reading_2', 'occult_reading_3'];
+              }
+              break;
+            case ('contemporary_pulps'):
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('contemporary_pulp_1')) {
+                nextItemsArray = ['contemporary_pulp_1', 'contemporary_pulp_2', 'contemporary_pulp_3', 'contemporary_pulp_4'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('contemporary_pulp_2')) {
+                nextItemsArray = ['contemporary_pulp_2', 'contemporary_pulp_3', 'contemporary_pulp_4', 'contemporary_pulp_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('contemporary_pulp_3')) {
+                nextItemsArray = ['contemporary_pulp_3', 'contemporary_pulp_4', 'contemporary_pulp_1', 'contemporary_pulp_2'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('contemporary_pulp_4')) {
+                nextItemsArray = ['contemporary_pulp_4', 'contemporary_pulp_1', 'contemporary_pulp_2', 'contemporary_pulp_3'];
+              } else {
+                nextItemsArray = ['contemporary_pulp_1', 'contemporary_pulp_2', 'contemporary_pulp_3', 'contemporary_pulp_4'];
+              }
+              break;
+            case ('vintage_pulps'):
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('vintage_pulp_1')) {
+                nextItemsArray = ['vintage_pulp_1', 'vintage_pulp_2', 'vintage_pulp_3', 'vintage_pulp_4'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('vintage_pulp_2')) {
+                nextItemsArray = ['vintage_pulp_2', 'vintage_pulp_3', 'vintage_pulp_4', 'vintage_pulp_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('vintage_pulp_3')) {
+                nextItemsArray = ['vintage_pulp_3', 'vintage_pulp_4', 'vintage_pulp_1', 'vintage_pulp_2'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('vintage_pulp_4')) {
+                nextItemsArray = ['vintage_pulp_4', 'vintage_pulp_1', 'vintage_pulp_2', 'vintage_pulp_3'];
+              } else {
+                nextItemsArray = ['vintage_pulp_1', 'vintage_pulp_2', 'vintage_pulp_3', 'vintage_pulp_4'];
+              }
+              break;
+            case ('interrupts'):
+              nextItemsArray = ['interrupt'];
+              break;
+            default:
+              if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('prize_1')) {
+                nextItemsArray = ['prize_1', 'prize_2', 'prize_3', 'prize_4', 'prize_5', 'prize_6', 'prize_7', 'prize_8', 'prize_9', 'prize_10'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('prize_2')) {
+                nextItemsArray = ['prize_2', 'prize_3', 'prize_4', 'prize_5', 'prize_6', 'prize_7', 'prize_8', 'prize_9', 'prize_10', 'prize_1'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('prize_3')) {
+                nextItemsArray = ['prize_3', 'prize_4', 'prize_5', 'prize_6', 'prize_7', 'prize_8', 'prize_9', 'prize_10', 'prize_1', 'prize_2'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('prize_4')) {
+                nextItemsArray = ['prize_4', 'prize_5', 'prize_6', 'prize_7', 'prize_8', 'prize_9', 'prize_10', 'prize_1', 'prize_2', 'prize_3'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('prize_5')) {
+                nextItemsArray = ['prize_5', 'prize_6', 'prize_7', 'prize_8', 'prize_9', 'prize_10', 'prize_1', 'prize_2', 'prize_3', 'prize_4'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('prize_6')) {
+                nextItemsArray = ['prize_6', 'prize_7', 'prize_8', 'prize_9', 'prize_10', 'prize_1', 'prize_2', 'prize_3', 'prize_4', 'prize_5'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('prize_7')) {
+                nextItemsArray = ['prize_7', 'prize_8', 'prize_9', 'prize_10', 'prize_1', 'prize_2', 'prize_3', 'prize_4', 'prize_5', 'prize_6'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('prize_8')) {
+                nextItemsArray = ['prize_8', 'prize_9', 'prize_10', 'prize_1', 'prize_2', 'prize_3', 'prize_4', 'prize_5', 'prize_6', 'prize_7'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('prize_9')) {
+                nextItemsArray = ['prize_9', 'prize_10', 'prize_1', 'prize_2', 'prize_3', 'prize_4', 'prize_5', 'prize_6', 'prize_7', 'prize_8'];
+              } else if (readingOrderArray.indexOf(readList.current_position) < readingOrderArray.indexOf('prize_10')) {
+                nextItemsArray = ['prize_10', 'prize_1', 'prize_2', 'prize_3', 'prize_4', 'prize_5', 'prize_6', 'prize_7', 'prize_8', 'prize_9'];
+              } else {
+                nextItemsArray = ['prize_1', 'prize_2', 'prize_3', 'prize_4', 'prize_5', 'prize_6', 'prize_7', 'prize_8', 'prize_9', 'prize_10'];
+              }
+              // console.log('unhandled exception');
+          }
+          // Check for null values in nextItemsArray - if no nulls we are done here.
+          for (let i = 0; i < nextItemsArray.length; i++) {
+            if (readList[nextItemsArray[i]] === null) {
+              openSlots = true;
+            }
+          }
+          if (openSlots) {
+            //compile an ordered lists of unreads from our category type
+            $http.get('/user_book_reviews')
+            .then(userReviewsData=>{
+              var userReviews = userReviewsData.data;
+              $http.get(`/${subList}`)
+              .then(categoryListData=>{
+                var categoryList = categoryListData.data;
+                for (let j = 0; j < categoryList.length; j++) {
+                  if (!categoryList[j].is_completed) {
+                    orderedListOfUnreads.push(categoryList[j]);
+                  }
+                }
+                orderedListOfUnreads = sortedById(orderedListOfUnreads);
+                var updateReadListObj = {};
+                if ((nextItemsArray[0] === 'prize_1')||(nextItemsArray[0] === 'prize_2')||(nextItemsArray[0] === 'prize_3')||(nextItemsArray[0] === 'prize_4')||(nextItemsArray[0] === 'prize_5')||(nextItemsArray[0] === 'prize_6')||(nextItemsArray[0] === 'prize_7')||(nextItemsArray[0] === 'prize_8')||(nextItemsArray[0] === 'prize_9')||(nextItemsArray[0] === 'prize_10')) {
+                  $http.get('/prize_lists/1')
+                  .then(prizesData=>{
+                    var prizes = prizesData.data;
+                    for (let prizeCounter = 0; prizeCounter < nextItemsArray.length; prizeCounter++) {
+                      if (prizes[nextItemsArray[prizeCounter]] === subList) {
+                        if (readList[nextItemsArray[prizeCounter]] === null) {
+                          updateReadListObj[nextItemsArray[prizeCounter]] = reviewId;
+                        }
+                      }
+                    }
+                    $http.patch('/user_reading_lists/1', updateReadListObj)
+                    .then(patchData=>{
+                      console.log(patchData.data);
+                    });
+                  });
+                } else {
+                  var associatedReview = null;
+                  var alreadyInList = false;
+                  for (let indexUnread = 0; indexUnread < orderedListOfUnreads.length; indexUnread++) {
+                    associatedReview = null;
+                    for (let indexReviews = 0; indexReviews < userReviews.length; indexReviews++) {
+                      if (userReviews[indexReviews].periodicals_id === orderedListOfUnreads[indexUnread].periodicals_id) {
+                        associatedReview = userReviews[indexReviews].id;
+                        break;
+                      }
+                    }
+                    alreadyInList = false;
+                    for (let checkOnInsertion = 0; checkOnInsertion < nextItemsArray.length; checkOnInsertion++) {
+                      if (readList[nextItemsArray[checkOnInsertion]] === associatedReview) {
+                        alreadyInList = true;
+                      }
+                    }
+                    if (!alreadyInList) {
+                      for (let findNull = 0; findNull < nextItemsArray.length; findNull++) {
+                        if (readList[nextItemsArray[findNull]] === null) {
+                          updateReadListObj[nextItemsArray[findNull]] = associatedReview;
+                          break;
+                        }
+                      }
+                    }
+
+                  }
+                  $http.patch('/user_reading_lists/1', updateReadListObj)
+                  .then(datadata=>{
+                    console.log(datadata.data);
+                  });
+                }
+              });
+            });
+          }
+
+        });
       }
 
       function updateReadingList(reviewId, subList) {
@@ -562,10 +1060,135 @@
         });
       }
 
+      function periodicalCategorySelected(categoryString, databaseString) {
+        var sublistCategoryPeriodicals = document.getElementById('catagoryPrizes2');
+        var categoryButtonPeriodicals = document.getElementById('periodicalCategoryButton');
+        var primaryCategoryList2 = document.getElementById('categoryList2');
+        var periodicalListName = document.getElementById('periodicalListName');
+        var verifyCategoryPeriodicalTable = document.getElementById('verifyCategoryPeriodical');
+        var rejectListAdd = document.getElementById('denyListAddPeriodical');
+        var verifyCategoryTable = document.getElementById('verifyCategoryPeriodical');
+        var addingPeriodicalForm = document.getElementById('periodicalAddForm');
+        var addBookButton = document.getElementById('addBookList');
+        var periodicalForm = document.getElementById('periodicalForm');
+        var confirmPeriodicalAdd = document.getElementById('confirmListAddPeriodical');
+        var submissionObj = {};
+        var periodicalSubmitButton = document.getElementById('addPeriodicalSubmit');
+        var periodicalNameValue = document.getElementById('periodicalNameValue');
+        var issueValue = document.getElementById('issueValue');
+        var editorValue = document.getElementById('editorValue');
+        var editorURLValue = document.getElementById('editorURLValue');
+        var periodicalEditionValue = document.getElementById('periodicalEditionValue');
+        var periodicalPublicationDateValue = document.getElementById('periodicalPublicationDateValue');
+        var periodicalPagesValue = document.getElementById('periodicalPagesValue');
+        var imgURLValue = document.getElementById('imgURLValue');
+        var periodicalDescriptionValue = document.getElementById('periodicalDescriptionValue');
+        var verifyPeriodicalDetails = document.getElementById('verifyPeriodicalDetails');
+        var noToPeriodicalAdd = document.getElementById('noToPeriodicalAdd');
+        var yesToPeriodicalAdd = document.getElementById('yesToPeriodicalAdd');
+
+        if ((categoryString === 'Prize') && (databaseString === 'prize_lists')) {
+          categoryButtonPeriodicals.setAttribute("style", "display: none;");
+          primaryCategoryList2.setAttribute("style", "display: none;");
+          sublistCategoryPeriodicals.setAttribute("style", "display: initial;");
+        } else {
+          categoryButtonPeriodicals.setAttribute("style", "display: none;");
+          primaryCategoryList2.setAttribute("style", "display: none;");
+          sublistCategoryPeriodicals.setAttribute("style", "display: none;");
+
+          $http.get(`/${databaseString}`)
+          .then(listingData=>{
+            var listing = listingData.data;
+            periodicalListName.innerHTML = categoryString + ':';
+            vm.magazineList = [];
+            for (let i = 0; i < listing.length; i++) {
+              vm.magazineList[i] = {};
+              if (listing[i].is_completed) {
+                vm.magazineList[i].completion = "YES";
+              } else {
+                vm.magazineList[i].completion = "NO";
+              }
+              setCategoryListListList(listing[i], i);
+            }
+            verifyCategoryPeriodicalTable.setAttribute("style", "display: initial");
+            rejectListAdd.addEventListener('click', ()=>{
+              vm.categoryList = [];
+              verifyCategoryTable.setAttribute("style", "display: none;");
+              addingPeriodicalForm.setAttribute("style", "display: none;");
+              addBookButton.setAttribute("style", "display: initial;");
+
+            });
+            confirmPeriodicalAdd.addEventListener('click', ()=>{
+              periodicalForm.setAttribute("style", "display: initial;");
+              verifyCategoryTable.setAttribute("style", "display: none;");
+            });
+            periodicalSubmitButton.addEventListener('click', ()=>{
+              submissionObj.name = periodicalNameValue.value;
+              submissionObj.issue = issueValue.value;
+              submissionObj.editor = editorValue.value;
+              submissionObj.editor_url = editorURLValue.value;
+              submissionObj.edition = periodicalEditionValue.value;
+              submissionObj.publication_date = periodicalPublicationDateValue.value;
+              submissionObj.pages = parseInt(periodicalPagesValue.value);
+              submissionObj.img_url = imgURLValue.value;
+              submissionObj.description = periodicalDescriptionValue.value;
+              if ((isNaN(submissionObj.pages) && (submissionObj.pages !== null))) {
+                alert('invalid pages value!');
+                console.log(submissionObj);
+              } else {
+                periodicalForm.setAttribute("style", "display: none;");
+                vm.periodicalCandidate = {};
+                vm.periodicalCandidate.name = submissionObj.name;
+                vm.periodicalCandidate.issue = submissionObj.issue;
+                vm.periodicalCandidate.editor = submissionObj.editor;
+                vm.periodicalCandidate.editor_url = submissionObj.editor_url;
+                vm.periodicalCandidate.edition = submissionObj.edition;
+                vm.periodicalCandidate.publication_date = submissionObj.publication_date;
+                vm.periodicalCandidate.pages = submissionObj.pages;
+                vm.periodicalCandidate.img_url = submissionObj.img_url;
+                vm.periodicalCandidate.description = submissionObj.description;
+                verifyPeriodicalDetails.setAttribute("style", "display: initial;");
+                noToPeriodicalAdd.addEventListener('click', ()=>{
+                  verifyPeriodicalDetails.setAttribute("style", "display: none;");
+                  periodicalForm.setAttribute("style", "display: initial;");
+                });
+                yesToPeriodicalAdd.addEventListener('click', ()=>{
+                  $http.post('/periodicals', submissionObj)
+                  .then(periodicalEntryData=>{
+                    var periodicalEntry = periodicalEntryData.data;
+                    console.log(periodicalEntry);
+                    var reviewObj = {};
+                    reviewObj.user_id = 1;
+                    reviewObj.periodical_or_book = 'periodical';
+                    reviewObj.periodicals_id = periodicalEntry[0].id;
+                    $http.post('/user_book_reviews', reviewObj)
+                    .then(reviewEntryData=>{
+                      var reviewEntry = reviewEntryData.data;
+                      var sublistObj = {};
+                      sublistObj.user_id = 1;
+                      sublistObj.periodical_or_book = 'periodical';
+                      sublistObj.periodicals_id = periodicalEntry[0].id;
+                      sublistObj.is_completed = false;
+                      $http.post(`/${databaseString}`, sublistObj)
+                      .then(sublistEntryData=>{
+                        var sublistEntry = sublistEntryData.data;
+                        updateReadingListPeriodical(reviewEntry[0].id, databaseString);
+                      });
+                    });
+                  });
+                });
+              }
+            });
+
+          });
+        }
+      }
+
       function bookCategorySelected(categoryString, databaseString) {
         var categoryButtonBooks = document.getElementById('bookCategoryButton');
         var primaryCategoryList = document.getElementById('categoryList1');
         var sublistCategoryBooks = document.getElementById('catagoryPrizes1');
+
         var verifyCategoryTable = document.getElementById('verifyCategory');
         var tableOutput = document.getElementById('tableOutput');
         var bookListName = document.getElementById('bookListName');
@@ -3069,13 +3692,17 @@
         console.log("Admin is lit.");
         populateReadingList();
         var reviewSubmissionForm = document.getElementById('reviewNewlyCompletedBook');
+        var periodicalSubmissionForm = document.getElementById('periodicalAddForm');
         var nameOfSeriesLabel = document.getElementById('nameOfSeries');
         var nameOfSeriesValue = document.getElementById('nameOfSeriesValue');
         var numberInSeriesLabel = document.getElementById('numberInSeries');
+        var verifyPeriodicalDetails = document.getElementById('verifyPeriodicalDetails');
         var numberInSeriesValue = document.getElementById('numberInSeriesValue');
         var verifyBookSubmit = document.getElementById('verifyBookDetails');
         var newBookForm = document.getElementById('bookForm');
+        var newPeriodicalForm = document.getElementById('periodicalForm');
         var verifyTable = document.getElementById('verifyCategory');
+        var verifyTable2 = document.getElementById('verifyCategoryPeriodical');
         var divOfReadingList = document.getElementById('viewReadingList');
         var bookOrPeriodicalQueryBox = document.getElementById('bookOrPeriodicalQuery');
         var bookAdditionForm = document.getElementById('bookAddForm');
@@ -3100,21 +3727,31 @@
         var addBookButton = document.getElementById('addBookList');
         var editReviewDiv = document.getElementById('editExistingReview');
         var bookAdditionButton = document.getElementById('bookAddButton');
+        var periodicalAdditionButton = document.getElementById('periodicalAddButton');
         var bookCatButton = document.getElementById('bookCategoryButton');
+        var periodicalCatButton = document.getElementById('periodicalCategoryButton');
         var categoryDropdownPrizeBook = document.getElementById('catagoryPrizes1');
+        var categoryDropdownPrizePeriodical = document.getElementById('catagoryPrizes2');
         var categoryDropdownListBooks = document.getElementById('categoryList1');
+        var categoryDropdownListPeriodicals = document.getElementById('categoryList2');
 
         numberInSeriesLabel.setAttribute("style", "display: none;");
         numberInSeriesValue.setAttribute("style", "display: none:");
         nameOfSeriesLabel.setAttribute("style", "display: none;");
         nameOfSeriesValue.setAttribute("style", "display: none;");
         verifyBookSubmit.setAttribute("style", "display: none;");
+        periodicalSubmissionForm.setAttribute("style", "display: none;");
 
         divOfReadingList.setAttribute("style", "display: none;");
         newBookForm.setAttribute("style", "display: none;");
+        newPeriodicalForm.setAttribute("style", "display: none;");
+        verifyPeriodicalDetails.setAttribute("style", "display: none;");
         verifyTable.setAttribute("style", "display: none;");
+        verifyTable2.setAttribute("style", "display: none;");
         categoryDropdownListBooks.setAttribute("style", "display: none;");
+        categoryDropdownListPeriodicals.setAttribute("style", "display: none;");
         categoryDropdownPrizeBook.setAttribute("style", "display: none;");
+        categoryDropdownPrizePeriodical.setAttribute("style", "display: none;");
         bookOrPeriodicalQueryBox.setAttribute("style", "display: none;");
         messageContent.setAttribute("style", "display: none;");
         readingListContent.setAttribute("style", "display: none;");
@@ -3133,12 +3770,23 @@
         var readListButton = document.getElementById('toggleReadingList');
         var readingNow = document.getElementById('currentReadButton');
         if (getCookie("qwerty") === "whip it good") {
+          periodicalCatButton.addEventListener('click', ()=>{
+            if (categoryDropdownListPeriodicals.style.display === 'none') {
+              categoryDropdownListPeriodicals.setAttribute("style", "display: initial;");
+            } else {
+              categoryDropdownListPeriodicals.setAttribute("style", "display: none;");
+            }
+          });
           bookCatButton.addEventListener('click', ()=>{
             if (categoryDropdownListBooks.style.display === 'none') {
               categoryDropdownListBooks.setAttribute("style", "display: initial;");
             } else {
               categoryDropdownListBooks.setAttribute("style", "display: none;");
             }
+          });
+          periodicalAdditionButton.addEventListener('click', ()=>{
+            periodicalSubmissionForm.setAttribute("style", "display: initial;");
+            bookOrPeriodicalQueryBox.setAttribute("style", "display: none;");
           });
           bookAdditionButton.addEventListener('click', ()=>{
             bookAdditionForm.setAttribute("style", "display: initial;");
