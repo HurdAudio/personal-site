@@ -180,7 +180,9 @@ router.post('/', (req, res, next) => {
     vintage_pulp_3: req.body.vintage_pulp_3,
     contemporary_pulp_4: req.body.contemporary_pulp_4,
     vintage_pulp_4: req.body.vintage_pulp_4,
-    prize_10: req.body.prize_10
+    prize_10: req.body.prize_10,
+    completed_readings: req.body.completed_readings,
+    updated_at: req.body.updated_at
   }, '*')
   .then((result) => {
     res.status(200).send(result);
@@ -336,7 +338,9 @@ router.patch('/:id', (req, res, next) => {
     vintage_pulp_3: req.body.vintage_pulp_3,
     contemporary_pulp_4: req.body.contemporary_pulp_4,
     vintage_pulp_4: req.body.vintage_pulp_4,
-    prize_10: req.body.prize_10
+    prize_10: req.body.prize_10,
+    completed_readings: req.body.completed_readings,
+    updated_at: req.body.updated_at
   }, '*')
     .then((results)=>{
        res.status(200).send(results[0]);
@@ -512,6 +516,7 @@ router.delete('/:id', (req, res, next) => {
             contemporary_pulp_4: record.contemporary_pulp_4,
             vintage_pulp_4: record.vintage_pulp_4,
             prize_10: record.prize_10,
+            completed_readings: record.completed_readings,
             created_at: record.created_at,
             updated_at: record.updated_at
           };

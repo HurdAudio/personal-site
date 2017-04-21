@@ -49,11 +49,21 @@ exports.seed = function(knex, Promise) {
           id: 5,
           author: 1,
           title: "Now Vibrating Harmonic Theory",
-          body: "Now Vibrating Harmonic TheoryRecently completed feature: The \"Introduction\" section of the Harmonic Theory (found in the HurdAudio section of this site) now has content. This content includes audio examples rendered via Web Audio API and examples in rendered musical notation via Vexflow. This is the first time I've managed to explain the underpinnings of my harmonic theory with such interactive examples. This section will be a joy to build out.\n\nNow working on: I'm adding a simple-text .pdf version of my resume for downloading. Also, full CRUD capability for the Reading List section of HurdReads. This is a huge section and I expect it to present well.\n\nOn deck: enabling comments in this here blog space.\n",
+          body: "Recently completed feature: The \"Introduction\" section of the Harmonic Theory (found in the HurdAudio section of this site) now has content. This content includes audio examples rendered via Web Audio API and examples in rendered musical notation via Vexflow. This is the first time I've managed to explain the underpinnings of my harmonic theory with such interactive examples. This section will be a joy to build out.\n\nNow working on: I'm adding a simple-text .pdf version of my resume for downloading. Also, full CRUD capability for the Reading List section of HurdReads. This is a huge section and I expect it to present well.\n\nOn deck: enabling comments in this here blog space.\n",
           published: true,
           tags: { "0": "admin", "1": "feature rollout" },
           created_at: new Date('2017-04-08T22:13:54.221Z'),
           updated_at: new Date('2017-04-08T22:13:54.221Z')
+        }),
+        knex('user_blogs').insert({
+          id: 6,
+          author: 1,
+          title: "Reading Gets the Full CRUD",
+          body: "Merging in a feature branch at long last. This one took a while. But now I can manage the reading reviews and reading lists from the back end of my own site. \n\nRecently completed feature: HurdAudio reading list now has full CRUD (Create, Read, Update, Delete) functionality. I have an elaborate, rules-based method for selecting my readings and writing that into code was a learning experience. On the front end there are cool, rotating cubes for each book. And a bookshelf display in my own reading sequence. \n\nNow working on: Enabling comments in the blog. I'm going to be a hardcore administrator and only display comments that have been explicitly approved. So no spammers or trolls are getting a forum here.\n\nOn deck: The HurdAudio page needs a little work to make it more small-screen friendly. Look for vertical columns of resizing cassette tapes to improve the experience on phones and tablets.",
+          published: true,
+          tags: { "0": "admin", "1": "feature rollout" },
+          created_at: new Date('2017-04-21T23:22:30.087Z'),
+          updated_at: new Date('2017-04-21T23:22:30.087Z')
         })
       ]);
     })

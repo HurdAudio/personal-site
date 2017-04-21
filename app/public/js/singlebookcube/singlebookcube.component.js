@@ -392,6 +392,8 @@
         var previousBookButton = document.getElementById('previousBook');
         var nextBookButton = document.getElementById('nextBook');
         var backToShelfButton = document.getElementById('backToShelf');
+        var navButtonRibbon = document.getElementById('cubeNavContainer');
+        navButtonRibbon.setAttribute("style", "display: none;");
         $http.get(`/user_book_reviews/${$stateParams.id}`)
         .then(data=>{
           var bookReview = data.data;

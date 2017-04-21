@@ -43,7 +43,7 @@ router.post('/', (req, res, next) => {
     title: req.body.title,
     body: req.body.body,
     published: req.body.published,
-    tags: req.body.tags
+    tags: req.body.tags,
   }, '*')
   .then((result) => {
     res.status(200).send(result);
@@ -62,7 +62,8 @@ router.patch('/:id', (req, res, next) => {
     title: req.body.title,
     body: req.body.body,
     published: req.body.published,
-    tags: req.body.tags
+    tags: req.body.tags,
+    updated_at: req.body.updated_at
   }, '*')
     .then((results)=>{
        res.status(200).send(results[0]);
