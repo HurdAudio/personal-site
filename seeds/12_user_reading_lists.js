@@ -55,7 +55,7 @@ exports.seed = function(knex, Promise) {
           roulette_2: 43,
           literary_journal_5: 109,
           occult_reading_1: 44,
-          genre_journal_5: null,
+          genre_journal_5: 171,
           bizarro_fiction_2: 45,
           prize_3: 46,
           male_author_selection_2: 47,

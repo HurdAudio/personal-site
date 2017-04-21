@@ -186,6 +186,20 @@ exports.seed = function(knex, Promise) {
           description: "The New York Times (sometimes abbreviated NYT and The Times) is an American daily newspaper, founded and continuously published in New York City since September 18, 1851, by The New York Times Company. The New York Times has won 119 Pulitzer Prizes, more than any other newspaper",
           created_at: new Date('2017-04-09 14:55:16 UTC'),
           updated_at: new Date('2017-04-09 14:55:18 UTC')
+        }),
+        knex('periodicals').insert({
+          id: 14,
+          name: 'Asimov\'s Science Fiction',
+          issue: 'May/June 2017 (Asimov\'s Science Fiction #496-497)',
+          editor: 'Sheila Williams',
+          editor_url: 'https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png',
+          edition: 'Kindle Edition',
+          publication_date: '2017-04-20 0:00:01 UTC',
+          pages: 212,
+          img_url: 'https://images.gr-assets.com/books/1492777592l/34923725.jpg',
+          description: "CONTENTS\n\nNovella\n\"The Runabout\" by Kristine Kathryn Rusch\n\nNovelettes\n\"Come as You Are\" by Dale Bailey\n\"Night Fever\" by Will Ludwigsen\n\nShort Stories\n\"On the Ship\" by Leah Cypess\n\"Good Show\" by William Preston\n\"The Escape of the Adastra: Asha's Story\" by James Gunn\n\"Tired of the Same Old Quests?\" by Peter Wood\n\"The Best Man\" by Jay O'Connell\n\"Triceratops\" by Ian McHugh\n\"Persephone of the Crows\" by Karen Joy Fowler\n\nPoetry\n\"Sparking the Matter\" by Tod McCoy\n\"Your Clone Watches Over You\" by Robert Frazier\n\"Pinned\" by Suzanne Palmer\n\"Endeavor\" by G. O. Clark\n\nDepartments\n\"Editorial: Anniversaries and Milestones\" by Sheila Williams\n\"Reflections: Advertisements for Myself\" by Robert Silverberg\n\"On the Net: Harry and Dot\" by James Patrick Kelly\n\"On Books: Wolockification\" by Norman Spinrad\n\"SF Conventional Calendar\" by Erwin S. Strauss\n\nAsimov's Science Fiction, May/June 2017, Vol. 41, Nos. 5-6 (Whole Nos. 496-497)\nSheila Williams, editor\nCover art by ___",
+          created_at: new Date('2017-04-21 14:55:16 UTC'),
+          updated_at: new Date('2017-04-21 14:55:18 UTC')
         })
       ]);
     })
