@@ -27,11 +27,7 @@
 
         </div>
 
-        <!-- <div class="backPosts">
 
-          <p><a href="#">March 2017</a></p>
-
-        </div> -->
 
       </div>
       <div class="pure-u-3-4">
@@ -46,25 +42,35 @@
 
         </div>
 
-        <!-- <div class="inpostNavigation">
-          <p><em><a href="#">previous post</a></em><img src="./img/Post-Mail-512.png" width="4%"><em><a href="#">next post</a></em></p>
-        </div> -->
+        <div class="blogComments">
+          <h4> Comments: {{$ctrl.numberOfComments.total}} </h4>
+          <button class="commentButton" id="postACommentButton" ng-click="$ctrl.postAComment()">post a comment</button>
 
-        <button class="commentButton">post a comment</button>
+          <div id="commentForm">
+            <form class="pure-form pure-form-stacked" name="commentForm">
+              <fieldset>
+                <p id="allCommentsDisclaimer">All comments subject to approval. Spammers, trolls and commercial postings will not appear in this space.</p>
+                <p><label for="firstName" id="authorFirstName"><textarea class="reviewTitle" type="text" name="firstName" placeholder="First Name" id="authorFirstNameValue" ></textarea></label></p>
+                <p><label for="lastName" id="authorLastName"><textarea class="reviewTitle" type="text" name="lastName" placeholder="Last Name" id="authorLastNameValue" ></textarea></label></p>
+                <p><label for="email" id="authorEmail"><textarea class="reviewTitle" type="text" name="email" placeholder="email" id="authorEmailValue" ></textarea></label></p>
+                <p><label for="commentTitle" id="commentTitle"><textarea class="reviewTitle" type="text" name="commentTitle" placeholder="Comment Title" id="commentTitleValue" ></textarea></label></p>
+                <p><label for="commentBody" id="commentBody"><textarea class="reviewTitle" type="text" name="commentBody" placeholder="Comment" id="commentBodyValue" ></textarea></label></p>
 
-        <!-- <div class="comments">
-          <p>2 comments</p>
-        </div> -->
+                <button class="commentButton" id="commentSubmit">SUBMIT</button>
+              </fieldset>
+            </form>
+          </div>
 
-        <!-- <div class="comment">
-          <h5><a href="#">Bradley Efting</a>, 14:32 - 14 March 2017</h5>
-          <p>I couldn't have said it better myself. Though I might have been less blunt about the auando eos.</p>
-        </div> -->
+          <main id="singleBlogComments" ng-repeat="blogComments in $ctrl.postComments">
+            <p>posted by: <a href="#">{{blogComments.author_first_name}} {{blogComments.author_last_name}}</a> at <strong>{{blogComments.clean_date}}</strong></p>
+            <h2><strong>{{blogComments.comment_title}}</strong></h2>
+            <p ng-bind-html="blogComments.bodyClean"></p>
+          </main>
 
-        <!-- <div class="comment">
-          <h5><a href="#">Matt Pestridge</a>, 14:48 - 14 March 2017</h5>
-          <p>You guys are nuts. The laboramus is the final word on dry rubs.</p>
-        </div> -->
+        </div>
+
+
+
 
       </div>
 

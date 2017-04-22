@@ -143,6 +143,97 @@
   height: 2.4em;
 }
 
+#authorFirstName {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 55%;
+  height: 2.4em;
+  margin-left:3.5em;
+}
+
+#authorFirstNameValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+#authorLastName {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 55%;
+  height: 2.4em;
+  margin-left:3.5em;
+}
+
+#authorLastNameValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+#authorEmail {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 55%;
+  height: 2.4em;
+  margin-left:3.5em;
+}
+
+#authorEmailValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+#commentTitle {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 55%;
+  height: 2.4em;
+  margin-left:3.5em;
+}
+
+#commentTitleValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+#commentBody {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 55%;
+  height: 19.4em;
+  margin-left:3.5em;
+}
+
+#commentBodyValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 100%;
+  height: 19.4em;
+}
+
+#commentSubmit {
+  width: 60%;
+  margin-left: 2.5em;
+  font-size: 24px;
+}
+
 #authorName {
   font-family: 'Lato', sans-serif;
   font-size: 24px;

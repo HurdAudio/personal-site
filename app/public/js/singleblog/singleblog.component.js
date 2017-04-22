@@ -15,6 +15,46 @@
       const vm = this;
 
       vm.$onInit = onInit;
+      vm.postAComment = postAComment;
+
+      function postAComment() {
+        var commentForm = document.getElementById('commentForm');
+        var commentSubmit = document.getElementById('commentSubmit');
+        var postACommentButton = document.getElementById('postACommentButton');
+        var commentBodyValue = document.getElementById('commentBodyValue');
+        var authorFirstNameValue = document.getElementById('authorFirstNameValue');
+        var authorLastNameValue = document.getElementById('authorLastNameValue');
+        var authorEmailValue = document.getElementById('authorEmailValue');
+        var commentTitleValue = document.getElementById('commentTitleValue');
+        var commentSubmissionObj = {};
+
+        commentForm.setAttribute("style", "display: initial;");
+        commentSubmit.setAttribute("style", "display: none;");
+        postACommentButton.setAttribute("style", "display: none;");
+        document.addEventListener('keyup', ()=>{
+          if (commentBodyValue.value !== '') {
+            commentSubmit.setAttribute("style", "display: initial;");
+          } else {
+            commentSubmit.setAttribute("style", "display: none;");
+          }
+        });
+        commentSubmit.addEventListener('click', ()=>{
+          commentForm.setAttribute("style", "display: none;");
+          commentSubmit.setAttribute("style", "display: none;");
+          postACommentButton.setAttribute("style", "display: initial;");
+          commentSubmissionObj.author_first_name = authorFirstNameValue.value;
+          commentSubmissionObj.author_last_name = authorLastNameValue.value;
+          commentSubmissionObj.author_email = authorEmailValue.value;
+          commentSubmissionObj.blog_post = parseInt($stateParams.id);
+          commentSubmissionObj.authorization_status = "unauthorized";
+          commentSubmissionObj.comment_title = commentTitleValue.value;
+          commentSubmissionObj.comment_body = commentBodyValue.value;
+          $http.post('/blog_comments', commentSubmissionObj)
+          .then(data=>{
+            console.log(data.data);
+          });
+        });
+      }
 
       function cleanUpDates(message) {
         var time = "";
@@ -107,12 +147,50 @@
 
       function onInit() {
         console.log("SingleBlog is lit.");
+        var commentForm = document.getElementById('commentForm');
+
+        commentForm.setAttribute("style", "display: none;");
         $http.get(`/user_blogs/${$stateParams.id}`)
         .then(blogEntry => {
           vm.blog = blogEntry.data;
           vm.blog = cleanUpDates(vm.blog);
           vm.blog = generateTagsArray(vm.blog);
           vm.blog = generateHTMLTags(vm.blog);
+        });
+        $http.get('/blog_comments')
+        .then(blogCommentsData=>{
+          var blogComments = blogCommentsData.data;
+          var postComments = [];
+          var authorizedPostComments = [];
+
+          for (let i = 0; i < blogComments.length; i++) {
+            if (blogComments[i].blog_post === parseInt($stateParams.id)) {
+              postComments.push(blogComments[i]);
+              if (blogComments[i].authorization_status === 'authorized') {
+                authorizedPostComments.push(blogComments[i]);
+              }
+            }
+          }
+          console.log(postComments);
+          console.log(authorizedPostComments);
+          vm.numberOfComments = {};
+          vm.numberOfComments.total = authorizedPostComments.length;
+          vm.postComments = [];
+          if (authorizedPostComments.length > 0) {
+            for (let j = 0; j < authorizedPostComments.length; j++) {
+              vm.postComments[j] = {};
+              vm.postComments[j].author_first_name = authorizedPostComments[j].author_first_name;
+              vm.postComments[j].author_last_name = authorizedPostComments[j].author_last_name;
+              vm.postComments[j].created_at = authorizedPostComments[j].created_at;
+              vm.postComments[j].updated_at = authorizedPostComments[j].updated_at;
+              vm.postComments[j].body = authorizedPostComments[j].comment_body;
+              vm.postComments[j].comment_title = authorizedPostComments[j].comment_title;
+              console.log(vm.postComments[j]);
+              console.log(authorizedPostComments[j]);
+              vm.postComments[j] = cleanUpDates(vm.postComments[j]);
+
+            }
+          }
         });
 
 
