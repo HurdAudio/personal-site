@@ -26,6 +26,7 @@
         var authorLastNameValue = document.getElementById('authorLastNameValue');
         var authorEmailValue = document.getElementById('authorEmailValue');
         var commentTitleValue = document.getElementById('commentTitleValue');
+        var commentCancel = document.getElementById('commentCancel');
         var commentSubmissionObj = {};
 
         commentForm.setAttribute("style", "display: initial;");
@@ -37,6 +38,11 @@
           } else {
             commentSubmit.setAttribute("style", "display: none;");
           }
+        });
+        commentCancel.addEventListener('click', ()=>{
+          commentForm.setAttribute("style", "display: none;");
+          commentSubmit.setAttribute("style", "display: none;");
+          postACommentButton.setAttribute("style", "display: initial;");
         });
         commentSubmit.addEventListener('click', ()=>{
           commentForm.setAttribute("style", "display: none;");

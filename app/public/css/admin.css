@@ -30,6 +30,11 @@
   background-image: url(../img/paper-1468882_640.jpg);
 }
 
+#blogCommentsEdit {
+  background-image: url(../img/metal-315609_640.jpg);
+  background-size: 1000%;
+}
+
 
 
 #communicationsAdmin {
@@ -229,6 +234,12 @@
 }
 
 #commentSubmit {
+  width: 60%;
+  margin-left: 2.5em;
+  font-size: 24px;
+}
+
+#commentCancel {
   width: 60%;
   margin-left: 2.5em;
   font-size: 24px;

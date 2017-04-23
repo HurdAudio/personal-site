@@ -16,6 +16,11 @@
         <h4><button class="adminiButton" id="readingListButton">READING LIST</button></h4>
       </div>
     </div>
+    <div class="pure-u-1-3">
+      <div id="toggleBlogCommentsEditor">
+        <h4><button class="adminiButton" id="blogCommentsEdit">REVIEW BLOG COMMENTS</button></h4>
+      </div>
+    </div>
 
   </div>
 
@@ -580,6 +585,37 @@
           </div>
         </div>
     </div>
+  </div>
+
+  <div id="blogCommentsCenter">
+    <button id="toggleBlogComm" class="miniButtons">TOGGLE OUT</button>
+    <container id="displayAndEditBlogComments">
+      <div class="pure-g">
+        <main id="blogCommentContainer" ng-repeat="comments in $ctrl.blogComments | orderBy : $ctrl.sortBy">
+
+          <div id="blogCommentsAdmin" class="pure-u-1-2">
+            <button class="miniButtons" type="button" name="button" ng-click="$ctrl.authorizationToggle(comments.id)">AUTHORIZE</button>
+            <button class="miniButtons" type="button" name="button" ng-click="$ctrl.deleteComment(comments.id)">DELETE</button>
+
+          </div>
+          <div id="commentsStream" class="pure-u-1-2">
+            <p>DATE</p>
+            <p>{{comments.clean_date}}</p><br>
+            <p>NAME</p>
+            <p>{{comments.author_first_name}} {{comments.author_last_name}}</p><br>
+            <p>EMAIL</p>
+            <p><a href="mailto:{{comments.author_email}}">{{comments.author_email}}</a></p><br>
+            <p>MESSAGE</p>
+            <h2>{{comments.comment_title}}</h2>
+            <p>{{comments.comment_body}}</p><br>
+            <p>AUTHORIZATION</p>
+            <p>{{comments.authorization_status}}</p><br><br><br>
+
+          </div>
+
+        </main>
+      </div>
+    </container>
   </div>
 
 
