@@ -64,6 +64,16 @@ exports.seed = function(knex, Promise) {
           tags: { "0": "admin", "1": "feature rollout" },
           created_at: new Date('2017-04-21T23:22:30.087Z'),
           updated_at: new Date('2017-04-21T23:22:30.087Z')
+        }),
+        knex('user_blogs').insert({
+          id: 7,
+          author: 1,
+          title: "The Blog Comments are Now Open",
+          body: "Recently completed feature: Comments. Right here. In this space. You won't see them right away if you have something to say. And you won't see them at all if they're off-topic or you're trying to sell me generic-brand sexual enhancement vitamins. But the forms are all there and I can exercise my yeah/nay hammer over on the admin side. (No vitamins required).\n\nNow working on: HurdAudio responsiveness for small screens. Right now the cassettes are pretty ugly and overlapping on phones and tablets. That is going to change.\n\nOn deck: Mock-up for the HurdAudio Rotation page. Layout and design for a space to discuss my listening habits.",
+          published: true,
+          tags: { "0": "admin", "1": "feature rollout" },
+          created_at: new Date('2017-04-23T22:12:47.656Z'),
+          updated_at: new Date('2017-04-23T22:12:47.656Z')
         })
       ]);
     })
