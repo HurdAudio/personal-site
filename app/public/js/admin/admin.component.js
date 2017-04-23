@@ -42,12 +42,15 @@
       vm.respondFeedback = respondFeedback;
       vm.deleteFeedback = deleteFeedback;
       vm.serveUpFeedback = serveUpFeedback;
+      vm.serveUpComments = serveUpComments;
       vm.sortBy = '-created_at';
       vm.blogSortBy = '-created_at';
       vm.editPosting = editPosting;
       vm.editReview = editReview;
       vm.bookCategorySelected = bookCategorySelected;
       vm.periodicalCategorySelected = periodicalCategorySelected;
+      vm.authorizationToggle = authorizationToggle;
+      vm.deleteComment = deleteComment;
 
       function setCategoryListListList (listObj, index) {
         if (listObj.periodical_or_book === 'book') {
@@ -1544,6 +1547,44 @@
               console.log(data.data.visitor_message + " is go!");
               serveUpFeedback();
             });
+          });
+        }
+      }
+
+      function deleteComment(id) {
+        $http.delete(`/blog_comments/${id}`)
+        .then(data=>{
+          var deleted = data.data;
+          console.log(deleted);
+          serveUpComments();
+        });
+      }
+
+      function authorizationToggle(id) {
+        var authSubmit = {};
+        $http.get(`/blog_comments/${id}`)
+        .then(commentData=>{
+          var comment = commentData.data;
+          if (comment.authorization_status === 'unauthorized') {
+            authSubmit.authorization_status = 'authorized';
+          } else {
+            authSubmit.authorization_status = 'unauthorized';
+          }
+          $http.patch(`/blog_comments/${id}`, authSubmit)
+          .then(data=>{
+            var submitted = data.data;
+            console.log(submitted);
+            serveUpComments();
+          });
+        });
+
+      }
+
+      function serveUpComments () {
+        if (getCookie("qwerty") === "whip it good") {
+          $http.get('/blog_comments')
+          .then(resultsData=>{
+            vm.blogComments = cleanUpDates(resultsData.data);
           });
         }
       }
@@ -3691,11 +3732,15 @@
       function onInit() {
         console.log("Admin is lit.");
         populateReadingList();
+        var toggleBlogCommentsEditor = document.getElementById('toggleBlogCommentsEditor');
+        var blogCommentsEdit = document.getElementById('blogCommentsEdit');
+        var blogCommentsCenter = document.getElementById('blogCommentsCenter');
         var reviewSubmissionForm = document.getElementById('reviewNewlyCompletedBook');
         var periodicalSubmissionForm = document.getElementById('periodicalAddForm');
         var nameOfSeriesLabel = document.getElementById('nameOfSeries');
         var nameOfSeriesValue = document.getElementById('nameOfSeriesValue');
         var numberInSeriesLabel = document.getElementById('numberInSeries');
+        var toggleBlogComm = document.getElementById('toggleBlogComm');
         var verifyPeriodicalDetails = document.getElementById('verifyPeriodicalDetails');
         var numberInSeriesValue = document.getElementById('numberInSeriesValue');
         var verifyBookSubmit = document.getElementById('verifyBookDetails');
@@ -3741,6 +3786,7 @@
         nameOfSeriesValue.setAttribute("style", "display: none;");
         verifyBookSubmit.setAttribute("style", "display: none;");
         periodicalSubmissionForm.setAttribute("style", "display: none;");
+        blogCommentsCenter.setAttribute("style", "display: none;");
 
         divOfReadingList.setAttribute("style", "display: none;");
         newBookForm.setAttribute("style", "display: none;");
@@ -3812,6 +3858,7 @@
             addBookButton.setAttribute("style", "display: initial;");
             bookOrPeriodicalQueryBox.setAttribute("style", "display: none;");
             bookAdditionForm.setAttribute("style", "display: none;");
+            toggleBlogCommentsEditor.setAttribute("style", "display: none;");
           });
           readCRUDButton.addEventListener('click', ()=>{
             communictionsButton.setAttribute("style", "display: none;");
@@ -3821,12 +3868,29 @@
             addBookButton.setAttribute("style", "display: initial;");
             bookOrPeriodicalQueryBox.setAttribute("style", "display: none;");
             bookAdditionForm.setAttribute("style", "display: none;");
+            toggleBlogCommentsEditor.setAttribute("style", "display: none;");
+          });
+          blogCommentsEdit.addEventListener('click', ()=>{
+            serveUpComments();
+            communictionsButton.setAttribute("style", "display: none;");
+            bloggingButton.setAttribute("style", "display: none;");
+            readListButton.setAttribute("style", "display: none;");
+            toggleBlogCommentsEditor.setAttribute("style", "display: none;");
+            blogCommentsCenter.setAttribute("style", "display: initial;");
+          });
+          toggleBlogComm.addEventListener('click', ()=>{
+            communictionsButton.setAttribute("style", "display: initial;");
+            bloggingButton.setAttribute("style", "display: initial;");
+            readListButton.setAttribute("style", "display: initial;");
+            toggleBlogCommentsEditor.setAttribute("style", "display: initial;");
+            blogCommentsCenter.setAttribute("style", "display: none;");
           });
           commToggle.addEventListener('click', ()=>{
             messageContent.setAttribute("style", "display: none;");
             communictionsButton.setAttribute("style", "display: initial;");
             bloggingButton.setAttribute("style", "display: initial;");
             readListButton.setAttribute("style", "display: initial;");
+            toggleBlogCommentsEditor.setAttribute("style", "display: initial;");
           });
           readListToggle.addEventListener('click', ()=>{
             console.log("read a book");
@@ -3837,12 +3901,14 @@
             addBookButton.setAttribute("style", "display: initial;");
             bookOrPeriodicalQueryBox.setAttribute("style", "display: none;");
             bookAdditionForm.setAttribute("style", "display: none;");
+            toggleBlogCommentsEditor.setAttribute("style", "display: initial;");
           });
           bloggingButton.addEventListener('click', ()=>{
             blogHQ.setAttribute("style", "display: initial;");
             bloggingButton.setAttribute("style", "display: none;");
             communictionsButton.setAttribute("style", "display: none;");
             readListButton.setAttribute("style", "display: none;");
+            toggleBlogCommentsEditor.setAttribute("style", "display: none;");
             setBloggingState();
           });
           exitReader.addEventListener('click', ()=>{
@@ -3860,6 +3926,7 @@
             communictionsButton.setAttribute("style", "display: initial;");
             readListButton.setAttribute("style", "display: initial;");
             editReviewDiv.setAttribute("style", "display:none;");
+            toggleBlogCommentsEditor.setAttribute("style", "display: initial;");
           });
           newBlogButton.addEventListener('click', ()=>{
             bloggingState = "authorNewPost";

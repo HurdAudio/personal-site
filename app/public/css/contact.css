@@ -415,3 +415,19 @@ input[type=submit] {
   padding-left: 9.3em;
   padding-right: 9.3em;
 }
+
+.blogComments {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+}
+
+#allCommentsDisclaimer {
+  margin-left: 7.1em;
+  font-family: 'Tauri', sans-serif;
+  font-size: 12px;
+}
+
+#singleBlogComments {
+  margin: 2.5em;
+  padding: 0.5em;
+}

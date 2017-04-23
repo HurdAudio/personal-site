@@ -30,6 +30,11 @@
   background-image: url(../img/paper-1468882_640.jpg);
 }
 
+#blogCommentsEdit {
+  background-image: url(../img/metal-315609_640.jpg);
+  background-size: 1000%;
+}
+
 
 
 #communicationsAdmin {
@@ -141,6 +146,181 @@
   color: #000000;
   width: 100%;
   height: 2.4em;
+}
+
+#authorFirstName {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 55%;
+  height: 2.4em;
+  margin-left:3.5em;
+}
+
+#authorFirstNameValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+#authorLastName {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 55%;
+  height: 2.4em;
+  margin-left:3.5em;
+}
+
+#authorLastNameValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+#authorEmail {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 55%;
+  height: 2.4em;
+  margin-left:3.5em;
+}
+
+#authorEmailValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+#commentTitle {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 55%;
+  height: 2.4em;
+  margin-left:3.5em;
+}
+
+.commentTitle {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 60%;
+  height: 2.4em;
+  margin-left:0;
+}
+
+#commentTitleValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+.commentTitleValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 100%;
+  height: 2.4em;
+}
+
+#commentBody {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 55%;
+  height: 19.4em;
+  margin-left:3.5em;
+}
+
+.commentBody {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 60%;
+  height: 19.4em;
+  margin-left: 3.5em;
+}
+
+#streamCommentPost {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 55%;
+  margin:2.5em;
+}
+
+#commentBodyValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 100%;
+  height: 19.4em;
+}
+
+.commentBodyValue {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000000;
+  width: 100%;
+  height: 19.4em;
+}
+
+.commentButtonSubmit {
+  position:relative;
+  margin-top:0;
+  background:#e7e5e4;
+  border:3px solid #131313;
+  padding:20px;
+  font-size:0.9em;
+  color:white;
+
+  font-family: 'Cairo', sans-serif;
+  color: #131313;
+  font-weight:600;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  border-radius: 5px;
+  width: 65%;
+  margin-left: 0;
+  font-size: 24px;
+}
+
+.commentButtonSubmit:hover {
+  bottom:4px;
+   box-shadow:0px 2px 0px 0px #131313;
+  transition: all .01s ease-in-out;
+  -moz-transition: all .01s ease-in-out;
+  -webkit-transition: all .01s ease-in-out;
+}
+
+.commentButtonSubmit:active {
+  top:4px;
+  box-shadow:inset 0px 2px 0px 0px #131313;
+  transition: all .01s ease-in-out;
+  -moz-transition: all .01s ease-in-out;
+  -webkit-transition: all .01s ease-in-out;
+}
+
+#commentSubmit {
+  width: 60%;
+  margin-left: 2.5em;
+  font-size: 24px;
+}
+
+#commentCancel {
+  width: 60%;
+  margin-left: 2.5em;
+  font-size: 24px;
 }
 
 #authorName {

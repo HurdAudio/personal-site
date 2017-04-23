@@ -2063,13 +2063,14 @@ input[value="back"]:checked ~ .cubeContainer .cubeCube {
 
 .cubeCube .bottomReview {
   background-color: #fff;
-  font-family: 'Teko', serif;
+  font-family: 'Lato', serif;
   font-size: 24px;
   color: #000000;
-  overflow:scroll;
+  overflow: scroll;
   opacity: 1.0;
-  text-align: center;
+  text-align: left;
 }
+
 
 .leftTitleAuthor img {
   margin-left: 2em;

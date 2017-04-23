@@ -24,11 +24,6 @@
 
         </div>
 
-        <!-- <div class="backPosts">
-
-          <p><a href="#">March 2017</a></p>
-
-        </div> -->
 
       </div>
       <div class="pure-u-3-4">
@@ -43,25 +38,46 @@
 
         </div>
 
-        <!-- <div class="inpostNavigation">
-          <p><em><a href="#">previous post</a></em><img src="./img/Post-Mail-512.png" width="4%"><em><a href="#">next post</a></em></p>
-        </div> -->
+        <h4>Comments: {{posts.number_of_comments}}</h4>
 
-        <button class="commentButton">post a comment</button>
 
-        <!-- <div class="comments">
-          <p>2 comments</p>
-        </div> -->
 
-        <!-- <div class="comment">
-          <h5><a href="#">Bradley Efting</a>, 14:32 - 14 March 2017</h5>
-          <p>I couldn't have said it better myself. Though I might have been less blunt about the auando eos.</p>
-        </div> -->
+        <button class="commentButton" id="togglePostCommentsView{{posts.id}}" ng-click="$ctrl.toggleCommentsOnOff(posts.id)">VIEW COMMENTS</button>
+        <button class="commentButton" id="postCommentButton{{posts.id}}" ng-click="$ctrl.postNewComment(posts.id)">post a comment</button>
+        <div id="commentstream{{posts.id}}">
 
-        <!-- <div class="comment">
-          <h5><a href="#">Matt Pestridge</a>, 14:48 - 14 March 2017</h5>
-          <p>You guys are nuts. The laboramus is the final word on dry rubs.</p>
-        </div> -->
+          <div id="commentForm{{posts.id}}">
+            <form class="pure-form pure-form-stacked" name="commentForm">
+              <fieldset>
+                <p id="allCommentsDisclaimer">All comments subject to approval. Spammers, trolls and commercial postings will not appear in this space.</p>
+                <p><label class="commentTitle" for="firstName" id="authorFirstName{{posts.id}}"><textarea class="commentTitleValue" type="text" name="firstName" placeholder="First Name" id="authorFirstNameValue{{posts.id}}" ></textarea></label></p>
+                <p><label class="commentTitle" for="lastName" id="authorLastName{{posts.id}}"><textarea class="commentTitleValue" type="text" name="lastName" placeholder="Last Name" id="authorLastNameValue{{posts.id}}" ></textarea></label></p>
+                <p><label class="commentTitle" for="email" id="authorEmail{{posts.id}}"><textarea class="commentTitleValue" type="text" name="email" placeholder="email" id="authorEmailValue{{posts.id}}" ></textarea></label></p>
+                <p><label for="commentTitle" id="commentTitle{{posts.id}}" class="commentTitle"><textarea class="commentTitleValue" type="text" name="commentTitle" placeholder="Comment Title" id="commentTitleValue{{posts.id}}" ></textarea></label></p>
+                <p><label class="commentBody" for="commentBody" id="commentBody{{posts.id}}"><textarea class="commentBodyValue" type="text" name="commentBody" placeholder="Comment" id="commentBodyValue{{posts.id}}" ></textarea></label></p>
+
+                <button class="commentButtonSubmit" id="commentSubmit{{posts.id}}">SUBMIT</button>
+                <button class="commentButtonSubmit" id="commentCancel{{posts.id}}">CANCEL</button>
+              </fieldset>
+            </form>
+          </div>
+
+          <div ng-repeat="commentStream in posts.comments | orderBy : $ctrl.sortedBy">
+
+
+
+            <div id="streamCommentPost">
+
+              <p>posted by: <a href="#">{{commentStream.author_first_name}} {{commentStream.author_last_name}}</a> at <strong>{{commentStream.clean_date}}</strong></p>
+              <h2><strong>{{commentStream.comment_title}}</strong></h2>
+              <p ng-bind-html="commentStream.bodyClean"></p>
+
+            </div>
+
+          </div>
+        </div>
+
+
 
       </div>
 
