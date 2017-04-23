@@ -16,7 +16,10 @@
 
       vm.$onInit = onInit;
       vm.sortBy = '-created_at';
+      vm.sortedBy = 'created_at';
       vm.getSinglePost = getSinglePost;
+      vm.toggleCommentsOnOff = toggleCommentsOnOff;
+      vm.postNewComment = postNewComment;
 
       function getSinglePost(whichPost){
         $http.get(`/singleblog/${whichPost}`).then(()=>{
@@ -201,8 +204,87 @@
           vm.blogStream = abbrevDates(vm.blogStream);
           vm.blogStream = generateTagsArray(vm.blogStream);
           vm.blogStream = generateHTMLTags(vm.blogStream);
+          $http.get('/blog_comments')
+          .then(allCommentsData=>{
+            var allComments = cleanUpDates(allCommentsData.data);
+            for (let i = 0; i < vm.blogStream.length; i++) {
+              vm.blogStream[i].comments = [];
+              for (let j = 0; j < allComments.length; j++) {
+                if (allComments[j].blog_post === vm.blogStream[i].id) {
+                  if (allComments[j].authorization_status === 'authorized') {
+                    allComments[j].bodyClean = allComments[j].comment_body.replace(/\r\n|\n|\r/gm, '<br>');
+                    vm.blogStream[i].comments.push(allComments[j]);
+                  }
+                }
+              }
+              vm.blogStream[i].number_of_comments = vm.blogStream[i].comments.length;
+              if (vm.blogStream[i].comments.length <= 0) {
+                document.getElementById('togglePostCommentsView' + vm.blogStream[i].id).setAttribute("style", "display: none;");
+              } else {
+                document.getElementById('commentstream' + vm.blogStream[i].id).setAttribute("style", "display: none;");
+              }
+              document.getElementById('commentForm' + vm.blogStream[i].id).setAttribute("style", "display: none;");
+            }
+          });
+
 
         });
+      }
+
+      function postNewComment (id) {
+        var commentSubmissionObj = {};
+        var postCommentButton = document.getElementById('postCommentButton' + id);
+        var commentForm = document.getElementById('commentForm' + id);
+        var commentCancel = document.getElementById('commentCancel' + id);
+        var commentSubmit = document.getElementById('commentSubmit' + id);
+        var commentBodyValue = document.getElementById('commentBodyValue' + id);
+        var authorFirstNameValue = document.getElementById('authorFirstNameValue' + id);
+        var authorLastNameValue = document.getElementById('authorLastNameValue' + id);
+        var authorEmailValue = document.getElementById('authorEmailValue' + id);
+        var commentTitleValue = document.getElementById('commentTitleValue' +id);
+
+        postCommentButton.setAttribute("style", "display: none;");
+        commentForm.setAttribute("style", "display: initial;");
+        commentSubmit.setAttribute("style", "display: none;");
+
+        document.addEventListener('keyup', ()=>{
+          if (commentBodyValue.value === '') {
+            commentSubmit.setAttribute("style", "display: none;");
+          } else {
+            commentSubmit.setAttribute("style", "display: initial;");
+          }
+        });
+        commentSubmit.addEventListener('click', ()=>{
+          postCommentButton.setAttribute("style", "display: initial;");
+          commentForm.setAttribute("style", "display: none;");
+          commentSubmissionObj.author_first_name = authorFirstNameValue.value;
+          commentSubmissionObj.author_last_name = authorLastNameValue.value;
+          commentSubmissionObj.author_email = authorEmailValue.value;
+          commentSubmissionObj.blog_post = id;
+          commentSubmissionObj.authorization_status = 'unauthorized';
+          commentSubmissionObj.comment_title = commentTitleValue.value;
+          commentSubmissionObj.comment_body = commentBodyValue.value;
+          $http.post('/blog_comments', commentSubmissionObj)
+          .then(data=>{
+            console.log(data.data);
+          });
+        });
+        commentCancel.addEventListener('click', ()=>{
+          postCommentButton.setAttribute("style", "display: initial;");
+          commentForm.setAttribute("style", "display: none;");
+        });
+      }
+
+      function toggleCommentsOnOff (id) {
+        var commentStream = document.getElementById('commentstream' + id);
+        var toggleButton = document.getElementById('togglePostCommentsView' + id);
+        if (commentStream.style.display === 'none') {
+          commentStream.setAttribute("style", "display: initial;");
+          toggleButton.innerHTML = 'HIDE COMMENTS';
+        } else {
+          commentStream.setAttribute("style", "display: none;");
+          toggleButton.innerHTML = 'VIEW COMMENTS';
+        }
       }
 
       function onInit() {
