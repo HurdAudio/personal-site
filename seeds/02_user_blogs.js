@@ -84,6 +84,16 @@ exports.seed = function(knex, Promise) {
           tags: { "0": "admin", "1": "feature rollout" },
           created_at: new Date('2017-04-24T01:53:29.401Z'),
           updated_at: new Date('2017-04-24T01:53:29.401Z')
+        }),
+        knex('user_blogs').insert({
+          id: 9,
+          author: 1,
+          title: "Rebirth of the HurdAudio Rotation",
+          body: "There used to be this blog where I chronicled my listening habits diligently. And then I started moving all over the place and getting too busy to document the travails of my ears. I was also increasingly dissatisfied with the limited range of design choices for having a blog on one of the big blog servers.\n\nRecently completed feature: HurdAudio Rotation page now links to a mock-up. I think it's a particularly attractive design. The Bandcamp iframe functions and features some fine musical selections. A HurdAudio Rotation that includes a full stream of the music being reviewed has been a long time coming. A few more passes on this section will solidify things.\n\nNow working on: Back-end work on the Technical Reading List. Getting everything in order for when I apply the full CRUD to this feature set.\n\nOn deck: Chapter 1 of the Harmonic Theory section. This will be a rebirth of the \"Scale of the Day\" I used to post elsewhere.",
+          published: true,
+          tags: { "0": "admin", "1": "feature rollout" },
+          created_at: new Date('2017-04-24T15:30:24.099Z'),
+          updated_at: new Date('2017-04-24T15:30:24.099Z')
         })
       ]);
     })
