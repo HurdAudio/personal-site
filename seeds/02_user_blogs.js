@@ -74,6 +74,16 @@ exports.seed = function(knex, Promise) {
           tags: { "0": "admin", "1": "feature rollout" },
           created_at: new Date('2017-04-23T22:12:47.656Z'),
           updated_at: new Date('2017-04-23T22:12:47.656Z')
+        }),
+        knex('user_blogs').insert({
+          id: 8,
+          author: 1,
+          title: "Analog Tapes on Digital Screens",
+          body: "Recently completed feature: HurdAudio subpage is now responsive. No more overlapping tapes on smaller screens. Various cosmetic improvements have also been implemented. Those of you who have waged battle with CSS understand that some of the hardest things to do with styling are often the easiest to describe. Things like: \"put that thing in the center of the screen\" or \"just move that square over to the right side of the screen.\" \n\nNow working on: HurdAudio Rotation mock-up. Time to get creative and work up a layout for a listening diary.\n\nOn deck: Back-end support for the Technical Reading List. The database of books needs a couple of tweaks to make this portion of the page functional.",
+          published: true,
+          tags: { "0": "admin", "1": "feature rollout" },
+          created_at: new Date('2017-04-24T01:53:29.401Z'),
+          updated_at: new Date('2017-04-24T01:53:29.401Z')
         })
       ]);
     })
