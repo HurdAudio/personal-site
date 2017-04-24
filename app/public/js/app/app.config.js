@@ -105,6 +105,12 @@
         url: '/singlebookcube/:id',
         parent: 'app',
         component: 'singlebookcube'
+      })
+      .state({
+        name: 'hurdaudiorotation',
+        url: '/hurdaudiorotation',
+        parent: 'app',
+        component: 'hurdaudiorotation'
       });
 
 
