@@ -7,7 +7,6 @@ exports.up = function(knex, Promise) {
     table.integer('books_id').defaultTo(null).references('id').inTable('books').onDelete('CASCADE').index();
     table.integer('periodical_id').defaultTo(null).references('id').inTable('periodicals').onDelete('CASCADE').index();
     table.integer('user_book_reviews_id').defaultTo(null).references('id').inTable('user_book_reviews').onDelete('CASCADE').index();
-    table.json('completed_readings').defaultTo(null);
     table.boolean('is_completed').notNullable().defaultTo(false);
     table.timestamps(true, true);
   });

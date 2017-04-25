@@ -13,7 +13,6 @@ exports.seed = function(knex, Promise) {
           periodical_id: null,
           user_book_reviews_id: 77,
           is_completed: false,
-          completed_readings: {},
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -25,7 +24,6 @@ exports.seed = function(knex, Promise) {
           periodical_id: null,
           user_book_reviews_id: 172,
           is_completed: false,
-          completed_readings: {},
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -49,7 +47,6 @@ exports.seed = function(knex, Promise) {
           periodical_id: null,
           user_book_reviews_id: 174,
           is_completed: false,
-          completed_readings: {},
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -61,7 +58,6 @@ exports.seed = function(knex, Promise) {
           periodical_id: null,
           user_book_reviews_id: 175,
           is_completed: false,
-          completed_readings: {},
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -73,7 +69,6 @@ exports.seed = function(knex, Promise) {
           periodical_id: null,
           user_book_reviews_id: 176,
           is_completed: false,
-          completed_readings: {},
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -85,7 +80,6 @@ exports.seed = function(knex, Promise) {
           periodical_id: null,
           user_book_reviews_id: 177,
           is_completed: false,
-          completed_readings: {},
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -97,7 +91,6 @@ exports.seed = function(knex, Promise) {
           periodical_id: null,
           user_book_reviews_id: 178,
           is_completed: false,
-          completed_readings: {},
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -109,7 +102,6 @@ exports.seed = function(knex, Promise) {
           periodical_id: null,
           user_book_reviews_id: 179,
           is_completed: false,
-          completed_readings: {},
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -121,7 +113,6 @@ exports.seed = function(knex, Promise) {
           periodical_id: null,
           user_book_reviews_id: 180,
           is_completed: false,
-          completed_readings: {},
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
