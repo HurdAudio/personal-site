@@ -25,7 +25,7 @@ exports.seed = function(knex, Promise) {
           id: 3,
           user_id: 1,
           periodical_id: 13,
-          is_completed: false,
+          is_completed: true,
           created_at: new Date('2017-04-05 14:55:16 UTC'),
           updated_at: new Date('2017-04-05 14:55:18 UTC')
         })

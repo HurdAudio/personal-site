@@ -300,11 +300,11 @@ input[type='range']::-webkit-slider-thumb::before {
   font-size: 56px;
   text-transform: none;
 	margin-top: 1.2em;
-	margin-left: 0.5em;
+	margin-left: 1.1em;
 	background: url(../img/boy-63777.jpg) fixed no-repeat;
 
 
-	width: 18.5em;
+	width: 16.8em;
 	height: auto;
 	padding-top: 2em;
 	color: #E42149;
@@ -321,7 +321,10 @@ input[type='range']::-webkit-slider-thumb::before {
 	letter-spacing: 1px;
 }
 
-
+.rotationBody {
+	margin-left: 1.2em;
+	margin-right: 2em;
+}
 
 .rotationBody p {
 	font-family: 'Latos', serif;
@@ -333,6 +336,7 @@ input[type='range']::-webkit-slider-thumb::before {
 	padding-right: 3em;
 	padding-top: 0;
 	padding-bottom: 1em;
+
 }
 
 .rotationBody h4 {
