@@ -94,6 +94,16 @@ exports.seed = function(knex, Promise) {
           tags: { "0": "admin", "1": "feature rollout" },
           created_at: new Date('2017-04-24T15:30:24.099Z'),
           updated_at: new Date('2017-04-24T15:30:24.099Z')
+        }),
+        knex('user_blogs').insert({
+          id: 10,
+          author: 1,
+          title: "Back-end Shenanigans",
+          body: "Recently completed feature: It's not especially visible on the front end. But the database for the Tech Reading List got a massage. And I added a few seeds for good measure.\n\nNow working on: Chapter 1 of the Harmonic Theory content. It's time to roll out the E-flat Lydian Scale and talk harmony.\n\nOn deck: Enabling comments on the Reading List reviews. See your words appear on the book cube (once your friendly admin has approved them).",
+          published: true,
+          tags: { "0": "admin", "1": "feature rollout" },
+          created_at: new Date('2017-04-25T00:07:40.595Z'),
+          updated_at: new Date('2017-04-25T00:07:40.595Z')
         })
       ]);
     })
