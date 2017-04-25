@@ -343,3 +343,41 @@ input[type='range']::-webkit-slider-thumb::before {
 	letter-spacing: normal;
 	margin-left: 2em;
 }
+
+@media only screen and (max-width: 780px) {
+	.reviewSpace {
+		font-family: 'Lato', sans-serif;
+	  text-decoration: none;
+	  font-size: 56px;
+	  text-transform: none;
+		margin-top: 1.2em;
+		margin-left: 1.1em;
+		background: url(../img/boy-63777.jpg) fixed no-repeat;
+
+
+		width: 65%;
+		height: auto;
+		padding-top: 2em;
+		color: #E42149;
+		text-shadow: -1px 1px 0 #000000;
+		border: 3px solid #0091E5;
+		letter-spacing: 1px;
+	}
+
+	.rotationBody {
+		margin-left: 1.2em;
+		margin-right: 6em;
+	}
+
+	.rotationPlayer {
+		margin-top: 0;
+		margin-left: 2em;
+		margin-right: 0;
+		padding-right: 0;
+		position: absolute;
+		right: 100%;
+		width: 360px;
+		height: 477px;
+		border: 3px solid #0091E5;
+	}
+}
