@@ -35,7 +35,6 @@ exports.seed = function(knex, Promise) {
           periodical_id: null,
           user_book_reviews_id: 173,
           is_completed: false,
-          completed_readings: {},
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
