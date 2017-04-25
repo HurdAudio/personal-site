@@ -304,7 +304,7 @@ input[type='range']::-webkit-slider-thumb::before {
 	background: url(../img/boy-63777.jpg) fixed no-repeat;
 
 
-	width: 14.8em;
+	width: 17.8em;
 	height: auto;
 	padding-top: 2em;
 	color: #E42149;
@@ -344,7 +344,7 @@ input[type='range']::-webkit-slider-thumb::before {
 	margin-left: 2em;
 }
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 1080px) {
 	.reviewSpace {
 		font-family: 'Lato', sans-serif;
 	  text-decoration: none;
@@ -352,7 +352,7 @@ input[type='range']::-webkit-slider-thumb::before {
 	  text-transform: none;
 		margin-top: 1.2em;
 		margin-left: 1.1em;
-		background: url(../img/boy-63777.jpg) fixed no-repeat;
+		background: url(../img/boy-63777.jpg) fixed repeat;
 
 
 		width: 65%;
@@ -370,13 +370,14 @@ input[type='range']::-webkit-slider-thumb::before {
 	}
 
 	.rotationPlayer {
+		z-index:2;
 		margin-top: 0;
 		margin-left: 2em;
 		margin-right: 0;
 		padding-right: 0;
 		position: absolute;
-		right: 100%;
-		width: 360px;
+		right: 12%;
+		width: 260px;
 		height: 477px;
 		border: 3px solid #0091E5;
 	}
