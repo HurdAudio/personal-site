@@ -382,8 +382,7 @@
       }
 
       function renderScore (score, voice, tempo, button) {
-        console.log(score);
-        console.log(score.length);
+
         if (score.length > 0) {
           if (button.classList[0] === 'audioExamplePlaying') {
             voice.osc.frequency.value = score[0].frequency;
@@ -393,8 +392,11 @@
             setTimeout(()=>{
               voice.gain.gain.value = 0;
               voice.gainvalue = 0;
-              renderScore(score.slice(1), voice, tempo, button);
-            }, ((60000/tempo.value) * score[0].duration));
+              setTimeout(()=>{
+                renderScore(score.slice(1), voice, tempo, button);
+              }, 17);
+
+            }, (((60000/tempo.value) * score[0].duration) - 17));
           }
         } else {
           voice.gain.gain.value = 0;
@@ -412,42 +414,42 @@
           {
             frequency: scaleTunings.eb4,
             duration: 1,
-            gain: 1.0
+            gain: 0.6
           },
           {
             frequency: scaleTunings.f4,
             duration: 1,
-            gain: 1.0
+            gain: 0.6
           },
           {
             frequency: scaleTunings.g4,
             duration: 1,
-            gain: 1.0
+            gain: 0.7
           },
           {
             frequency: scaleTunings.a4,
             duration: 1,
-            gain: 1.0
+            gain: 0.6
           },
           {
             frequency: scaleTunings.bb4,
             duration: 1,
-            gain: 1.0
+            gain: 0.6
           },
           {
             frequency: scaleTunings.c5,
             duration: 1,
-            gain: 1.0
+            gain: 0.6
           },
           {
             frequency: scaleTunings.d5,
             duration: 1,
-            gain: 1.0
+            gain: 0.6
           },
           {
             frequency: scaleTunings.eb5,
             duration: 1,
-            gain: 1.0
+            gain: 0.6
           }
         ];
         var scoreBass = [
