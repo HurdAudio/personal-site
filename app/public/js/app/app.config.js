@@ -111,6 +111,12 @@
         url: '/hurdaudiorotation',
         parent: 'app',
         component: 'hurdaudiorotation'
+      })
+      .state({
+        name: 'harmonictheorychapter1',
+        url:'/harmonictheorychapter1',
+        partent: 'app',
+        component: 'harmonictheorychapter1'
       });
 
 

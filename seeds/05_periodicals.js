@@ -200,6 +200,20 @@ exports.seed = function(knex, Promise) {
           description: "CONTENTS\n\nNovella\n\"The Runabout\" by Kristine Kathryn Rusch\n\nNovelettes\n\"Come as You Are\" by Dale Bailey\n\"Night Fever\" by Will Ludwigsen\n\nShort Stories\n\"On the Ship\" by Leah Cypess\n\"Good Show\" by William Preston\n\"The Escape of the Adastra: Asha's Story\" by James Gunn\n\"Tired of the Same Old Quests?\" by Peter Wood\n\"The Best Man\" by Jay O'Connell\n\"Triceratops\" by Ian McHugh\n\"Persephone of the Crows\" by Karen Joy Fowler\n\nPoetry\n\"Sparking the Matter\" by Tod McCoy\n\"Your Clone Watches Over You\" by Robert Frazier\n\"Pinned\" by Suzanne Palmer\n\"Endeavor\" by G. O. Clark\n\nDepartments\n\"Editorial: Anniversaries and Milestones\" by Sheila Williams\n\"Reflections: Advertisements for Myself\" by Robert Silverberg\n\"On the Net: Harry and Dot\" by James Patrick Kelly\n\"On Books: Wolockification\" by Norman Spinrad\n\"SF Conventional Calendar\" by Erwin S. Strauss\n\nAsimov's Science Fiction, May/June 2017, Vol. 41, Nos. 5-6 (Whole Nos. 496-497)\nSheila Williams, editor\nCover art by ___",
           created_at: new Date('2017-04-21 14:55:16 UTC'),
           updated_at: new Date('2017-04-21 14:55:18 UTC')
+        }),
+        knex('periodicals').insert({
+          id: 15,
+          name: 'One Story',
+          issue: 'Issue #227: What Is Behind by Tomiko Breland',
+          editor: 'Patrick Ryan',
+          editor_url: 'https://www.one-story.com/blog/wp-content/uploads/2013/06/PRyan.jpg',
+          edition: 'Kindle Edition',
+          publication_date: '2017-04-20 0:00:01 UTC',
+          pages: 39,
+          img_url: 'https://www.one-story.com/blog/wp-content/uploads/2017/04/227_cover-copy.jpg',
+          description: "We at One Story aren’t in the habit of publishing stories that directly relate to current events—not because that’s our policy, but because such stories usually take a long time to dream up, percolate, and write. When Tomiko Breland’s “What Is Behind” came to us, we were captivated by the writing, first and foremost, and we were blown away by its immediate grasp of an ongoing, tragic, and very widespread current event: the plight of the Syrian refugees. The story follows nine people, inviting the reader into each of their heads as they emerge from hiding and make a run for safety. It’s a remarkable piece of political fiction—in no small part because its emotional impact is not just the result of the subject matter, but of the way it’s rendered. To read more about how the story came into existence, take a look at our Q&A with Tomiko Breland, where she reveals why the form she wrote in was the only one that allowed her to do justice to her characters.",
+          created_at: new Date('2017-04-21 14:55:16 UTC'),
+          updated_at: new Date('2017-04-21 14:55:18 UTC')
         })
       ]);
     })
