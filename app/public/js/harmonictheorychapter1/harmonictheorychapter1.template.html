@@ -49,12 +49,22 @@
         <button class="audioExample" id="playEflatLydianScaleWithIntervalClasses"></button>
         <h2 class="scaleName"><em>E-flat Lydian</em></h2>
         <div id="EFlatLydianScaleWithIntervalClasses"></div>
+        <form id="eFlatLydianScaleIntervalClassTempo" class="tempoKnob">
+          <h2>Tempo:</h2>
+          <input type="range" min="40.00" max="250.00" value="120.00" step="0.01" oninput="this.form.amountInput.value=this.value" />
+          <input id="eFlatLydianScaleIntervalClassesTempoValue" class="tempoRead" type="number" name="amountInput" min="40.00" max="250.00" value="120.00" step="0.01" oninput="this.form.amountRange.value=this.value" />
+        </form>
         <p>Sequentially, this is a repeating pattern (that repeats at the octave) of major 2nd, major 2nd, major 2nd, minor 2nd, major 2nd, major 2nd, minor 2nd.</p>
         <p>Each mode derives its harmonic identity from the location of the tritone within that sequence. In the case of the Lydian scale, that tritone is the relationship between the tonic and the augmented 4th. I postulate that the Lydian Scale retains much of its character as long as those two scale members are not altered.</p>
         <h2 class="exercises"><strong>Exercise [0]: Additive Scales</strong></h2>
         <button class="audioExample" id="playEflatLydianScaleExercise[0]"></button>
         <h2 class="scaleName"><em>E-flat Lydian: Exercise [0]</em></h2>
         <div id="EflatLydianExercise[0]"></div>
+        <div id="EflatLydianExercise[0]system2"></div>
+        <div id="EflatLydianExercise[0]system3"></div>
+        <div id="EflatLydianExercise[0]system4"></div>
+        <div id="EflatLydianExercise[0]system5"></div>
+        <div id="EflatLydianExercise[0]system6"></div>
         <p>Let’s express the generic, unaltered, equal-tempered Lydian Scale in terms of frequency ratios. We know that our root (or tonic) is 1 (or 1/1). And the octave above is represented as 2 (or 2/1). So the pitches between them will be values between 1 and 2. We also know that every equal tempered major 2nd is 1/6th of an octave, expressed as 2<sup>(1/6)</sup> and each minor second will be 1/12th of an octave, expressed as 2<sup>(1/12)</sup>. In this manner, we can understand the frequency ratios of a Lydian Scale to be:</p>
         <div class="pure-g">
 
@@ -84,6 +94,7 @@
           </div>
 
         </div>
+        <p>Assuming the standard tuning of E-flat above middle C to be 311.1270 Hertz, the frequencies of an E-flat Lydian Scale work out to be:</p>
 
 
         <div class="subHeading">
