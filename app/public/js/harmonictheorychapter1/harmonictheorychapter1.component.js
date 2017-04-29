@@ -913,10 +913,10 @@
         var context = renderer.getContext();
         context.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
 
-        var staveTreble = new VF.Stave(0, 40, 265);
-        var staveBass = new VF.Stave(0, 160, 265);
-        var staveTrebleBar2 = new VF.Stave(265, 40, 5);
-        var staveBassBar2 = new VF.Stave(265, 160, 5);
+        var staveTreble = new VF.Stave(0, 40, 165);
+        var staveBass = new VF.Stave(0, 160, 165);
+        var staveTrebleBar2 = new VF.Stave(165, 40, 5);
+        var staveBassBar2 = new VF.Stave(165, 160, 5);
 
 
         // Add cleffs and time signature.
@@ -1236,6 +1236,742 @@
         }
       }
 
+      function renderEFlatLydianExercize0Audio() {
+        var tempoValue = document.getElementById('eFlatLydianScaleExercise[0]TempoValue');
+        var buttonValue = document.getElementById('playEflatLydianScaleExercise[0]');
+        var voiceTreble = makeSoundingObject('voice1');
+        console.log(voiceTreble);
+        var voiceBass = makeSoundingObject('voice2');
+        var scoreTreble = [
+          {
+            frequency: scaleTunings.eb4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.eb4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.f4,
+            duration: 1,
+            gain: 0.7
+          },
+          {
+            frequency: scaleTunings.eb4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.f4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.g4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.f4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.eb4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.f4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.g4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.a4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.g4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.f4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.eb4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.f4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.g4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.a4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.bb4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.a4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.g4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.f4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.eb4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.f4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.g4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.a4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.bb4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.c5,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.bb4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.a4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.g4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.f4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.eb4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.f4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.g4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.a4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.bb4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.c5,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.d5,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.c5,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.bb4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.a4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.g4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.f4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.eb4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.f4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.g4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.a4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.bb4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.c5,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.d5,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.eb5,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.d5,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.c5,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.bb4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.a4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.g4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.f4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.eb4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.f4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.g4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.a4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.bb4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.c5,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.d5,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.eb5,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.d5,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.c5,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.bb4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.a4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.g4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.f4,
+            duration: 1,
+            gain: 0.6
+          },
+          {
+            frequency: scaleTunings.eb4,
+            duration: 2,
+            gain: 0.6
+          }
+        ];
+        var scoreBass = [
+          {
+            frequency: scaleTunings.eb2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.eb2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.f2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.eb2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.f2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.g2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.f2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.eb2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.f2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.g2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.a2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.g2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.f2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.eb2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.f2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.g2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.a2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.bb2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.a2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.g2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.f2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.eb2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.f2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.g2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.a2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.bb2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.c3,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.bb2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.a2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.g2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.f2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.eb2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.f2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.g2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.a2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.bb2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.c3,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.d3,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.c3,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.bb2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.a2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.g2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.f2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.eb2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.f2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.g2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.a2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.bb2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.c3,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.d3,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.eb3,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.d3,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.c3,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.bb2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.a2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.g2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.f2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.eb2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.f2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.g2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.a2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.bb2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.c3,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.d3,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.eb3,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.d3,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.c3,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.bb2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.a2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.g2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.f2,
+            duration: 1,
+            gain: 3.0
+          },
+          {
+            frequency: scaleTunings.eb2,
+            duration: 2,
+            gain: 3.0
+          }
+        ];
+        voiceBass.osc.waveform = "square";
+        voiceBass.gain.gain.value = 0;
+        renderScore(scoreTreble, voiceTreble, tempoValue, buttonValue);
+        renderScore(scoreBass, voiceBass, tempoValue, buttonValue);
+      }
+
       function renderEflatLydianScaleWithIntervalClassesAudio() {
         var tempoValue = document.getElementById('eFlatLydianScaleIntervalClassesTempoValue');
         var buttonValue = document.getElementById('playEflatLydianScaleWithIntervalClasses');
@@ -1438,11 +2174,20 @@
         var playEflatLydianScaleWithIntervalClasses = document.getElementById('playEflatLydianScaleWithIntervalClasses');
         var eFlatLydianScaleIntervalClassTempo = document.getElementById('eFlatLydianScaleIntervalClassTempo');
         var eFlatLydianScaleIntervalClassesTempoValue = document.getElementById('eFlatLydianScaleIntervalClassesTempoValue');
+        var playEflatLydianScaleExercise0 = document.getElementById('playEflatLydianScaleExercise[0]');
 
         renderEflatLydianLydian();
         renderEflatLydianWithIntervalClasses();
         renderEflatLydianExercise0();
 
+        playEflatLydianScaleExercise0.addEventListener('click', ()=>{
+          if (playEflatLydianScaleExercise0.classList[0] === 'audioExample') {
+            playEflatLydianScaleExercise0.className = 'audioExamplePlaying';
+            renderEFlatLydianExercize0Audio();
+          } else {
+            playEflatLydianScaleExercise0.className = 'audioExample';
+          }
+        });
         playEflatLydianScaleWithIntervalClasses.addEventListener('click', ()=>{
           if (playEflatLydianScaleWithIntervalClasses.classList[0] === 'audioExample') {
             playEflatLydianScaleWithIntervalClasses.className = 'audioExamplePlaying';
