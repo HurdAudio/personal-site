@@ -251,8 +251,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 18,
           periodicals_id: null,
-          created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          rating: 91,
+          review_title: "Grey Moral Choices",
+          review_body: "Two storylines that barely intersect in a meditation on moral choices and how they can transform a life. A drone pilot and a Wall Street quant with only the thinnest connection binding them together as they come to terms with the evils of their respective roles. There is no singular moment of revelation, no heavy-handed preaching as Childress gives a disciplined account of accounting. Deftly exploring issues with no easy answers by offering no easy answers.\n\nThe ending - and the novel as a whole - steers clear of climactic confrontation. Which gives the whole read a fantastic consistency at the expense of dramatic release. And with even minor characters having realistic motivations and storylines this is not a novel that wraps up all its loose ends. \n\nBut it is a novel with something to say and a remarkably grounded sense of time and place. The characters and situations are compelling and their dilemmas are nuanced. This novel thrives in its subtle moments, plot twists and unspoken tensions. AND WEST IS WEST leaves a considerable wake behind its concluding pages that keep the reader thinking about these characters.",
+          created_at: new Date('2017-05-08T07:09:57.000Z'),
+          updated_at: new Date('2017-05-08T07:09:57.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 22,

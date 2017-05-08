@@ -1191,6 +1191,268 @@
         voice3.draw(context, staveText);
       }
 
+      function renderEflatLydianTrebleHertz() {
+        var VF = Vex.Flow;
+
+        var div = document.getElementById("EflatLydianTrebleHertz");
+        var renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
+
+        // Configure the rendering context.
+        renderer.resize(900, 190);
+        var context = renderer.getContext();
+        context.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
+
+        var staveTreble = new VF.Stave(10, 40, 800);
+        var staveText = new VF.Stave(10, 160, 800);
+
+        // Add cleffs and time signature.
+        staveTreble.addClef("treble");
+
+        // Connect it to the rendering context and draw!
+        staveTreble.setContext(context).draw();
+        staveText.setContext(context).draw();
+
+        // Create the notes
+        var notes = [
+          new VF.StaveNote({ keys: ["e/4"], duration: "q" }).addAccidental(0, new VF.Accidental("b")),
+          new VF.StaveNote({ keys: ["f/4"], duration: "q"}).addAccidental(0, new VF.Accidental("n")),
+
+          new VF.StaveNote({ keys: ["g/4"], duration: "q" }).addAccidental(0, new VF.Accidental("n")),
+
+          new VF.StaveNote({ keys: ["a/4"], duration: "q" }).addAccidental(0, new VF.Accidental("n")),
+
+          new VF.StaveNote({ keys: ["b/4"], duration: "q", stem_direction: -1 }).addAccidental(0, new VF.Accidental("b")),
+
+          new VF.StaveNote({ keys: ["c/5"], duration: "q", stem_direction: -1 }).addAccidental(0, new VF.Accidental("n")),
+
+
+          new VF.StaveNote({ keys: ["d/5"], duration: "q", stem_direction: -1 }).addAccidental(0, new VF.Accidental("n")),
+
+          new VF.StaveNote({ keys: ["e/5"], duration: "q", stem_direction: -1 }).addAccidental(0, new VF.Accidental("b"))
+        ];
+
+
+
+        var text = [
+        	new VF.TextNote({ text: "311.1270Hz", font: { family: "Lato", size: 12, weight: ""}, duration: "q"}).setStave(staveText).setJustification(VF.TextNote.Justification.LEFT),
+          new VF.TextNote({ text: "349.2282Hz", font: { family: "Lato", size: 12, weight: ""}, duration: "q"}).setStave(staveText).setJustification(VF.TextNote.Justification.NONE),
+          new VF.TextNote({ text: "391.9954Hz", font: { family: "Lato", size: 12, weight: ""}, duration: "q"}).setStave(staveText),
+          new VF.TextNote({ text: "440.0000Hz", font: { family: "Lato", size: 12, weight: ""}, duration: "q"}).setStave(staveText),
+          new VF.TextNote({ text: "466.1638Hz", font: { family: "Lato", size: 12, weight: ""}, duration: "q"}).setStave(staveText),
+          new VF.TextNote({ text: "523.2511Hz", font: { family: "Lato", size: 12, weight: ""}, duration: "q"}).setStave(staveText),
+          new VF.TextNote({ text: "587.3295Hz", font: { family: "Lato", size: 12, weight: ""}, duration: "q"}).setStave(staveText),
+          new VF.TextNote({ text: "622.2540Hz", font: { family: "Lato", size: 12, weight: ""}, duration: "q"}).setLine(0).setStave(staveText).setJustification(VF.TextNote.Justification.NONE)
+
+        ];
+
+        var voice = new VF.Voice({num_beats: 8,  beat_value: 4, resolution:VF.RESOLUTION});
+
+        var voice3 = new VF.Voice({num_beats: 8, beat_value: 4, resolution:VF.RESOLUTION});
+        voice.addTickables(notes).setStave(staveTreble);
+
+        voice3.addTickables(text).setStave(staveText);
+
+        var startX = Math.max(staveTreble.getNoteStartX(), staveText.getNoteStartX());
+        staveTreble.setNoteStartX(startX);
+
+
+
+        var formatter = new VF.Formatter().joinVoices([voice, voice3]).format([voice, voice3], 800 - (startX));
+
+
+        // Render voice
+        voice.draw(context, staveTreble);
+        voice3.draw(context, staveText);
+      }
+
+      function renderEflatLydianBassHertz () {
+        var VF = Vex.Flow;
+
+        var div = document.getElementById("EflatLydianBassHertz");
+        var renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
+
+        // Configure the rendering context.
+        renderer.resize(900, 190);
+        var context = renderer.getContext();
+        context.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
+
+        var staveTreble = new VF.Stave(10, 40, 800);
+        var staveText = new VF.Stave(10, 160, 800);
+
+        // Add cleffs and time signature.
+        staveTreble.addClef("bass");
+
+        // Connect it to the rendering context and draw!
+        staveTreble.setContext(context).draw();
+        staveText.setContext(context).draw();
+
+        // Create the notes
+        var notes = [
+          new VF.StaveNote({ clef: "bass", keys: ["e/2"], duration: "q" }).addAccidental(0, new VF.Accidental("b")),
+          new VF.StaveNote({ clef: "bass", keys: ["f/2"], duration: "q"}).addAccidental(0, new VF.Accidental("n")),
+
+          new VF.StaveNote({ clef: "bass", keys: ["g/2"], duration: "q" }).addAccidental(0, new VF.Accidental("n")),
+
+          new VF.StaveNote({ clef: "bass", keys: ["a/2"], duration: "q" }).addAccidental(0, new VF.Accidental("n")),
+
+          new VF.StaveNote({ clef: "bass", keys: ["b/2"], duration: "q" }).addAccidental(0, new VF.Accidental("b")),
+
+          new VF.StaveNote({ clef: "bass", keys: ["c/3"], duration: "q" }).addAccidental(0, new VF.Accidental("n")),
+
+
+          new VF.StaveNote({ clef: "bass", keys: ["d/3"], duration: "q", stem_direction: -1 }).addAccidental(0, new VF.Accidental("n")),
+
+          new VF.StaveNote({ clef: "bass", keys: ["e/3"], duration: "q", stem_direction: -1 }).addAccidental(0, new VF.Accidental("b"))
+        ];
+
+
+
+        var text = [
+        	new VF.TextNote({ text: "77.7817Hz", font: { family: "Lato", size: 12, weight: ""}, duration: "q"}).setStave(staveText).setJustification(VF.TextNote.Justification.LEFT),
+          new VF.TextNote({ text: "87.3071Hz", font: { family: "Lato", size: 12, weight: ""}, duration: "q"}).setStave(staveText).setJustification(VF.TextNote.Justification.NONE),
+          new VF.TextNote({ text: "97.9989Hz", font: { family: "Lato", size: 12, weight: ""}, duration: "q"}).setStave(staveText),
+          new VF.TextNote({ text: "110.0000Hz", font: { family: "Lato", size: 12, weight: ""}, duration: "q"}).setStave(staveText),
+          new VF.TextNote({ text: "116.5409Hz", font: { family: "Lato", size: 12, weight: ""}, duration: "q"}).setStave(staveText),
+          new VF.TextNote({ text: "130.8128Hz", font: { family: "Lato", size: 12, weight: ""}, duration: "q"}).setStave(staveText),
+          new VF.TextNote({ text: "146.8324Hz", font: { family: "Lato", size: 12, weight: ""}, duration: "q"}).setStave(staveText),
+          new VF.TextNote({ text: "155.5635Hz", font: { family: "Lato", size: 12, weight: ""}, duration: "q"}).setLine(0).setStave(staveText).setJustification(VF.TextNote.Justification.NONE)
+
+        ];
+
+        var voice = new VF.Voice({num_beats: 8,  beat_value: 4, resolution:VF.RESOLUTION});
+
+        var voice3 = new VF.Voice({num_beats: 8, beat_value: 4, resolution:VF.RESOLUTION});
+        voice.addTickables(notes).setStave(staveTreble);
+
+        voice3.addTickables(text).setStave(staveText);
+
+        var startX = Math.max(staveTreble.getNoteStartX(), staveText.getNoteStartX());
+        staveTreble.setNoteStartX(startX);
+
+
+
+        var formatter = new VF.Formatter().joinVoices([voice, voice3]).format([voice, voice3], 800 - (startX));
+
+
+        // Render voice
+        voice.draw(context, staveTreble);
+        voice3.draw(context, staveText);
+      }
+
+      function renderEflatLydianExercise1 () {
+        var VF = Vex.Flow;
+
+        var div = document.getElementById("EflatLydianExercise[1]")
+        var renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
+
+        renderer.resize(1100, 600);
+        var context = renderer.getContext();
+        context.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
+
+        var stave = new VF.Stave(10, 40, 250);
+        var staveBass = new VF.Stave(10, 160, 250);
+        var staveBar2 = new VF.Stave(260, 40, 300);
+        var staveBassBar2 = new VF.Stave(260, 160, 300);
+
+        stave.addClef("treble");
+        staveBass.addClef("bass");
+
+        stave.setContext(context).draw();
+        staveBass.setContext(context).draw();
+        staveBar2.setContext(context).draw();
+        staveBassBar2.setContext(context).draw();
+
+        var notes = [
+          new VF.StaveNote({ keys: ["e/4"], duration: "q" }).
+        	  addAccidental(0, new VF.Accidental("b"))
+
+        ];
+
+        var notes2 = [
+          new VF.StaveNote({ keys: ["e/4"], duration: "8" }),
+          new VF.StaveNote({ keys: ["e/4"], duration: "8" })
+        ];
+
+        var notesBar2 = [
+        	new VF.StaveNote({ keys: ["e/4"], duration: "q"}).addAccidental(0, new VF.Accidental("b"))
+        ];
+
+        var notes2Bar2 = [
+        	new VF.StaveNote({ keys: ["f/4"], duration: "q"})
+        ];
+
+        var notes3Bar2 = [
+        	new VF.StaveNote({ keys: ["e/4"], duration: "8"}).addAccidental(0, new VF.Accidental("b")),
+          new VF.StaveNote({ keys: ["f/4"], duration: "8"})
+        ];
+
+        var notes4Bar2 = [
+        	new VF.StaveNote({ keys: ["e/4"], duration: "8"}).addAccidental(0, new VF.Accidental("b")),
+          new VF.StaveNote({ keys: ["f/4"], duration: "8"})
+        ];
+
+        var notesBass = [
+          new VF.StaveNote({ clef: "bass", keys: ["e/2"], duration: "8" }).addAccidental(0, new VF.Accidental("b")),
+          new VF.StaveNote({ clef: "bass", keys: ["e/2"], duration: "8" })
+
+        ];
+
+        var notesBass2 = [
+        	new VF.StaveNote({ clef: "bass", keys: ["e/2"], duration: "q" })
+        ];
+
+        var notesBassBar2 = [
+        	new VF.StaveNote({ clef: "bass", keys: ["e/2"], duration: "8" }).addAccidental(0, new VF.Accidental("b")),
+          new VF.StaveNote({ clef: "bass", keys: ["f/2"], duration: "8"})
+        ];
+
+        var notesBass2Bar2 = [
+        	new VF.StaveNote({ clef: "bass", keys: ["e/2"], duration: "8" }).addAccidental(0, new VF.Accidental("b")),
+          new VF.StaveNote({ clef: "bass", keys: ["f/2"], duration: "8"})
+        ];
+
+        var notesBass3Bar2 = [
+        	new VF.StaveNote({ clef: "bass", keys: ["e/2"], duration: "q"}).addAccidental(0, new VF.Accidental("b"))
+        ];
+
+        var notesBass4Bar2 = [
+        	new VF.StaveNote({ clef: "bass", keys: ["f/2"], duration: "q"})
+        ];
+
+
+
+        // Create the beams
+        var beams = [
+          new VF.Beam(notes2),
+          new VF.Beam(notesBass),
+          new VF.Beam(notes3Bar2),
+          new VF.Beam(notes4Bar2),
+          new VF.Beam(notesBassBar2),
+          new VF.Beam(notesBass2Bar2)
+        ];
+
+        var startX = Math.max(stave.getNoteStartX(), staveBass.getNoteStartX());
+        var startXbar2 = Math.max(staveBar2.getNoteStartX(), staveBassBar2.getNoteStartX());
+        stave.setNoteStartX(startX + 15);
+        staveBass.setNoteStartX(startX);
+        staveBar2.setNoteStartX(startXbar2 + 15);
+        staveBassBar2.setNoteStartX(startXbar2 - 5);
+
+
+
+        var all_notes = notes.concat(notes2);
+        var all_bass_notes = notesBass.concat(notesBass2);
+        var all_notes_bar2 = notesBar2.concat(notes2Bar2).concat(notes3Bar2).concat(notes4Bar2);
+        var all_bass_notes_bar2 = notesBassBar2.concat(notesBass2Bar2).concat(notesBass3Bar2).concat(notesBass4Bar2);
+        VF.Formatter.FormatAndDraw(context, stave, all_notes);
+        VF.Formatter.FormatAndDraw(context, staveBass, all_bass_notes);
+        VF.Formatter.FormatAndDraw(context, staveBar2, all_notes_bar2);
+        VF.Formatter.FormatAndDraw(context, staveBassBar2, all_bass_notes_bar2);
+        beams.forEach(function(b) {
+          b.setContext(context).draw();
+        });
+      }
+
       function makeSoundingObject (name) {
         var oscillator = initNewOscillator(scaleTunings.eb4);
         var panner = initNewPan();
@@ -2179,6 +2441,9 @@
         renderEflatLydianLydian();
         renderEflatLydianWithIntervalClasses();
         renderEflatLydianExercise0();
+        renderEflatLydianTrebleHertz();
+        renderEflatLydianBassHertz();
+        renderEflatLydianExercise1();
 
         playEflatLydianScaleExercise0.addEventListener('click', ()=>{
           if (playEflatLydianScaleExercise0.classList[0] === 'audioExample') {

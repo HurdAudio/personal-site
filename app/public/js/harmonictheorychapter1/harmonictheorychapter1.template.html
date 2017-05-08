@@ -100,7 +100,27 @@
 
         </div>
         <p>Assuming the standard tuning of E-flat above middle C to be 311.1270 Hertz, the frequencies of an E-flat Lydian Scale work out to be:</p>
-
+        <button class="audioExample" id="playEflatLydianTrebleHertz"></button>
+        <h2 class="scaleName"><em>E-flat Lydian</em></h2>
+        <div id="EflatLydianTrebleHertz"></div>
+        <form id="EFlatLydianTrebleHertzTempo" class="tempoKnob">
+          <h2>Tempo:</h2>
+          <input type="range" min="40.00" max="250.00" value="120.00" step="0.01" oninput="this.form.amountInput.value=this.value" />
+          <input id="EFlatLydianTrebleHertzTempoValue" class="tempoRead" type="number" name="amountInput" min="40.00" max="250.00" value="120.00" step="0.01" oninput="this.form.amountRange.value=this.value" />
+        </form>
+        <p>Starting from the second E-flat below middle-C at 77.7817Hz, we come up with:</p>
+        <button class="audioExample" id="playEflatLydianBassHertz"></button>
+        <h2 class="scaleName"><em>E-flat Lydian</em></h2>
+        <div id="EflatLydianBassHertz"></div>
+        <form id="EFlatLydianBassHertzTempo" class="tempoKnob">
+          <h2>Tempo:</h2>
+          <input type="range" min="40.00" max="250.00" value="120.00" step="0.01" oninput="this.form.amountInput.value=this.value" />
+          <input id="EFlatLydianBassHertzTempoValue" class="tempoRead" type="number" name="amountInput" min="40.00" max="250.00" value="120.00" step="0.01" oninput="this.form.amountRange.value=this.value" />
+        </form>
+        <h2 class="exercises"><strong>Exercise [1]: Additive Scales - 2:1</strong></h2>
+        <button class="audioExample" id="playEflatLydianScaleExercise[1]"></button>
+        <h2 class="scaleName"><em>E-flat Lydian: Exercise [1]</em></h2>
+        <div id="EflatLydianExercise[1]"></div>
 
         <div class="subHeading">
           <a href="/harmonictheoryintroduction"><button>INTRODUCTION</button></a>
