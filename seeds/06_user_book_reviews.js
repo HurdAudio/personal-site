@@ -263,8 +263,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 19,
           periodicals_id: null,
+          rating: 93,
+          review_title: "The Unravelling of a Killer",
+          review_body: "IN A LONELY PLACE is a classic. A sheen of tension and anxiety as we see things exclusively through the eyes of a serial killer. A returned veteran from the second world war with a habit for strangling women. He looks up a colleague from the front lines who happens to be a detective investigating the his murders around Los Angeles. And then our protagonist falls in love with a femme fatale.\n\nOne of the remarkable things about this novel is the complete absence of description of his criminal deeds. There's the intense buildup leading to the victim and then we learn about the rest from the morning paper the next day or a casual conversation with our detective friend. The complete lack of present-tense gore gives the entire book a rich darkness and tension that compels the reader to keep turning pages.\n\nThe other thing that makes this novel stand out is the sense of time and place. The street geography of southern California shimmers with vivid authenticity that matches the interactions between these characters. The tension between the hunter and the hunted is rendered with exquisite restraint. This is great noir writing.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-05-13T08:36:11.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 23,
@@ -1855,6 +1858,24 @@ exports.seed = function(knex, Promise) {
           user_id: 1,
           periodical_or_book: 'book',
           books_id: 187,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 200,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 188,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 201,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 189,
           periodicals_id: null,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')

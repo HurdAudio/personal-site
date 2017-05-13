@@ -3557,6 +3557,44 @@ exports.seed = function(knex, Promise) {
           description: "Out here on the edge of sector eight, I can be alone with my thoughts. \n\nSometimes, this isn't a good thing.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('books').insert({
+          id: 188,
+          author: 'Nick Srnicek, Alex Williams',
+          title: "Inventing the Future: Postcapitalism and a World Without Work",
+          cover_url: 'https://images.gr-assets.com/books/1444769812l/27188408.jpg',
+          author_url: 'https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png',
+          publisher: 'Verso',
+          publication_date: '2015-09-22 0:00:01 UTC',
+          edition: 'Kindle Edition',
+          part_of_series: false,
+          name_of_series: null,
+          number_in_series: null,
+          number_of_pages: 256,
+          author_gender: 'male',
+          author_nationality: 'UK',
+          description: "A major new manifesto for a high-tech future free from work\n\nNeoliberalism isn’t working. Austerity is forcing millions into poverty and many more into precarious work, while the left remains trapped in stagnant political practices that offer no respite.\n\nInventing the Future is a bold new manifesto for life after capitalism. Against the confused understanding of our high-tech world by both the right and the left, this book claims that the emancipatory and future-oriented possibilities of our society can be reclaimed. Instead of running from a complex future, Nick Srnicek and Alex Williams demand a postcapitaiist economy capable of advancing standards, liberating humanity from work and developing technologies that expand our freedoms.",
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('books').insert({
+          id: 189,
+          author: 'Various',
+          title: "Weird Tales: 101 Weird, Strange, and Supernatural Stories",
+          cover_url: 'https://images.gr-assets.com/books/1362246212l/17455361.jpg',
+          author_url: 'https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png',
+          publisher: 'Civitas Media LLC',
+          publication_date: '2012-05-24 0:00:01 UTC',
+          edition: 'Kindle Edition',
+          part_of_series: true,
+          name_of_series: 'Civitas Library Classics: Weird Tales',
+          number_in_series: 1,
+          number_of_pages: 2223,
+          author_gender: 'various',
+          author_nationality: 'USA',
+          description: "WEIRD TALES contains 101 stories of horror, hauntings, the occult, the supernatural, the strange, and the outlandish. May of these stories are from the pages of Weird Tales and other classic magazines which brought the work of masters like H.P. Lovecraft, Seabury Quinn, Clark Ashton Smith, August Derleth, Robert E. Howard, and many others to the public. Includes an active table of contents.",
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
       ]);
     })
