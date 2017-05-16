@@ -275,8 +275,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 20,
           periodicals_id: null,
+          rating: 50,
+          review_title: "Choose Your Own Bourgeoisie Adventure",
+          review_body: "There are some good points in this \"craft of writing a best selling novel.\" And some dated points (this book is from 1994). Publishing has gone few some changes in the now-you-can-google-all-the-things world. \n\nAnd there were disappointments. Such as the maddening (and probably not untrue) truths about who buys best sellers. People with enough disposable income to buy hardcovers are apparently 1% of the population. And they prefer to read about rich people. They don't like the poors. Or at least not books about them. They steer away from period works. And hate coming-of-age-novels. All in all, they sound like the petty bourgeoisie to me. Making sympathetic protagonists out of rich people is how we end up with too much Batman and I can't say I want to cater to that crowd.  It's enough to send my sympathies over to the self-published writers carving out their own space without the trappings o agents and publishers.\n\nSome interesting points to chew on with the process of outlining a novel and then teasing out the best dramatic pacing from it. And several good points on how to sustain momentum in a story. If you're thinking of writing with the ambition of writing a \"best seller,\" this book might be worth a look. But if you're a fan of the pure craft of writing a story this one runs a little light on inspiration.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-05-15T23:23:36.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 24,
