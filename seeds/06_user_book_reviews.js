@@ -287,8 +287,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 21,
           periodicals_id: null,
+          rating: 82,
+          review_title: "Urban Fantasy with a Bow on Top",
+          review_body: "Thus concludes the first season of the Debt Collector serial. It wraps things up. With haste. Sex. Violence. A whiff of a larger conspiracy. Tragedy. Redemption. Mom's life in the balance. All in under 60,000 words.\n\nWhile the wrap up felt a little tidy and contrived. I was happy enough to go along for the ride nonetheless.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-05-16T21:19:18.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 25,
@@ -296,8 +299,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'periodical',
           books_id: null,
           periodicals_id: 4,
+          rating: 75,
+          review_title: "Colonial Tweakers",
+          review_body: "This issue is front loaded with all the best stories appearing at the start. Which is good, since they are also the longest selections in the collection. \n\nWhich means that the novella: \"Where There is Nothing, There is God\" by David Erik Nelson is the premium offering in this set. The premise is a blast: a time travel tale about meth dealers selling to a village in Colonial Massachusetts in exchange for Paul Revere spoons. Humor, intrigue and a good cast of characters. A strong story that makes the whole worth reading.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-05-20T18:45:18.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 26,
