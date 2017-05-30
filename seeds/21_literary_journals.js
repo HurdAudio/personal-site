@@ -31,7 +31,7 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'periodical',
           books_id: null,
           periodicals_id: 5,
-          is_completed: false,
+          is_completed: true,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -70,7 +70,17 @@ exports.seed = function(knex, Promise) {
           user_id: 1,
           periodical_or_book: 'periodical',
           books_id: null,
-          periodicals_id:15,
+          periodicals_id: 15,
+          is_completed: false,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('literary_journals').insert({
+          id: 8,
+          user_id: 1,
+          periodical_or_book: 'periodical',
+          books_id: null,
+          periodicals_id: 16,
           is_completed: false,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')

@@ -214,6 +214,20 @@ exports.seed = function(knex, Promise) {
           description: "We at One Story aren’t in the habit of publishing stories that directly relate to current events—not because that’s our policy, but because such stories usually take a long time to dream up, percolate, and write. When Tomiko Breland’s “What Is Behind” came to us, we were captivated by the writing, first and foremost, and we were blown away by its immediate grasp of an ongoing, tragic, and very widespread current event: the plight of the Syrian refugees. The story follows nine people, inviting the reader into each of their heads as they emerge from hiding and make a run for safety. It’s a remarkable piece of political fiction—in no small part because its emotional impact is not just the result of the subject matter, but of the way it’s rendered. To read more about how the story came into existence, take a look at our Q&A with Tomiko Breland, where she reveals why the form she wrote in was the only one that allowed her to do justice to her characters.",
           created_at: new Date('2017-04-21 14:55:16 UTC'),
           updated_at: new Date('2017-04-21 14:55:18 UTC')
+        }),
+        knex('periodicals').insert({
+          id: 16,
+          name: 'One Story',
+          issue: 'Issue #228: The Third Birdhouse by John Biguenet',
+          editor: 'Patrick Ryan',
+          editor_url: 'https://www.one-story.com/blog/wp-content/uploads/2013/06/PRyan.jpg',
+          edition: 'Kindle Edition',
+          publication_date: '2017-04-20 0:00:01 UTC',
+          pages: 39,
+          img_url: 'https://www.one-story.com/images/cover_os_228.png',
+          description: "In one of the Old Testament’s more unsettling tales, God commands Abraham to sacrifice his only son, Isaac. The devout Abraham takes Isaac to a mountaintop, builds an altar, and binds his son to it. Just as Abraham raises his knife, though, an angel intervenes. \“Now I know you fear God,\” the angel says, “because you have not withheld from me your only son.” Abraham ends up killing a ram instead, and as a reward for his obedience, God blesses Abraham’s family.\n\nThings don’t work out quite so well for Abraham in \“The Third Birdhouse,\” John Biguenet’s contemporary retelling of Isaac’s life: it’s not okay in twentieth-century Brooklyn to try to murder your son with a hatchet, even if you think God told you to. But things do work out for the narrator, who—like the biblical Isaac—goes on to lead a long and prosperous life, with twin sons of his own.\n\nThe question is what kind of dad this modern Isaac will be, given the poor role model of Abraham. Isaac’s big test comes when his younger son, Jacob, swindles his twin brother out of his inheritance, just like in the Bible. How will Isaac respond? Raise the hatchet? Bury the hatchet? Hatch a compromise? His solution surprised me, and it’s one I’m still grappling with, which is partly why I love this story: like all good literature, it challenges the reader, posing questions rather than answering them.\n\nJohn Biguenet, on the other hand, was more than happy to answer our questions. Be sure to check out his author interview to learn how birdhouses found their way into this retelling of Isaac’s story and to get John’s distinctive take on the reading habits of Donald Trump.",
+          created_at: new Date('2017-04-21 14:55:16 UTC'),
+          updated_at: new Date('2017-04-21 14:55:18 UTC')
         })
       ]);
     })

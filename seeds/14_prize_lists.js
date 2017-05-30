@@ -8,7 +8,7 @@ exports.seed = function(knex, Promise) {
         knex('prize_lists').insert({
           id: 1,
           prize_1: 'desmond_elliott_prizes',
-          prize_2: 'anthony_awards',
+          prize_2: 'anthony_awards', //desmond_elliott_prizes, 
           prize_3: 'arthur_c_clark_awards',
           prize_4: 'barry_awards',
           prize_5: 'bram_stoker_awards',

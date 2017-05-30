@@ -311,8 +311,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 22,
           periodicals_id: null,
+          rating: 62,
+          review_title: "You'll Never Guess What Happens Next...",
+          review_body: "THE STORY GRID offers up the perspective of the editor and how to become one's own editor. And on that front it succeeds in offering a quantifiable method for working out the kinks and plods of writing a novel. But it also delivers a large dose of marketing speak. It even chokes on its click-bait-like promises of \"it took me 22-years to develop this system\" and \"wait until you see the story grid for SILENCE OF THE LAMBS.\" \n\nWhen he does get past fluffing the method, Shawn Coyne does offer plenty of lucid insights into the publishing business in particular and solid ideas about what makes genres and works within those genres catch a reader's attention. His thoughtful reflection on his experience as an editor inside the business makes up the most compelling material in this book. And he is clear that the grid methodology is not a formula. One cannot use it to generate a best seller. But one can use it to identify flaws with pacing and scene construction. \n\nThis is one to read if you want to dispel the illusion of a master novel being spun out whole from a fevered period of inspiration. Editing plays a huge role in the words that reach us from the page and this book opens up how deep and deliberate the role of editing can become.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-05-28T18:39:24.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 27,
@@ -320,8 +323,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'periodical',
           books_id: null,
           periodicals_id: 5,
+          rating: 99,
+          review_title: "Watch for Bears",
+          review_body: "Issue #223: \"In the Neighborhood\" by Jess Rafalko. \n\nPitch perfect on multiple levels. Jess Rafalko tunes the inner strains of grief within a marriage in the aftermath of loss and complete transition into a brief polyphonic burst of emotion and convergence. The pain and reverberation are almost too real.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-05-29T06:08:54.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 28,
@@ -769,9 +775,12 @@ exports.seed = function(knex, Promise) {
           user_id: 1,
           periodical_or_book: 'book',
           books_id: 69,
+          rating: 88,
+          review_title: "Keeping It Eloquent",
+          review_body: "This book occupies an interesting niche for technical books on javascript. It is written for the programmer with a familiarity with the language who is not yet an expert. So it should prove disappointing for beginners and power users.\n\nAt the same time, it is written in a style that is uncompromising, opinionated and somehow conversational. I liked it.\n\nOne of the early examples involved were-squirrels. As in using data-types to determine the cause and effect of a human transforming into a squirrel. This is the kind of data play I could get used to.\n\nAll in all, ELOQUENT JAVASCRIPT manages to touch upon several important areas without falling too deep into all the potential tangents. It brought just enough understanding about SVG versus Canvas implementation to point toward where to pursue this further. It does the same with setting up a simple server and understanding NodeJS. Introducing new ideas while staying within the scope of this hefty book is what it does well.",
           periodicals_id: null,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-05-29 14:55:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 78,
@@ -1885,6 +1894,87 @@ exports.seed = function(knex, Promise) {
           user_id: 1,
           periodical_or_book: 'book',
           books_id: 189,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 202,
+          user_id: 1,
+          periodical_or_book: 'periodical',
+          books_id: null,
+          periodicals_id: 16,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 203,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 190,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 204,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 191,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 205,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 192,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 206,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 193,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 207,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 194,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 208,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 195,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 209,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 196,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 210,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 197,
           periodicals_id: null,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
