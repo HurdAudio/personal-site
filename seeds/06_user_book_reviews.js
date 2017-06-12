@@ -335,8 +335,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 23,
           periodicals_id: null,
+          rating: 90,
+          review_title: "Tropical Vampires",
+          review_body: "It's not surprising to find a collection of long listed Hugo nominees would make for a strong collection of science fiction stories. But there honestly isn't a bad - or even mediocre - selection in this bunch. The most striking thing (aside from the polished, often Iowa MFA-fueled prose) is the variety represented in this collection. Taken as a whole, these stories cover a range of diverse characters and experiences along with science fiction that spans from the subtle to the fantastic. Within these tales lurks writing that confronts sexual identity, grief from profound personal loss, zombies dancing the ballet, vampires in Hawaii and cybernetically enhanced hard-boiled detectives. This is several shades of entertaining, challenging and human.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-06-06T22:24:32.000')
         }),
         knex('user_book_reviews').insert({
           id: 29,
@@ -344,8 +347,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'periodical',
           books_id: null,
           periodicals_id: 6,
+          rating: 59,
+          review_title: "Asimov's Goes Back to the Future",
+          review_body: "Asimov's Science Fiction is observing their 40th year of publication and they've started the celebration with new works by authors frequently published in their pages over the years. And the result is uneven. The space opera depicted primarily through endless dialog was difficult to engage with. But the tale of hunting and tagging an endangered and deadly species of bird on the planet Coyote was a blissfully energetic read. At times it was pleasant to read the \"traditional\" story values of Asimov's being represented and sometimes they came off as a bit dated in style and substance. Still more good to balance out the bad. But an unusually high number of duds from a normally consistent publication.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-06-11T16:44:30.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 30,
@@ -353,8 +359,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 24,
           periodicals_id: null,
+          rating: 80,
+          review_title: "Gray Scale",
+          review_body: "A brief, solar interlude originally published in 1953 under the name of Andrew North. Andre Norton quickly spins up a solar system of hard-drinking pilots and schemers and then shows us how a grey cat named Bat helps score a big haul. Charming and expertly told.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-06-11T17:25:37.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 31,
