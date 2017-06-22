@@ -371,8 +371,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 25,
           periodicals_id: null,
+          rating: 86,
+          review_title: "Fugitive Wake",
+          review_body: "Laura Lippman is an expert at shaping scenes around a balance of what is depicted and what is left off stage. It's a sophisticated writing style that gives her characters and Baltimore setting a healthy set of shadows and light. I will definitely be reading more of her novels.\n\nAFTER I'M GONE is a crime story about what happens when the family patriarch evades custody and leaves behind a wife, daughters and a girlfriend. But this is not the crime. We also have a murder and a semi-retired detective who works cold cases. It's a fascinating set of characters and circumstances rendered with incredible style and craft. The economy of scenes and steady development is a subtle thrill. And this novel does not fall short when it comes time to deliver its resolution.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-06-21 17:20:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 32,
@@ -380,8 +383,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 26,
           periodicals_id: null,
+          rating: 89,
+          review_title: "Shame Them - Maim Them - Try to Contain Them - She's Gonna Blow!",
+          review_body: "Satire served strong. And angry. Take the current state of advertising with images that inspire anorexic behaviors, build a dystopian society around it and populate a planet for non-conformist exiles. Oh, and a heavy dose of intersectional feminist theory.\n\nNot the lightest hearted graphic novel, BITCH PLANET spares nothing as it dismantles the patriarchy. Which is not to say it's devoid of humor. This is uncomfortable, brutal satire. Issue 3's focus on the secret origins of Penny Rolle is an absolute triumph of story-telling and character development. And many of the actions depicted in the background of these frames are hilarious (in a dark, violent way). \"Caged and Enraged\" and well executed scream that threatens to veer well off the track into preachy territory before it lands several well-placed punches.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-06-22 13:55:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 33,
@@ -1553,8 +1559,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 152,
           periodicals_id: null,
+          rating: 93,
+          review_title: "Javascript as Poetry",
+          review_body: "This is what happens when a love for language in its most literary sense spills over into programming syntax. And the the oddities of Javascript lends itself well to these algorithmic flights of fancy. Angus Croll's passion for reading and Javascript are hard to miss. The illustrations are brilliant and the material providing background on each writer (Ernest Hemingway, David Foster Wallace, Jane Austin, Lewis Carroll, Tupac, etc.) is fantastic. I wanted to understand more about higher order functions and Sylvia Plath. This book targets an admittedly narrow audience, but it sure nails its target.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-06-22 12:31:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 163,
@@ -1643,8 +1652,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 161,
           periodicals_id: null,
+          rating: 84,
+          review_title: "More Than White Hat Tricks",
+          review_body: "HTML5 HACKS pleasantly exceeded my expectations. I hoped to find some interesting quirks and \"tricks\" buried within the HTML5 standard - and those are certainly part of the HTML5 HACKS experience - and was floored by the depth of material here as it progressed into server-based hacks using various Node.js libraries. This delivered much more than it promises and that is rare.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-06-21 14:34:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 173,
@@ -1984,6 +1996,24 @@ exports.seed = function(knex, Promise) {
           user_id: 1,
           periodical_or_book: 'book',
           books_id: 197,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 211,
+          user_id: 1,
+          periodical_or_book: 'periodical',
+          books_id: null,
+          periodicals_id: 17,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 212,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 198,
           periodicals_id: null,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
