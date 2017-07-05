@@ -3766,6 +3766,44 @@ exports.seed = function(knex, Promise) {
           description: "An exciting literary debut: the unflinching and powerful story of a young girl's journey out of Zimbabwe and to America.\n\nDarling is only ten years old, and yet she must navigate a fragile and violent world. In Zimbabwe, Darling and her friends steal guavas, try to get the baby out of young Chipo's belly, and grasp at memories of Before. Before their homes were destroyed by paramilitary policemen, before the school closed, before the fathers left for dangerous jobs abroad.\n\n\nBut Darling has a chance to escape: she has an aunt in America. She travels to this new land in search of America's famous abundance only to find that her options as an immigrant are perilously few. NoViolet Bulawayo's debut calls to mind the great storytellers of displacement and arrival who have come before her-from Junot Diaz to Zadie Smith to J.M. Coetzee-while she tells a vivid, raw story all her own.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('books').insert({
+          id: 199,
+          author: 'Justin Cronin',
+          title: "The Passage",
+          cover_url: 'https://images.gr-assets.com/books/1327874267l/6690798.jpg',
+          author_url: 'https://images.gr-assets.com/authors/1456843158p8/45315.jpg',
+          publisher: 'Ballantine Books',
+          publication_date: '2011-05-17 0:00:01 UTC',
+          edition: 'Kindle Edition',
+          part_of_series: true,
+          name_of_series: 'The Passage',
+          number_in_series: 1,
+          number_of_pages: 784,
+          author_gender: 'male',
+          author_nationality: 'USA',
+          description: "\“It happened fast. Thirty-two minutes for one world to die, another to be born.\” \n\nFirst, the unthinkable: a security breach at a secret U.S. government facility unleashes the monstrous product of a chilling military experiment. Then, the unspeakable: a night of chaos and carnage gives way to sunrise on a nation, and ultimately a world, forever altered. All that remains for the stunned survivors is the long fight ahead and a future ruled by fear—of darkness, of death, of a fate far worse.\n\nAs civilization swiftly crumbles into a primal landscape of predators and prey, two people flee in search of sanctuary. FBI agent Brad Wolgast is a good man haunted by what he’s done in the line of duty. Six-year-old orphan Amy Harper Bellafonte is a refugee from the doomed scientific project that has triggered apocalypse. He is determined to protect her from the horror set loose by her captors. But for Amy, escaping the bloody fallout is only the beginning of a much longer odyssey—spanning miles and decades—towards the time and place where she must finish what should never have begun.\n\nWith The Passage, award-winning author Justin Cronin has written both a relentlessly suspenseful adventure and an epic chronicle of human endurance in the face of unprecedented catastrophe and unimaginable danger. Its inventive storytelling, masterful prose, and depth of human insight mark it as a crucial and transcendent work of modern fiction.' to '\“It happened fast. Thirty-two minutes for one world to die, another to be born.\”",
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('books').insert({
+          id: 200,
+          author: 'Cherise Wolas',
+          title: "The Resurrection of Joan Ashby",
+          cover_url: 'https://images.gr-assets.com/books/1493847285l/28965133.jpg',
+          author_url: 'https://images.gr-assets.com/authors/1491316393p8/14959356.jpg',
+          publisher: 'Flatiron Books - ARC',
+          publication_date: '2017-08-29 0:00:01 UTC',
+          edition: 'Advanced Reader Copy',
+          part_of_series: false,
+          name_of_series: null,
+          number_in_series: null,
+          number_of_pages: 544,
+          author_gender: 'female',
+          author_nationality: 'USA',
+          description: "I viewed the consumptive nature of love as a threat to serious women. But the wonderful man I just married believes as I do―work is paramount, absolutely no children―and now love seems to me quite marvelous. \n\nThese words are spoken to a rapturous audience by Joan Ashby, a brilliant and intense literary sensation acclaimed for her explosively dark and singular stories.\n\nWhen Joan finds herself unexpectedly pregnant, she is stunned by Martin’s delight, his instant betrayal of their pact. She makes a fateful, selfless decision then, to embrace her unintentional family.\n\nChallenged by raising two precocious sons, it is decades before she finally completes her masterpiece novel. Poised to reclaim the spotlight, to resume the intended life she gave up for love, a betrayal of Shakespearean proportion forces her to question every choice she has made.\n\nEpic, propulsive, incredibly ambitious, and dazzlingly written, The Resurrection of Joan Ashby is a story about sacrifice and motherhood, the burdens of expectation and genius. Cherise Wolas’s gorgeous debut introduces an indelible heroine candid about her struggles and unapologetic in her ambition.",
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
       ]);
     })

@@ -14,6 +14,16 @@ exports.seed = function(knex, Promise) {
           is_completed: true,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('interrupts').insert({
+          id: 2,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 200,
+          periodicals_id: null,
+          is_completed: false,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
       ]);
     })
