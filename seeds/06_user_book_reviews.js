@@ -1673,6 +1673,9 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 163,
           periodicals_id: null,
+          rating: 81,
+          review_title: "Up Up and Away",
+          review_body: "UP & GOING is largely a preface for the five volumes that follow. Which is actually a fine way to dip one's toe into learning all the idiosyncratic parts of the Javascript language. It manages to make the argument both for understanding all the parts of the language and its design patterns as well as convince this reader to read the next installment.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
