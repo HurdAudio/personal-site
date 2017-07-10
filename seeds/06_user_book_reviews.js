@@ -395,8 +395,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 27,
           periodicals_id: null,
+          rating: 94,
+          review_title: "Golden Plates for the Cosmos",
+          review_body: "The thematic elements tie this book together - children without their mothers, mothers without their children, cult leaders without their faith, meteorites, messages sent into space and talking with the dead. Mingling within these themes is a cast of deeply likable, deeply flawed characters struggling to find their way through a life of missing mothers and damaged faith. Then there are the converging story lines separated by time punctuated by a plot twist. MR. SPLITFOOT is an engaging, satisfying read with a strong sense of an upstate New York populated by conmen and cult leaders (almost always one and the same). Highly recommended.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-07-06 18:24:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 34,
