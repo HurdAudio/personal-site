@@ -31,9 +31,9 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 17,
           periodicals_id: null,
-          is_completed: false,
+          is_completed: true,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-04-26T10:40:06.000Z')
         }),
         knex('science_fiction_series').insert({
           id: 4,
@@ -41,7 +41,7 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 21,
           periodicals_id: null,
-          is_completed: false,
+          is_completed: true,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -130,6 +130,96 @@ exports.seed = function(knex, Promise) {
           user_id: 1,
           periodical_or_book: 'book',
           books_id: 78,
+          periodicals_id: null,
+          is_completed: false,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('science_fiction_series').insert({
+          id: 14,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 172,
+          periodicals_id: null,
+          is_completed: false,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('science_fiction_series').insert({
+          id: 15,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 173,
+          periodicals_id: null,
+          is_completed: false,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('science_fiction_series').insert({
+          id: 16,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 174,
+          periodicals_id: null,
+          is_completed: false,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('science_fiction_series').insert({
+          id: 17,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 178,
+          periodicals_id: null,
+          is_completed: false,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('science_fiction_series').insert({
+          id: 18,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 179,
+          periodicals_id: null,
+          is_completed: false,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('science_fiction_series').insert({
+          id: 19,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 180,
+          periodicals_id: null,
+          is_completed: false,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('science_fiction_series').insert({
+          id: 20,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 187,
+          periodicals_id: null,
+          is_completed: false,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('science_fiction_series').insert({
+          id: 21,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 195,
+          periodicals_id: null,
+          is_completed: false,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('science_fiction_series').insert({
+          id: 22,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 199,
           periodicals_id: null,
           is_completed: false,
           created_at: new Date('2017-03-14 14:55:16 UTC'),

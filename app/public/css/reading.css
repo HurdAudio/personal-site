@@ -161,6 +161,24 @@
 	background: url(../img/start-button-305427.svg) rgba(127, 0, 0, 1.0) center center no-repeat;
 }
 
+.audioExamplePlaying {
+	align-items: center;
+	align-self: center;
+	align-content: center;
+	text-align: center;
+	float: left;
+	height: 50px;
+	width: 10%;
+	border-radius: 15%;
+	z-index: 20;
+	background: url(../img/cancel-297785.svg) rgba(127, 16, 64, 0.6) center center no-repeat;
+}
+
+.audioExamplePlaying:hover {
+
+	background: url(../img/stop-145678.svg) rgba(127, 0, 0, 1.0) center center no-repeat;
+}
+
 /*input[type=range] {
     margin: auto;
     outline: none;
@@ -264,6 +282,19 @@ input[type='range']::-webkit-slider-thumb::before {
 	background-color: #E7E7E7;
 }
 
+.tempoRead {
+	font-family: 'Share Tech', serif;
+	font-size: 120%;
+	width: 70px;
+	height: 1.8em;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	color: #0091E5;
+	background-color: #E7E7E7;
+}
+
 .copyNotice {
 	font-family: 'Share Tech', serif;
 	font-size: 18px;
@@ -289,7 +320,7 @@ input[type='range']::-webkit-slider-thumb::before {
 	margin-top: 4.2em;
 	margin-left: 2em;
 	position: absolute;
-	right: 6.3em;
+	right: 2.3em;
 	width: 360px;
 	height: 477px;
 	border: 3px solid #0091E5;
@@ -345,6 +376,14 @@ input[type='range']::-webkit-slider-thumb::before {
 	margin-left: 2em;
 }
 
+.scaleName {
+	font-family: 'Federo', sans-serif;
+	font-size: 48px;
+	text-align: center;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
 @media only screen and (max-width: 1080px) {
 	.reviewSpace {
 		font-family: 'Lato', sans-serif;
@@ -382,4 +421,8 @@ input[type='range']::-webkit-slider-thumb::before {
 		height: 477px;
 		border: 3px solid #0091E5;
 	}
+}
+
+.exercises {
+	margin-left: 3em;
 }

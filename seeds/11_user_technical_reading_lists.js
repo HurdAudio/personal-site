@@ -12,7 +12,7 @@ exports.seed = function(knex, Promise) {
           books_id: 69,
           periodical_id: null,
           user_book_reviews_id: 77,
-          is_completed: false,
+          is_completed: true,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -23,7 +23,7 @@ exports.seed = function(knex, Promise) {
           books_id: 161,
           periodical_id: null,
           user_book_reviews_id: 172,
-          is_completed: false,
+          is_completed: true,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -34,7 +34,7 @@ exports.seed = function(knex, Promise) {
           books_id: 162,
           periodical_id: null,
           user_book_reviews_id: 173,
-          is_completed: false,
+          is_completed: true,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -45,7 +45,7 @@ exports.seed = function(knex, Promise) {
           books_id: 163,
           periodical_id: null,
           user_book_reviews_id: 174,
-          is_completed: false,
+          is_completed: true,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),

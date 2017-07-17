@@ -104,6 +104,16 @@ exports.seed = function(knex, Promise) {
           tags: { "0": "admin", "1": "feature rollout" },
           created_at: new Date('2017-04-25T00:07:40.595Z'),
           updated_at: new Date('2017-04-25T00:07:40.595Z')
+        }),
+        knex('user_blogs').insert({
+          id: 11,
+          author: 1,
+          title: "Long Time No Post",
+          body: "So writing the content for Chapter 1 of the harmonic theory section is taking a bit longer than expected as I wrestle with learning the Vexflow library. It's still in progress. But this site is still live and under development. There have also been several book reviews added in the reading list page. So this is a good time for a branch merge. More work on this - and other sites - as I work out all the ins and outs of other frontend frameworks and node libraries.",
+          published: true,
+          tags: { "0": "admin", "1": "feature rollout" },
+          created_at: new Date('2017-07-17T03:23:53.608Z'),
+          updated_at: new Date('2017-07-17T03:23:53.608Z')
         })
       ]);
     })

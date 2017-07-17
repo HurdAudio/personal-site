@@ -1,0 +1,154 @@
+<div>
+  <div class="container fake-nav">
+    <div class="pure-menu pure-menu-horizontal">
+      <nav><div class="hit-the-floor">
+        <div class="pure-g">
+          <div class="pure-u-1-5"><p><a href="/resume" class="pure-menu-heading pure-menu-link">Resume</a></p></div>
+          <div class="pure-u-1-5"><p><a href="/projects" class="pure-menu-heading pure-menu-link">Projects</a></p></div>
+          <div class="pure-u-1-5"><p><a href="/" class="pure-menu-heading pure-menu-link">Home</a></p></div>
+          <div class="pure-u-1-5"><p><a href="/hurdreads" class="pure-menu-heading pure-menu-link">HurdReads</a></p></div>
+          <div class="pure-u-1-5"><p><a href="/contact" class="pure-menu-heading pure-menu-link">Contact</a></p></div>
+        </div>
+      </div></nav>
+    </div>
+  </div>
+
+  <div class="harmonicTheory">
+    <a href="/harmonictheory"><h4>HurdAudio Harmonic Theory</h4></a>
+  </div>
+
+  <form id="volumeControl" class="volumeKnob">
+    <h5>Master Volume</h5>
+    <input type="range" min="0" max="100" value="40" stepvalue="1" oninput="this.form.amountInput.value=this.value" />
+    <input id="masterGain" class="volumeRead" type="number" name="amountInput" min="0" max="100" value="40" oninput="this.form.amountRange.value=this.value" />
+  </form>
+
+  <div id="blogBody" class="pure-g">
+    <div class="pure-u-1-4">
+    </div>
+    <div class="pure-u-3-4">
+      <div class="blogPost">
+        <h1 class="blogTitle">Chapter 1</h1>
+        <p>We begin our harmonic exploration and exercises with the E-flat Lydian Scale as one might find it on a conventionally tuned, equal tempered instrument:</p>
+        <button class="audioExample" id="playEflatLydianScale"></button>
+        <h2 class="scaleName"><em>E-flat Lydian</em></h2>
+        <div id="EFlatLydianScale"></div>
+        <form id="eFlatLydianScaleTempo" class="tempoKnob">
+          <h2>Tempo:</h2>
+          <input type="range" min="40.00" max="250.00" value="120.00" step="0.01" oninput="this.form.amountInput.value=this.value" />
+          <input id="eFlatLydianScaleTempoValue" class="tempoRead" type="number" name="amountInput" min="40.00" max="250.00" value="120.00" step="0.01" oninput="this.form.amountRange.value=this.value" />
+        </form>
+        <p>Why start with the E-flat Lydian Scale?</p>
+        <p>Because we have to start somewhere. Picking any starting point has an element of arbitrariness to it. I’ve chosen E-flat Lydian with the idea of following a logic outward from diatonic modes.</p>
+        <p>Why E-flat?</p>
+        <p>E-flat happens to be my reference tone. My 1/1. Again, selecting any pitch has an element of the arbitrary. Many music theory texts begin with C-natural as a reference tone. Orchestras tune to A-natural at 440 Hertz (or at least they do in North America). Harry Partch utilized G-natural as his 1/1. This is a matter of personal preference and my ears gravitate toward E-flat.</p>
+        <p>Why Lydian?</p>
+        <p>The seven diatonic modes are a practical starting point for understanding harmony. There is a good chance that one will encounter and use several of these scales in everyday music life. And I choose Lydian because there is a natural progression from “lighter” to “darker” when moving from Lydian to Ionian to Mixolydian to Dorian to Aeolian to Phrygian to Locrian.</p>
+        <p>This will be the format: each chapter introduces a new scale. We will then review some (or none) previously introduced scales until we arrive at something new to begin the next chapter.</p>
+        <p>Returning to our E-flat Lydian Scale. Let’s take a look at the intervals that make up an unaltered, equal tempered Lydian scale:</p>
+        <button class="audioExample" id="playEflatLydianScaleWithIntervalClasses"></button>
+        <h2 class="scaleName"><em>E-flat Lydian</em></h2>
+        <div id="EFlatLydianScaleWithIntervalClasses"></div>
+        <form id="eFlatLydianScaleIntervalClassTempo" class="tempoKnob">
+          <h2>Tempo:</h2>
+          <input type="range" min="40.00" max="250.00" value="120.00" step="0.01" oninput="this.form.amountInput.value=this.value" />
+          <input id="eFlatLydianScaleIntervalClassesTempoValue" class="tempoRead" type="number" name="amountInput" min="40.00" max="250.00" value="120.00" step="0.01" oninput="this.form.amountRange.value=this.value" />
+        </form>
+        <p>Sequentially, this is a repeating pattern (that repeats at the octave) of major 2nd, major 2nd, major 2nd, minor 2nd, major 2nd, major 2nd, minor 2nd.</p>
+        <p>Each mode derives its harmonic identity from the location of the tritone within that sequence. In the case of the Lydian scale, that tritone is the relationship between the tonic and the augmented 4th. I postulate that the Lydian Scale retains much of its character as long as those two scale members are not altered.</p>
+        <h2 class="exercises"><strong>Exercise [0]: Additive Scales</strong></h2>
+        <button class="audioExample" id="playEflatLydianScaleExercise[0]"></button>
+        <h2 class="scaleName"><em>E-flat Lydian: Exercise [0]</em></h2>
+        <div id="EflatLydianExercise[0]"></div>
+        <div id="EflatLydianExercise[0]system2"></div>
+        <div id="EflatLydianExercise[0]system3"></div>
+        <div id="EflatLydianExercise[0]system4"></div>
+        <div id="EflatLydianExercise[0]system5"></div>
+        <div id="EflatLydianExercise[0]system6"></div>
+        <form id="eFlatLydianScaleExercise[0]Tempo" class="tempoKnob">
+          <h2>Tempo:</h2>
+          <input type="range" min="40.00" max="250.00" value="120.00" step="0.01" oninput="this.form.amountInput.value=this.value" />
+          <input id="eFlatLydianScaleExercise[0]TempoValue" class="tempoRead" type="number" name="amountInput" min="40.00" max="250.00" value="120.00" step="0.01" oninput="this.form.amountRange.value=this.value" />
+        </form>
+        <p>Let’s express the generic, unaltered, equal-tempered Lydian Scale in terms of frequency ratios. We know that our root (or tonic) is 1 (or 1/1). And the octave above is represented as 2 (or 2/1). So the pitches between them will be values between 1 and 2. We also know that every equal tempered major 2nd is 1/6th of an octave, expressed as 2<sup>(1/6)</sup> and each minor second will be 1/12th of an octave, expressed as 2<sup>(1/12)</sup>. In this manner, we can understand the frequency ratios of a Lydian Scale to be:</p>
+        <div class="pure-g">
+
+          <div class="pure-u-1-8">
+            <h3>1,</h3>
+          </div>
+          <div class="pure-u-1-8">
+            <h3>2<sup>(1/6)</sup>,</h3>
+          </div>
+          <div class="pure-u-1-8">
+            <h3>2<sup>(1/3)</sup>,</h3>
+          </div>
+          <div class="pure-u-1-8">
+            <h3>2<sup>(1/2)</sup>,</h3>
+          </div>
+          <div class="pure-u-1-8">
+            <h3>2<sup>(7/12)</sup>,</h3>
+          </div>
+          <div class="pure-u-1-8">
+            <h3>2<sup>(3/4)</sup>,</h3>
+          </div>
+          <div class="pure-u-1-8">
+            <h3>2<sup>(11/12)</sup>,</h3>
+          </div>
+          <div class="pure-u-1-8">
+            <h3>2</h3>
+          </div>
+
+        </div>
+        <p>Assuming the standard tuning of E-flat above middle C to be 311.1270 Hertz, the frequencies of an E-flat Lydian Scale work out to be:</p>
+        <button class="audioExample" id="playEflatLydianTrebleHertz"></button>
+        <h2 class="scaleName"><em>E-flat Lydian</em></h2>
+        <div id="EflatLydianTrebleHertz"></div>
+        <form id="EFlatLydianTrebleHertzTempo" class="tempoKnob">
+          <h2>Tempo:</h2>
+          <input type="range" min="40.00" max="250.00" value="120.00" step="0.01" oninput="this.form.amountInput.value=this.value" />
+          <input id="EFlatLydianTrebleHertzTempoValue" class="tempoRead" type="number" name="amountInput" min="40.00" max="250.00" value="120.00" step="0.01" oninput="this.form.amountRange.value=this.value" />
+        </form>
+        <p>Starting from the second E-flat below middle-C at 77.7817Hz, we come up with:</p>
+        <button class="audioExample" id="playEflatLydianBassHertz"></button>
+        <h2 class="scaleName"><em>E-flat Lydian</em></h2>
+        <div id="EflatLydianBassHertz"></div>
+        <form id="EFlatLydianBassHertzTempo" class="tempoKnob">
+          <h2>Tempo:</h2>
+          <input type="range" min="40.00" max="250.00" value="120.00" step="0.01" oninput="this.form.amountInput.value=this.value" />
+          <input id="EFlatLydianBassHertzTempoValue" class="tempoRead" type="number" name="amountInput" min="40.00" max="250.00" value="120.00" step="0.01" oninput="this.form.amountRange.value=this.value" />
+        </form>
+        <h2 class="exercises"><strong>Exercise [1]: Additive Scales - 2:1</strong></h2>
+        <button class="audioExample" id="playEflatLydianScaleExercise[1]"></button>
+        <h2 class="scaleName"><em>E-flat Lydian: Exercise [1]</em></h2>
+        <div id="EflatLydianExercise[1]"></div>
+
+        <div class="subHeading">
+          <a href="/harmonictheoryintroduction"><button>INTRODUCTION</button></a>
+          <a href="/harmonictheory"><button>RETURN TO CONTENTS</button></a>
+
+          <button>CHAPTER 2</button>
+        </div>
+        <br>
+        <p class="copyNotice">© 25 April 2017 - Devin Hurd/HurdAudio Productions</p>
+        <img src="../img/music_natural_sign_u266E_icon_256x256.png" height="5%" width="15%">
+        <img src="../img/music_natural_sign_u266E_icon_256x256.png" height="5%" width="15%">
+        <img src="../img/music_natural_sign_u266E_icon_256x256.png" height="5%" width="15%">
+        <img src="../img/music_natural_sign_u266E_icon_256x256.png" height="5%" width="15%"><img src="../img/music_natural_sign_u266E_icon_256x256.png" height="5%" width="15%">
+        <img src="../img/music_natural_sign_u266E_icon_256x256.png" height="5%" width="15%">
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  <div class="wrapper">
+     <h1>hurdaudio</h1>
+     <h2>hurdaudio</h2>
+     <h3>hurdaudio</h3>
+   </div>
+</div>

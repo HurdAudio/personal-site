@@ -466,7 +466,6 @@
       function renderOvertoneSeries() {
         var VF = Vex.Flow;
 
-        // Create an SVG renderer and attach it to the DIV element named "boo".
         var div = document.getElementById("eFlatHarmonicSeries");
         var renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
 
@@ -475,11 +474,10 @@
         var context = renderer.getContext();
         context.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
 
-        // Create a stave of width 400 at position 10, 40 on the canvas.
         var staveTreble = new VF.Stave(10, 40, 800);
         var staveBass = new VF.Stave(10, 160, 800);
 
-        // Add a clef and time signature.
+        // Add cleffs and time signature.
         staveTreble.addClef("treble");
         staveBass.addClef("bass");
 
@@ -489,7 +487,6 @@
 
         // Create the notes
         var notes = [
-          // A quarter-note C.
           new VF.GhostNote({ keys: ["b/4"], duration: "hr" }),
 
           new VF.GhostNote({ keys: ["b/4"], duration: "qr" }),
@@ -549,13 +546,8 @@
         staveTreble.setNoteStartX(startX);
         staveBass.setNoteStartX(startX);
 
-        // Format and justify the notes to 400 pixels.
         var formatter = new VF.Formatter().joinVoices([voice]).joinVoices([voice2]).format([voice, voice2], 800 - (startX));
-        // var formatter2 = new VF.Formatter().joinVoices([voice2]).format([voice2], 400);
-        //var formatter = new VF.Formatter();
-        //formatter.joinVoices([voice]);
-        //formatter.joinVoices([voice2]);
-        //formatter.format([voice1, voice2], 400 - (startX - staveTreble));
+        
 
         // Render voice
         voice.draw(context, staveTreble);

@@ -21,7 +21,7 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 18,
           periodicals_id: null,
-          is_completed: false,
+          is_completed: true,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -90,6 +90,26 @@ exports.seed = function(knex, Promise) {
           user_id: 1,
           periodical_or_book: 'book',
           books_id: 82,
+          periodicals_id: null,
+          is_completed: false,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('free_selections').insert({
+          id: 10,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 184,
+          periodicals_id: null,
+          is_completed: false,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('free_selections').insert({
+          id: 11,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 196,
           periodicals_id: null,
           is_completed: false,
           created_at: new Date('2017-03-14 14:55:16 UTC'),

@@ -36,9 +36,11 @@
                 vm.currentReading.cover_url = book.cover_url;
               });
             } else {
-              $http.get(`/periodicals/${readerReview.periodcials_id}`)
+              //console.log(readerReview.periodicals_id);
+              $http.get(`/periodicals/${readerReview.periodicals_id}`)
               .then(periodicalData=>{
                 var periodical = periodicalData.data;
+                console.log(periodical);
                 vm.currentReading.author = periodical.editor + "(editor)";
                 vm.currentReading.title = periodical.name + " " + periodical.issue;
                 vm.currentReading.cover_url = periodical.img_url;

@@ -721,8 +721,7 @@
 
 
         });
-        //TODO Build object based upon reading order, generate image, size by page numbers, and randomly lean some books...
-        //TODO set up ng-repeat on html to handle this object
+
 
 
       }

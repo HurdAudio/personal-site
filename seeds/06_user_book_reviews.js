@@ -227,8 +227,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 16,
           periodicals_id: null,
-          created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          rating: 89,
+          review_title: "Rain, Swimming and High School",
+          review_body: "This is a remarkably honest and sensitive book. A coming of age story set in Portland, Oregon during the early '90s that rings true. An account of navigating one's emerging sexuality in the midst of rain, swimming and high school. The characters bristle with warmth of authenticity. The waves of details surrounding the music of REM, My Bloody Valentine and Sonic Youth ring particularly true. \n\nThe faltering confidence rendered in the voice of Julie Winter and her standoffish family threading a paper thin presence in her life. The friendships that veer from boy drama to painting nails. The questions surrounding why her brother is living in self-imposed exile in Berlin. All makes for a wonderful tension coursing throughout this novel.",
+          created_at: new Date('2017-03-14T14:55:16.000Z'),
+          updated_at: new Date('2017-04-25T18:05:48.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 20,
@@ -236,8 +239,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 17,
           periodicals_id: null,
-          created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          rating: 76,
+          review_title: "Brash and Ruthless",
+          review_body: "This episode is the set-up for the final installment of the first season. The characters and conflicts are now in place for the explosive finale. But the setup is not without satisfying bits of character development and violence of its own. Debts promise to be settled ruthlessly going forward.",
+          created_at: new Date('2017-04-26T10:40:06.000Z'),
+          updated_at: new Date('2017-04-26T10:40:06.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 21,
@@ -245,8 +251,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 18,
           periodicals_id: null,
-          created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          rating: 91,
+          review_title: "Grey Moral Choices",
+          review_body: "Two storylines that barely intersect in a meditation on moral choices and how they can transform a life. A drone pilot and a Wall Street quant with only the thinnest connection binding them together as they come to terms with the evils of their respective roles. There is no singular moment of revelation, no heavy-handed preaching as Childress gives a disciplined account of accounting. Deftly exploring issues with no easy answers by offering no easy answers.\n\nThe ending - and the novel as a whole - steers clear of climactic confrontation. Which gives the whole read a fantastic consistency at the expense of dramatic release. And with even minor characters having realistic motivations and storylines this is not a novel that wraps up all its loose ends. \n\nBut it is a novel with something to say and a remarkably grounded sense of time and place. The characters and situations are compelling and their dilemmas are nuanced. This novel thrives in its subtle moments, plot twists and unspoken tensions. AND WEST IS WEST leaves a considerable wake behind its concluding pages that keep the reader thinking about these characters.",
+          created_at: new Date('2017-05-08T07:09:57.000Z'),
+          updated_at: new Date('2017-05-08T07:09:57.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 22,
@@ -254,8 +263,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 19,
           periodicals_id: null,
+          rating: 93,
+          review_title: "The Unravelling of a Killer",
+          review_body: "IN A LONELY PLACE is a classic. A sheen of tension and anxiety as we see things exclusively through the eyes of a serial killer. A returned veteran from the second world war with a habit for strangling women. He looks up a colleague from the front lines who happens to be a detective investigating the his murders around Los Angeles. And then our protagonist falls in love with a femme fatale.\n\nOne of the remarkable things about this novel is the complete absence of description of his criminal deeds. There's the intense buildup leading to the victim and then we learn about the rest from the morning paper the next day or a casual conversation with our detective friend. The complete lack of present-tense gore gives the entire book a rich darkness and tension that compels the reader to keep turning pages.\n\nThe other thing that makes this novel stand out is the sense of time and place. The street geography of southern California shimmers with vivid authenticity that matches the interactions between these characters. The tension between the hunter and the hunted is rendered with exquisite restraint. This is great noir writing.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-05-13T08:36:11.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 23,
@@ -263,8 +275,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 20,
           periodicals_id: null,
+          rating: 50,
+          review_title: "Choose Your Own Bourgeoisie Adventure",
+          review_body: "There are some good points in this \"craft of writing a best selling novel.\" And some dated points (this book is from 1994). Publishing has gone few some changes in the now-you-can-google-all-the-things world. \n\nAnd there were disappointments. Such as the maddening (and probably not untrue) truths about who buys best sellers. People with enough disposable income to buy hardcovers are apparently 1% of the population. And they prefer to read about rich people. They don't like the poors. Or at least not books about them. They steer away from period works. And hate coming-of-age-novels. All in all, they sound like the petty bourgeoisie to me. Making sympathetic protagonists out of rich people is how we end up with too much Batman and I can't say I want to cater to that crowd.  It's enough to send my sympathies over to the self-published writers carving out their own space without the trappings o agents and publishers.\n\nSome interesting points to chew on with the process of outlining a novel and then teasing out the best dramatic pacing from it. And several good points on how to sustain momentum in a story. If you're thinking of writing with the ambition of writing a \"best seller,\" this book might be worth a look. But if you're a fan of the pure craft of writing a story this one runs a little light on inspiration.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-05-15T23:23:36.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 24,
@@ -272,8 +287,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 21,
           periodicals_id: null,
+          rating: 82,
+          review_title: "Urban Fantasy with a Bow on Top",
+          review_body: "Thus concludes the first season of the Debt Collector serial. It wraps things up. With haste. Sex. Violence. A whiff of a larger conspiracy. Tragedy. Redemption. Mom's life in the balance. All in under 60,000 words.\n\nWhile the wrap up felt a little tidy and contrived. I was happy enough to go along for the ride nonetheless.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-05-16T21:19:18.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 25,
@@ -281,8 +299,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'periodical',
           books_id: null,
           periodicals_id: 4,
+          rating: 75,
+          review_title: "Colonial Tweakers",
+          review_body: "This issue is front loaded with all the best stories appearing at the start. Which is good, since they are also the longest selections in the collection. \n\nWhich means that the novella: \"Where There is Nothing, There is God\" by David Erik Nelson is the premium offering in this set. The premise is a blast: a time travel tale about meth dealers selling to a village in Colonial Massachusetts in exchange for Paul Revere spoons. Humor, intrigue and a good cast of characters. A strong story that makes the whole worth reading.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-05-20T18:45:18.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 26,
@@ -290,8 +311,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 22,
           periodicals_id: null,
+          rating: 62,
+          review_title: "You'll Never Guess What Happens Next...",
+          review_body: "THE STORY GRID offers up the perspective of the editor and how to become one's own editor. And on that front it succeeds in offering a quantifiable method for working out the kinks and plods of writing a novel. But it also delivers a large dose of marketing speak. It even chokes on its click-bait-like promises of \"it took me 22-years to develop this system\" and \"wait until you see the story grid for SILENCE OF THE LAMBS.\" \n\nWhen he does get past fluffing the method, Shawn Coyne does offer plenty of lucid insights into the publishing business in particular and solid ideas about what makes genres and works within those genres catch a reader's attention. His thoughtful reflection on his experience as an editor inside the business makes up the most compelling material in this book. And he is clear that the grid methodology is not a formula. One cannot use it to generate a best seller. But one can use it to identify flaws with pacing and scene construction. \n\nThis is one to read if you want to dispel the illusion of a master novel being spun out whole from a fevered period of inspiration. Editing plays a huge role in the words that reach us from the page and this book opens up how deep and deliberate the role of editing can become.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-05-28T18:39:24.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 27,
@@ -299,8 +323,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'periodical',
           books_id: null,
           periodicals_id: 5,
+          rating: 99,
+          review_title: "Watch for Bears",
+          review_body: "Issue #223: \"In the Neighborhood\" by Jess Rafalko. \n\nPitch perfect on multiple levels. Jess Rafalko tunes the inner strains of grief within a marriage in the aftermath of loss and complete transition into a brief polyphonic burst of emotion and convergence. The pain and reverberation are almost too real.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-05-29T06:08:54.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 28,
@@ -308,8 +335,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 23,
           periodicals_id: null,
+          rating: 90,
+          review_title: "Tropical Vampires",
+          review_body: "It's not surprising to find a collection of long listed Hugo nominees would make for a strong collection of science fiction stories. But there honestly isn't a bad - or even mediocre - selection in this bunch. The most striking thing (aside from the polished, often Iowa MFA-fueled prose) is the variety represented in this collection. Taken as a whole, these stories cover a range of diverse characters and experiences along with science fiction that spans from the subtle to the fantastic. Within these tales lurks writing that confronts sexual identity, grief from profound personal loss, zombies dancing the ballet, vampires in Hawaii and cybernetically enhanced hard-boiled detectives. This is several shades of entertaining, challenging and human.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-06-06T22:24:32.000')
         }),
         knex('user_book_reviews').insert({
           id: 29,
@@ -317,8 +347,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'periodical',
           books_id: null,
           periodicals_id: 6,
+          rating: 59,
+          review_title: "Asimov's Goes Back to the Future",
+          review_body: "Asimov's Science Fiction is observing their 40th year of publication and they've started the celebration with new works by authors frequently published in their pages over the years. And the result is uneven. The space opera depicted primarily through endless dialog was difficult to engage with. But the tale of hunting and tagging an endangered and deadly species of bird on the planet Coyote was a blissfully energetic read. At times it was pleasant to read the \"traditional\" story values of Asimov's being represented and sometimes they came off as a bit dated in style and substance. Still more good to balance out the bad. But an unusually high number of duds from a normally consistent publication.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-06-11T16:44:30.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 30,
@@ -326,8 +359,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 24,
           periodicals_id: null,
+          rating: 80,
+          review_title: "Gray Scale",
+          review_body: "A brief, solar interlude originally published in 1953 under the name of Andrew North. Andre Norton quickly spins up a solar system of hard-drinking pilots and schemers and then shows us how a grey cat named Bat helps score a big haul. Charming and expertly told.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-06-11T17:25:37.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 31,
@@ -335,8 +371,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 25,
           periodicals_id: null,
+          rating: 86,
+          review_title: "Fugitive Wake",
+          review_body: "Laura Lippman is an expert at shaping scenes around a balance of what is depicted and what is left off stage. It's a sophisticated writing style that gives her characters and Baltimore setting a healthy set of shadows and light. I will definitely be reading more of her novels.\n\nAFTER I'M GONE is a crime story about what happens when the family patriarch evades custody and leaves behind a wife, daughters and a girlfriend. But this is not the crime. We also have a murder and a semi-retired detective who works cold cases. It's a fascinating set of characters and circumstances rendered with incredible style and craft. The economy of scenes and steady development is a subtle thrill. And this novel does not fall short when it comes time to deliver its resolution.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-06-21 17:20:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 32,
@@ -344,8 +383,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 26,
           periodicals_id: null,
+          rating: 89,
+          review_title: "Shame Them - Maim Them - Try to Contain Them - She's Gonna Blow!",
+          review_body: "Satire served strong. And angry. Take the current state of advertising with images that inspire anorexic behaviors, build a dystopian society around it and populate a planet for non-conformist exiles. Oh, and a heavy dose of intersectional feminist theory.\n\nNot the lightest hearted graphic novel, BITCH PLANET spares nothing as it dismantles the patriarchy. Which is not to say it's devoid of humor. This is uncomfortable, brutal satire. Issue 3's focus on the secret origins of Penny Rolle is an absolute triumph of story-telling and character development. And many of the actions depicted in the background of these frames are hilarious (in a dark, violent way). \"Caged and Enraged\" and well executed scream that threatens to veer well off the track into preachy territory before it lands several well-placed punches.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-06-22 13:55:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 33,
@@ -353,8 +395,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 27,
           periodicals_id: null,
+          rating: 94,
+          review_title: "Golden Plates for the Cosmos",
+          review_body: "The thematic elements tie this book together - children without their mothers, mothers without their children, cult leaders without their faith, meteorites, messages sent into space and talking with the dead. Mingling within these themes is a cast of deeply likable, deeply flawed characters struggling to find their way through a life of missing mothers and damaged faith. Then there are the converging story lines separated by time punctuated by a plot twist. MR. SPLITFOOT is an engaging, satisfying read with a strong sense of an upstate New York populated by conmen and cult leaders (almost always one and the same). Highly recommended.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-07-06 18:24:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 34,
@@ -748,9 +793,12 @@ exports.seed = function(knex, Promise) {
           user_id: 1,
           periodical_or_book: 'book',
           books_id: 69,
+          rating: 88,
+          review_title: "Keeping It Eloquent",
+          review_body: "This book occupies an interesting niche for technical books on javascript. It is written for the programmer with a familiarity with the language who is not yet an expert. So it should prove disappointing for beginners and power users.\n\nAt the same time, it is written in a style that is uncompromising, opinionated and somehow conversational. I liked it.\n\nOne of the early examples involved were-squirrels. As in using data-types to determine the cause and effect of a human transforming into a squirrel. This is the kind of data play I could get used to.\n\nAll in all, ELOQUENT JAVASCRIPT manages to touch upon several important areas without falling too deep into all the potential tangents. It brought just enough understanding about SVG versus Canvas implementation to point toward where to pursue this further. It does the same with setting up a simple server and understanding NodeJS. Introducing new ideas while staying within the scope of this hefty book is what it does well.",
           periodicals_id: null,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-05-29 14:55:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 78,
@@ -1514,8 +1562,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 152,
           periodicals_id: null,
+          rating: 93,
+          review_title: "Javascript as Poetry",
+          review_body: "This is what happens when a love for language in its most literary sense spills over into programming syntax. And the the oddities of Javascript lends itself well to these algorithmic flights of fancy. Angus Croll's passion for reading and Javascript are hard to miss. The illustrations are brilliant and the material providing background on each writer (Ernest Hemingway, David Foster Wallace, Jane Austin, Lewis Carroll, Tupac, etc.) is fantastic. I wanted to understand more about higher order functions and Sylvia Plath. This book targets an admittedly narrow audience, but it sure nails its target.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-06-22 12:31:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 163,
@@ -1604,8 +1655,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 161,
           periodicals_id: null,
+          rating: 84,
+          review_title: "More Than White Hat Tricks",
+          review_body: "HTML5 HACKS pleasantly exceeded my expectations. I hoped to find some interesting quirks and \"tricks\" buried within the HTML5 standard - and those are certainly part of the HTML5 HACKS experience - and was floored by the depth of material here as it progressed into server-based hacks using various Node.js libraries. This delivered much more than it promises and that is rare.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-06-21 14:34:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 173,
@@ -1622,6 +1676,9 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 163,
           periodicals_id: null,
+          rating: 81,
+          review_title: "Up Up and Away",
+          review_body: "UP & GOING is largely a preface for the five volumes that follow. Which is actually a fine way to dip one's toe into learning all the idiosyncratic parts of the Javascript language. It manages to make the argument both for understanding all the parts of the language and its design patterns as well as convince this reader to read the next installment.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -1676,6 +1733,324 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 169,
           periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 181,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 170,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 182,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 171,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 183,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 172,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 184,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 173,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 185,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 174,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 186,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 175,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 187,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 176,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 188,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 177,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 189,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 178,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 190,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 179,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 191,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 180,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 192,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 181,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 193,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 182,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 194,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 183,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 195,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 184,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 196,
+          user_id: 1,
+          periodical_or_book: 'periodical',
+          books_id: null,
+          periodicals_id: 15,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 197,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 185,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 198,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 186,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 199,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 187,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 200,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 188,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 201,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 189,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 202,
+          user_id: 1,
+          periodical_or_book: 'periodical',
+          books_id: null,
+          periodicals_id: 16,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 203,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 190,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 204,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 191,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 205,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 192,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 206,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 193,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 207,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 194,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 208,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 195,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 209,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 196,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 210,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 197,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 211,
+          user_id: 1,
+          periodical_or_book: 'periodical',
+          books_id: null,
+          periodicals_id: 17,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 212,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 198,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 213,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 199,
+          periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 214,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 200,
+          periodicals_id: null,
+          rating: 41,
+          review_title: "Betrayed",
+          review_body: "This novel had so many things going for it. The interlacing of short story fragments written by its namesake worked when they could have easily turned awkward. The middle section that takes a dark turn into the mind of the son and offers a fascinating study of how one wrestles with self-doubt and betrayal. \n\nBut then the whole thing crashed and burned in the third act. Our increasingly self-centered and unlikeable main character sends herself to India to find spiritual harmony and \"resurrection\" with enormous helpings of unnecessary detail. The final hundred pages turn into a slog as redemption plays no role in this spiritual awakening. Nor does meaningful interaction with Indian culture as we Eat Pray Love with other privileged white women making their respective pilgrimages to the base of the Himalayas. The efforts of a wayward son to undo his crimes fall flat as the entire novel collapses under the weight of unrealized potential. A disappointing conclusion to an otherwise deft exploration of themes surrounding betrayal and creativity.",
+          created_at: new Date('2017-07-13 14:55:16 UTC'),
+          updated_at: new Date('2017-07-14 11:57:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 215,
+          user_id: 1,
+          periodical_or_book: 'periodical',
+          books_id: null,
+          periodicals_id: 18,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
