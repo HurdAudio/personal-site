@@ -2039,8 +2039,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 200,
           periodicals_id: null,
-          created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          rating: 41,
+          review_title: "Betrayed",
+          review_body: "This novel had so many things going for it. The interlacing of short story fragments written by its namesake worked when they could have easily turned awkward. The middle section that takes a dark turn into the mind of the son and offers a fascinating study of how one wrestles with self-doubt and betrayal. \n\nBut then the whole thing crashed and burned in the third act. Our increasingly self-centered and unlikeable main character sends herself to India to find spiritual harmony and \"resurrection\" with enormous helpings of unnecessary detail. The final hundred pages turn into a slog as redemption plays no role in this spiritual awakening. Nor does meaningful interaction with Indian culture as we Eat Pray Love with other privileged white women making their respective pilgrimages to the base of the Himalayas. The efforts of a wayward son to undo his crimes fall flat as the entire novel collapses under the weight of unrealized potential. A disappointing conclusion to an otherwise deft exploration of themes surrounding betrayal and creativity.",
+          created_at: new Date('2017-07-13 14:55:16 UTC'),
+          updated_at: new Date('2017-07-14 11:57:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 215,
