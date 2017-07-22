@@ -407,8 +407,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 28,
           periodicals_id: null,
+          rating: 75,
+          review_title: 'Crime On the Homefront',
+          review_body: 'Lucia is a devoted mother and wife tending to her extended family while her husband serves over seas in the Pacific theater. A life of victory gardens, letters from the front, rationing and steering her daughter from consorting with the wrong kind of suitors. So when she also needs to get rid of a dead body or two and fend off a blackmailer it\'s all just part of her domestic chores. A somewhat addled and naive protagonist, she is also a sympathetic and reliable narrator. The tension stemming from the lengths she will go to to protect herself and her family\'s good name reads right along. For all the actions she must take to hide the truth, somehow justice gets served.',
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-07-21T08:59:20.000Z')
         }),
         knex('user_book_reviews').insert({
           id: 35,

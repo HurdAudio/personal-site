@@ -9,7 +9,7 @@ exports.seed = function(knex, Promise) {
           id: 1,
           user_id: 1,
           interrupt_enabled: true,
-          current_position: 'crime_series_5',
+          current_position: 'backlog_ebook_2',
           interrupt: null,
           female_author_selection_1: 79,
           crime_series_1: 188,
@@ -43,7 +43,7 @@ exports.seed = function(knex, Promise) {
           prize_2: 124,
           graphic_novel_1: 204,
           female_author_selection_2: 205,
-          crime_series_5: 34, //206,
+          crime_series_5: 206,
           backlog_ebook_2: 35, //207,
           science_fiction_series_5: 36, //208,
           literary_journal_4: 37, //null,
@@ -149,9 +149,9 @@ exports.seed = function(knex, Promise) {
           contemporary_pulp_4: 116,
           vintage_pulp_4: 118,
           prize_10: 122,
-          completed_readings: { "0": 1, "1": 2, "2": 3, "3": 4, "4": 5, "5": 6, "6": 7, "7": 8, "8": 9, "9": 10, "10": 11, "11": 12, "12": 13, "13": 14, "14": 15, "15": 16, "16": 17, "17": 18, "18": 19, "19": 20, "20": 21, "21": 22, "22": 23, "23": 24, "24": 25, "25": 26, "26": 27, "27": 28, "28": 29, "29": 30, "30": 31, "31": 32, "32": 33, "33": 214 },
+          completed_readings: { "0": 1, "1": 2, "2": 3, "3": 4, "4": 5, "5": 6, "6": 7, "7": 8, "8": 9, "9": 10, "10": 11, "11": 12, "12": 13, "13": 14, "14": 15, "15": 16, "16": 17, "17": 18, "18": 19, "19": 20, "20": 21, "21": 22, "22": 23, "23": 24, "24": 25, "25": 26, "26": 27, "27": 28, "28": 29, "29": 30, "30": 31, "31": 32, "32": 33, "33": 214, "34": 34 },
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-05-08T07:09:57.000Z')
+          updated_at: new Date('2017-07-22T07:09:57.000Z')
         })
       ]);
     })
