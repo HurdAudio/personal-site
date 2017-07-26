@@ -419,6 +419,9 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 29,
           periodicals_id: null,
+          rating: 84,
+          review_title: 'Man: 0, Nature: 1',
+          review_body: 'Diane Cook mines a creepy, often Grimm edge in these stories. Normal suburban settings where housewives accept that their first one, two, or more children will be taken away by a persistent stranger. Widows sent to spousal re-assignment clinics. Ten year old children sent to the incinerator if they are deemed "not needed." Children who play games where the loser gets eaten.\n\nWhile Cook has a flair for the mystical and fabulous, it\'s the more realistic stories of failed survivalists trapped on a raft in the Great Lakes or a sexual obsession with the local meteorologist that shine brightest in this collection. The overall mix of stories keeps the reader on edge, never knowing when something completely unexpected will come barreling down the pages.\n\nA polished and deliciously unsettling read.',
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
