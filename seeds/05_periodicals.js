@@ -256,6 +256,20 @@ exports.seed = function(knex, Promise) {
           description: "Meet Jem, an eleven-year-old girl who is leaning forward toward adulthood with all her might. She has, as the author describes it in our Q&A, “an elastic, skipping-ahead brain” that doesn’t necessarily want to focus on the little brother she’s often charged with watching, that would much rather be investigating the bloody incident that has taken place down the street—an incident that’s left one person dead and put another person in jail. (Her brain would also like to be watching Thundercats, but that’s not an option at present.)\n\nSarah Hall, the author of “Goodnight Nobody,” is one of the most careful writers I know. Her word choices, narrative pacing, and sentence rhythm are the result, I suspect, of a great deal of hard, obsessive work. And yet none of that calls attention to itself. The nuts, bolts, and machinery are all hidden away, and her work is a pleasurable breeze to read. One of the great achievements of this particular story is the fact that its voice is so intimately attached to Jem, it feels as if it’s written in the first-person. I find \“Goodnight Nobody\” to be an addictive read, and I hope you do too.\n\nIf, by chance, you haven’t encountered Sarah Hall’s work before (she now has two story collections and five novels under her belt), I’m all the happier to be introducing you to her. Her new story collection is called Madame Zero. She’s a treasure, and we’re honored to have her in the One Story family.",
           created_at: new Date('2017-04-21 14:55:16 UTC'),
           updated_at: new Date('2017-04-21 14:55:18 UTC')
+        }),
+        knex('periodicals').insert({
+          id: 19,
+          name: 'One Story',
+          issue: 'Issue #230: Bayou by Bryan Washington',
+          editor: 'Patrick Ryan',
+          editor_url: 'https://www.one-story.com/blog/wp-content/uploads/2013/06/PRyan.jpg',
+          edition: 'Kindle Edition',
+          publication_date: '2017-07-25 0:00:01 UTC',
+          pages: 39,
+          img_url: 'https://www.one-story.com/images/cover_os_230.png',
+          description: "When I was ten years old, I saw a movie called The Mysterious Monsters. It was about Bigfoot, the Loch Ness Monster, and the Abominable Snowman, and it was filled with cheesy “reenactments” of personal testimonies about encounters with these mythical creatures. Because it was presented as a documentary, and because I was ten, I watched the reenactment footage in absolute horror, completely forgetting these were actors (including the guy in the Bigfoot costume). For the next year, I had a hard time falling asleep, convinced that Bigfoot was going to crash a hairy arm through my bedroom window. I also spotted Bigfoot any time I got near nature—at least a dozen sightings by the time I turned eleven.\n\nThe two friends in Bryan Washington’s short story “Bayou” aren’t boys; they’re young men. When they discover a strange creature near a bayou on the outskirts of Houston, it isn’t fear they feel so much as a burnt-out sense of wonder, and maybe a chance to make some money. I was immediately drawn to “Bayou” because it begins with a chupacabra, and while many people claim to have encountered chupacabras (and even filmed them), biologists refuse to confirm their existence. So I was hooked from the get-go. But what follows is more than a monster story. It’s a story about friendship, misunderstanding, and longing. Or, as the author puts it in our Q&A, it’s a story about intimacy. I hope you enjoy it as much as I did, and if it inspires your own sighting of a mysterious monster—so long as it’s not a Bigfoot—I look forward to the reenactment.",
+          created_at: new Date('2017-04-21 14:55:16 UTC'),
+          updated_at: new Date('2017-04-21 14:55:18 UTC')
         })
       ]);
     })

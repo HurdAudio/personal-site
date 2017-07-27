@@ -423,7 +423,7 @@ exports.seed = function(knex, Promise) {
           review_title: 'Man: 0, Nature: 1',
           review_body: 'Diane Cook mines a creepy, often Grimm edge in these stories. Normal suburban settings where housewives accept that their first one, two, or more children will be taken away by a persistent stranger. Widows sent to spousal re-assignment clinics. Ten year old children sent to the incinerator if they are deemed "not needed." Children who play games where the loser gets eaten.\n\nWhile Cook has a flair for the mystical and fabulous, it\'s the more realistic stories of failed survivalists trapped on a raft in the Great Lakes or a sexual obsession with the local meteorologist that shine brightest in this collection. The overall mix of stories keeps the reader on edge, never knowing when something completely unexpected will come barreling down the pages.\n\nA polished and deliciously unsettling read.',
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-07-25 16:55:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 36,
@@ -431,8 +431,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 30,
           periodicals_id: null,
+          rating: 88,
+          review_title: 'Meet Wraith',
+          review_body: 'Season two opens up with a new character: Wraith. A rogue debt collector and daughter of a famous and recently murdered anti-debt collector crusader. She specializes in vigilante collections upon the rich who prey upon the life force of the poor. But she is also an addict and struggling to hold together the responsibility of the research empire her father left behind to her. She is a wreck. A conflicted character stepping into a large world she knows little about. That\'s a promising opening episode.',
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-07-27 08:19:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 37,
@@ -2057,6 +2060,15 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'periodical',
           books_id: null,
           periodicals_id: 18,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 216,
+          user_id: 1,
+          periodical_or_book: 'periodical',
+          books_id: null,
+          periodicals_id: 19,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
