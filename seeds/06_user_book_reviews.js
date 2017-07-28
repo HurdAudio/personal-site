@@ -443,8 +443,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'periodical',
           books_id: null,
           periodicals_id: 7,
+          rating: 99,
+          review_title: 'Awesome Suspense',
+          review_body: 'What an amazing mix of suspense and literary voice. "Optimistic People" is a story that works from a premise of "what would happen if we found someone buried alive?" and crosses it with "what would be a terrible first date for high schoolers?" and then blends these flavors with nuanced, sympathetic characters. The use of backstory is just enough to pull the reader into these young lives. At the same time, the restrained use of backstory is just enough to render a fresh, new kind of villain. This was a wonderful read.',
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-07-27 22:01:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 38,
