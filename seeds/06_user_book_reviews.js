@@ -1700,8 +1700,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 164,
           periodicals_id: null,
-          created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          rating: 39,
+          review_title: 'Standard Operating Hacks',
+          review_body: "I'm not sure when doing standard operations became \"hacking.\" But I guess \"SQL Standard Operations\" wasn't as catchy a title.\n\nThe primary value of this book was seeing how to do the same operations in SQL, MySQL, Access, Oracle and PostgreSQL. That drove home some database concepts for me. There were some sections on security that touched gingerly on how SQL databases can be broken into and otherwise abused and I think that material could have been more aggressive.  But for the most part this was pretty dry stuff. Lots of invoice management and other business applications that are probably better explained in the standard documentation.\n\nI had hoped that this volume would have offered more \"hacks\" as I understand them.",
+          created_at: new Date('2017-08-06 14:55:16 UTC'),
+          updated_at: new Date('2017-08-06 21:47:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 176,
