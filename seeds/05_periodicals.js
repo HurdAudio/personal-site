@@ -270,6 +270,34 @@ exports.seed = function(knex, Promise) {
           description: "When I was ten years old, I saw a movie called The Mysterious Monsters. It was about Bigfoot, the Loch Ness Monster, and the Abominable Snowman, and it was filled with cheesy “reenactments” of personal testimonies about encounters with these mythical creatures. Because it was presented as a documentary, and because I was ten, I watched the reenactment footage in absolute horror, completely forgetting these were actors (including the guy in the Bigfoot costume). For the next year, I had a hard time falling asleep, convinced that Bigfoot was going to crash a hairy arm through my bedroom window. I also spotted Bigfoot any time I got near nature—at least a dozen sightings by the time I turned eleven.\n\nThe two friends in Bryan Washington’s short story “Bayou” aren’t boys; they’re young men. When they discover a strange creature near a bayou on the outskirts of Houston, it isn’t fear they feel so much as a burnt-out sense of wonder, and maybe a chance to make some money. I was immediately drawn to “Bayou” because it begins with a chupacabra, and while many people claim to have encountered chupacabras (and even filmed them), biologists refuse to confirm their existence. So I was hooked from the get-go. But what follows is more than a monster story. It’s a story about friendship, misunderstanding, and longing. Or, as the author puts it in our Q&A, it’s a story about intimacy. I hope you enjoy it as much as I did, and if it inspires your own sighting of a mysterious monster—so long as it’s not a Bigfoot—I look forward to the reenactment.",
           created_at: new Date('2017-04-21 14:55:16 UTC'),
           updated_at: new Date('2017-04-21 14:55:18 UTC')
+        }),
+        knex('periodicals').insert({
+          id: 20,
+          name: 'Asimov\'s Science Fiction',
+          issue: 'September/October 2017 (Asimov\'s Science Fiction #500-501)',
+          editor: 'Sheila Williams',
+          editor_url: 'https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png',
+          edition: 'Kindle Edition',
+          publication_date: '2017-08-22 0:00:01 UTC',
+          pages: 212,
+          img_url: 'https://images.gr-assets.com/books/1504371081l/36067380.jpg',
+          description: "Powerful novelettes bookend Asimov’s September/October 2017 issue. Sarah Pinsker’s lyrical tale set aboard a generation ship shows us that humanity may have the strength to adapt and evolve as long as “Wind Will Rove.” All that lies between civilization and brutal marauders is an outcast and a library in Suzanne Palmer’s thrilling “Books of the Risen Sea.”\n\nFall is here, which means the September/October issue has its share of slightly spooky tales: Kit Reed investigates the “Disturbance in the Produce Aisle”; Carrie Vaughn introduces us to “Dead Men in Central City”; Sandra McDonald demonstrates the peril of “Riding the Blue Line With Jack Kerouac”; and William Preston unlocks “The Cabinet.” We learn that it may not be wise to open Michael Swanwick’s “Universe Box”; discover why “Squamous and Eldritch Get a Yard Sale Bargain” in Tim McDaniel’s short story; and climb “The Fourth Hill’ with new author Dennis E. Staples; On the nonspooky side, “Arriving at Terminal: Xi’s Story” and “The Ganymede Gambit: Jan’s Story” reveal the secrets of two more pilgrims in James Gunn’s intriguing series; Harry Turtledove brings us the deeply disturbing tale of the “Zigeuner”; Allen M. Steele returns with a cryptic account of “An Incident in the Literary Life of Nathan Arkwright”; and far flung action continues in R. Garcia y Robertson’s “Grand Theft Spaceship.”\n\nRobert Silverberg’s Reflections column examines the end of empires and the plight of “The Last Hittite”; James Patrick Kelly’s On the Net spends time “Remembering Bertie”; Norman Spinrad’s On Books considers locations “Outside America” as he traverses works by Bruce Sterling, Nnedi Okarafor, Lavie Tidhar, and Indra Das; plus we’ll have an array of poetry and other features you’re sure to enjoy.",
+          created_at: new Date('2017-04-21 14:55:16 UTC'),
+          updated_at: new Date('2017-04-21 14:55:18 UTC')
+        }),
+        knex('periodicals').insert({
+          id: 21,
+          name: 'One Story',
+          issue: 'Issue #231: Please Give Me One Good Reason Not to Hate You by Shawn Vestal',
+          editor: 'Patrick Ryan',
+          editor_url: 'https://www.one-story.com/blog/wp-content/uploads/2013/06/PRyan.jpg',
+          edition: 'Kindle Edition',
+          publication_date: '2017-07-25 0:00:01 UTC',
+          pages: 39,
+          img_url: 'https://www.one-story.com/images/cover_os_231.png',
+          description: "“I arrived in Bozeman after the place that came after Animas, was thinking I would stay forever—thinking I would finally stop what I’ve been doing and be someone, thinking this place was really me.” So says Benny, the semi-likable sleazeball who narrates Shawn Vestal’s brilliant new story “Please Give Me One Good Reason Not to Hate You.”\n\nThe thing is, Benny isn’t really his name. “Benny” is just the latest in a string of identities he has fashioned as a small-time scam artist crisscrossing the American West. Also, it’s not just the scams that keep Benny on the move. It’s people—his overpowering need to be among them and apart from them. You might say Benny is alternately addicted to and allergic to his fellow man. It’s an internal tug-of-war that so far has guaranteed him a life of perpetual unfulfillment.\n\nBut Bozeman—beautiful Bozeman, Montana—is going to be different. Bozeman is the place, Benny comes to believe, where he’ll finally settle down, fit in, and take a chance on normal human happiness. To that end, despite being out of shape and hopelessly un-outdoorsy, Benny accepts an invitation to go on a four-day, forty-four-mile mountain hike with a quartet of hip thirty-somethings—including his sort-of ex-girlfriend and her new boyfriend.\n\nIf that sounds like a bad idea, you’re right, especially given Benny’s gift for self-sabotage. It doesn’t help that he’s a liar, a criminal, and a misanthrope. But whether you end up rooting for Benny or against him, we think you’ll agree that his story is one of the funniest, most compelling, and most daringly original works to grace our pages.",
+          created_at: new Date('2017-04-21 14:55:16 UTC'),
+          updated_at: new Date('2017-04-21 14:55:18 UTC')
         })
       ]);
     })

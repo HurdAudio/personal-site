@@ -455,8 +455,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 31,
           periodicals_id: null,
+          rating: 99,
+          review_title: 'Bravo for the Falcon',
+          review_body: 'Rarely can a novel be called "operatic" in such a literal sense. The scope of this story is breathtaking in its tragedy and intertwined stories of passion, redemption and narrative excess. While this would be an exceptional read on its merits alone, it manages to soar even higher as it draws toward its conclusion. Beautifully rendered and breathlessly executed. This is a drama that manages to weave many competing themes into a comprehensive whole.',
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-09-02 14:38:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 39,
@@ -2075,6 +2078,24 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'periodical',
           books_id: null,
           periodicals_id: 19,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 217,
+          user_id: 1,
+          periodical_or_book: 'periodical',
+          books_id: null,
+          periodicals_id: 20,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 218,
+          user_id: 1,
+          periodical_or_book: 'periodical',
+          books_id: null,
+          periodicals_id: 21,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
