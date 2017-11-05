@@ -466,9 +466,12 @@ exports.seed = function(knex, Promise) {
           user_id: 1,
           periodical_or_book: 'book',
           books_id: 32,
+          rating: 94,
+          review_title: "Brilliant Misdirection",
+          review_body: "Tana French makes writing dark police procedurals with plot twists look easy. And yet it's only after the final page that the full structure and blistering character arcs become clear. In the case of THE TRESPASSER we're led to believe - along with our protagonist - that this is a murder case with overtones of corruption and/or organized crime involvement. But the reality is that several pieces are carefully being set up for two fantastic interview sequences at the tail end of this novel. Each of the five stars were earned on the strength and unexpected satisfaction of those two scenes. Few writers would have crossed that finish line with the dark tone still intact. This one was a great thrill ride.",
           periodicals_id: null,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-11-05 14:49:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 40,
@@ -2096,6 +2099,42 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'periodical',
           books_id: null,
           periodicals_id: 21,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 219,
+          user_id: 1,
+          periodical_or_book: 'periodical',
+          books_id: null,
+          periodicals_id: 22,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 220,
+          user_id: 1,
+          periodical_or_book: 'periodical',
+          books_id: null,
+          periodicals_id: 23,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 221,
+          user_id: 1,
+          periodical_or_book: 'periodical',
+          books_id: null,
+          periodicals_id: 24,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 222,
+          user_id: 1,
+          periodical_or_book: 'periodical',
+          books_id: 201,
+          periodicals_id: null,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         })

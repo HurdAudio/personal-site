@@ -84,6 +84,16 @@ exports.seed = function(knex, Promise) {
           is_completed: false,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('roulettes').insert({
+          id: 9,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 201,
+          periodicals_id: null,
+          is_completed: false,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
       ]);
     })
