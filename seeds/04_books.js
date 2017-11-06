@@ -3823,6 +3823,44 @@ exports.seed = function(knex, Promise) {
           description: "Every novella by Ursula K. Le Guin, an icon in American literature, collected for the first time—and introduced by the legendary author—in one breathtaking volume.\n\nUrsula K. Le Guin has won multiple prizes and accolades from the Medal for Distinguished Contribution to American Letters to the Newbery Honor, the Nebula, Hugo, World Fantasy, and PEN/Malamud Awards. She has had her work collected over the years, but never as a complete retrospective of her longer works as represented in the wonderful The Found and the Lost.\n\nThis collection is a literary treasure chest that belongs in every home library.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('books').insert({
+          id: 202,
+          author: 'Aleister Crowley',
+          title: "Magick in Theory and Practice",
+          cover_url: 'https://images.gr-assets.com/books/1327294061l/849939.jpg',
+          author_url: 'https://images.gr-assets.com/authors/1364429883p8/3948.jpg',
+          publisher: 'Dover',
+          publication_date: '1929-10-18 0:00:01 UTC',
+          edition: 'Kindle',
+          part_of_series: false,
+          name_of_series: null,
+          number_in_series: null,
+          number_of_pages: 464,
+          author_gender: 'male',
+          author_nationality: 'UK',
+          description: "Many consider this work by Crowley to be the foremost book on ceremonial magic written in the twentieth century. It was written especially for beginners as Part 3 of Book 4 (Liber ABA). The original was privately printed in 1929 after Crowley failed to find a publisher in London.",
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('books').insert({
+          id: 203,
+          author: 'Brian Allen Carr',
+          title: "The Last Horror Novel in the History of the World",
+          cover_url: 'https://images.gr-assets.com/books/1403910579l/21800749.jpg',
+          author_url: 'https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png',
+          publisher: 'Lazy Fascist Press',
+          publication_date: '2014-05-13 0:00:01 UTC',
+          edition: 'Kindle',
+          part_of_series: false,
+          name_of_series: null,
+          number_in_series: null,
+          number_of_pages: 125,
+          author_gender: 'male',
+          author_nationality: 'USA',
+          description: "The black magic of bad living only looks hideous to honest eyes.\n\nWelcome to Scrape, Texas, a nowhere town near the Mexican border. Few people ever visit Scrape, and the unlucky ones who live there never seem to escape. They fill their days with fish fries, cheap beer, tobacco, firearms, and sex. But Scrape is about to be invaded by a plague of monsters unlike anything ever seen in the history of the world. First there's La Llorona -- the screaming woman in white -- and her horde of ghost children. Then come the black, hairy hands. Thousands, millions, scurrying on fingers like spiders or crabs. But the hands are nothing to El Abuelo, a wicked creature with a magical bullwhip, and even El Abuelo don't mean shit when the devil comes to town.",
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
       ]);
     })
