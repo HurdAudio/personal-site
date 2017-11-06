@@ -1718,6 +1718,9 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 165,
           periodicals_id: null,
+          rating: 87,
+          review_title: 'Objectify My Code',
+          review_body: "A clear - if not overly descriptive - account of object-oriented principles as they would be realized in javascript. It doesn't dwell on the advantages of encapsulating data, but rather the nuts and bolts of how one goes about doing it. The advantages become clearer with each chapter. It also clarified a number of design patterns that one encounters in web development. \n\nThe next step will be to apply these principles to my next project...",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -2132,7 +2135,7 @@ exports.seed = function(knex, Promise) {
         knex('user_book_reviews').insert({
           id: 222,
           user_id: 1,
-          periodical_or_book: 'periodical',
+          periodical_or_book: 'book',
           books_id: 201,
           periodicals_id: null,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
