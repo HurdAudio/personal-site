@@ -491,8 +491,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 34,
           periodicals_id: null,
+          rating: 80,
+          review_title: 'Spectre in the Boardroom',
+          review_body: "The boardroom scene in this serial is enormously satisfying. A confrontation that establishes our new protagonist as anything other than a push-over. Our overall story arc escalates nicely from there. This grim world continues to grind out some confrontations even as we catch a wisp of super-hero trappings in the wings.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-11-26 12:24:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 42,
@@ -2159,6 +2162,15 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 203,
           periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 225,
+          user_id: 1,
+          periodical_or_book: 'periodical',
+          books_id: null,
+          periodicals_id: 25,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
