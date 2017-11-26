@@ -478,9 +478,12 @@ exports.seed = function(knex, Promise) {
           user_id: 1,
           periodical_or_book: 'book',
           books_id: 33,
+          rating: 86,
+          review_title: "Steampunk Mormons",
+          review_body: "I give D.J. Butler full credit for fearlessly providing much of his own onomatopoeia sound effects. The steam powered contraptions and devices usher in a colorful world of sounds consistently rendered throughout this novel.\n\nThe description of the plot for CITY OF THE SAINTS sounds completely bonkers. You've got Mark Twain as an agent of the United States (under his birth name, Sam Clemens). Edgar Allen Poe is an agent for the soon-to-be seceding Southern States. The prophet and leader of the Kingdom of Deseret Brigham Young and the amazing flying machines of Orson Pratt. And a full cast of historical figures in a truly off-the-wall alternate history where steam powered trucks cross the plains like cruise ships. Or at least cruise ships with the added excitement of Shoshone attacks. Each character takes on their own story arc as competing interests try to enlist the Mormons and their advanced technology in the coming war.\n\nThe reality is that this plot is only crazy on the surface. Underneath we have an ensemble cast of characters that the reader can readily identify with. And there are plenty of complicated action sequences rendered with real skill. A brilliantly entertaining read with a high density of cultural and historical references deliberately mangled.",
           periodicals_id: null,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-11-25 21:25:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 41,
