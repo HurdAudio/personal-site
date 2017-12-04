@@ -503,7 +503,10 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'periodical',
           books_id: null,
           periodicals_id: 8,
-          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          rating: 61,
+          review_title: 'Artificial Intelligence is Confounding',
+          review_body: "While I would stop short of saying I was disappointed with this issue, I did find the quality of stories in this particular collection to be uneven. The stories that did grab my imagination are not likely to let go anytime soon while the ones that didn't will roll off like water along a pane of glass. \n\nWill McIntosh's \"Soulmates.com\" was the surprise of this set with a story that thrived upon a premise felt thin at first glance. At the other end of the spectrum was the brilliantly written \"Kitty Hawk\" by Alan Smale. A story that I struggled with despite the exceptional skill and good intentions of its author. Two experiences that lead me to rethink how short stories work.",
+          created_at: new Date('2017-12-03 22:00:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
         knex('user_book_reviews').insert({
