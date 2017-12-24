@@ -1115,8 +1115,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'periodical',
           books_id: null,
           periodicals_id: 10,
+          rating: 63,
+          review_title: 'Not Exactly a Knockout',
+          review_body: "This story was a struggle. Both in the oral history format - it reads like a documentary film composed of rapid transitions between speakers - and the subject material. Boxing is a tough sport to connect with for this reader. The story wasn't bad. The cast of characters and the sense of place was solid. But the whole thing had a veneer of unbelievability that was difficult to pierce.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-12-24 15:55:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 110,
