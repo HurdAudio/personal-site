@@ -507,7 +507,7 @@ exports.seed = function(knex, Promise) {
           review_title: 'Artificial Intelligence is Confounding',
           review_body: "While I would stop short of saying I was disappointed with this issue, I did find the quality of stories in this particular collection to be uneven. The stories that did grab my imagination are not likely to let go anytime soon while the ones that didn't will roll off like water along a pane of glass. \n\nWill McIntosh's \"Soulmates.com\" was the surprise of this set with a story that thrived upon a premise felt thin at first glance. At the other end of the spectrum was the brilliantly written \"Kitty Hawk\" by Alan Smale. A story that I struggled with despite the exceptional skill and good intentions of its author. Two experiences that lead me to rethink how short stories work.",
           created_at: new Date('2017-12-03 22:00:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-12-03 14:55:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 43,
@@ -515,8 +515,11 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 35,
           periodicals_id: null,
+          rating: 98,
+          review_title: 'The Ballad of Gallant Ash',
+          review_body: "This novel works on many different levels with barely a hot breath rippling across its quiet, thoughtful pages. The horrors of war and the human stories that unravel from the battlefield are given the steady narrative voice of Gallant Ash - a female soldier fighting for the Union disguised as a man. As a soldier she is tough as nails and every bit as vulnerable as anyone else under fire. Her harrowing journey into and out of the South takes several unexpected turns that reveal more layers of a nation turned in on itself. This is measured prose that delivers scenes of devastating violence in a whisper.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-012-23 19:55:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 44,
@@ -2255,6 +2258,24 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 212,
           periodicals_id: null,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 235,
+          user_id: 1,
+          periodical_or_book: 'periodical',
+          books_id: null,
+          periodicals_id: 26,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 236,
+          user_id: 1,
+          periodical_or_book: 'periodical',
+          books_id: null,
+          periodicals_id: 27,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         })

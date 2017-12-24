@@ -352,6 +352,33 @@ exports.seed = function(knex, Promise) {
           description: "This month’s story, “The Crazies,” was found and edited by contributing editor Will Allison, so I’m happily turning the steering wheel over to him to guide us in. — PR\n\nAs many a cowboy ballad can tell you, the halo glow of new love never lasts. Sometimes it simmers down with age; sometimes it flames into something else; and sometimes it just flickers out. It’s one of those lessons we all learn sooner or later.\n\nEven so, when I read “The Crazies” by Maud Streep, I couldn’t help but be charmed by the halo glow of its early pages. The narrator, a recent Yale grad, heads to Montana, takes a job at a Wild West tourist attraction, and falls in love with a cowboy named Jake. Their marriage is a happy whirlwind of cheap beer, sex, optimism, and simple, carefree living.\n\nBut halfway through the story, the couple’s happiness turns to anguish. At the risk of giving away too much: something terrible happens on an elk hunting trip in The Crazy Mountains, and the narrator and Jake may or may not be responsible. How each of them deals with this possibility will determine whether their love endures, or whether it flickers out.\n\n“The Crazies” is wise about life and relationships in ways one would expect from a veteran storyteller. As it happens, though, this is Maud Streep’s first published story. We are very pleased to present One Story’s second debut of 2017, and we hope you are as crazy about “The Crazies” as we are.\n\nVisit the One Story website to read our Q&A with the author.",
           created_at: new Date('2017-04-21 14:55:16 UTC'),
           updated_at: new Date('2017-04-21 14:55:18 UTC')
+        }),
+        knex('periodicals').insert({
+          id: 26,
+          name: 'Asimov\'s Science Fiction',
+          issue: 'January 2013 (Asimov\'s Science Fiction, #444)',
+          editor: 'Sheila Williams',
+          editor_url: 'https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png',
+          edition: 'Kindle Edition',
+          publication_date: '2018-01-01 0:00:01 UTC',
+          pages: 220,
+          img_url: 'http://www.asimovs.com/assets/1/15/ASF_JanFeb2018_400x570.jpg',
+          description: "January/February 2018\nOur forty-first year sweeps in with the January/February 2018 issue! Two action-packed novellas feature in this exciting installment. Rudy Rucker and Paul Di Filippo take us back to the 1930s and the days of exploration for a thrilling adventure “In the Lost City of Leng.” Hugo Award-winner Kristine Kathryn Rusch rockets us forward in time for her breathtaking account of “The Rescue of the Renegat.” These tales will keep you on the edge of your seat throughout as you wonder who will survive till the curtain falls.\n\nMultiple Hugo Award-winner Allen M. Steele escorts us once again to the planet Coyote for a dangerous journey to “The Barren Isle”; while we know the world may end in fire or ice, Hugo Award-winner Cixin Liu’s first tale for Asimov’s reveals just how perilous the pursuit of art can be in “The Sea of Dreams”; Mathew Hughes returns after too long an absence to expose us to some “Solicited Discordance”; the distinguished James Gunn continues his tales about pilgrims in “The Seeds of Consciousness: 4107’s Story” and “The Final Commandment: Trey’s Story”; new author S. Qiouyi Lu examines the stark choices facing a single parent and the sacrifices that may be made in “Mother Tongues”; Robert R. Chase brings us another thriller with “Assassins in the Clouds”; and Ian Creasey looks at the effect “The Equalizer” will have on tomorrow’s society.\n\nRobert Silverberg’s Reflections on walls continues in “Gog and Magog II”; James Patrick Kelly’s On the Net advises that we  “Don’t Read the Comments”; James Gunn brings us a Thought Experiment on “Space Opera and the Quest for Transcendence”;  Paul Di Filippo’s On Books reviews works by Daryl Gregory, Jacqueline Carey, Cat Sparks, Neil Clarke, and others; plus we’ll have an array of poetry and other features you’re sure to enjoy. ",
+          created_at: new Date('2017-04-21 14:55:16 UTC'),
+          updated_at: new Date('2017-04-21 14:55:18 UTC')
+        }),
+        knex('periodicals').insert({
+          id: 27,
+          name: 'One Story',
+          issue: 'Issue #235: Pups by Kate Folk',
+          editor_url: 'https://www.one-story.com/blog/wp-content/uploads/2013/06/PRyan.jpg',
+          edition: 'Kindle Edition',
+          publication_date: '2017-12-14 0:00:01 UTC',
+          pages: 39,
+          img_url: 'https://www.one-story.com/blog/wp-content/uploads/2017/12/235-pups-cover-for-blog-copy-214x300.jpg.jpg',
+          description: "This month’s story — featuring both otters and squids, along with some human beings — was found and edited by our wonderful contributing editor Karen Friedman, so I’m turning over the intro duties to her. Take it away, Karen! — PR\n\nOf the thousands of decisions we make every day a few are good, but most are meaningless. And then there are the bad ones—the decisions that haunt us, shaping our lives in ways we can’t foresee. At our best, we face the consequences of a bad choice head-on and try to minimize its impact. At our worst, we ignore what we have done.\n\nOne Story’s latest issue, “Pups” by Kate Folk, introduces us to Roe, a woman seemingly determined to allow life to happen to her without the responsibility and culpability that comes from making decisions. While Folk provides the reader with a sense of Roe’s potential, she also casts an unblinking eye at the effects of Roe’s passivity and the way it enables her to feign intimacy, even at the cost of her own happiness. Early in the story we learn Roe is pregnant, the result of a misguided and drunken one-night stand. Roe’s unplanned pregnancy raises questions that range from the practical to the political to the downright moral.\n\nOver the past two years I’ve had the pleasure of reading a number of Kate’s stories, and I am thrilled to introduce her to our readers with “Pups.” Kate has an immense talent for creating flawed but sympathetic characters. Her women, in particular, defy easy labels and expand our understanding of what it means to be truly human. I hope you love this story of motherhood, agency, and otters as much as I do.",
+          created_at: new Date('2017-04-21 14:55:16 UTC'),
+          updated_at: new Date('2017-04-21 14:55:18 UTC')
         })
       ]);
     })
