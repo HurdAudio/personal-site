@@ -526,9 +526,12 @@ exports.seed = function(knex, Promise) {
           user_id: 1,
           periodical_or_book: 'book',
           books_id: 36,
+          rating: 35,
+          review_title: 'Filtered, Condensed and Rendered "Exotic"',
+          review_body: "This collection of Chinese Fairy Tales - compiled by Richard Wilhelm in 1914 and later translated from German by Frederick H. Martens - is diluted and refracted through a number of cultural prisms (and years). There is an academic rigor to each of these story with brief notes about the origin following each. But they read like a series of summaries of much better stories. Precious little story-telling verve or style survives these translations as the accounts wash over one another in a forgettable mash-up of detail-free stories with morals. The wealth of materials in this book deserves a better telling.",
           periodicals_id: null,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2018-05-12 14:55:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 45,
@@ -1744,9 +1747,12 @@ exports.seed = function(knex, Promise) {
           user_id: 1,
           periodical_or_book: 'book',
           books_id: 166,
+          rating: 89,
+          review_title: '',
+          review_body: "To be honest, the subversive programmer in me was keenly interested in the \"bad parts\" expanded upon in the appendices. For the most part, the \"good parts\" reaffirmed my own better habits - minimize use of global variables, understand scoping, maintain clarity and awareness of variable type coercion and so forth. Most of the bad practices are blatantly bad. The security risk of employing \"eval\" and how for-in loops can pass in methods from the prototype chain along with the rest of an object's set. As a technical read, it confirms my own conclusions about javascript as a language. But it's a well written confirmation and readable throughout.",
           periodicals_id: null,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2017-12-24 19:23:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 178,
@@ -2279,6 +2285,15 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'periodical',
           books_id: null,
           periodicals_id: 27,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 237,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 213,
+          periodicals_id: null,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
