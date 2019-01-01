@@ -89,7 +89,7 @@ exports.seed = function(knex, Promise) {
           books_id: 167,
           periodical_id: null,
           user_book_reviews_id: 178,
-          is_completed: false,
+          is_completed: true,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),

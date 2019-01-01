@@ -1759,15 +1759,21 @@ exports.seed = function(knex, Promise) {
           user_id: 1,
           periodical_or_book: 'book',
           books_id: 167,
+          rating: 79,
+          review_title: 'So Good... I Couldn\'t Clos(ur)e It',
+          review_body: "I've puzzled through enough JavaScript to develop an intuitive sense of scope and closure. But the temptation is to never give it much thought in the name of churning out code that works. The reality is that \"What is Closure?\" is an incredibly common interview question for almost any tech screen and it pays to develop a vocabulary for discussing it.\n\nThe additional study of how to leverage an understanding of closure in one's code is invaluable. And clearly about to lead into a long discussion of \"this\" in the next volume.",
           periodicals_id: null,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
-          updated_at: new Date('2017-03-22 14:55:18 UTC')
+          updated_at: new Date('2018-05-13 14:55:18 UTC')
         }),
         knex('user_book_reviews').insert({
           id: 179,
           user_id: 1,
           periodical_or_book: 'book',
           books_id: 168,
+          rating: 14,
+          review_title: 'Dated Look at Baseball Nerding',
+          review_body: 'A dated look at how to do basic data analysis and database queries. The tools outlined in this book are largely obsolete and the availability of free statistical datasets and APIs are much broader today than at the time this book was written. Also, much of the "advanced" sabermetric stats is a little basic. My main takeaway was being glad I don\'t interact with Microsoft Access on a daily basis or need it to do my own work.',
           periodicals_id: null,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
