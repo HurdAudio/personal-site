@@ -2300,6 +2300,18 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 213,
           periodicals_id: null,
+          rating: 79,
+          review_title: "How High is the Water, Mama?",
+          review_body: "A subtle crescendo of scientists and Capital Hill staffers caught up in the details of their personal lives just as the early effects of sudden climate change begin to take shape. While the clear nod to the large forces colliding between nature and power offers a meditation on the near futility of affecting meaningful change it occasionally flirts with an almost soapy account of the mundane aspects of people's lives. But this washes away quickly as things come to a head in the final pages. In the end, the gap between good intentions and what is possible is as startling as the rapidly rising waterline in the nation's capital.",
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 238,
+          user_id: 1,
+          periodical_or_book: 'periodical',
+          books_id: null,
+          periodicals_id: 28,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         })

@@ -356,7 +356,7 @@ exports.seed = function(knex, Promise) {
         knex('periodicals').insert({
           id: 26,
           name: 'Asimov\'s Science Fiction',
-          issue: 'January 2013 (Asimov\'s Science Fiction, #444)',
+          issue: 'January/February 2018',
           editor: 'Sheila Williams',
           editor_url: 'https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png',
           edition: 'Kindle Edition',
@@ -377,6 +377,20 @@ exports.seed = function(knex, Promise) {
           pages: 39,
           img_url: 'https://www.one-story.com/blog/wp-content/uploads/2017/12/235-pups-cover-for-blog-copy.jpg',
           description: "This month’s story — featuring both otters and squids, along with some human beings — was found and edited by our wonderful contributing editor Karen Friedman, so I’m turning over the intro duties to her. Take it away, Karen! — PR\n\nOf the thousands of decisions we make every day a few are good, but most are meaningless. And then there are the bad ones—the decisions that haunt us, shaping our lives in ways we can’t foresee. At our best, we face the consequences of a bad choice head-on and try to minimize its impact. At our worst, we ignore what we have done.\n\nOne Story’s latest issue, “Pups” by Kate Folk, introduces us to Roe, a woman seemingly determined to allow life to happen to her without the responsibility and culpability that comes from making decisions. While Folk provides the reader with a sense of Roe’s potential, she also casts an unblinking eye at the effects of Roe’s passivity and the way it enables her to feign intimacy, even at the cost of her own happiness. Early in the story we learn Roe is pregnant, the result of a misguided and drunken one-night stand. Roe’s unplanned pregnancy raises questions that range from the practical to the political to the downright moral.\n\nOver the past two years I’ve had the pleasure of reading a number of Kate’s stories, and I am thrilled to introduce her to our readers with “Pups.” Kate has an immense talent for creating flawed but sympathetic characters. Her women, in particular, defy easy labels and expand our understanding of what it means to be truly human. I hope you love this story of motherhood, agency, and otters as much as I do.",
+          created_at: new Date('2017-04-21 14:55:16 UTC'),
+          updated_at: new Date('2017-04-21 14:55:18 UTC')
+        }),
+        knex('periodicals').insert({
+          id: 28,
+          name: 'Asimov\'s Science Fiction',
+          issue: 'March/April 2018',
+          editor: 'Sheila Williams',
+          editor_url: 'https://s.gr-assets.com/assets/nophoto/user/u_200x266-e183445fd1a1b5cc7075bb1cf7043306.png',
+          edition: 'Kindle Edition',
+          publication_date: '2018-03-01 0:00:01 UTC',
+          pages: 209,
+          img_url: 'https://images.gr-assets.com/books/1533229594l/41029389.jpg',
+          description: "NOVELLAS\n\n“Dix” by Kristine Kathryn Rusch\n“Bury Me in the Rainbow” by Bill Johnson\n\nNOVELETTES\n\n“A Threnody for Hazan” by Ray Nayler\n“Seven Months Out and Two to Go” by Rachel Swirsky & Trace Yulie\n\nSHORT STORIES\n\n“Artisanal Trucking, LLC” by Mary Robinette Kowal\n“Queen of the River: the Harbor Hope” by James Van Pelt\n“Emojis” by Rudy Rucker\n“Love Songs for the Very Awful” by Robert Reed\n“The Billows of Sarto” by Sean Monaghan\n“The Waiting Room: the Pedia’s Story” by James Gunn\n“Attack on Terminal: the Pilgrims’ Story” by James Gunn\n“In Event of Moon Disaster” by Rich Larson\n“Because Reasons” by Alexandra Renwick\n\nPOETRY\n\n\"The Evolutionary Race\" by Peter Payack\n\"When Time-Travelers from the Future Finally Reach Us\" by Darrell Schweitzer\n\"Is it True? It’s Not True\" by Jane Yolen\n\"Palate of the Babel Fish\" by Todd Dillard\n\"Your Clone Defies Aging\" by Robert Frazier\n\nDEPARTMENTS\n\n\"Editorial: More Words About Some Words\" by Sheila Williams\n\"Reflections: Rereading Fletcher Pratt\" by Robert Silverberg\n\"On the Net: Is the Internet Broken?\" by James Patrick Kelly\n\"In Memoriam: Kit Reed\"\n\"Next Issue\"\n\"On Books\" by Peter Heck\n\"The SF Conventional Calendar\" by Erwin S. Strauss\n\nCover Art by Jeff Brown",
           created_at: new Date('2017-04-21 14:55:16 UTC'),
           updated_at: new Date('2017-04-21 14:55:18 UTC')
         })
