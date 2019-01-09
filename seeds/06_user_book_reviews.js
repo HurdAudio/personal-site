@@ -1682,6 +1682,9 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'periodical',
           books_id: null,
           periodicals_id: 14,
+          rating: 84,
+          review_title: "Close to the Bulls Eye",
+          review_body: "The reliable Asimov's Science Fiction delivers another reliable installment of compelling fiction. Kristine Kathryn Rusch's novella \"The Runabout\" is the most compelling in this collection - and the longest. The shorter stories offering compelling thought experiments and a so-so alternative history of Charles Manson as a disco king.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
