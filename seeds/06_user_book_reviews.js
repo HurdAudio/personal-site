@@ -538,6 +538,9 @@ exports.seed = function(knex, Promise) {
           user_id: 1,
           periodical_or_book: 'book',
           books_id: 37,
+          rating: 85,
+          review_title: "Watch Out, They'll Eat You Up",
+          review_body: "Imagine an old Western tale with bits of Sharknado and cannibalism mixed in to balance out its humor and incest and you have this wildly amusing thrill-ride that can't contain itself behind the fourth wall. Once our cast of characters is set in place the rains come and deliver a smart dose of motherfucking sharks eating up all the villagers. And by \"smart dose\" I mean you won't come away disappointed. Pack your harpoon and watch for the armless child when you crack this one open.",
           periodicals_id: null,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
