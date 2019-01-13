@@ -551,6 +551,9 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 38,
           periodicals_id: null,
+          rating: 97,
+          review_title: "Time After Time",
+          review_body: "How does one engage an adversary who is reborn to relive their years with their memory of the years already lived intact? In a heated battle that plays out over repeated lives throughout the 20th Century our protagonist and antagonist fight over the threads that hold this universe together. It is a conflict that is not resolved through death, but through altering the circumstances of birth. \n\nFull credit to Claire North (a.k.a. Catherine Webb) for deeply thinking through the consequences of re-living the same years over and over. And then fashioning this thrill-ride that spans the entire globe over a period of wars and upheavals. For writing in a consistent life origin story that stands up to viewings at multiple angles. For casting time travel that follows a credible logic and underpins an excellent read.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
