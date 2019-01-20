@@ -563,6 +563,9 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 39,
           periodicals_id: null,
+          rating: 93,
+          review_title: "Sex, Violence and Furniture Restoration",
+          review_body: "Kem Nunn has a peculiar knack for writing violence that leans heavily on restraint to draw out both the conflict and the resolution. In the case of Chance, he does this through a vivid cast of characters and an unlikely friendship between a middle-aged psychiatrist on a downward spiral and a furniture forger with a mysterious past. What beings as a passable, literary tale of a doctor having an affair with one of his patients then explodes into an excellent thriller with plenty of unexpected detours and plot twists.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -1793,6 +1796,9 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 169,
           periodicals_id: null,
+          rating: 78,
+          review_title: "Stylin'",
+          review_body: "A bit dated at this point, but still filled with valuable details about CSS that help fill out my understanding. The history of CSS features being adopted between CSS2.1 to CSS3 is an interesting story in and of itself though I recommend skipping all the very dated material about which features are or are not supported by various browsers. Just assume that IE and Safari are useless and move on with your life.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
