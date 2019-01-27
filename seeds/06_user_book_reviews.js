@@ -575,6 +575,9 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 40,
           periodicals_id: null,
+          rating: 77,
+          review_title: "Unseemly Events in Room 809",
+          review_body: "Gazing back from the fog of decades, this thriller speaks of a darkness spoken with bare outlines. Of unrealized sexual trysts filtered through the mores of dual single beds and a code of not depicting anything more racy than a stolen kiss. And yet this plunges into a darkness that revolves around the skillfully set characters and the fate of a nine year old girl in the next room. Once the overly chatty characters (both internally and externally) are established, this story races toward an ending of white knuckles and intrigue.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
