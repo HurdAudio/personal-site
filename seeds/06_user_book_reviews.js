@@ -587,6 +587,9 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 41,
           periodicals_id: null,
+          rating: 96,
+          review_title: "Burns Brighter",
+          review_body: "A coming of age novel wrapped in a family drama rendered in a vivid, hot summer in 2003 Brooklyn. Bright Lines weaves together the lives and generations of an Islamic, Bangladeshi family holding together secrets that unfold as each exquisite story arc comes crashing against waves of tragedy and triumph. These characters are so vivid. Their very scent and breath linger just past the pages. Their desires and longings are particularly poignant and handled with a matter-of-fact frankness that belies years of polished prose and honest writing.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
