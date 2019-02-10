@@ -599,6 +599,9 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'book',
           books_id: 42,
           periodicals_id: null,
+          rating: 60,
+          review_title: "Slinking Toward Evil",
+          review_body: "Coercion is the ongoing theme of this admittedly trashy, written for the small screen, episode. Sexual tension is included in every scene and kissing happens with all the complications they bring as our hero engages in stealing life energy from the poor and paying out to the rich and connected.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
