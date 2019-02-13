@@ -1148,6 +1148,9 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'periodical',
           books_id: null,
           periodicals_id: 11,
+          rating: 99,
+          review_title: "Burn, Baby, Burn",
+          review_body: "An excellent, multi-narrator account of a massive fire that takes out an entire mining town in North Dakota. Rendered in lyrical prose as it hops from one perspective to another. What elevated this story for me was the unexpected ending that summarized the humanity of those who lost their fight against overwhelming destruction.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         }),
@@ -2336,6 +2339,15 @@ exports.seed = function(knex, Promise) {
           periodical_or_book: 'periodical',
           books_id: null,
           periodicals_id: 28,
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('user_book_reviews').insert({
+          id: 239,
+          user_id: 1,
+          periodical_or_book: 'book',
+          books_id: 214,
+          periodicals_id: null,
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
         })

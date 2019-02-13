@@ -4051,6 +4051,25 @@ exports.seed = function(knex, Promise) {
           description: "The bestselling author of the classic Mars trilogy and The Years of Rice and Salt returns with a riveting new trilogy of cutting-edge science, international politics, and the real-life ramifications of global warming as they are played out in our nation’s capital—and in the daily lives of those at the center of the action. Hauntingly realistic, here is a novel of the near future that is inspired by scientific facts already making headlines.\n\nWhen the Arctic ice pack was first measured in the 1950s, it averaged thirty feet thick in midwinter. By the end of the century it was down to fifteen. One August the ice broke. The next year the breakup started in July. The third year it began in May. That was last year.\n\nIt’s an increasingly steamy summer in the nation’s capital as Senate environmental staffer Charlie Quibler cares for his young son and deals with the frustrating politics of global warming. Charlie must find a way to get a skeptical administration to act before it’s too late—and his progeny find themselves living in Swamp World. But the political climate poses almost as great a challenge as the environmental crisis when it comes to putting the public good ahead of private gain. \n\nWhile Charlie struggles to play politics, his wife, Anna, takes a more rational approach to the looming crisis in her work at the National Science Foundation. There a proposal has come in for a revolutionary process that could solve the problem of global warming—if it can be recognized in time. But when a race to control the budding technology begins, the stakes only get higher. As these everyday heroes fight to align the awesome forces of nature with the extraordinary march of modern science, they are unaware that fate is about to put an unusual twist on their work—one that will place them at the heart of an unavoidable storm. \n\nWith style, wit, and rare insight into our past, present, and possible future, this captivating novel propels us into a world on the verge of unprecedented change—in a time quite like our own. Here is Kim Stanley Robinson at his visionary best, offering a gripping cautionary tale of progress—and its price—as only he can tell it.",
           created_at: new Date('2017-03-14 14:55:16 UTC'),
           updated_at: new Date('2017-03-22 14:55:18 UTC')
+        }),
+        knex('books').insert({
+          id: 214,
+          author: 'Mira Grant',
+          title: "Feed",
+          cover_url: 'https://images.gr-assets.com/books/1326053955l/8146541.jpg',
+          author_url: 'https://images.gr-assets.com/authors/1380320279p5/3153776.jpg',
+          publisher: 'Orbit',
+          publication_date: '2010-04-10 0:00:01 UTC',
+          edition: 'Kindle',
+          part_of_series: true,
+          name_of_series: 'Newsflesh',
+          number_in_series: 1,
+          number_of_pages: 593,
+          author_gender: 'female',
+          author_nationality: 'USA',
+          description: "The year was 2014. We had cured cancer. We had beat the common cold. But in doing so we created something new, something terrible that no one could stop. The infection spread, virus blocks taking over bodies and minds with one, unstoppable command: FEED.\n\nNow, twenty years after the Rising, Georgia and Shaun Mason are on the trail of the biggest story of their lives-the dark conspiracy behind the infected. The truth will out, even if it kills them.\n\n\nFEED is the electrifying and critically acclaimed novel of a world a half-step from our own---a novel of geeks, zombies, politics and social media.",
+          created_at: new Date('2017-03-14 14:55:16 UTC'),
+          updated_at: new Date('2017-03-22 14:55:18 UTC')
         })
       ]);
     })
